@@ -45,23 +45,23 @@ export function QuestionPalette({
         </div>
 
         {/* Legend */}
-        <div className="grid grid-cols-3 gap-2 pt-2 text-[11px] text-muted-foreground">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 pt-2 text-[11px] text-muted-foreground">
           <div className="flex items-center gap-1.5">
-            <span className="size-2.5 rounded-full bg-primary" />
+            <span className="size-2.5 rounded-full bg-primary shrink-0" />
             <span>Answered ({answeredCount})</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="size-2.5 rounded-full bg-muted-foreground/30" />
+            <span className="size-2.5 rounded-full bg-muted-foreground/30 shrink-0" />
             <span>Unanswered ({unansweredCount})</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="size-2.5 rounded-full bg-amber-500" />
+            <span className="size-2.5 rounded-full bg-amber-500 shrink-0" />
             <span>Flagged ({flaggedCount})</span>
           </div>
         </div>
 
         {/* Filter buttons */}
-        <div className="flex items-center gap-1 pt-2">
+        <div className="flex flex-wrap items-center gap-1 pt-2">
           {(
             [
               { key: "all", label: "All" },

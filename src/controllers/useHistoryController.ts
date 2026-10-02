@@ -45,19 +45,29 @@ export function useHistoryController() {
     };
   }, [attempts]);
 
-  const handleDelete = async (id: string, e: React.MouseEvent) => {
+  const [deleteAttemptId, setDeleteAttemptId] = useState<string | null>(null);
+  const [clearAllDialogOpen, setClearAllDialogOpen] = useState(false);
+
+  const requestDelete = (id: string, e: React.MouseEvent) => {
     e.stopPropagation();
-    if (confirm("Delete this test attempt from history?")) {
-      await deleteAttempt(id);
-      refreshAttempts();
-    }
+    setDeleteAttemptId(id);
   };
 
-  const handleClearAll = async () => {
-    if (confirm("Are you sure you want to delete ALL test history? This cannot be undone.")) {
-      await clearAllAttempts();
-      refreshAttempts();
-    }
+  const confirmDelete = async () => {
+    if (!deleteAttemptId) return;
+    await deleteAttempt(deleteAttemptId);
+    setDeleteAttemptId(null);
+    refreshAttempts();
+  };
+
+  const requestClearAll = () => {
+    setClearAllDialogOpen(true);
+  };
+
+  const confirmClearAll = async () => {
+    await clearAllAttempts();
+    setClearAllDialogOpen(false);
+    refreshAttempts();
   };
 
   const handleRetake = (attempt: TestAttemptResult, e: React.MouseEvent) => {
@@ -93,8 +103,14 @@ export function useHistoryController() {
     selectedFilter,
     setSelectedFilter,
     stats,
-    handleDelete,
-    handleClearAll,
+    deleteAttemptId,
+    setDeleteAttemptId,
+    clearAllDialogOpen,
+    setClearAllDialogOpen,
+    requestDelete,
+    confirmDelete,
+    requestClearAll,
+    confirmClearAll,
     handleRetake,
   };
 }

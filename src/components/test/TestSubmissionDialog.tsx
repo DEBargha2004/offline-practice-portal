@@ -82,8 +82,8 @@ export function TestSubmissionDialog({
           )}
         </div>
 
-        <DialogFooter className="flex-row justify-end gap-2">
-          <Button variant="outline" onClick={() => onOpenChange(false)}>
+        <DialogFooter className="flex flex-col-reverse sm:flex-row sm:justify-end gap-2">
+          <Button variant="outline" onClick={() => onOpenChange(false)} className="w-full sm:w-auto">
             Keep Working
           </Button>
           <Button
@@ -91,7 +91,7 @@ export function TestSubmissionDialog({
               onOpenChange(false);
               onConfirmSubmit();
             }}
-            className="bg-primary text-primary-foreground font-semibold"
+            className="w-full sm:w-auto bg-primary text-primary-foreground font-semibold"
           >
             Submit Exam
           </Button>

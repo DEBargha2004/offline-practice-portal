@@ -4,6 +4,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+import {
   History as HistoryIcon,
   Trash2,
   RotateCcw,
@@ -25,8 +35,14 @@ export function History() {
     selectedFilter,
     setSelectedFilter,
     stats,
-    handleDelete,
-    handleClearAll,
+    deleteAttemptId,
+    setDeleteAttemptId,
+    clearAllDialogOpen,
+    setClearAllDialogOpen,
+    requestDelete,
+    confirmDelete,
+    requestClearAll,
+    confirmClearAll,
     handleRetake,
   } = useHistoryController();
 
@@ -35,6 +51,17 @@ export function History() {
     const secs = totalSec % 60;
     if (mins === 0) return `${secs}s`;
     return `${mins}m ${secs}s`;
+  };
+
+  const formatDate = (dateVal: number | string) => {
+    const d = new Date(dateVal);
+    return d.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+    });
   };
 
   return (
@@ -54,7 +81,7 @@ export function History() {
           <Button
             variant="outline"
             size="sm"
-            onClick={handleClearAll}
+            onClick={requestClearAll}
             className="text-xs text-muted-foreground hover:text-destructive self-start sm:self-auto gap-1.5"
           >
             <Trash2 className="size-3.5" />
@@ -126,7 +153,7 @@ export function History() {
       )}
 
       {/* Filter Tabs */}
-      <div className="flex items-center gap-1.5 border-b border-border/60 pb-3">
+      <div className="flex items-center gap-1.5 overflow-x-auto pb-3 border-b border-border/60">
         {(
           [
             { key: "all", label: "All Tests" },
@@ -140,7 +167,7 @@ export function History() {
             variant={selectedFilter === tab.key ? "secondary" : "ghost"}
             size="xs"
             onClick={() => setSelectedFilter(tab.key as TestModeType | "all")}
-            className="text-xs h-7 px-3"
+            className="text-xs h-7 px-3 shrink-0"
           >
             {tab.label}
           </Button>
@@ -163,11 +190,10 @@ export function History() {
               ? "text-amber-600 dark:text-amber-400"
               : "text-destructive";
 
-            const scoreBadgeColor = isPassed
-              ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
-              : isModerate
-              ? "bg-amber-500/10 text-amber-600 dark:text-amber-400"
-              : "bg-destructive/10 text-destructive";
+            const displayTitle =
+              attempt.mode === "chapter"
+                ? attempt.title.replace(/^Chapter\s+\d+:\s*/i, "")
+                : attempt.title;
 
             return (
               <Card
@@ -178,7 +204,7 @@ export function History() {
               >
                 <CardContent className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   {/* Left: Info */}
-                  <div className="space-y-1.5 flex-1">
+                  <div className="space-y-1.5 flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
                       <Badge
                         variant={attempt.mode === "full_mock" ? "default" : "outline"}
@@ -191,22 +217,18 @@ export function History() {
                           : "Quick Drill"}
                       </Badge>
                       <span className="text-xs text-muted-foreground">
-                        {new Date(attempt.completedAt).toLocaleString()}
+                        {formatDate(attempt.completedAt)}
                       </span>
                     </div>
 
-                    <h3 className="font-semibold text-base text-foreground group-hover:text-primary transition-colors">
-                      {attempt.title}
+                    <h3 className="font-semibold text-base text-foreground group-hover:text-primary transition-colors line-clamp-1">
+                      {displayTitle}
                     </h3>
 
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground pt-0.5">
-                      <span className="font-medium text-foreground">
-                        Score: {attempt.score} / {attempt.maxScore}
-                      </span>
-                      <span>&bull;</span>
+                    <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs text-muted-foreground pt-0.5">
                       <span className="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium">
                         <CheckCircle2 className="size-3" />
-                        {attempt.correctCount} Correct
+                        {attempt.correctCount}/{attempt.maxScore} Correct
                       </span>
                       {attempt.incorrectCount > 0 && (
                         <>
@@ -225,19 +247,11 @@ export function History() {
                   </div>
 
                   {/* Right: Score Metric & Actions */}
-                  <div className="flex items-center justify-between sm:justify-end gap-3 sm:gap-4 shrink-0 border-t sm:border-t-0 pt-3 sm:pt-0">
+                  <div className="flex flex-wrap items-center justify-between sm:justify-end gap-3 sm:gap-4 shrink-0 border-t sm:border-t-0 pt-3 sm:pt-0">
                     {/* Clean Score Metric */}
-                    <div className="flex flex-col items-start sm:items-end justify-center min-w-[64px]">
+                    <div className="flex items-center justify-center min-w-[52px]">
                       <span className={cn("text-2xl font-black tracking-tight leading-none", scoreTextColor)}>
                         {attempt.percentage}%
-                      </span>
-                      <span
-                        className={cn(
-                          "text-[10px] font-bold tracking-wider uppercase mt-1 px-1.5 py-0.5 rounded-md",
-                          scoreBadgeColor
-                        )}
-                      >
-                        {isPassed ? "Pass" : isModerate ? "Good" : "Revise"}
                       </span>
                     </div>
 
@@ -245,12 +259,12 @@ export function History() {
                     <div className="hidden sm:block h-8 w-px bg-border/70" />
 
                     {/* Action Buttons */}
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1.5 sm:gap-2">
                       <Button
                         variant="outline"
                         size="sm"
                         onClick={(e) => handleRetake(attempt, e)}
-                        className="h-8 gap-1.5 text-xs font-medium"
+                        className="h-8 gap-1.5 text-xs font-medium px-2.5 sm:px-3"
                         title="Retake this test with freshly shuffled options"
                       >
                         <RotateCcw className="size-3.5" />
@@ -260,7 +274,7 @@ export function History() {
                       <Button
                         variant="secondary"
                         size="sm"
-                        className="h-8 gap-1.5 text-xs font-semibold group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                        className="h-8 gap-1.5 text-xs font-semibold px-2.5 sm:px-3 group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
                       >
                         <span>Review</span>
                         <ArrowRight className="size-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -269,7 +283,7 @@ export function History() {
                       <Button
                         variant="ghost"
                         size="icon-sm"
-                        onClick={(e) => handleDelete(attempt.id, e)}
+                        onClick={(e) => requestDelete(attempt.id, e)}
                         className="text-muted-foreground hover:bg-destructive/10 hover:text-destructive h-8 w-8"
                         title="Delete attempt"
                       >
@@ -292,6 +306,56 @@ export function History() {
           <Button onClick={() => navigate("/")}>Take a Test</Button>
         </div>
       )}
+
+      {/* Delete Single Attempt Alert Dialog */}
+      <AlertDialog
+        open={!!deleteAttemptId}
+        onOpenChange={(open) => {
+          if (!open) setDeleteAttemptId(null);
+        }}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete Test Attempt?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This will permanently delete this attempt from your history. This action cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              variant="destructive"
+              onClick={confirmDelete}
+            >
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Clear All History Alert Dialog */}
+      <AlertDialog
+        open={clearAllDialogOpen}
+        onOpenChange={setClearAllDialogOpen}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Clear All Attempt History?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Are you sure you want to delete all past test attempts? All scores, diagnostic logs, and answer reviews will be permanently removed.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              variant="destructive"
+              onClick={confirmClearAll}
+            >
+              Clear All
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

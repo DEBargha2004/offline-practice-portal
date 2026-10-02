@@ -1,5 +1,7 @@
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "@/context/ThemeContext";
+import { useSidebar } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -9,20 +11,27 @@ import {
   Sun,
   Moon,
   Laptop,
-  PlayCircle,
   Cpu,
+  Menu,
+  Home,
+  Flame,
 } from "lucide-react";
 import { getActiveSession } from "@/services/storageService";
-import { useEffect, useState } from "react";
+import { cn } from "cn";
 
 export function Navbar() {
   const location = useLocation();
   const { theme, setTheme } = useTheme();
+  const { toggleSidebar } = useSidebar();
   const [hasActiveTest, setHasActiveTest] = useState(false);
+  const [activeTestTitle, setActiveTestTitle] = useState("");
 
   useEffect(() => {
     const active = getActiveSession();
     setHasActiveTest(!!active && !active.isCompleted);
+    if (active && !active.isCompleted) {
+      setActiveTestTitle(active.title);
+    }
   }, [location.pathname]);
 
   const toggleTheme = () => {
@@ -37,97 +46,107 @@ export function Navbar() {
     return false;
   };
 
+  const navItems = [
+    { label: "Home", path: "/", icon: Home },
+    { label: "Chapters", path: "/chapters", icon: BookOpen, badge: "60" },
+    { label: "My History", path: "/history", icon: History },
+    { label: "Saved", path: "/saved", icon: Bookmark },
+  ];
+
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Brand / Logo */}
-        <Link to="/" className="flex items-center gap-2.5 transition-opacity hover:opacity-90">
-          <div className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm">
-            <Cpu className="size-5" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-base font-bold tracking-tight text-foreground sm:text-lg">
-              IoT Exam Prep
-            </span>
-            <span className="text-[11px] text-muted-foreground hidden sm:block">
-              Offline Practice Portal
-            </span>
-          </div>
-        </Link>
+    <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/85 backdrop-blur-md">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-3 sm:px-6 lg:px-8">
+        {/* Left: Mobile Sidebar Trigger + Brand Logo */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Mobile Sidebar Hamburger (Triggers shadcn Sidebar) */}
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            onClick={toggleSidebar}
+            className="md:hidden text-foreground hover:bg-muted size-9"
+            aria-label="Open navigation sidebar"
+          >
+            <Menu className="size-5" />
+          </Button>
 
-        {/* Navigation Links */}
-        <nav className="flex items-center gap-1 sm:gap-2">
-          <Link to="/">
-            <Button
-              variant={isLinkActive("/") && !location.pathname.startsWith("/chapters") && !location.pathname.startsWith("/history") && !location.pathname.startsWith("/saved") ? "secondary" : "ghost"}
-              size="sm"
-              className="gap-1.5"
-            >
-              Home
-            </Button>
+          {/* Brand Link */}
+          <Link to="/" className="flex items-center gap-2 sm:gap-2.5 transition-opacity hover:opacity-90">
+            <div className="flex size-8 sm:size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-xs shrink-0">
+              <Cpu className="size-4 sm:size-5" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-bold tracking-tight text-foreground sm:text-lg">
+                IoT Exam Prep
+              </span>
+              <span className="text-[10px] sm:text-[11px] text-muted-foreground hidden sm:block">
+                Offline Practice Portal
+              </span>
+            </div>
           </Link>
+        </div>
 
-          <Link to="/chapters">
-            <Button
-              variant={isLinkActive("/chapters") ? "secondary" : "ghost"}
-              size="sm"
-              className="gap-1.5"
-            >
-              <BookOpen className="size-4" />
-              <span>Chapters</span>
-            </Button>
-          </Link>
+        {/* Desktop Navigation Links (hidden on mobile, visible md and up) */}
+        <nav className="hidden md:flex items-center gap-1.5 lg:gap-2">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const active = isLinkActive(item.path);
 
-          <Link to="/history">
-            <Button
-              variant={isLinkActive("/history") ? "secondary" : "ghost"}
-              size="sm"
-              className="gap-1.5"
-            >
-              <History className="size-4" />
-              <span className="hidden sm:inline">My History</span>
-              <span className="sm:hidden">History</span>
-            </Button>
-          </Link>
+            return (
+              <Link key={item.path} to={item.path}>
+                <Button
+                  variant={active ? "secondary" : "ghost"}
+                  size="sm"
+                  className={cn(
+                    "gap-2 text-xs lg:text-sm font-medium transition-colors",
+                    active && "font-semibold bg-secondary text-foreground shadow-2xs"
+                  )}
+                >
+                  <Icon className="size-4 text-muted-foreground" />
+                  <span>{item.label}</span>
+                  {item.badge && (
+                    <Badge variant="outline" className="text-[10px] px-1.5 py-0">
+                      {item.badge}
+                    </Badge>
+                  )}
+                </Button>
+              </Link>
+            );
+          })}
+        </nav>
 
-          <Link to="/saved">
-            <Button
-              variant={isLinkActive("/saved") ? "secondary" : "ghost"}
-              size="sm"
-              className="gap-1.5"
-            >
-              <Bookmark className="size-4" />
-              <span className="hidden sm:inline">Saved</span>
-            </Button>
-          </Link>
-
-          {/* Active Test Shortcut (when not on /test) */}
+        {/* Right Section: Active Test Shortcut & Theme Controls */}
+        <div className="flex items-center gap-2">
+          {/* Active Test Pill - Adaptive for desktop and mobile */}
           {hasActiveTest && location.pathname !== "/test" && (
-            <Link to="/test" className="ml-1">
-              <Badge
-                variant="default"
-                className="cursor-pointer gap-1.5 py-1.5 px-3 bg-amber-500 hover:bg-amber-600 text-white"
+            <Link to="/test">
+              <Button
+                variant="outline"
+                size="sm"
+                className="h-8 gap-1.5 border-amber-500/40 bg-amber-500/10 text-amber-600 dark:text-amber-400 hover:bg-amber-500/20 px-2.5 sm:px-3 text-xs font-semibold shadow-2xs"
               >
-                <PlayCircle className="size-3.5" />
-                <span>Resume Test</span>
-              </Badge>
+                <Flame className="size-3.5 text-amber-500 shrink-0" />
+                <span className="hidden sm:inline truncate max-w-[130px] lg:max-w-[200px]">
+                  Resume: {activeTestTitle}
+                </span>
+                <span className="sm:hidden">Resume</span>
+              </Button>
             </Link>
           )}
 
-          {/* Theme switcher */}
+          {/* Theme Switcher Toggle */}
           <Button
             variant="ghost"
-            size="icon"
+            size="icon-sm"
             onClick={toggleTheme}
-            className="ml-1 text-muted-foreground hover:text-foreground"
-            title={`Current theme: ${theme}. Click to change.`}
+            className="text-muted-foreground hover:text-foreground size-8 sm:size-9"
+            title={`Current theme: ${theme}. Click to switch.`}
+            aria-label="Toggle theme mode"
           >
             {theme === "light" && <Sun className="size-4" />}
             {theme === "dark" && <Moon className="size-4" />}
             {theme === "system" && <Laptop className="size-4" />}
-            <span className="sr-only">Toggle theme</span>
           </Button>
-        </nav>
+        </div>
       </div>
     </header>
   );

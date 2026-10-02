@@ -23,13 +23,13 @@ export function TestTimer({
     return (
       <div
         className={cn(
-          "inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-3 py-1.5 text-xs font-medium text-foreground",
+          "inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2 sm:px-3 py-1 sm:py-1.5 text-xs font-medium text-foreground",
           className
         )}
       >
-        <Clock className="size-3.5 text-muted-foreground" />
-        <span>Time: {formatElapsed(elapsedSeconds)}</span>
-        <span className="text-[10px] text-muted-foreground">(Untimed)</span>
+        <Clock className="size-3.5 text-muted-foreground shrink-0" />
+        <span>{formatElapsed(elapsedSeconds)}</span>
+        <span className="text-[10px] text-muted-foreground hidden md:inline">(Untimed)</span>
       </div>
     );
   }

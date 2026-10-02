@@ -67,7 +67,7 @@ export function TestResults() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8 space-y-8">
       {/* Top Navigation */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <Button
           variant="ghost"
           size="sm"
@@ -128,12 +128,12 @@ export function TestResults() {
             </div>
 
             {/* Score Ring / Bubble */}
-            <div className="flex items-center gap-4 self-start md:self-auto">
-              <div className="flex flex-col items-center justify-center size-28 rounded-2xl border-2 border-primary/20 bg-primary/5 p-4 text-center">
-                <span className="text-3xl font-black text-foreground">
+            <div className="flex items-center justify-center self-center md:self-auto">
+              <div className="flex flex-col items-center justify-center size-24 sm:size-28 rounded-2xl border-2 border-primary/20 bg-primary/5 p-3 sm:p-4 text-center">
+                <span className="text-2xl sm:text-3xl font-black text-foreground">
                   {attempt.percentage}%
                 </span>
-                <span className="text-xs font-semibold text-muted-foreground mt-0.5">
+                <span className="text-[11px] sm:text-xs font-semibold text-muted-foreground mt-0.5">
                   {attempt.score} / {attempt.maxScore} Pts
                 </span>
               </div>
@@ -141,28 +141,28 @@ export function TestResults() {
           </div>
 
           {/* Quick Metrics Grid */}
-          <div className="grid grid-cols-3 gap-3 pt-6 border-t border-border/60 mt-6">
-            <div className="flex items-center gap-2.5 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-3">
-              <CheckCircle2 className="size-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-              <div>
-                <span className="text-xs text-muted-foreground font-medium">Correct</span>
-                <p className="text-lg font-bold text-foreground">{attempt.correctCount}</p>
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-5 sm:pt-6 border-t border-border/60 mt-6">
+            <div className="flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-1 sm:gap-2.5 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-2 sm:p-3">
+              <CheckCircle2 className="size-4 sm:size-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <div className="min-w-0">
+                <span className="text-[10px] sm:text-xs text-muted-foreground font-medium block">Correct</span>
+                <p className="text-sm sm:text-lg font-bold text-foreground">{attempt.correctCount}</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5 rounded-xl border border-destructive/20 bg-destructive/5 p-3">
-              <XCircle className="size-5 text-destructive shrink-0" />
-              <div>
-                <span className="text-xs text-muted-foreground font-medium">Incorrect</span>
-                <p className="text-lg font-bold text-foreground">{attempt.incorrectCount}</p>
+            <div className="flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-1 sm:gap-2.5 rounded-xl border border-destructive/20 bg-destructive/5 p-2 sm:p-3">
+              <XCircle className="size-4 sm:size-5 text-destructive shrink-0" />
+              <div className="min-w-0">
+                <span className="text-[10px] sm:text-xs text-muted-foreground font-medium block">Incorrect</span>
+                <p className="text-sm sm:text-lg font-bold text-foreground">{attempt.incorrectCount}</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5 rounded-xl border border-border bg-muted/40 p-3">
-              <HelpCircle className="size-5 text-muted-foreground shrink-0" />
-              <div>
-                <span className="text-xs text-muted-foreground font-medium">Skipped</span>
-                <p className="text-lg font-bold text-foreground">{attempt.unansweredCount}</p>
+            <div className="flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-1 sm:gap-2.5 rounded-xl border border-border bg-muted/40 p-2 sm:p-3">
+              <HelpCircle className="size-4 sm:size-5 text-muted-foreground shrink-0" />
+              <div className="min-w-0">
+                <span className="text-[10px] sm:text-xs text-muted-foreground font-medium block">Skipped</span>
+                <p className="text-sm sm:text-lg font-bold text-foreground">{attempt.unansweredCount}</p>
               </div>
             </div>
           </div>
