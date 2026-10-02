@@ -15,8 +15,11 @@ import {
   Menu,
   Home,
   Flame,
+  Download,
 } from "lucide-react";
 import { getActiveSession } from "@/services/storageService";
+import { usePwaInstall } from "@/hooks/usePwaInstall";
+import { PwaInstallInstructionDialog } from "@/components/PwaInstallInstructionDialog";
 import { cn } from "cn";
 
 export function Navbar() {
@@ -25,6 +28,13 @@ export function Navbar() {
   const { toggleSidebar } = useSidebar();
   const [hasActiveTest, setHasActiveTest] = useState(false);
   const [activeTestTitle, setActiveTestTitle] = useState("");
+  const {
+    isInstalled,
+    isIOS,
+    installApp,
+    showIOSInstruction,
+    setShowIOSInstruction,
+  } = usePwaInstall();
 
   useEffect(() => {
     const active = getActiveSession();
@@ -133,6 +143,20 @@ export function Navbar() {
             </Link>
           )}
 
+          {/* Install App Button if not installed */}
+          {!isInstalled && (
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={installApp}
+              className="hidden sm:inline-flex h-8 gap-1.5 border-primary/30 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
+              title="Install app for offline practice"
+            >
+              <Download className="size-3.5 text-primary" />
+              <span>Install App</span>
+            </Button>
+          )}
+
           {/* Theme Switcher Toggle */}
           <Button
             variant="ghost"
@@ -148,6 +172,12 @@ export function Navbar() {
           </Button>
         </div>
       </div>
+
+      <PwaInstallInstructionDialog
+        open={showIOSInstruction}
+        onOpenChange={setShowIOSInstruction}
+        isIOS={isIOS}
+      />
     </header>
   );
 }

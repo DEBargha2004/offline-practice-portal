@@ -16,6 +16,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/ui/button";
 import {
   Cpu,
   Home,
@@ -27,9 +28,11 @@ import {
   Laptop,
   Flame,
   PlayCircle,
-  Sparkles,
+  Download,
 } from "lucide-react";
 import { getActiveSession } from "@/services/storageService";
+import { usePwaInstall } from "@/hooks/usePwaInstall";
+import { PwaInstallInstructionDialog } from "@/components/PwaInstallInstructionDialog";
 import type { TestSession } from "@/types";
 import { cn } from "cn";
 
@@ -38,6 +41,13 @@ export function AppSidebar() {
   const { theme, setTheme } = useTheme();
   const { setOpenMobile } = useSidebar();
   const [activeSession, setActiveSession] = useState<TestSession | null>(null);
+  const {
+    isInstalled,
+    isIOS,
+    installApp,
+    showIOSInstruction,
+    setShowIOSInstruction,
+  } = usePwaInstall();
 
   useEffect(() => {
     const session = getActiveSession();
@@ -65,12 +75,20 @@ export function AppSidebar() {
     setOpenMobile(false);
   };
 
-  const answeredCount = activeSession ? Object.keys(activeSession.userAnswers).length : 0;
+  const answeredCount = activeSession
+    ? Object.keys(activeSession.userAnswers).length
+    : 0;
   const totalCount = activeSession ? activeSession.questionIds.length : 0;
-  const progressPercent = totalCount > 0 ? Math.round((answeredCount / totalCount) * 100) : 0;
+  const progressPercent =
+    totalCount > 0 ? Math.round((answeredCount / totalCount) * 100) : 0;
 
   return (
-    <Sidebar side="left" variant="sidebar" collapsible="offcanvas" className="md:hidden">
+    <Sidebar
+      side="left"
+      variant="sidebar"
+      collapsible="offcanvas"
+      className="md:hidden"
+    >
       {/* Sidebar Header: App Identity */}
       <SidebarHeader className="border-b border-sidebar-border p-4">
         <Link
@@ -116,19 +134,28 @@ export function AppSidebar() {
                             "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                             active
                               ? "bg-primary text-primary-foreground font-semibold shadow-xs"
-                              : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                              : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
                           )}
                         />
                       }
                     >
-                      <Icon className={cn("size-4 shrink-0", active ? "text-primary-foreground" : "text-muted-foreground")} />
+                      <Icon
+                        className={cn(
+                          "size-4 shrink-0",
+                          active ? "text-primary" : "text-muted-foreground",
+                        )}
+                      />
                       <span className="truncate">{item.label}</span>
                     </SidebarMenuButton>
                     {item.badge && (
-                      <SidebarMenuBadge className={cn(
-                        "rounded-full px-2 py-0.5 text-[10px] font-semibold",
-                        active ? "bg-primary-foreground/20 text-primary-foreground" : "bg-muted text-muted-foreground"
-                      )}>
+                      <SidebarMenuBadge
+                        className={cn(
+                          "rounded-full px-2 py-0.5 text-[10px] font-semibold",
+                          active
+                            ? "bg-primary-foreground/20 text-primary-foreground"
+                            : "bg-muted text-muted-foreground",
+                        )}
+                      >
                         {item.badge}
                       </SidebarMenuBadge>
                     )}
@@ -159,9 +186,13 @@ export function AppSidebar() {
             <div className="mt-2.5 space-y-1.5">
               <Progress value={progressPercent} className="h-1.5 bg-muted/70" />
               <div className="flex items-center justify-between text-[11px] text-muted-foreground">
-                <span>{answeredCount} of {totalCount} answered</span>
+                <span>
+                  {answeredCount} of {totalCount} answered
+                </span>
                 {activeSession.flaggedQuestionIds?.length > 0 && (
-                  <span>★ {activeSession.flaggedQuestionIds.length} flagged</span>
+                  <span>
+                    ★ {activeSession.flaggedQuestionIds.length} flagged
+                  </span>
                 )}
               </div>
             </div>
@@ -189,7 +220,7 @@ export function AppSidebar() {
                 "p-1.5 rounded-md text-xs transition-colors",
                 theme === "light"
                   ? "bg-background text-foreground shadow-2xs font-semibold"
-                  : "text-muted-foreground hover:text-foreground"
+                  : "text-muted-foreground hover:text-foreground",
               )}
               title="Light Mode"
               aria-label="Light Mode"
@@ -202,7 +233,7 @@ export function AppSidebar() {
                 "p-1.5 rounded-md text-xs transition-colors",
                 theme === "dark"
                   ? "bg-background text-foreground shadow-2xs font-semibold"
-                  : "text-muted-foreground hover:text-foreground"
+                  : "text-muted-foreground hover:text-foreground",
               )}
               title="Dark Mode"
               aria-label="Dark Mode"
@@ -215,7 +246,7 @@ export function AppSidebar() {
                 "p-1.5 rounded-md text-xs transition-colors",
                 theme === "system"
                   ? "bg-background text-foreground shadow-2xs font-semibold"
-                  : "text-muted-foreground hover:text-foreground"
+                  : "text-muted-foreground hover:text-foreground",
               )}
               title="System Theme"
               aria-label="System Theme"
@@ -225,11 +256,25 @@ export function AppSidebar() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-1.5 text-[11px] text-muted-foreground/80 py-1 border-t border-border/50">
-          <Sparkles className="size-3 text-amber-500" />
-          <span>1,375 Questions &bull; 100% Offline</span>
-        </div>
+        {/* Simple Install App Button */}
+        {!isInstalled && (
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={installApp}
+            className="w-full justify-center gap-2 h-9 text-xs font-semibold"
+          >
+            <Download className="size-3.5" />
+            <span>Install App</span>
+          </Button>
+        )}
       </SidebarFooter>
+
+      <PwaInstallInstructionDialog
+        open={showIOSInstruction}
+        onOpenChange={setShowIOSInstruction}
+        isIOS={isIOS}
+      />
     </Sidebar>
   );
 }
