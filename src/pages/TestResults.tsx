@@ -107,6 +107,8 @@ export function TestResults() {
               <Badge variant="outline" className="text-xs">
                 {attempt.mode === "full_mock"
                   ? "Full Syllabus Exam"
+                  : attempt.mode === "week"
+                  ? (attempt.weekTitle || `Week ${attempt.weekNumber || ""}`)
                   : attempt.mode === "chapter"
                   ? `Chapter ${attempt.chapterNumber}`
                   : "Practice Drill"}

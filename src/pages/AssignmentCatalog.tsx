@@ -1,0 +1,115 @@
+import { useAssignmentCatalogController } from "@/controllers/useAssignmentCatalogController";
+import { AssignmentCard } from "@/components/assignment/AssignmentCard";
+import { Search, CalendarCheck, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+export function AssignmentCatalog() {
+  const {
+    weeks,
+    totalWeeks,
+    searchQuery,
+    setSearchQuery,
+    weekStats,
+    handleStartWeekTest,
+  } = useAssignmentCatalogController();
+
+  // Calculate overall completed count
+  const attemptedCount = Object.keys(weekStats).length;
+
+  return (
+    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-6">
+      {/* Header & Search */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-border/60 pb-6">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+              Weekly Assignments
+            </h1>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Practice all {totalWeeks} weekly assignments topic-by-topic (
+            {totalWeeks * 15} questions, 15 per week).
+          </p>
+        </div>
+
+        {/* Search */}
+        <div className="flex items-center gap-2.5 w-full sm:w-auto">
+          <div className="relative w-full sm:w-64">
+            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground pointer-events-none" />
+            <Input
+              type="text"
+              placeholder="Search assignments (e.g. Week 1)"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="h-9 pl-8 pr-8 text-sm bg-card"
+            />
+            {searchQuery && (
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon-xs"
+                onClick={() => setSearchQuery("")}
+                className="absolute right-1.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground size-6"
+                aria-label="Clear search"
+              >
+                <X className="size-3.5" />
+              </Button>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Progress pill if any attempted */}
+      <div className="flex items-center justify-between text-xs text-muted-foreground bg-muted/40 rounded-xl px-4 py-2.5 border border-border/60">
+        <div className="flex items-center gap-2">
+          <CalendarCheck className="size-4 text-primary" />
+          <span>
+            Progress:{" "}
+            <strong className="text-foreground">
+              {attemptedCount} of {totalWeeks}
+            </strong>{" "}
+            assignments attempted
+          </span>
+        </div>
+        <span className="font-medium text-muted-foreground">
+          15 Questions / Week &bull; 1.5 min per Q (timed) or Untimed
+        </span>
+      </div>
+
+      {/* Weeks Grid */}
+      {weeks.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {weeks.map((week) => {
+            const stats = weekStats[week.chapter_number];
+            return (
+              <AssignmentCard
+                key={week.chapter_number}
+                week={week}
+                bestScorePercentage={stats?.bestScore}
+                attemptsCount={stats?.attemptsCount}
+                onStartPractice={handleStartWeekTest}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <div className="rounded-2xl border border-dashed border-border p-12 text-center space-y-3">
+          <CalendarCheck className="size-8 text-muted-foreground mx-auto" />
+          <h3 className="font-bold text-foreground">No assignments found</h3>
+          <p className="text-sm text-muted-foreground max-w-sm mx-auto">
+            No assignment matches &ldquo;{searchQuery}&rdquo;. Try searching
+            with &ldquo;Week 1&rdquo; or &ldquo;3&rdquo;.
+          </p>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setSearchQuery("")}
+          >
+            Clear Search
+          </Button>
+        </div>
+      )}
+    </div>
+  );
+}

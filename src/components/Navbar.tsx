@@ -3,9 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "@/context/ThemeContext";
 import { useSidebar } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
-  BookOpen,
   History,
   Bookmark,
   Sun,
@@ -48,7 +46,6 @@ export function Navbar() {
 
   const navItems = [
     { label: "Home", path: "/", icon: Home },
-    { label: "Chapters", path: "/chapters", icon: BookOpen, badge: "60" },
     { label: "My History", path: "/history", icon: History },
     { label: "Saved", path: "/saved", icon: Bookmark },
   ];
@@ -107,14 +104,6 @@ export function Navbar() {
                 >
                   <Icon className="size-4 text-muted-foreground" />
                   <span>{item.label}</span>
-                  {item.badge && (
-                    <Badge
-                      variant="outline"
-                      className="text-[10px] px-1.5 py-0"
-                    >
-                      {item.badge}
-                    </Badge>
-                  )}
                 </Button>
               </Link>
             );

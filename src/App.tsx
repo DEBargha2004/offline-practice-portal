@@ -13,6 +13,7 @@ import { TestResults } from "@/pages/TestResults";
 import { History } from "@/pages/History";
 import { SavedQuestions } from "@/pages/SavedQuestions";
 import { CustomTest } from "@/pages/CustomTest";
+import { AssignmentCatalog } from "@/pages/AssignmentCatalog";
 
 export function App() {
   return (
@@ -27,6 +28,8 @@ export function App() {
             <main className="flex-1">
               <Routes>
                 <Route path="/" element={<Dashboard />} />
+                <Route path="/assignments" element={<AssignmentCatalog />} />
+                <Route path="/weeks" element={<Navigate to="/assignments" replace />} />
                 <Route path="/chapters" element={<ChapterCatalog />} />
                 <Route path="/custom-test" element={<CustomTest />} />
                 <Route path="/create-test" element={<CustomTest />} />
