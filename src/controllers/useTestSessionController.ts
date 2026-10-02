@@ -36,7 +36,24 @@ export function useTestSessionController() {
     // Use session's shuffled questions if available, or resolve and shuffle
     let resolvedQuestions: Question[] = [];
     if (loadedSession.questions && loadedSession.questions.length > 0) {
-      resolvedQuestions = loadedSession.questions;
+      // Synchronize question answers and stems with latest question bank while preserving shuffled option order
+      resolvedQuestions = loadedSession.questions.map((q) => {
+        const fresh = getQuestionById(q.id);
+        if (!fresh) return q;
+        return {
+          ...q,
+          question: fresh.question,
+          correct_answers: fresh.correct_answers,
+          answer_text: fresh.answer_text,
+          raw_answer: fresh.raw_answer,
+          options: q.options.map((opt) => {
+            const freshOpt = fresh.options.find((fo) => fo.label === opt.label);
+            return freshOpt ? { ...opt, text: freshOpt.text } : opt;
+          }),
+        };
+      });
+      loadedSession.questions = resolvedQuestions;
+      saveActiveSession(loadedSession);
     } else {
       for (const id of loadedSession.questionIds) {
         const q = getQuestionById(id);

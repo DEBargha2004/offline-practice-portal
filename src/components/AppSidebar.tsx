@@ -29,6 +29,7 @@ import {
   Flame,
   PlayCircle,
   Download,
+  SlidersHorizontal,
 } from "lucide-react";
 import { getActiveSession } from "@/services/storageService";
 import { usePwaInstall } from "@/hooks/usePwaInstall";
@@ -61,6 +62,7 @@ export function AppSidebar() {
   const navItems = [
     { label: "Home", path: "/", icon: Home },
     { label: "Chapters", path: "/chapters", icon: BookOpen, badge: "60" },
+    { label: "Custom Test", path: "/custom-test", icon: SlidersHorizontal },
     { label: "My History", path: "/history", icon: History },
     { label: "Saved Questions", path: "/saved", icon: Bookmark },
   ];

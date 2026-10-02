@@ -12,6 +12,7 @@ import { TestSession } from "@/pages/TestSession";
 import { TestResults } from "@/pages/TestResults";
 import { History } from "@/pages/History";
 import { SavedQuestions } from "@/pages/SavedQuestions";
+import { CustomTest } from "@/pages/CustomTest";
 
 export function App() {
   return (
@@ -27,6 +28,8 @@ export function App() {
               <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/chapters" element={<ChapterCatalog />} />
+                <Route path="/custom-test" element={<CustomTest />} />
+                <Route path="/create-test" element={<CustomTest />} />
                 <Route path="/test" element={<TestSession />} />
                 <Route path="/results/:attemptId" element={<TestResults />} />
                 <Route path="/history" element={<History />} />

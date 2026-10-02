@@ -90,3 +90,15 @@ export interface TestAttemptResult {
   percentage: number;
   reviewItems: QuestionReviewItem[];
 }
+
+export interface CustomTestConfig {
+  chapterNumbers: number[];
+  durationMinutes: number | null;
+  questionCountLimit: number | null;
+}
+
+export interface ChapterRangePreset {
+  label: string;
+  from: number;
+  to: number;
+}

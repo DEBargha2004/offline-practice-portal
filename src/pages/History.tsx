@@ -272,12 +272,12 @@ export function History() {
                       </Button>
 
                       <Button
-                        variant="secondary"
+                        variant="default"
                         size="sm"
-                        className="h-8 gap-1.5 text-xs font-semibold px-2.5 sm:px-3 group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                        className="h-8 gap-1.5 text-xs font-semibold px-3 shadow-2xs"
                       >
                         <span>Review</span>
-                        <ArrowRight className="size-3.5 group-hover:translate-x-0.5 transition-transform" />
+                        <ArrowRight className="size-3.5" />
                       </Button>
 
                       <Button

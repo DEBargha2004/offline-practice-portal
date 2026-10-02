@@ -15,11 +15,8 @@ import {
   Menu,
   Home,
   Flame,
-  Download,
 } from "lucide-react";
 import { getActiveSession } from "@/services/storageService";
-import { usePwaInstall } from "@/hooks/usePwaInstall";
-import { PwaInstallInstructionDialog } from "@/components/PwaInstallInstructionDialog";
 import { cn } from "cn";
 
 export function Navbar() {
@@ -28,13 +25,6 @@ export function Navbar() {
   const { toggleSidebar } = useSidebar();
   const [hasActiveTest, setHasActiveTest] = useState(false);
   const [activeTestTitle, setActiveTestTitle] = useState("");
-  const {
-    isInstalled,
-    isIOS,
-    installApp,
-    showIOSInstruction,
-    setShowIOSInstruction,
-  } = usePwaInstall();
 
   useEffect(() => {
     const active = getActiveSession();
@@ -80,7 +70,10 @@ export function Navbar() {
           </Button>
 
           {/* Brand Link */}
-          <Link to="/" className="flex items-center gap-2 sm:gap-2.5 transition-opacity hover:opacity-90">
+          <Link
+            to="/"
+            className="flex items-center gap-2 sm:gap-2.5 transition-opacity hover:opacity-90"
+          >
             <div className="flex size-8 sm:size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-xs shrink-0">
               <Cpu className="size-4 sm:size-5" />
             </div>
@@ -108,13 +101,17 @@ export function Navbar() {
                   size="sm"
                   className={cn(
                     "gap-2 text-xs lg:text-sm font-medium transition-colors",
-                    active && "font-semibold bg-secondary text-foreground shadow-2xs"
+                    active &&
+                      "font-semibold bg-secondary text-foreground shadow-2xs",
                   )}
                 >
                   <Icon className="size-4 text-muted-foreground" />
                   <span>{item.label}</span>
                   {item.badge && (
-                    <Badge variant="outline" className="text-[10px] px-1.5 py-0">
+                    <Badge
+                      variant="outline"
+                      className="text-[10px] px-1.5 py-0"
+                    >
                       {item.badge}
                     </Badge>
                   )}
@@ -143,20 +140,6 @@ export function Navbar() {
             </Link>
           )}
 
-          {/* Install App Button if not installed */}
-          {!isInstalled && (
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={installApp}
-              className="hidden sm:inline-flex h-8 gap-1.5 border-primary/30 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
-              title="Install app for offline practice"
-            >
-              <Download className="size-3.5 text-primary" />
-              <span>Install App</span>
-            </Button>
-          )}
-
           {/* Theme Switcher Toggle */}
           <Button
             variant="ghost"
@@ -172,12 +155,6 @@ export function Navbar() {
           </Button>
         </div>
       </div>
-
-      <PwaInstallInstructionDialog
-        open={showIOSInstruction}
-        onOpenChange={setShowIOSInstruction}
-        isIOS={isIOS}
-      />
     </header>
   );
 }

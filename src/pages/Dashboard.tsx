@@ -43,6 +43,7 @@ import {
   ArrowRight,
   Play,
   Bookmark,
+  SlidersHorizontal,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -430,7 +431,7 @@ export function Dashboard() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
           {/* Chapter-Wise Card */}
           <Card className="flex flex-col justify-between hover:ring-foreground/20 transition-all shadow-2xs group h-full">
             <CardHeader className="space-y-3">
@@ -460,6 +461,38 @@ export function Dashboard() {
                 onClick={() => navigate("/chapters")}
               >
                 <span>Browse All Chapters</span>
+                <ArrowRight className="size-4" />
+              </Button>
+            </CardFooter>
+          </Card>
+
+          {/* Custom Test Builder Card */}
+          <Card className="flex flex-col justify-between hover:ring-foreground/20 transition-all shadow-2xs group h-full">
+            <CardHeader className="space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="flex size-10 items-center justify-center rounded-xl bg-teal-500/10 text-teal-600 dark:text-teal-400">
+                  <SlidersHorizontal className="size-5" />
+                </div>
+                <Badge variant="outline">Multi-Chapter</Badge>
+              </div>
+              <CardTitle className="text-lg font-bold">Custom Test</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1 space-y-3">
+              <CardDescription className="text-sm leading-relaxed">
+                Choose specific chapters, set your own exam duration, and focus
+                on weak syllabus areas.
+              </CardDescription>
+              <p className="text-xs text-muted-foreground pt-1">
+                Multi-chapter selection &amp; custom time limits
+              </p>
+            </CardContent>
+            <CardFooter>
+              <Button
+                variant="outline"
+                className="w-full justify-between"
+                onClick={() => navigate("/custom-test")}
+              >
+                <span>Create Custom Test</span>
                 <ArrowRight className="size-4" />
               </Button>
             </CardFooter>
@@ -627,7 +660,8 @@ export function Dashboard() {
           <AlertDialogHeader>
             <AlertDialogTitle>Discard Unfinished Test?</AlertDialogTitle>
             <AlertDialogDescription>
-              Are you sure you want to discard your current test in progress? All answers recorded so far will be lost and cannot be recovered.
+              Are you sure you want to discard your current test in progress?
+              All answers recorded so far will be lost and cannot be recovered.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>

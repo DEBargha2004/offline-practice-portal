@@ -1,7 +1,9 @@
 import { useChapterCatalogController } from "@/controllers/useChapterCatalogController";
 import { ChapterCard } from "@/components/chapter/ChapterCard";
-import { Search, BookOpen, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Search, BookOpen, X, SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export function ChapterCatalog() {
   const {
@@ -26,24 +28,41 @@ export function ChapterCatalog() {
           </p>
         </div>
 
-        {/* Search Input */}
-        <div className="relative w-full sm:w-72">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-          <input
-            type="text"
-            placeholder="Search chapters or #"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full rounded-xl border border-border bg-card pl-9 pr-9 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
-          />
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+        {/* Search & Custom Test Shortcut */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full sm:w-auto">
+          <div className="relative w-full sm:w-64">
+            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground pointer-events-none" />
+            <Input
+              type="text"
+              placeholder="Search chapters or #"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="h-9 pl-8 pr-8 text-sm bg-card"
+            />
+            {searchQuery && (
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon-xs"
+                onClick={() => setSearchQuery("")}
+                className="absolute right-1.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground size-6"
+                aria-label="Clear search"
+              >
+                <X className="size-3.5" />
+              </Button>
+            )}
+          </div>
+
+          <Link to="/custom-test">
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-9 gap-1.5 text-xs font-semibold w-full sm:w-auto shrink-0 shadow-2xs"
             >
-              <X className="size-4" />
-            </button>
-          )}
+              <SlidersHorizontal className="size-3.5" />
+              <span>Multi-Chapter Test</span>
+            </Button>
+          </Link>
         </div>
       </div>
 

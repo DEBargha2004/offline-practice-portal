@@ -4905,14 +4905,12 @@
       "correct_answers": [
         "a",
         "b",
-        "c",
-        "d"
+        "c"
       ],
       "answer_text": [
         "IEEE 802.15.4 (Zigbee / 6LoWPAN)",
         "Bluetooth Low Energy (BLE)",
-        "Wi-Fi (IEEE 802.11)",
-        "Ethernet (IEEE 802.3)"
+        "Wi-Fi (IEEE 802.11)"
       ],
       "raw_stem": "Which wireless communication radios are commonly integrated into embedded IoT motes to provide local network connectivity? \\hfill \\mbox{\\textit{[MSQ, 1 Point]}}",
       "raw_options": {
@@ -4921,7 +4919,7 @@
         "c": "Wi-Fi (IEEE 802.11)",
         "d": "Ethernet (IEEE 802.3)"
       },
-      "raw_answer": "(a), (b), (c), (d)"
+      "raw_answer": "(a), (b), (c)"
     },
     {
       "id": "ch05_q21",
@@ -6394,13 +6392,11 @@
       "correct_answers": [
         "a",
         "b",
-        "c",
         "d"
       ],
       "answer_text": [
         "GET",
         "PUT",
-        "PUSH",
         "DELETE"
       ],
       "raw_stem": "Which of the following HTTP-analogous methods are utilized in CoAP for interacting with resources? \\hfill \\mbox{\\textit{[MSQ, 1 Point]}}",
@@ -6410,7 +6406,7 @@
         "c": "PUSH",
         "d": "DELETE"
       },
-      "raw_answer": "(a), (b), (c), (d)"
+      "raw_answer": "(a), (b), (d)"
     },
     {
       "id": "ch07_q11",
@@ -30307,14 +30303,12 @@
       "correct_answers": [
         "a",
         "b",
-        "c",
-        "d"
+        "c"
       ],
       "answer_text": [
         "Lack of a global real-time network view because routing decisions are made independently at individual Layer 3 switches",
         "Slow adaptation and complex convergence when network events or link failures occur",
-        "Vendor-specific, proprietary hardware architectures that complicate dynamic network configuration",
-        "Switches requiring excessive computing hardware and memory (often exceeding 10~GB of RAM) to run complex local control stacks"
+        "Vendor-specific, proprietary hardware architectures that complicate dynamic network configuration"
       ],
       "raw_stem": "What fundamental limitations of traditional distributed IP networks motivated the creation of SDN? \\hfill \\mbox{\\textit{[MSQ, 1 Point]}}",
       "raw_options": {
@@ -30323,7 +30317,7 @@
         "c": "Vendor-specific, proprietary hardware architectures that complicate dynamic network configuration",
         "d": "Switches requiring excessive computing hardware and memory (often exceeding 10~GB of RAM) to run complex local control stacks"
       },
-      "raw_answer": "(a), (b), (c), (d)"
+      "raw_answer": "(a), (b), (c)"
     },
     {
       "id": "ch33_q03",
