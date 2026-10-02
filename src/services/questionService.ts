@@ -1,0 +1,201 @@
+import type {
+  Question,
+  Chapter,
+  QuestionBankData,
+  QuestionBankMetadata,
+  QuestionType,
+} from "@/types";
+import rawData from "@/assets/questions_data.json";
+
+// In-memory singletons and indexed lookups for zero latency
+let cachedData: QuestionBankData | null = null;
+let questionMap: Map<string, Question> | null = null;
+let chapterQuestionsMap: Map<number, Question[]> | null = null;
+
+export function initializeQuestionBank(): QuestionBankData {
+  if (cachedData && questionMap && chapterQuestionsMap) {
+    return cachedData;
+  }
+
+  const typedData = rawData as unknown as QuestionBankData;
+  cachedData = typedData;
+
+  // Build O(1) lookup map
+  questionMap = new Map<string, Question>();
+  chapterQuestionsMap = new Map<number, Question[]>();
+
+  for (const q of typedData.questions) {
+    questionMap.set(q.id, q);
+
+    const list = chapterQuestionsMap.get(q.chapter_number) || [];
+    list.push(q);
+    chapterQuestionsMap.set(q.chapter_number, list);
+  }
+
+  return cachedData;
+}
+
+// Ensure initialized on module load
+initializeQuestionBank();
+
+export function getMetadata(): QuestionBankMetadata {
+  return cachedData!.metadata;
+}
+
+export function getAllChapters(): Chapter[] {
+  return cachedData!.chapters;
+}
+
+export function getChapter(chapterNumber: number): Chapter | undefined {
+  return cachedData!.chapters.find((c) => c.chapter_number === chapterNumber);
+}
+
+export function getQuestionById(id: string): Question | undefined {
+  return questionMap?.get(id);
+}
+
+export function getQuestionsForChapter(chapterNumber: number): Question[] {
+  return chapterQuestionsMap?.get(chapterNumber) || [];
+}
+
+export function getAllQuestions(): Question[] {
+  return cachedData!.questions;
+}
+
+export function getQuestionsByType(type: QuestionType): Question[] {
+  return cachedData!.questions.filter((q) => q.type === type);
+}
+
+/**
+ * Shuffles the options of a question in random positions and re-indexes
+ * their labels (a, b, c, d...), updating correct_answers to match.
+ */
+export function shuffleQuestionOptions(question: Question): Question {
+  if (question.type === "True / False" || question.options.length <= 1) {
+    return { ...question };
+  }
+
+  // Identify correct answer texts from original question
+  const correctTexts = new Set(
+    question.options
+      .filter((opt) => question.correct_answers.includes(opt.label))
+      .map((opt) => opt.text)
+  );
+
+  const shuffledOptions = shuffleArray(question.options);
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+  const newOptions = shuffledOptions.map((opt, index) => ({
+    label: alphabet[index] || opt.label,
+    text: opt.text,
+  }));
+
+  const newCorrectAnswers: string[] = [];
+  const newAnswerText: string[] = [];
+
+  newOptions.forEach((opt) => {
+    if (correctTexts.has(opt.text)) {
+      newCorrectAnswers.push(opt.label);
+      newAnswerText.push(opt.text);
+    }
+  });
+
+  return {
+    ...question,
+    options: newOptions,
+    correct_answers: newCorrectAnswers,
+    answer_text: newAnswerText,
+  };
+}
+
+/**
+ * Fisher-Yates array shuffle helper
+ */
+export function shuffleArray<T>(items: T[]): T[] {
+  const array = [...items];
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+/**
+ * Generates a balanced 100-question full syllabus mock exam.
+ * Takes questions across all 60 chapters to ensure wide course coverage,
+ * then fills remainder with randomly selected questions from across the syllabus.
+ * Options within each question are also placed in random positions.
+ */
+export function generateFullMockQuestions(totalCount = 100): Question[] {
+  if (!chapterQuestionsMap || !cachedData) {
+    initializeQuestionBank();
+  }
+
+  const chapters = cachedData!.chapters;
+  const pickedQuestions: Question[] = [];
+  const pickedIds = new Set<string>();
+
+  // 1. Pick at least 1 random question from each chapter (guarantees all 60 chapters are covered)
+  for (const ch of chapters) {
+    const chQuestions = chapterQuestionsMap!.get(ch.chapter_number) || [];
+    if (chQuestions.length > 0) {
+      const randomIndex = Math.floor(Math.random() * chQuestions.length);
+      const chosen = chQuestions[randomIndex];
+      pickedQuestions.push(chosen);
+      pickedIds.add(chosen.id);
+    }
+  }
+
+  // 2. Pick additional questions evenly to reach totalCount
+  const remainingPool = cachedData!.questions.filter((q) => !pickedIds.has(q.id));
+  const shuffledRemaining = shuffleArray(remainingPool);
+
+  const needed = totalCount - pickedQuestions.length;
+  for (let i = 0; i < needed && i < shuffledRemaining.length; i++) {
+    pickedQuestions.push(shuffledRemaining[i]);
+  }
+
+  // 3. Shuffle final 100 questions so chapter order is thoroughly mixed,
+  // and randomize option positions for each question
+  return shuffleArray(pickedQuestions).map(shuffleQuestionOptions);
+}
+
+/**
+ * Generates questions for a specific chapter with randomized option positions
+ */
+export function generateChapterQuestions(
+  chapterNumber: number,
+  randomize = false,
+  limit?: number
+): Question[] {
+  const questions = getQuestionsForChapter(chapterNumber);
+  const list = randomize ? shuffleArray(questions) : [...questions];
+  const sliced = limit ? list.slice(0, limit) : list;
+  return sliced.map(shuffleQuestionOptions);
+}
+
+/**
+ * Generates custom practice questions with randomized option positions
+ */
+export function generateCustomQuestions(options: {
+  types?: QuestionType[];
+  chapterNumbers?: number[];
+  count?: number;
+  randomize?: boolean;
+}): Question[] {
+  let pool = cachedData!.questions;
+
+  if (options.types && options.types.length > 0) {
+    const typeSet = new Set(options.types);
+    pool = pool.filter((q) => typeSet.has(q.type));
+  }
+
+  if (options.chapterNumbers && options.chapterNumbers.length > 0) {
+    const chSet = new Set(options.chapterNumbers);
+    pool = pool.filter((q) => chSet.has(q.chapter_number));
+  }
+
+  const list = options.randomize !== false ? shuffleArray(pool) : [...pool];
+  const sliced = options.count ? list.slice(0, options.count) : list;
+  return sliced.map(shuffleQuestionOptions);
+}
