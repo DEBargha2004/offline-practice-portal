@@ -61,5 +61,22 @@ export default defineConfig({
       "@": path.resolve(import.meta.dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (
+            id.includes("chapter_wise_questions_data.json") ||
+            id.includes("week_wise_questions_data.json")
+          ) {
+            return "question-bank";
+          }
+          if (id.includes("node_modules")) {
+            return "vendor";
+          }
+        },
+      },
+    },
+  },
 });
 

@@ -158,6 +158,7 @@ export function History() {
           [
             { key: "all", label: "All Tests" },
             { key: "full_mock", label: "Full Exam (100 Qs)" },
+            { key: "week", label: "Weekly Assignments" },
             { key: "chapter", label: "Chapter Tests" },
             { key: "custom", label: "Drills & Custom" },
           ] as const
@@ -212,6 +213,8 @@ export function History() {
                       >
                         {attempt.mode === "full_mock"
                           ? "Full Syllabus Exam"
+                          : attempt.mode === "week"
+                          ? (attempt.weekTitle || `Week ${attempt.weekNumber || ""}`)
                           : attempt.mode === "chapter"
                           ? `Chapter ${attempt.chapterNumber}`
                           : "Quick Drill"}

@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import {
   getMetadata,
+  getWeekMetadata,
   generateFullMockQuestions,
   generateCustomQuestions,
 } from "@/services/questionService";
@@ -44,12 +45,14 @@ import {
   Play,
   Bookmark,
   SlidersHorizontal,
+  CalendarCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function Dashboard() {
   const navigate = useNavigate();
   const metadata = getMetadata();
+  const weekMetadata = getWeekMetadata();
 
   const [activeSession, setActiveSession] = useState<TestSession | null>(null);
   const [discardModalOpen, setDiscardModalOpen] = useState(false);
@@ -366,10 +369,11 @@ export function Dashboard() {
             </span>
             <div className="flex items-baseline gap-2 pt-1">
               <span className="text-2xl font-bold tracking-tight text-foreground">
-                {metadata.total_questions}
+                {(metadata?.total_questions || 0) +
+                  (weekMetadata?.total_questions || 0)}
               </span>
               <span className="text-xs text-muted-foreground">
-                in 60 chapters
+                60 Ch + 11 Weeks
               </span>
             </div>
           </CardContent>
@@ -432,6 +436,40 @@ export function Dashboard() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
+          {/* Weekly Assignments Card */}
+          <Card className="flex flex-col justify-between hover:ring-foreground/20 transition-all shadow-2xs group h-full">
+            <CardHeader className="space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="flex size-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                  <CalendarCheck className="size-5" />
+                </div>
+                <Badge variant="outline">11 Weeks</Badge>
+              </div>
+              <CardTitle className="text-lg font-bold">
+                Weekly Assignments
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="flex-1 space-y-3">
+              <CardDescription className="text-sm leading-relaxed">
+                Practice official NPTEL assignment questions week-by-week with
+                untimed practice or timed mode.
+              </CardDescription>
+              <p className="text-xs text-muted-foreground pt-1">
+                165 total questions across 11 weeks
+              </p>
+            </CardContent>
+            <CardFooter>
+              <Button
+                variant="outline"
+                className="w-full justify-between"
+                onClick={() => navigate("/assignments")}
+              >
+                <span>Browse Assignments</span>
+                <ArrowRight className="size-4" />
+              </Button>
+            </CardFooter>
+          </Card>
+
           {/* Chapter-Wise Card */}
           <Card className="flex flex-col justify-between hover:ring-foreground/20 transition-all shadow-2xs group h-full">
             <CardHeader className="space-y-3">

@@ -43,13 +43,14 @@ export interface QuestionBankData {
   questions: Question[];
 }
 
-export type TestModeType = "full_mock" | "chapter" | "custom";
+export type TestModeType = "full_mock" | "chapter" | "week" | "custom";
 
 export interface TestSession {
   id: string;
   title: string;
   mode: TestModeType;
   chapterNumber?: number;
+  weekNumber?: number;
   startedAt: number;
   timeLimitSeconds: number | null; // null if untimed
   elapsedSeconds: number;
@@ -77,6 +78,8 @@ export interface TestAttemptResult {
   mode: TestModeType;
   chapterNumber?: number;
   chapterTitle?: string;
+  weekNumber?: number;
+  weekTitle?: string;
   startedAt: number;
   completedAt: number;
   timeSpentSeconds: number;

@@ -5,31 +5,47 @@ import type {
   QuestionBankMetadata,
   QuestionType,
 } from "@/types";
-import rawData from "@/assets/questions_data.json";
+import rawData from "@/assets/chapter_wise_questions_data.json";
+import weekRawData from "@/assets/week_wise_questions_data.json";
 
 // In-memory singletons and indexed lookups for zero latency
 let cachedData: QuestionBankData | null = null;
+let cachedWeekData: QuestionBankData | null = null;
 let questionMap: Map<string, Question> | null = null;
 let chapterQuestionsMap: Map<number, Question[]> | null = null;
+let weekQuestionsMap: Map<number, Question[]> | null = null;
 
 export function initializeQuestionBank(): QuestionBankData {
-  if (cachedData && questionMap && chapterQuestionsMap) {
+  if (cachedData && cachedWeekData && questionMap && chapterQuestionsMap && weekQuestionsMap) {
     return cachedData;
   }
 
   const typedData = rawData as unknown as QuestionBankData;
+  const typedWeekData = weekRawData as unknown as QuestionBankData;
   cachedData = typedData;
+  cachedWeekData = typedWeekData;
 
-  // Build O(1) lookup map
+  // Build O(1) lookup map for ALL questions (chapter + week)
   questionMap = new Map<string, Question>();
   chapterQuestionsMap = new Map<number, Question[]>();
+  weekQuestionsMap = new Map<number, Question[]>();
 
+  // Index 60 chapter questions
   for (const q of typedData.questions) {
     questionMap.set(q.id, q);
 
     const list = chapterQuestionsMap.get(q.chapter_number) || [];
     list.push(q);
     chapterQuestionsMap.set(q.chapter_number, list);
+  }
+
+  // Index 11 week questions
+  for (const q of typedWeekData.questions) {
+    questionMap.set(q.id, q);
+
+    const list = weekQuestionsMap.get(q.chapter_number) || [];
+    list.push(q);
+    weekQuestionsMap.set(q.chapter_number, list);
   }
 
   return cachedData;
@@ -42,12 +58,24 @@ export function getMetadata(): QuestionBankMetadata {
   return cachedData!.metadata;
 }
 
+export function getWeekMetadata(): QuestionBankMetadata {
+  return cachedWeekData!.metadata;
+}
+
 export function getAllChapters(): Chapter[] {
   return cachedData!.chapters;
 }
 
 export function getChapter(chapterNumber: number): Chapter | undefined {
   return cachedData!.chapters.find((c) => c.chapter_number === chapterNumber);
+}
+
+export function getAllWeeks(): Chapter[] {
+  return cachedWeekData!.chapters;
+}
+
+export function getWeek(weekNumber: number): Chapter | undefined {
+  return cachedWeekData!.chapters.find((c) => c.chapter_number === weekNumber);
 }
 
 export function getQuestionById(id: string): Question | undefined {
@@ -58,8 +86,16 @@ export function getQuestionsForChapter(chapterNumber: number): Question[] {
   return chapterQuestionsMap?.get(chapterNumber) || [];
 }
 
+export function getQuestionsForWeek(weekNumber: number): Question[] {
+  return weekQuestionsMap?.get(weekNumber) || [];
+}
+
 export function getAllQuestions(): Question[] {
   return cachedData!.questions;
+}
+
+export function getAllWeekQuestions(): Question[] {
+  return cachedWeekData!.questions;
 }
 
 export function getQuestionsByType(type: QuestionType): Question[] {
@@ -79,7 +115,7 @@ export function shuffleQuestionOptions(question: Question): Question {
   const correctTexts = new Set(
     question.options
       .filter((opt) => question.correct_answers.includes(opt.label))
-      .map((opt) => opt.text)
+      .map((opt) => opt.text),
   );
 
   const shuffledOptions = shuffleArray(question.options);
@@ -147,7 +183,9 @@ export function generateFullMockQuestions(totalCount = 100): Question[] {
   }
 
   // 2. Pick additional questions evenly to reach totalCount
-  const remainingPool = cachedData!.questions.filter((q) => !pickedIds.has(q.id));
+  const remainingPool = cachedData!.questions.filter(
+    (q) => !pickedIds.has(q.id),
+  );
   const shuffledRemaining = shuffleArray(remainingPool);
 
   const needed = totalCount - pickedQuestions.length;
@@ -166,9 +204,23 @@ export function generateFullMockQuestions(totalCount = 100): Question[] {
 export function generateChapterQuestions(
   chapterNumber: number,
   randomize = true,
-  limit?: number
+  limit?: number,
 ): Question[] {
   const questions = getQuestionsForChapter(chapterNumber);
+  const list = randomize ? shuffleArray(questions) : [...questions];
+  const sliced = limit ? list.slice(0, limit) : list;
+  return sliced.map(shuffleQuestionOptions);
+}
+
+/**
+ * Generates questions for a specific week assignment with randomized option positions
+ */
+export function generateWeekQuestions(
+  weekNumber: number,
+  randomize = true,
+  limit?: number,
+): Question[] {
+  const questions = getQuestionsForWeek(weekNumber);
   const list = randomize ? shuffleArray(questions) : [...questions];
   const sliced = limit ? list.slice(0, limit) : list;
   return sliced.map(shuffleQuestionOptions);

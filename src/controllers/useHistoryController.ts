@@ -81,6 +81,7 @@ export function useHistoryController() {
       title: `${attempt.title} (Retake)`,
       mode: attempt.mode,
       chapterNumber: attempt.chapterNumber,
+      weekNumber: attempt.weekNumber,
       startedAt: Date.now(),
       timeLimitSeconds: attempt.timeLimitSeconds,
       elapsedSeconds: 0,

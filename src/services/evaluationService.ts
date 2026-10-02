@@ -112,6 +112,8 @@ export function gradeTestSession(
     mode: session.mode,
     chapterNumber: session.chapterNumber,
     chapterTitle: chapterTitle,
+    weekNumber: session.weekNumber,
+    weekTitle: session.mode === "week" ? (chapterTitle || session.title) : undefined,
     startedAt: session.startedAt,
     completedAt: Date.now(),
     timeSpentSeconds: session.elapsedSeconds,
