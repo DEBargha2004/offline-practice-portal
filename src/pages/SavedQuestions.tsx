@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Question, TestSession } from "@/types";
 import { getBookmarks, toggleBookmark, saveActiveSession } from "@/services/storageService";
-import { getQuestionById, shuffleQuestionOptions } from "@/services/questionService";
+import { getQuestionById, shuffleArray, shuffleQuestionOptions } from "@/services/questionService";
 import { QuestionCard } from "@/components/question/QuestionCard";
 import { Button } from "@/components/ui/button";
 import { Bookmark, Play } from "lucide-react";
@@ -33,7 +33,7 @@ export function SavedQuestions() {
   const handleStartPracticeWithSaved = () => {
     if (questions.length === 0) return;
 
-    const shuffledQuestions = questions.map(shuffleQuestionOptions);
+    const shuffledQuestions = shuffleArray(questions).map(shuffleQuestionOptions);
 
     const newSession: TestSession = {
       id: `session_saved_${Date.now()}`,

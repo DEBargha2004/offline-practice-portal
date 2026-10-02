@@ -165,7 +165,7 @@ export function generateFullMockQuestions(totalCount = 100): Question[] {
  */
 export function generateChapterQuestions(
   chapterNumber: number,
-  randomize = false,
+  randomize = true,
   limit?: number
 ): Question[] {
   const questions = getQuestionsForChapter(chapterNumber);

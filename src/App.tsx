@@ -4,6 +4,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { Dashboard } from "@/pages/Dashboard";
 import { ChapterCatalog } from "@/pages/ChapterCatalog";
 import { TestSession } from "@/pages/TestSession";
@@ -15,6 +16,7 @@ export function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <SidebarProvider defaultOpen={false} className="flex flex-col min-h-screen">
           <AppSidebar />
           <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-primary/20 w-full">

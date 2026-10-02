@@ -44,7 +44,7 @@ export function useChapterCatalogController() {
   }, [chapters, searchQuery]);
 
   const handleStartChapterTest = (chapter: Chapter, timed: boolean) => {
-    const questions = generateChapterQuestions(chapter.chapter_number);
+    const questions = generateChapterQuestions(chapter.chapter_number, true);
     if (questions.length === 0) return;
 
     // Allocate ~1.5 minutes per question for chapter test if timed

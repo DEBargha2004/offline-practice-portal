@@ -7,7 +7,7 @@ import {
   toggleBookmark,
   isBookmarked,
 } from "@/services/storageService";
-import { shuffleQuestionOptions } from "@/services/questionService";
+import { shuffleArray, shuffleQuestionOptions } from "@/services/questionService";
 
 export type ReviewFilterType = "all" | "incorrect" | "correct" | "skipped";
 
@@ -56,9 +56,9 @@ export function useTestResultsController() {
   const handleRetakeTest = () => {
     if (!attempt) return;
 
-    const reShuffledQuestions = attempt.reviewItems.map((item) =>
-      shuffleQuestionOptions(item.question)
-    );
+    const reShuffledQuestions = shuffleArray(
+      attempt.reviewItems.map((item) => item.question)
+    ).map(shuffleQuestionOptions);
 
     const newSession: TestSession = {
       id: `session_retake_${Date.now()}`,

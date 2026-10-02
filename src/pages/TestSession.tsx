@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTestSessionController } from "@/controllers/useTestSessionController";
 import { QuestionCard } from "@/components/question/QuestionCard";
@@ -51,6 +51,11 @@ export function TestSession() {
     handlePreviousQuestion,
     handleSubmitTest,
   } = useTestSessionController();
+
+  // Scroll to top of question whenever question index changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [currentIndex]);
 
   if (!session || !currentQuestion) {
     return (

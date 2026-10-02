@@ -7,7 +7,7 @@ import {
   clearAllAttempts,
   saveActiveSession,
 } from "@/services/storageService";
-import { shuffleQuestionOptions } from "@/services/questionService";
+import { shuffleArray, shuffleQuestionOptions } from "@/services/questionService";
 
 export function useHistoryController() {
   const navigate = useNavigate();
@@ -72,9 +72,9 @@ export function useHistoryController() {
 
   const handleRetake = (attempt: TestAttemptResult, e: React.MouseEvent) => {
     e.stopPropagation();
-    const reShuffledQuestions = attempt.reviewItems.map((item) =>
-      shuffleQuestionOptions(item.question)
-    );
+    const reShuffledQuestions = shuffleArray(
+      attempt.reviewItems.map((item) => item.question)
+    ).map(shuffleQuestionOptions);
 
     const newSession: TestSession = {
       id: `session_retake_${Date.now()}`,
