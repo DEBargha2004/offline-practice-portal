@@ -98,6 +98,7 @@ export function getAllWeekQuestions(): Question[] {
   return cachedWeekData!.questions;
 }
 
+<<<<<<< HEAD
 export function getAllQuestionsCombined(): Question[] {
   if (!cachedData || !cachedWeekData) {
     initializeQuestionBank();
@@ -108,6 +109,8 @@ export function getAllQuestionsCombined(): Question[] {
   ];
 }
 
+=======
+>>>>>>> 7e1048a517a4033a90506750ef7f4306596237f0
 export function getQuestionsByType(type: QuestionType): Question[] {
   return getAllQuestionsCombined().filter((q) => q.type === type);
 }
@@ -237,9 +240,13 @@ export function generateWeekQuestions(
 }
 
 /**
+<<<<<<< HEAD
  * Generates custom practice questions with randomized option positions.
  * Combines both chapter questions and weekly assignment questions when targeting
  * question types (drills), or targets specified chapters (from cachedData).
+=======
+ * Generates custom practice questions with randomized option positions
+>>>>>>> 7e1048a517a4033a90506750ef7f4306596237f0
  */
 export function generateCustomQuestions(options: {
   types?: QuestionType[];

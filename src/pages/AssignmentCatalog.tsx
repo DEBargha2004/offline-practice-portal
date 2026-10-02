@@ -3,7 +3,10 @@ import { AssignmentCard } from "@/components/assignment/AssignmentCard";
 import { Search, CalendarCheck, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+<<<<<<< HEAD
 import { Progress } from "@/components/ui/progress";
+=======
+>>>>>>> 7e1048a517a4033a90506750ef7f4306596237f0
 
 export function AssignmentCatalog() {
   const {
@@ -15,21 +18,37 @@ export function AssignmentCatalog() {
     handleStartWeekTest,
   } = useAssignmentCatalogController();
 
+<<<<<<< HEAD
   // Calculate overall completed count and percentage
   const attemptedCount = Object.keys(weekStats).length;
   const progressPercent =
     totalWeeks > 0 ? Math.round((attemptedCount / totalWeeks) * 100) : 0;
+=======
+  // Calculate overall completed count
+  const attemptedCount = Object.keys(weekStats).length;
+>>>>>>> 7e1048a517a4033a90506750ef7f4306596237f0
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-6">
       {/* Header & Search */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-border/60 pb-6">
         <div>
+<<<<<<< HEAD
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
             Weekly Assignments
           </h1>
           <p className="text-sm text-muted-foreground mt-1">
             Practice official NPTEL weekly assignments week by week.
+=======
+          <div className="flex items-center gap-2 mb-1">
+            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+              Weekly Assignments
+            </h1>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Practice all {totalWeeks} weekly assignments topic-by-topic (
+            {totalWeeks * 15} questions, 15 per week).
+>>>>>>> 7e1048a517a4033a90506750ef7f4306596237f0
           </p>
         </div>
 
@@ -60,6 +79,7 @@ export function AssignmentCatalog() {
         </div>
       </div>
 
+<<<<<<< HEAD
       {/* Progress Bar Section */}
       <div className="rounded-xl border border-border/60 bg-card p-3.5 sm:px-4 space-y-2 shadow-2xs">
         <div className="flex items-center justify-between text-xs">
@@ -78,6 +98,23 @@ export function AssignmentCatalog() {
           </span>
         </div>
         <Progress value={progressPercent} className="h-1.5 bg-muted/80" />
+=======
+      {/* Progress pill if any attempted */}
+      <div className="flex items-center justify-between text-xs text-muted-foreground bg-muted/40 rounded-xl px-4 py-2.5 border border-border/60">
+        <div className="flex items-center gap-2">
+          <CalendarCheck className="size-4 text-primary" />
+          <span>
+            Progress:{" "}
+            <strong className="text-foreground">
+              {attemptedCount} of {totalWeeks}
+            </strong>{" "}
+            assignments attempted
+          </span>
+        </div>
+        <span className="font-medium text-muted-foreground">
+          15 Questions / Week &bull; 1.5 min per Q (timed) or Untimed
+        </span>
+>>>>>>> 7e1048a517a4033a90506750ef7f4306596237f0
       </div>
 
       {/* Weeks Grid */}
