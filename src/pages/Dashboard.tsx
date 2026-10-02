@@ -47,7 +47,7 @@ import {
   SlidersHorizontal,
   CalendarCheck,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, formatScore } from "@/lib/utils";
 
 export function Dashboard() {
   const navigate = useNavigate();
@@ -675,7 +675,7 @@ export function Dashboard() {
                 <CardContent className="space-y-2 pt-0">
                   <div className="text-xs text-muted-foreground flex items-center gap-2">
                     <span>
-                      Score: {attempt.score} / {attempt.maxScore}
+                      Score: {formatScore(attempt.score)} / {formatScore(attempt.maxScore)}
                     </span>
                     <span>&bull;</span>
                     <span>{Math.round(attempt.timeSpentSeconds / 60)} min</span>

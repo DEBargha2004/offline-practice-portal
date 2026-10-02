@@ -13,7 +13,7 @@ import {
   ArrowLeft,
   BookOpen,
 } from "lucide-react";
-import { cn } from "cn";
+import { cn, formatScore } from "@/lib/utils";
 
 export function TestResults() {
   const navigate = useNavigate();
@@ -136,7 +136,7 @@ export function TestResults() {
                   {attempt.percentage}%
                 </span>
                 <span className="text-[11px] sm:text-xs font-semibold text-muted-foreground mt-0.5">
-                  {attempt.score} / {attempt.maxScore} Pts
+                  {formatScore(attempt.score)} / {formatScore(attempt.maxScore)} Pts
                 </span>
               </div>
             </div>

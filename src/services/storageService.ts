@@ -1,4 +1,17 @@
 import type { TestSession, TestAttemptResult } from "@/types";
+import { rounded } from "@/lib/utils";
+
+function sanitizeAttempt(attempt: TestAttemptResult): TestAttemptResult {
+  return {
+    ...attempt,
+    score: rounded(attempt.score, 1),
+    maxScore: rounded(attempt.maxScore, 1),
+    reviewItems: attempt.reviewItems?.map((item) => ({
+      ...item,
+      earnedPoints: rounded(item.earnedPoints, 1),
+    })),
+  };
+}
 
 const DB_NAME = "iot_test_portal_db";
 const DB_VERSION = 1;
@@ -86,19 +99,20 @@ function saveLocalStorageAttempts(attempts: TestAttemptResult[]): void {
 }
 
 export async function saveAttempt(attempt: TestAttemptResult): Promise<void> {
+  const sanitized = sanitizeAttempt(attempt);
   try {
     const db = await openDatabase();
     await new Promise<void>((resolve, reject) => {
       const tx = db.transaction(STORE_ATTEMPTS, "readwrite");
       const store = tx.objectStore(STORE_ATTEMPTS);
-      const req = store.put(attempt);
+      const req = store.put(sanitized);
       req.onsuccess = () => resolve();
       req.onerror = () => reject(req.error);
     });
   } catch (idbError) {
     console.warn("IndexedDB save failed, falling back to localStorage", idbError);
-    const list = getLocalStorageAttempts().filter((a) => a.id !== attempt.id);
-    list.unshift(attempt);
+    const list = getLocalStorageAttempts().filter((a) => a.id !== sanitized.id);
+    list.unshift(sanitized);
     saveLocalStorageAttempts(list);
   }
 }
@@ -111,7 +125,7 @@ export async function getAllAttempts(): Promise<TestAttemptResult[]> {
       const store = tx.objectStore(STORE_ATTEMPTS);
       const req = store.getAll();
       req.onsuccess = () => {
-        const results = req.result as TestAttemptResult[];
+        const results = (req.result as TestAttemptResult[]).map(sanitizeAttempt);
         // Sort descending by completion date (most recent first)
         results.sort((a, b) => b.completedAt - a.completedAt);
         resolve(results);
@@ -120,7 +134,7 @@ export async function getAllAttempts(): Promise<TestAttemptResult[]> {
     });
   } catch (idbError) {
     console.warn("IndexedDB read failed, falling back to localStorage", idbError);
-    const list = getLocalStorageAttempts();
+    const list = getLocalStorageAttempts().map(sanitizeAttempt);
     list.sort((a, b) => b.completedAt - a.completedAt);
     return list;
   }
@@ -133,12 +147,16 @@ export async function getAttemptById(id: string): Promise<TestAttemptResult | nu
       const tx = db.transaction(STORE_ATTEMPTS, "readonly");
       const store = tx.objectStore(STORE_ATTEMPTS);
       const req = store.get(id);
-      req.onsuccess = () => resolve((req.result as TestAttemptResult) || null);
+      req.onsuccess = () => {
+        const result = req.result as TestAttemptResult | undefined;
+        resolve(result ? sanitizeAttempt(result) : null);
+      };
       req.onerror = () => reject(req.error);
     });
   } catch {
     const list = getLocalStorageAttempts();
-    return list.find((a) => a.id === id) || null;
+    const item = list.find((a) => a.id === id);
+    return item ? sanitizeAttempt(item) : null;
   }
 }
 

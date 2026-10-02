@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Bookmark, Check, X, HelpCircle, Code2 } from "lucide-react";
-import { cn } from "cn";
+import { cn, formatScore } from "@/lib/utils";
 
 interface QuestionCardProps {
   question: Question;
@@ -94,12 +94,12 @@ export function QuestionCard({
                 {isCorrect && (
                   <Badge className="bg-emerald-600 text-white gap-1 hover:bg-emerald-600">
                     <Check className="size-3" />
-                    <span>Correct (+{earnedPoints ?? question.points})</span>
+                    <span>Correct (+{formatScore(earnedPoints ?? question.points)})</span>
                   </Badge>
                 )}
                 {isPartiallyCorrect && (
                   <Badge className="bg-amber-500 text-white gap-1 hover:bg-amber-500">
-                    <span>Partially Correct (+{earnedPoints})</span>
+                    <span>Partially Correct (+{formatScore(earnedPoints)})</span>
                   </Badge>
                 )}
                 {!isCorrect && !isPartiallyCorrect && !isSkipped && (

@@ -1,4 +1,5 @@
 import type { Question, QuestionReviewItem, TestAttemptResult, TestSession } from "@/types";
+import { rounded } from "@/lib/utils";
 
 /**
  * Compares user selected answer labels with question's correct answer labels
@@ -34,7 +35,7 @@ export function evaluateQuestionAnswer(
       isCorrect: true,
       isSkipped: false,
       isPartiallyCorrect: false,
-      earnedPoints: question.points || 1,
+      earnedPoints: rounded(question.points || 1, 1),
     };
   }
 
@@ -50,7 +51,7 @@ export function evaluateQuestionAnswer(
         isCorrect: false,
         isSkipped: false,
         isPartiallyCorrect: true,
-        earnedPoints: Math.round(partialRatio * (question.points || 1) * 10) / 10,
+        earnedPoints: rounded(partialRatio * (question.points || 1), 1),
       };
     }
   }
@@ -103,7 +104,9 @@ export function gradeTestSession(
     });
   }
 
-  const percentage = maxPossibleScore > 0 ? Math.round((totalScore / maxPossibleScore) * 100) : 0;
+  const finalScore = rounded(totalScore, 1);
+  const finalMaxScore = rounded(maxPossibleScore, 1);
+  const percentage = finalMaxScore > 0 ? Math.round((finalScore / finalMaxScore) * 100) : 0;
 
   return {
     id: `attempt_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
@@ -122,8 +125,8 @@ export function gradeTestSession(
     correctCount,
     incorrectCount,
     unansweredCount,
-    score: totalScore,
-    maxScore: maxPossibleScore,
+    score: finalScore,
+    maxScore: finalMaxScore,
     percentage,
     reviewItems,
   };
