@@ -98,8 +98,18 @@ export function getAllWeekQuestions(): Question[] {
   return cachedWeekData!.questions;
 }
 
+export function getAllQuestionsCombined(): Question[] {
+  if (!cachedData || !cachedWeekData) {
+    initializeQuestionBank();
+  }
+  return [
+    ...(cachedData?.questions || []),
+    ...(cachedWeekData?.questions || []),
+  ];
+}
+
 export function getQuestionsByType(type: QuestionType): Question[] {
-  return cachedData!.questions.filter((q) => q.type === type);
+  return getAllQuestionsCombined().filter((q) => q.type === type);
 }
 
 /**
@@ -227,24 +237,38 @@ export function generateWeekQuestions(
 }
 
 /**
- * Generates custom practice questions with randomized option positions
+ * Generates custom practice questions with randomized option positions.
+ * Combines both chapter questions and weekly assignment questions when targeting
+ * question types (drills), or targets specified chapters (from cachedData).
  */
 export function generateCustomQuestions(options: {
   types?: QuestionType[];
   chapterNumbers?: number[];
+  weekNumbers?: number[];
   count?: number;
   randomize?: boolean;
 }): Question[] {
-  let pool = cachedData!.questions;
+  if (!cachedData || !cachedWeekData) {
+    initializeQuestionBank();
+  }
+
+  let pool: Question[];
+
+  if (options.chapterNumbers && options.chapterNumbers.length > 0) {
+    const chSet = new Set(options.chapterNumbers);
+    pool = cachedData!.questions.filter((q) => chSet.has(q.chapter_number));
+  } else if (options.weekNumbers && options.weekNumbers.length > 0) {
+    const wkSet = new Set(options.weekNumbers);
+    pool = cachedWeekData!.questions.filter((q) => wkSet.has(q.chapter_number));
+  } else {
+    // When no specific chapters or weeks are requested (e.g. question type drills, mixed drills),
+    // combine both chapter questions and weekly assignment questions
+    pool = getAllQuestionsCombined();
+  }
 
   if (options.types && options.types.length > 0) {
     const typeSet = new Set(options.types);
     pool = pool.filter((q) => typeSet.has(q.type));
-  }
-
-  if (options.chapterNumbers && options.chapterNumbers.length > 0) {
-    const chSet = new Set(options.chapterNumbers);
-    pool = pool.filter((q) => chSet.has(q.chapter_number));
   }
 
   const list = options.randomize !== false ? shuffleArray(pool) : [...pool];
