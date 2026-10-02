@@ -1,5 +1,11 @@
 import type { Chapter } from "@/types";
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Award, ArrowRight, Clock, CalendarCheck2 } from "lucide-react";
@@ -18,22 +24,19 @@ export function AssignmentCard({
   attemptsCount = 0,
   onStartPractice,
 }: AssignmentCardProps) {
-  const hasAttempted = bestScorePercentage !== undefined && bestScorePercentage !== null;
+  const hasAttempted =
+    bestScorePercentage !== undefined && bestScorePercentage !== null;
   const isHighScorer = hasAttempted && bestScorePercentage >= 70;
 
   return (
-<<<<<<< HEAD
     <Card className="flex flex-col justify-between hover:ring-foreground/20 transition-all shadow-xs group h-full">
-=======
-    <Card className="flex flex-col justify-between hover:ring-foreground/20 hover:border-primary/40 transition-all shadow-xs group h-full bg-gradient-to-b from-card to-card/95">
->>>>>>> 7e1048a517a4033a90506750ef7f4306596237f0
       <CardHeader className="space-y-2 pb-2">
         <div className="flex items-center justify-between gap-2">
           <Badge
             variant={isHighScorer ? "default" : "outline"}
             className={cn(
               "font-semibold text-xs gap-1.5",
-              isHighScorer && "bg-primary text-primary-foreground"
+              isHighScorer && "bg-primary text-primary-foreground",
             )}
           >
             <CalendarCheck2 className="size-3" />
@@ -51,19 +54,18 @@ export function AssignmentCard({
 
       <CardContent className="py-1">
         {/* Equalized 1-line score / status slot */}
-<<<<<<< HEAD
         <div
           className="flex items-center justify-between text-xs h-7 px-2.5 rounded-lg border border-border/60 bg-muted/30"
-          title={hasAttempted && attemptsCount ? `${attemptsCount} ${attemptsCount === 1 ? "attempt" : "attempts"}` : undefined}
+          title={
+            hasAttempted && attemptsCount
+              ? `${attemptsCount} ${attemptsCount === 1 ? "attempt" : "attempts"}`
+              : undefined
+          }
         >
-=======
-        <div className="flex items-center justify-between text-xs h-7 px-2.5 rounded-lg border border-border/60 bg-muted/30">
->>>>>>> 7e1048a517a4033a90506750ef7f4306596237f0
           {hasAttempted ? (
             <>
               <div className="flex items-center gap-1.5 text-muted-foreground">
                 <Award className="size-3.5 text-amber-500 shrink-0" />
-<<<<<<< HEAD
                 <span>Best Score:</span>
               </div>
               <span
@@ -71,30 +73,11 @@ export function AssignmentCard({
                   "font-bold",
                   bestScorePercentage >= 70
                     ? "text-emerald-600 dark:text-emerald-400"
-                    : "text-foreground"
+                    : "text-foreground",
                 )}
               >
                 {bestScorePercentage}%
               </span>
-=======
-                <span>Best:</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-[11px] text-muted-foreground">
-                  ({attemptsCount} {attemptsCount === 1 ? "try" : "tries"})
-                </span>
-                <span
-                  className={cn(
-                    "font-bold",
-                    bestScorePercentage >= 70
-                      ? "text-emerald-600 dark:text-emerald-400"
-                      : "text-foreground"
-                  )}
-                >
-                  {bestScorePercentage}%
-                </span>
-              </div>
->>>>>>> 7e1048a517a4033a90506750ef7f4306596237f0
             </>
           ) : (
             <>
