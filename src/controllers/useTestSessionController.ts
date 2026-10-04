@@ -36,20 +36,58 @@ export function useTestSessionController() {
     // Use session's shuffled questions if available, or resolve and shuffle
     let resolvedQuestions: Question[] = [];
     if (loadedSession.questions && loadedSession.questions.length > 0) {
-      // Synchronize question answers and stems with latest question bank while preserving shuffled option order
+      // Synchronize question answers and stems with latest question bank while strictly preserving shuffled option order
       resolvedQuestions = loadedSession.questions.map((q) => {
         const fresh = getQuestionById(q.id);
         if (!fresh) return q;
+
+        // Collect correct option IDs from the canonical question
+        const freshCorrectOptionIds = new Set(
+          fresh.options
+            .filter(
+              (fo) =>
+                fresh.correct_answers.includes(fo.label) ||
+                (fo.id && fresh.correct_answers.includes(fo.id)) ||
+                (fresh.answer_text && fresh.answer_text.includes(fo.text))
+            )
+            .map((fo) => fo.id || fo.text)
+        );
+
+        // Keep the exact shuffled option order from `q`, but refresh text/id from fresh bank
+        const updatedOptions = q.options.map((opt) => {
+          const freshOpt = fresh.options.find(
+            (fo) => (fo.id && opt.id ? fo.id === opt.id : fo.text === opt.text)
+          );
+          return freshOpt
+            ? { ...opt, text: freshOpt.text, id: freshOpt.id || opt.id }
+            : opt;
+        });
+
+        // Recompute correct_answers and answer_text based on the shuffled options' current positions
+        const updatedCorrectAnswers: string[] = [];
+        const updatedAnswerText: string[] = [];
+
+        updatedOptions.forEach((opt) => {
+          const key = opt.id || opt.text;
+          if (freshCorrectOptionIds.has(key)) {
+            updatedCorrectAnswers.push(opt.label);
+            updatedAnswerText.push(opt.text);
+          }
+        });
+
         return {
           ...q,
           question: fresh.question,
-          correct_answers: fresh.correct_answers,
-          answer_text: fresh.answer_text,
+          code_snippet: fresh.code_snippet,
+          points: fresh.points,
+          options: updatedOptions,
+          correct_answers:
+            updatedCorrectAnswers.length > 0
+              ? updatedCorrectAnswers
+              : q.correct_answers,
+          answer_text:
+            updatedAnswerText.length > 0 ? updatedAnswerText : q.answer_text,
           raw_answer: fresh.raw_answer,
-          options: q.options.map((opt) => {
-            const freshOpt = fresh.options.find((fo) => fo.label === opt.label);
-            return freshOpt ? { ...opt, text: freshOpt.text } : opt;
-          }),
         };
       });
       loadedSession.questions = resolvedQuestions;

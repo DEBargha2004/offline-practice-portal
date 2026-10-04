@@ -91,19 +91,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Humans will completely stop using the Internet"
+          "text": "Humans will completely stop using the Internet",
+          "id": "wk01_q01_a"
         },
         {
           "label": "b",
-          "text": "Most Internet traffic may flow between devices and different kinds of things"
+          "text": "Most Internet traffic may flow between devices and different kinds of things",
+          "id": "wk01_q01_b"
         },
         {
           "label": "c",
-          "text": "Only desktop computers will remain connected"
+          "text": "Only desktop computers will remain connected",
+          "id": "wk01_q01_c"
         },
         {
           "label": "d",
-          "text": "Internet communication will be restricted to email services"
+          "text": "Internet communication will be restricted to email services",
+          "id": "wk01_q01_d"
         }
       ],
       "correct_answers": [
@@ -134,19 +138,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Efficient and scalable architecture"
+          "text": "Efficient and scalable architecture",
+          "id": "wk01_q02_a"
         },
         {
           "label": "b",
-          "text": "Unambiguous naming and addressing"
+          "text": "Unambiguous naming and addressing",
+          "id": "wk01_q02_b"
         },
         {
           "label": "c",
-          "text": "Presence of sleeping nodes, mobile nodes, and non-IP devices"
+          "text": "Presence of sleeping nodes, mobile nodes, and non-IP devices",
+          "id": "wk01_q02_c"
         },
         {
           "label": "d",
-          "text": "Guaranteed continuous connectivity for every device at all times"
+          "text": "Guaranteed continuous connectivity for every device at all times",
+          "id": "wk01_q02_d"
         }
       ],
       "correct_answers": [
@@ -181,19 +189,23 @@
       "options": [
         {
           "label": "a",
-          "text": "A cloud storage model for IoT data"
+          "text": "A cloud storage model for IoT data",
+          "id": "wk01_q03_a"
         },
         {
           "label": "b",
-          "text": "A large-scale wireless router used in smart cities"
+          "text": "A large-scale wireless router used in smart cities",
+          "id": "wk01_q03_b"
         },
         {
           "label": "c",
-          "text": "Very tiny computing devices that can be sprayed or injected for sensing purposes"
+          "text": "Very tiny computing devices that can be sprayed or injected for sensing purposes",
+          "id": "wk01_q03_c"
         },
         {
           "label": "d",
-          "text": "A type of IPv6 address used in IoT networks"
+          "text": "A type of IPv6 address used in IoT networks",
+          "id": "wk01_q03_d"
         }
       ],
       "correct_answers": [
@@ -224,19 +236,23 @@
       "options": [
         {
           "label": "a",
-          "text": "IoT and M2M are exactly the same"
+          "text": "IoT and M2M are exactly the same",
+          "id": "wk01_q04_a"
         },
         {
           "label": "b",
-          "text": "M2M is broader than IoT because it includes people and applications"
+          "text": "M2M is broader than IoT because it includes people and applications",
+          "id": "wk01_q04_b"
         },
         {
           "label": "c",
-          "text": "M2M is a part of IoT, while IoT has a broader scope of interactions"
+          "text": "M2M is a part of IoT, while IoT has a broader scope of interactions",
+          "id": "wk01_q04_c"
         },
         {
           "label": "d",
-          "text": "IoT does not include machine-to-machine interaction"
+          "text": "IoT does not include machine-to-machine interaction",
+          "id": "wk01_q04_d"
         }
       ],
       "correct_answers": [
@@ -267,11 +283,13 @@
       "options": [
         {
           "label": "a",
-          "text": "True"
+          "text": "True",
+          "id": "wk01_q05_a"
         },
         {
           "label": "b",
-          "text": "False"
+          "text": "False",
+          "id": "wk01_q05_b"
         }
       ],
       "correct_answers": [
@@ -300,19 +318,23 @@
       "options": [
         {
           "label": "a",
-          "text": "It increases unnecessary address consumption"
+          "text": "It increases unnecessary address consumption",
+          "id": "wk01_q06_a"
         },
         {
           "label": "b",
-          "text": "It helps conserve address space"
+          "text": "It helps conserve address space",
+          "id": "wk01_q06_b"
         },
         {
           "label": "c",
-          "text": "It removes the requirement of a gateway"
+          "text": "It removes the requirement of a gateway",
+          "id": "wk01_q06_c"
         },
         {
           "label": "d",
-          "text": "It prevents any device from communicating with the Internet"
+          "text": "It prevents any device from communicating with the Internet",
+          "id": "wk01_q06_d"
         }
       ],
       "correct_answers": [
@@ -343,19 +365,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Providing Internet connectivity"
+          "text": "Providing Internet connectivity",
+          "id": "wk01_q07_a"
         },
         {
           "label": "b",
-          "text": "Supporting IoT LAN intra-connectivity"
+          "text": "Supporting IoT LAN intra-connectivity",
+          "id": "wk01_q07_b"
         },
         {
           "label": "c",
-          "text": "Obtaining upstream address prefixes using mechanisms such as DHCPv6"
+          "text": "Obtaining upstream address prefixes using mechanisms such as DHCPv6",
+          "id": "wk01_q07_c"
         },
         {
           "label": "d",
-          "text": "Delegating addresses to nodes using SLAAC"
+          "text": "Delegating addresses to nodes using SLAAC",
+          "id": "wk01_q07_d"
         }
       ],
       "correct_answers": [
@@ -392,19 +418,23 @@
       "options": [
         {
           "label": "a",
-          "text": "IPv6 uses dotted decimal notation"
+          "text": "IPv6 uses dotted decimal notation",
+          "id": "wk01_q08_a"
         },
         {
           "label": "b",
-          "text": "IPv6 has a smaller address space than IPv4"
+          "text": "IPv6 has a smaller address space than IPv4",
+          "id": "wk01_q08_b"
         },
         {
           "label": "c",
-          "text": "IPv6 uses hexadecimal notation and supports a much larger address space"
+          "text": "IPv6 uses hexadecimal notation and supports a much larger address space",
+          "id": "wk01_q08_c"
         },
         {
           "label": "d",
-          "text": "IPv6 requires broadcast addresses in the same way as IPv4"
+          "text": "IPv6 requires broadcast addresses in the same way as IPv4",
+          "id": "wk01_q08_d"
         }
       ],
       "correct_answers": [
@@ -435,19 +465,23 @@
       "options": [
         {
           "label": "a",
-          "text": "It should influence the measured property significantly"
+          "text": "It should influence the measured property significantly",
+          "id": "wk01_q09_a"
         },
         {
           "label": "b",
-          "text": "It should respond strongly to unrelated physical properties"
+          "text": "It should respond strongly to unrelated physical properties",
+          "id": "wk01_q09_b"
         },
         {
           "label": "c",
-          "text": "It should be sensitive to the measured property and should not disturb it"
+          "text": "It should be sensitive to the measured property and should not disturb it",
+          "id": "wk01_q09_c"
         },
         {
           "label": "d",
-          "text": "It should always produce random output"
+          "text": "It should always produce random output",
+          "id": "wk01_q09_d"
         }
       ],
       "correct_answers": [
@@ -478,19 +512,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Sensor resolution is the smallest change that the sensor can detect"
+          "text": "Sensor resolution is the smallest change that the sensor can detect",
+          "id": "wk01_q10_a"
         },
         {
           "label": "b",
-          "text": "For a digital sensor, resolution is related to the smallest digital output change it can process"
+          "text": "For a digital sensor, resolution is related to the smallest digital output change it can process",
+          "id": "wk01_q10_b"
         },
         {
           "label": "c",
-          "text": "Sensor resolution and sensor accuracy always refer to exactly the same property"
+          "text": "Sensor resolution and sensor accuracy always refer to exactly the same property",
+          "id": "wk01_q10_c"
         },
         {
           "label": "d",
-          "text": "Sensor accuracy does not depend only on resolution"
+          "text": "Sensor accuracy does not depend only on resolution",
+          "id": "wk01_q10_d"
         }
       ],
       "correct_answers": [
@@ -525,11 +563,13 @@
       "options": [
         {
           "label": "a",
-          "text": "True"
+          "text": "True",
+          "id": "wk01_q11_a"
         },
         {
           "label": "b",
-          "text": "False"
+          "text": "False",
+          "id": "wk01_q11_b"
         }
       ],
       "correct_answers": [
@@ -558,19 +598,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Quantization error"
+          "text": "Quantization error",
+          "id": "wk01_q12_a"
         },
         {
           "label": "b",
-          "text": "Hysteresis error"
+          "text": "Hysteresis error",
+          "id": "wk01_q12_b"
         },
         {
           "label": "c",
-          "text": "IPv6 translation error"
+          "text": "IPv6 translation error",
+          "id": "wk01_q12_c"
         },
         {
           "label": "d",
-          "text": "Gateway prefix error"
+          "text": "Gateway prefix error",
+          "id": "wk01_q12_d"
         }
       ],
       "correct_answers": [
@@ -601,11 +645,13 @@
       "options": [
         {
           "label": "a",
-          "text": "False"
+          "text": "False",
+          "id": "wk01_q13_a"
         },
         {
           "label": "b",
-          "text": "True"
+          "text": "True",
+          "id": "wk01_q13_b"
         }
       ],
       "correct_answers": [
@@ -634,19 +680,23 @@
       "options": [
         {
           "label": "a",
-          "text": "They may respond to stimuli such as light, heat, electrical, magnetic, pH, or moisture changes"
+          "text": "They may respond to stimuli such as light, heat, electrical, magnetic, pH, or moisture changes",
+          "id": "wk01_q14_a"
         },
         {
           "label": "b",
-          "text": "They can show high strain recovery"
+          "text": "They can show high strain recovery",
+          "id": "wk01_q14_b"
         },
         {
           "label": "c",
-          "text": "They may have properties such as low density and biocompatibility"
+          "text": "They may have properties such as low density and biocompatibility",
+          "id": "wk01_q14_c"
         },
         {
           "label": "d",
-          "text": "They are used only as passive temperature sensors"
+          "text": "They are used only as passive temperature sensors",
+          "id": "wk01_q14_d"
         }
       ],
       "correct_answers": [
@@ -681,11 +731,13 @@
       "options": [
         {
           "label": "a",
-          "text": "True"
+          "text": "True",
+          "id": "wk01_q15_a"
         },
         {
           "label": "b",
-          "text": "False"
+          "text": "False",
+          "id": "wk01_q15_b"
         }
       ],
       "correct_answers": [
@@ -714,19 +766,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Topic"
+          "text": "Topic",
+          "id": "wk02_q01_a"
         },
         {
           "label": "b",
-          "text": "Client identifier"
+          "text": "Client identifier",
+          "id": "wk02_q01_b"
         },
         {
           "label": "c",
-          "text": "Payload length"
+          "text": "Payload length",
+          "id": "wk02_q01_c"
         },
         {
           "label": "d",
-          "text": "Session timer"
+          "text": "Session timer",
+          "id": "wk02_q01_d"
         }
       ],
       "correct_answers": [
@@ -757,19 +813,23 @@
       "options": [
         {
           "label": "a",
-          "text": "The plus sign (+) matches an arbitrary value at exactly one hierarchy level."
+          "text": "The plus sign (+) matches an arbitrary value at exactly one hierarchy level.",
+          "id": "wk02_q02_a"
         },
         {
           "label": "b",
-          "text": "The hash sign (#) can be used to subscribe to all underlying hierarchy levels."
+          "text": "The hash sign (#) can be used to subscribe to all underlying hierarchy levels.",
+          "id": "wk02_q02_b"
         },
         {
           "label": "c",
-          "text": "The subscription house/# matches only the exact topic house."
+          "text": "The subscription house/# matches only the exact topic house.",
+          "id": "wk02_q02_c"
         },
         {
           "label": "d",
-          "text": "The subscription house/+/temperature can match house/kitchen/temperature."
+          "text": "The subscription house/+/temperature can match house/kitchen/temperature.",
+          "id": "wk02_q02_d"
         }
       ],
       "correct_answers": [
@@ -804,19 +864,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Setup"
+          "text": "Setup",
+          "id": "wk02_q03_a"
         },
         {
           "label": "b",
-          "text": "Publish"
+          "text": "Publish",
+          "id": "wk02_q03_b"
         },
         {
           "label": "c",
-          "text": "Decryption"
+          "text": "Decryption",
+          "id": "wk02_q03_c"
         },
         {
           "label": "d",
-          "text": "Route discovery"
+          "text": "Route discovery",
+          "id": "wk02_q03_d"
         }
       ],
       "correct_answers": [
@@ -851,19 +915,23 @@
       "options": [
         {
           "label": "a",
-          "text": "TCP"
+          "text": "TCP",
+          "id": "wk02_q04_a"
         },
         {
           "label": "b",
-          "text": "UDP"
+          "text": "UDP",
+          "id": "wk02_q04_b"
         },
         {
           "label": "c",
-          "text": "SCTP"
+          "text": "SCTP",
+          "id": "wk02_q04_c"
         },
         {
           "label": "d",
-          "text": "FTP"
+          "text": "FTP",
+          "id": "wk02_q04_d"
         }
       ],
       "correct_answers": [
@@ -894,11 +962,13 @@
       "options": [
         {
           "label": "a",
-          "text": "True"
+          "text": "True",
+          "id": "wk02_q05_a"
         },
         {
           "label": "b",
-          "text": "False"
+          "text": "False",
+          "id": "wk02_q05_b"
         }
       ],
       "correct_answers": [
@@ -927,19 +997,23 @@
       "options": [
         {
           "label": "a",
-          "text": "GET – retrieve data"
+          "text": "GET – retrieve data",
+          "id": "wk02_q06_a"
         },
         {
           "label": "b",
-          "text": "PUT – create data"
+          "text": "PUT – create data",
+          "id": "wk02_q06_b"
         },
         {
           "label": "c",
-          "text": "PUSH – update data"
+          "text": "PUSH – update data",
+          "id": "wk02_q06_c"
         },
         {
           "label": "d",
-          "text": "DELETE – delete data"
+          "text": "DELETE – delete data",
+          "id": "wk02_q06_d"
         }
       ],
       "correct_answers": [
@@ -976,19 +1050,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Transfer"
+          "text": "Transfer",
+          "id": "wk02_q07_a"
         },
         {
           "label": "b",
-          "text": "Detach"
+          "text": "Detach",
+          "id": "wk02_q07_b"
         },
         {
           "label": "c",
-          "text": "Disposition"
+          "text": "Disposition",
+          "id": "wk02_q07_c"
         },
         {
           "label": "d",
-          "text": "Flow"
+          "text": "Flow",
+          "id": "wk02_q07_d"
         }
       ],
       "correct_answers": [
@@ -1019,19 +1097,23 @@
       "options": [
         {
           "label": "a",
-          "text": "An exchange receives messages and routes them to queues."
+          "text": "An exchange receives messages and routes them to queues.",
+          "id": "wk02_q08_a"
         },
         {
           "label": "b",
-          "text": "A queue stores messages for business processes or consumers."
+          "text": "A queue stores messages for business processes or consumers.",
+          "id": "wk02_q08_b"
         },
         {
           "label": "c",
-          "text": "A binding specifies message-distribution rules between an exchange and queues."
+          "text": "A binding specifies message-distribution rules between an exchange and queues.",
+          "id": "wk02_q08_c"
         },
         {
           "label": "d",
-          "text": "A consumer must route every producer message before it reaches an exchange."
+          "text": "A consumer must route every producer message before it reaches an exchange.",
+          "id": "wk02_q08_d"
         }
       ],
       "correct_answers": [
@@ -1066,19 +1148,23 @@
       "options": [
         {
           "label": "a",
-          "text": "IEEE 802.15.4c – China"
+          "text": "IEEE 802.15.4c – China",
+          "id": "wk02_q09_a"
         },
         {
           "label": "b",
-          "text": "IEEE 802.15.4e – Industrial applications"
+          "text": "IEEE 802.15.4e – Industrial applications",
+          "id": "wk02_q09_b"
         },
         {
           "label": "c",
-          "text": "IEEE 802.15.4f – Active RFID"
+          "text": "IEEE 802.15.4f – Active RFID",
+          "id": "wk02_q09_c"
         },
         {
           "label": "d",
-          "text": "IEEE 802.15.4g – Smart utility networks"
+          "text": "IEEE 802.15.4g – Smart utility networks",
+          "id": "wk02_q09_d"
         }
       ],
       "correct_answers": [
@@ -1115,19 +1201,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Slotted CSMA/CA"
+          "text": "Slotted CSMA/CA",
+          "id": "wk02_q10_a"
         },
         {
           "label": "b",
-          "text": "Unslotted CSMA/CA"
+          "text": "Unslotted CSMA/CA",
+          "id": "wk02_q10_b"
         },
         {
           "label": "c",
-          "text": "Token passing"
+          "text": "Token passing",
+          "id": "wk02_q10_c"
         },
         {
           "label": "d",
-          "text": "Pure TDMA only"
+          "text": "Pure TDMA only",
+          "id": "wk02_q10_d"
         }
       ],
       "correct_answers": [
@@ -1158,19 +1248,23 @@
       "options": [
         {
           "label": "a",
-          "text": "IEEE 802.15.4 provides layers 1 and 2, while ZigBee extends the functionality to layer 3 and above."
+          "text": "IEEE 802.15.4 provides layers 1 and 2, while ZigBee extends the functionality to layer 3 and above.",
+          "id": "wk02_q11_a"
         },
         {
           "label": "b",
-          "text": "ZigBee provides only the physical layer, while IEEE 802.15.4 provides all higher layers."
+          "text": "ZigBee provides only the physical layer, while IEEE 802.15.4 provides all higher layers.",
+          "id": "wk02_q11_b"
         },
         {
           "label": "c",
-          "text": "Both standards operate only at the application layer."
+          "text": "Both standards operate only at the application layer.",
+          "id": "wk02_q11_c"
         },
         {
           "label": "d",
-          "text": "ZigBee and IEEE 802.15.4 are identical standards with no functional distinction."
+          "text": "ZigBee and IEEE 802.15.4 are identical standards with no functional distinction.",
+          "id": "wk02_q11_d"
         }
       ],
       "correct_answers": [
@@ -1201,19 +1295,23 @@
       "options": [
         {
           "label": "a",
-          "text": "It communicates with its parent node."
+          "text": "It communicates with its parent node.",
+          "id": "wk02_q12_a"
         },
         {
           "label": "b",
-          "text": "It cannot relay data for other devices."
+          "text": "It cannot relay data for other devices.",
+          "id": "wk02_q12_b"
         },
         {
           "label": "c",
-          "text": "It is a reduced-functionality device."
+          "text": "It is a reduced-functionality device.",
+          "id": "wk02_q12_c"
         },
         {
           "label": "d",
-          "text": "It forms the network root and acts as the trust center."
+          "text": "It forms the network root and acts as the trust center.",
+          "id": "wk02_q12_d"
         }
       ],
       "correct_answers": [
@@ -1248,19 +1346,23 @@
       "options": [
         {
           "label": "a",
-          "text": "A 16-bit address is globally unique, while a 64-bit address is PAN-specific."
+          "text": "A 16-bit address is globally unique, while a 64-bit address is PAN-specific.",
+          "id": "wk02_q13_a"
         },
         {
           "label": "b",
-          "text": "A 16-bit short address is PAN-specific and assigned by the PAN coordinator, while a 64-bit extended address is globally unique."
+          "text": "A 16-bit short address is PAN-specific and assigned by the PAN coordinator, while a 64-bit extended address is globally unique.",
+          "id": "wk02_q13_b"
         },
         {
           "label": "c",
-          "text": "Both 16-bit and 64-bit addresses are globally unique and assigned by an Internet router."
+          "text": "Both 16-bit and 64-bit addresses are globally unique and assigned by an Internet router.",
+          "id": "wk02_q13_c"
         },
         {
           "label": "d",
-          "text": "Both address types are used only for multicast communication."
+          "text": "Both address types are used only for multicast communication.",
+          "id": "wk02_q13_d"
         }
       ],
       "correct_answers": [
@@ -1291,11 +1393,13 @@
       "options": [
         {
           "label": "a",
-          "text": "True"
+          "text": "True",
+          "id": "wk02_q14_a"
         },
         {
           "label": "b",
-          "text": "False"
+          "text": "False",
+          "id": "wk02_q14_b"
         }
       ],
       "correct_answers": [
@@ -1324,19 +1428,23 @@
       "options": [
         {
           "label": "a",
-          "text": "It uses its own internal battery."
+          "text": "It uses its own internal battery.",
+          "id": "wk02_q15_a"
         },
         {
           "label": "b",
-          "text": "It is powered inductively by an RFID reader."
+          "text": "It is powered inductively by an RFID reader.",
+          "id": "wk02_q15_b"
         },
         {
           "label": "c",
-          "text": "It receives power through a wired AIDC connection."
+          "text": "It receives power through a wired AIDC connection.",
+          "id": "wk02_q15_c"
         },
         {
           "label": "d",
-          "text": "It does not require any source of power."
+          "text": "It does not require any source of power.",
+          "id": "wk02_q15_d"
         }
       ],
       "correct_answers": [
@@ -1367,11 +1475,13 @@
       "options": [
         {
           "label": "a",
-          "text": "True"
+          "text": "True",
+          "id": "wk03_q01_a"
         },
         {
           "label": "b",
-          "text": "False"
+          "text": "False",
+          "id": "wk03_q01_b"
         }
       ],
       "correct_answers": [
@@ -1400,19 +1510,23 @@
       "options": [
         {
           "label": "a",
-          "text": "1008, 989"
+          "text": "1008, 989",
+          "id": "wk03_q02_a"
         },
         {
           "label": "b",
-          "text": "908.42, 868.42"
+          "text": "908.42, 868.42",
+          "id": "wk03_q02_b"
         },
         {
           "label": "c",
-          "text": "767.56, 855.28"
+          "text": "767.56, 855.28",
+          "id": "wk03_q02_c"
         },
         {
           "label": "d",
-          "text": "None of these"
+          "text": "None of these",
+          "id": "wk03_q02_d"
         }
       ],
       "correct_answers": [
@@ -1443,19 +1557,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Temporal"
+          "text": "Temporal",
+          "id": "wk03_q03_a"
         },
         {
           "label": "b",
-          "text": "Spatial"
+          "text": "Spatial",
+          "id": "wk03_q03_b"
         },
         {
           "label": "c",
-          "text": "Both (a) and (b)"
+          "text": "Both (a) and (b)",
+          "id": "wk03_q03_c"
         },
         {
           "label": "d",
-          "text": "None of these"
+          "text": "None of these",
+          "id": "wk03_q03_d"
         }
       ],
       "correct_answers": [
@@ -1486,19 +1604,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Channel Trimming"
+          "text": "Channel Trimming",
+          "id": "wk03_q04_a"
         },
         {
           "label": "b",
-          "text": "Channel Flushing"
+          "text": "Channel Flushing",
+          "id": "wk03_q04_b"
         },
         {
           "label": "c",
-          "text": "Both (a) and (b)"
+          "text": "Both (a) and (b)",
+          "id": "wk03_q04_c"
         },
         {
           "label": "d",
-          "text": "None of these"
+          "text": "None of these",
+          "id": "wk03_q04_d"
         }
       ],
       "correct_answers": [
@@ -1529,19 +1651,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Near Field Contact"
+          "text": "Near Field Contact",
+          "id": "wk03_q05_a"
         },
         {
           "label": "b",
-          "text": "Near Field Communication"
+          "text": "Near Field Communication",
+          "id": "wk03_q05_b"
         },
         {
           "label": "c",
-          "text": "Both (a) and (b)"
+          "text": "Both (a) and (b)",
+          "id": "wk03_q05_c"
         },
         {
           "label": "d",
-          "text": "Neither (a) nor (b)"
+          "text": "Neither (a) nor (b)",
+          "id": "wk03_q05_d"
         }
       ],
       "correct_answers": [
@@ -1572,11 +1698,13 @@
       "options": [
         {
           "label": "a",
-          "text": "True"
+          "text": "True",
+          "id": "wk03_q06_a"
         },
         {
           "label": "b",
-          "text": "False"
+          "text": "False",
+          "id": "wk03_q06_b"
         }
       ],
       "correct_answers": [
@@ -1605,11 +1733,13 @@
       "options": [
         {
           "label": "a",
-          "text": "True"
+          "text": "True",
+          "id": "wk03_q07_a"
         },
         {
           "label": "b",
-          "text": "False"
+          "text": "False",
+          "id": "wk03_q07_b"
         }
       ],
       "correct_answers": [
@@ -1638,19 +1768,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Nanonets"
+          "text": "Nanonets",
+          "id": "wk03_q08_a"
         },
         {
           "label": "b",
-          "text": "Binarynets"
+          "text": "Binarynets",
+          "id": "wk03_q08_b"
         },
         {
           "label": "c",
-          "text": "Both (a) and (b)"
+          "text": "Both (a) and (b)",
+          "id": "wk03_q08_c"
         },
         {
           "label": "d",
-          "text": "None of these"
+          "text": "None of these",
+          "id": "wk03_q08_d"
         }
       ],
       "correct_answers": [
@@ -1681,19 +1815,23 @@
       "options": [
         {
           "label": "a",
-          "text": "reader"
+          "text": "reader",
+          "id": "wk03_q09_a"
         },
         {
           "label": "b",
-          "text": "writer"
+          "text": "writer",
+          "id": "wk03_q09_b"
         },
         {
           "label": "c",
-          "text": "destroyer"
+          "text": "destroyer",
+          "id": "wk03_q09_c"
         },
         {
           "label": "d",
-          "text": "None of these"
+          "text": "None of these",
+          "id": "wk03_q09_d"
         }
       ],
       "correct_answers": [
@@ -1724,11 +1862,13 @@
       "options": [
         {
           "label": "a",
-          "text": "False"
+          "text": "False",
+          "id": "wk03_q10_a"
         },
         {
           "label": "b",
-          "text": "True"
+          "text": "True",
+          "id": "wk03_q10_b"
         }
       ],
       "correct_answers": [
@@ -1757,11 +1897,13 @@
       "options": [
         {
           "label": "a",
-          "text": "True"
+          "text": "True",
+          "id": "wk03_q11_a"
         },
         {
           "label": "b",
-          "text": "False"
+          "text": "False",
+          "id": "wk03_q11_b"
         }
       ],
       "correct_answers": [
@@ -1790,19 +1932,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Ping"
+          "text": "Ping",
+          "id": "wk03_q12_a"
         },
         {
           "label": "b",
-          "text": "Healing"
+          "text": "Healing",
+          "id": "wk03_q12_b"
         },
         {
           "label": "c",
-          "text": "Frame"
+          "text": "Frame",
+          "id": "wk03_q12_c"
         },
         {
           "label": "d",
-          "text": "None of these"
+          "text": "None of these",
+          "id": "wk03_q12_d"
         }
       ],
       "correct_answers": [
@@ -1833,11 +1979,13 @@
       "options": [
         {
           "label": "a",
-          "text": "True"
+          "text": "True",
+          "id": "wk03_q13_a"
         },
         {
           "label": "b",
-          "text": "False"
+          "text": "False",
+          "id": "wk03_q13_b"
         }
       ],
       "correct_answers": [
@@ -1866,11 +2014,13 @@
       "options": [
         {
           "label": "a",
-          "text": "True"
+          "text": "True",
+          "id": "wk03_q14_a"
         },
         {
           "label": "b",
-          "text": "False"
+          "text": "False",
+          "id": "wk03_q14_b"
         }
       ],
       "correct_answers": [
@@ -1899,19 +2049,23 @@
       "options": [
         {
           "label": "a",
-          "text": "250 kbps"
+          "text": "250 kbps",
+          "id": "wk03_q15_a"
         },
         {
           "label": "b",
-          "text": "250 Mbps"
+          "text": "250 Mbps",
+          "id": "wk03_q15_b"
         },
         {
           "label": "c",
-          "text": "260 kbps"
+          "text": "260 kbps",
+          "id": "wk03_q15_c"
         },
         {
           "label": "d",
-          "text": "260 Mbps"
+          "text": "260 Mbps",
+          "id": "wk03_q15_d"
         }
       ],
       "correct_answers": [
@@ -1942,11 +2096,13 @@
       "options": [
         {
           "label": "a",
-          "text": "True"
+          "text": "True",
+          "id": "wk04_q01_a"
         },
         {
           "label": "b",
-          "text": "False"
+          "text": "False",
+          "id": "wk04_q01_b"
         }
       ],
       "correct_answers": [
@@ -1975,19 +2131,23 @@
       "options": [
         {
           "label": "a",
-          "text": "distance"
+          "text": "distance",
+          "id": "wk04_q02_a"
         },
         {
           "label": "b",
-          "text": "coordinates"
+          "text": "coordinates",
+          "id": "wk04_q02_b"
         },
         {
           "label": "c",
-          "text": "Both (a) and (b)"
+          "text": "Both (a) and (b)",
+          "id": "wk04_q02_c"
         },
         {
           "label": "d",
-          "text": "None of these"
+          "text": "None of these",
+          "id": "wk04_q02_d"
         }
       ],
       "correct_answers": [
@@ -2018,19 +2178,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Security surveillance"
+          "text": "Security surveillance",
+          "id": "wk04_q03_a"
         },
         {
           "label": "b",
-          "text": "Wild-habitat monitoring"
+          "text": "Wild-habitat monitoring",
+          "id": "wk04_q03_b"
         },
         {
           "label": "c",
-          "text": "Environmental monitoring"
+          "text": "Environmental monitoring",
+          "id": "wk04_q03_c"
         },
         {
           "label": "d",
-          "text": "All of these"
+          "text": "All of these",
+          "id": "wk04_q03_d"
         }
       ],
       "correct_answers": [
@@ -2061,11 +2225,13 @@
       "options": [
         {
           "label": "a",
-          "text": "True"
+          "text": "True",
+          "id": "wk04_q04_a"
         },
         {
           "label": "b",
-          "text": "False"
+          "text": "False",
+          "id": "wk04_q04_b"
         }
       ],
       "correct_answers": [
@@ -2094,19 +2260,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Aerial and Underwater Vehicle"
+          "text": "Aerial and Underwater Vehicle",
+          "id": "wk04_q05_a"
         },
         {
           "label": "b",
-          "text": "Ambient and Underprivileged Vehicle"
+          "text": "Ambient and Underprivileged Vehicle",
+          "id": "wk04_q05_b"
         },
         {
           "label": "c",
-          "text": "Astral Underwater Vehicle"
+          "text": "Astral Underwater Vehicle",
+          "id": "wk04_q05_c"
         },
         {
           "label": "d",
-          "text": "None of these"
+          "text": "None of these",
+          "id": "wk04_q05_d"
         }
       ],
       "correct_answers": [
@@ -2137,11 +2307,13 @@
       "options": [
         {
           "label": "a",
-          "text": "True"
+          "text": "True",
+          "id": "wk04_q06_a"
         },
         {
           "label": "b",
-          "text": "False"
+          "text": "False",
+          "id": "wk04_q06_b"
         }
       ],
       "correct_answers": [
@@ -2170,19 +2342,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Easy deployment"
+          "text": "Easy deployment",
+          "id": "wk04_q07_a"
         },
         {
           "label": "b",
-          "text": "Easy topology maintenance"
+          "text": "Easy topology maintenance",
+          "id": "wk04_q07_b"
         },
         {
           "label": "c",
-          "text": "Both (a) and (b)"
+          "text": "Both (a) and (b)",
+          "id": "wk04_q07_c"
         },
         {
           "label": "d",
-          "text": "None of these"
+          "text": "None of these",
+          "id": "wk04_q07_d"
         }
       ],
       "correct_answers": [
@@ -2213,11 +2389,13 @@
       "options": [
         {
           "label": "a",
-          "text": "True"
+          "text": "True",
+          "id": "wk04_q08_a"
         },
         {
           "label": "b",
-          "text": "False"
+          "text": "False",
+          "id": "wk04_q08_b"
         }
       ],
       "correct_answers": [
@@ -2246,19 +2424,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Self-CHOP"
+          "text": "Self-CHOP",
+          "id": "wk04_q09_a"
         },
         {
           "label": "b",
-          "text": "Self-HOP"
+          "text": "Self-HOP",
+          "id": "wk04_q09_b"
         },
         {
           "label": "c",
-          "text": "Both (a) and (b)"
+          "text": "Both (a) and (b)",
+          "id": "wk04_q09_c"
         },
         {
           "label": "d",
-          "text": "None of these"
+          "text": "None of these",
+          "id": "wk04_q09_d"
         }
       ],
       "correct_answers": [
@@ -2289,11 +2471,13 @@
       "options": [
         {
           "label": "a",
-          "text": "False"
+          "text": "False",
+          "id": "wk04_q10_a"
         },
         {
           "label": "b",
-          "text": "True"
+          "text": "True",
+          "id": "wk04_q10_b"
         }
       ],
       "correct_answers": [
@@ -2322,19 +2506,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Flexible"
+          "text": "Flexible",
+          "id": "wk04_q11_a"
         },
         {
           "label": "b",
-          "text": "Reliable"
+          "text": "Reliable",
+          "id": "wk04_q11_b"
         },
         {
           "label": "c",
-          "text": "None of these"
+          "text": "None of these",
+          "id": "wk04_q11_c"
         },
         {
           "label": "d",
-          "text": "Both (a) and (b)"
+          "text": "Both (a) and (b)",
+          "id": "wk04_q11_d"
         }
       ],
       "correct_answers": [
@@ -2365,19 +2553,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Inter-plane communication"
+          "text": "Inter-plane communication",
+          "id": "wk04_q12_a"
         },
         {
           "label": "b",
-          "text": "Intra-plane communication"
+          "text": "Intra-plane communication",
+          "id": "wk04_q12_b"
         },
         {
           "label": "c",
-          "text": "Both (a) and (b)"
+          "text": "Both (a) and (b)",
+          "id": "wk04_q12_c"
         },
         {
           "label": "d",
-          "text": "None of these"
+          "text": "None of these",
+          "id": "wk04_q12_d"
         }
       ],
       "correct_answers": [
@@ -2408,15 +2600,18 @@
       "options": [
         {
           "label": "a",
-          "text": "False"
+          "text": "False",
+          "id": "wk04_q13_a"
         },
         {
           "label": "b",
-          "text": "True"
+          "text": "True",
+          "id": "wk04_q13_b"
         },
         {
           "label": "c",
-          "text": "Cannot be determined"
+          "text": "Cannot be determined",
+          "id": "wk04_q13_c"
         }
       ],
       "correct_answers": [
@@ -2446,19 +2641,23 @@
       "options": [
         {
           "label": "a",
-          "text": "M2M Stateless Platform"
+          "text": "M2M Stateless Platform",
+          "id": "wk04_q14_a"
         },
         {
           "label": "b",
-          "text": "M2M Session Packet"
+          "text": "M2M Session Packet",
+          "id": "wk04_q14_b"
         },
         {
           "label": "c",
-          "text": "M2M Secure Packaging"
+          "text": "M2M Secure Packaging",
+          "id": "wk04_q14_c"
         },
         {
           "label": "d",
-          "text": "None of these"
+          "text": "None of these",
+          "id": "wk04_q14_d"
         }
       ],
       "correct_answers": [
@@ -2489,19 +2688,23 @@
       "options": [
         {
           "label": "a",
-          "text": "M2M Application Platform"
+          "text": "M2M Application Platform",
+          "id": "wk04_q15_a"
         },
         {
           "label": "b",
-          "text": "M2M Service Platform"
+          "text": "M2M Service Platform",
+          "id": "wk04_q15_b"
         },
         {
           "label": "c",
-          "text": "M2M Hardware Platform"
+          "text": "M2M Hardware Platform",
+          "id": "wk04_q15_c"
         },
         {
           "label": "d",
-          "text": "None of these"
+          "text": "None of these",
+          "id": "wk04_q15_d"
         }
       ],
       "correct_answers": [
@@ -2532,19 +2735,23 @@
       "options": [
         {
           "label": "a",
-          "text": "The ability of a system to operate without power"
+          "text": "The ability of a system to operate without power",
+          "id": "wk05_q01_a"
         },
         {
           "label": "b",
-          "text": "The ability of different systems/products to work together without restrictions"
+          "text": "The ability of different systems/products to work together without restrictions",
+          "id": "wk05_q01_b"
         },
         {
           "label": "c",
-          "text": "The ability to increase the speed of the internet"
+          "text": "The ability to increase the speed of the internet",
+          "id": "wk05_q01_c"
         },
         {
           "label": "d",
-          "text": "None of these"
+          "text": "None of these",
+          "id": "wk05_q01_d"
         }
       ],
       "correct_answers": [
@@ -2575,19 +2782,23 @@
       "options": [
         {
           "label": "a",
-          "text": "The natural language used"
+          "text": "The natural language used",
+          "id": "wk05_q02_a"
         },
         {
           "label": "b",
-          "text": "The internal identifier"
+          "text": "The internal identifier",
+          "id": "wk05_q02_b"
         },
         {
           "label": "c",
-          "text": "The context of A"
+          "text": "The context of A",
+          "id": "wk05_q02_c"
         },
         {
           "label": "d",
-          "text": "The definition of the object"
+          "text": "The definition of the object",
+          "id": "wk05_q02_d"
         }
       ],
       "correct_answers": [
@@ -2618,19 +2829,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Devices having different physical shapes"
+          "text": "Devices having different physical shapes",
+          "id": "wk05_q03_a"
         },
         {
           "label": "b",
-          "text": "Devices using different message formats and data structures"
+          "text": "Devices using different message formats and data structures",
+          "id": "wk05_q03_b"
         },
         {
           "label": "c",
-          "text": "Devices located in different countries"
+          "text": "Devices located in different countries",
+          "id": "wk05_q03_c"
         },
         {
           "label": "d",
-          "text": "Devices having different owners"
+          "text": "Devices having different owners",
+          "id": "wk05_q03_d"
         }
       ],
       "correct_answers": [
@@ -2661,19 +2876,23 @@
       "options": [
         {
           "label": "a",
-          "text": "It is highly expensive and exclusive"
+          "text": "It is highly expensive and exclusive",
+          "id": "wk05_q04_a"
         },
         {
           "label": "b",
-          "text": "It is low resource-consuming and cheap"
+          "text": "It is low resource-consuming and cheap",
+          "id": "wk05_q04_b"
         },
         {
           "label": "c",
-          "text": "It requires high-power external cooling"
+          "text": "It requires high-power external cooling",
+          "id": "wk05_q04_c"
         },
         {
           "label": "d",
-          "text": "It only supports digital signals"
+          "text": "It only supports digital signals",
+          "id": "wk05_q04_d"
         }
       ],
       "correct_answers": [
@@ -2704,19 +2923,23 @@
       "options": [
         {
           "label": "a",
-          "text": "8 MHz"
+          "text": "8 MHz",
+          "id": "wk05_q05_a"
         },
         {
           "label": "b",
-          "text": "32 MHz"
+          "text": "32 MHz",
+          "id": "wk05_q05_b"
         },
         {
           "label": "c",
-          "text": "16 MHz"
+          "text": "16 MHz",
+          "id": "wk05_q05_c"
         },
         {
           "label": "d",
-          "text": "50 MHz"
+          "text": "50 MHz",
+          "id": "wk05_q05_d"
         }
       ],
       "correct_answers": [
@@ -2747,19 +2970,23 @@
       "options": [
         {
           "label": "a",
-          "text": "'setup()'"
+          "text": "'setup()'",
+          "id": "wk05_q06_a"
         },
         {
           "label": "b",
-          "text": "'main()'"
+          "text": "'main()'",
+          "id": "wk05_q06_b"
         },
         {
           "label": "c",
-          "text": "'loop()'"
+          "text": "'loop()'",
+          "id": "wk05_q06_c"
         },
         {
           "label": "d",
-          "text": "'start()'"
+          "text": "'start()'",
+          "id": "wk05_q06_d"
         }
       ],
       "correct_answers": [
@@ -2790,19 +3017,23 @@
       "options": [
         {
           "label": "a",
-          "text": "1"
+          "text": "1",
+          "id": "wk05_q07_a"
         },
         {
           "label": "b",
-          "text": "-1"
+          "text": "-1",
+          "id": "wk05_q07_b"
         },
         {
           "label": "c",
-          "text": "0"
+          "text": "0",
+          "id": "wk05_q07_c"
         },
         {
           "label": "d",
-          "text": "10"
+          "text": "10",
+          "id": "wk05_q07_d"
         }
       ],
       "correct_answers": [
@@ -2833,19 +3064,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Resets the Arduino board"
+          "text": "Resets the Arduino board",
+          "id": "wk05_q08_a"
         },
         {
           "label": "b",
-          "text": "Introduces a delay of 5 seconds"
+          "text": "Introduces a delay of 5 seconds",
+          "id": "wk05_q08_b"
         },
         {
           "label": "c",
-          "text": "Turns off all LEDs immediately"
+          "text": "Turns off all LEDs immediately",
+          "id": "wk05_q08_c"
         },
         {
           "label": "d",
-          "text": "Skips the current execution loop"
+          "text": "Skips the current execution loop",
+          "id": "wk05_q08_d"
         }
       ],
       "correct_answers": [
@@ -2876,19 +3111,23 @@
       "options": [
         {
           "label": "a",
-          "text": "'arduino.h'"
+          "text": "'arduino.h'",
+          "id": "wk05_q09_a"
         },
         {
           "label": "b",
-          "text": "'math.h'"
+          "text": "'math.h'",
+          "id": "wk05_q09_b"
         },
         {
           "label": "c",
-          "text": "'sensor.h'"
+          "text": "'sensor.h'",
+          "id": "wk05_q09_c"
         },
         {
           "label": "d",
-          "text": "'stdio.h'"
+          "text": "'stdio.h'",
+          "id": "wk05_q09_d"
         }
       ],
       "correct_answers": [
@@ -2919,19 +3158,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Pressure and Altitude"
+          "text": "Pressure and Altitude",
+          "id": "wk05_q10_a"
         },
         {
           "label": "b",
-          "text": "Light and Sound"
+          "text": "Light and Sound",
+          "id": "wk05_q10_b"
         },
         {
           "label": "c",
-          "text": "Humidity and Temperature"
+          "text": "Humidity and Temperature",
+          "id": "wk05_q10_c"
         },
         {
           "label": "d",
-          "text": "Motion and Direction"
+          "text": "Motion and Direction",
+          "id": "wk05_q10_d"
         }
       ],
       "correct_answers": [
@@ -2962,19 +3205,23 @@
       "options": [
         {
           "label": "a",
-          "text": "1V to 2V"
+          "text": "1V to 2V",
+          "id": "wk05_q11_a"
         },
         {
           "label": "b",
-          "text": "3.3V to 5V"
+          "text": "3.3V to 5V",
+          "id": "wk05_q11_b"
         },
         {
           "label": "c",
-          "text": "12V to 24V"
+          "text": "12V to 24V",
+          "id": "wk05_q11_c"
         },
         {
           "label": "d",
-          "text": "0V to 1V"
+          "text": "0V to 1V",
+          "id": "wk05_q11_d"
         }
       ],
       "correct_answers": [
@@ -3005,19 +3252,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Ground (GND)"
+          "text": "Ground (GND)",
+          "id": "wk05_q12_a"
         },
         {
           "label": "b",
-          "text": "Signal/data pin"
+          "text": "Signal/data pin",
+          "id": "wk05_q12_b"
         },
         {
           "label": "c",
-          "text": "5 V power pin"
+          "text": "5 V power pin",
+          "id": "wk05_q12_c"
         },
         {
           "label": "d",
-          "text": "Analog input AREF"
+          "text": "Analog input AREF",
+          "id": "wk05_q12_d"
         }
       ],
       "correct_answers": [
@@ -3048,19 +3299,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Converts motion to energy"
+          "text": "Converts motion to energy",
+          "id": "wk05_q13_a"
         },
         {
           "label": "b",
-          "text": "Converts energy or signals into motion"
+          "text": "Converts energy or signals into motion",
+          "id": "wk05_q13_b"
         },
         {
           "label": "c",
-          "text": "Stores data"
+          "text": "Stores data",
+          "id": "wk05_q13_c"
         },
         {
           "label": "d",
-          "text": "Connects to the internet"
+          "text": "Connects to the internet",
+          "id": "wk05_q13_d"
         }
       ],
       "correct_answers": [
@@ -3091,19 +3346,23 @@
       "options": [
         {
           "label": "a",
-          "text": "'servo.connect()'"
+          "text": "'servo.connect()'",
+          "id": "wk05_q14_a"
         },
         {
           "label": "b",
-          "text": "'servo.attach()'"
+          "text": "'servo.attach()'",
+          "id": "wk05_q14_b"
         },
         {
           "label": "c",
-          "text": "'servo.pinMode()'"
+          "text": "'servo.pinMode()'",
+          "id": "wk05_q14_c"
         },
         {
           "label": "d",
-          "text": "'servo.write()'"
+          "text": "'servo.write()'",
+          "id": "wk05_q14_d"
         }
       ],
       "correct_answers": [
@@ -3134,19 +3393,23 @@
       "options": [
         {
           "label": "a",
-          "text": "'servo.move(angle)'"
+          "text": "'servo.move(angle)'",
+          "id": "wk05_q15_a"
         },
         {
           "label": "b",
-          "text": "'servo.rotate(angle)'"
+          "text": "'servo.rotate(angle)'",
+          "id": "wk05_q15_b"
         },
         {
           "label": "c",
-          "text": "'servo.write(angle)'"
+          "text": "'servo.write(angle)'",
+          "id": "wk05_q15_c"
         },
         {
           "label": "d",
-          "text": "'servo.turn(angle)'"
+          "text": "'servo.turn(angle)'",
+          "id": "wk05_q15_d"
         }
       ],
       "correct_answers": [
@@ -3177,19 +3440,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Numbers, Strings, List, Tuple, Dictionary"
+          "text": "Numbers, Strings, List, Tuple, Dictionary",
+          "id": "wk06_q01_a"
         },
         {
           "label": "b",
-          "text": "Integer, Float, Boolean, Char, Byte"
+          "text": "Integer, Float, Boolean, Char, Byte",
+          "id": "wk06_q01_b"
         },
         {
           "label": "c",
-          "text": "Array, Struct, Class, Object, Set"
+          "text": "Array, Struct, Class, Object, Set",
+          "id": "wk06_q01_c"
         },
         {
           "label": "d",
-          "text": "Numbers, Strings, Queue, Stack, Graph"
+          "text": "Numbers, Strings, Queue, Stack, Graph",
+          "id": "wk06_q01_d"
         }
       ],
       "correct_answers": [
@@ -3220,19 +3487,23 @@
       "options": [
         {
           "label": "a",
-          "text": "'func'"
+          "text": "'func'",
+          "id": "wk06_q02_a"
         },
         {
           "label": "b",
-          "text": "'def'"
+          "text": "'def'",
+          "id": "wk06_q02_b"
         },
         {
           "label": "c",
-          "text": "'define'"
+          "text": "'define'",
+          "id": "wk06_q02_c"
         },
         {
           "label": "d",
-          "text": "'function'"
+          "text": "'function'",
+          "id": "wk06_q02_d"
         }
       ],
       "correct_answers": [
@@ -3263,19 +3534,23 @@
       "options": [
         {
           "label": "a",
-          "text": "'catch'"
+          "text": "'catch'",
+          "id": "wk06_q03_a"
         },
         {
           "label": "b",
-          "text": "'except'"
+          "text": "'except'",
+          "id": "wk06_q03_b"
         },
         {
           "label": "c",
-          "text": "'handle'"
+          "text": "'handle'",
+          "id": "wk06_q03_c"
         },
         {
           "label": "d",
-          "text": "'rescue'"
+          "text": "'rescue'",
+          "id": "wk06_q03_d"
         }
       ],
       "correct_answers": [
@@ -3306,19 +3581,23 @@
       "options": [
         {
           "label": "a",
-          "text": "'r' (read mode)"
+          "text": "'r' (read mode)",
+          "id": "wk06_q04_a"
         },
         {
           "label": "b",
-          "text": "'w' (write mode)"
+          "text": "'w' (write mode)",
+          "id": "wk06_q04_b"
         },
         {
           "label": "c",
-          "text": "'a' (append mode)"
+          "text": "'a' (append mode)",
+          "id": "wk06_q04_c"
         },
         {
           "label": "d",
-          "text": "'r+' (read and write mode)"
+          "text": "'r+' (read and write mode)",
+          "id": "wk06_q04_d"
         }
       ],
       "correct_answers": [
@@ -3349,19 +3628,23 @@
       "options": [
         {
           "label": "a",
-          "text": "NumPy"
+          "text": "NumPy",
+          "id": "wk06_q05_a"
         },
         {
           "label": "b",
-          "text": "PIL / Pillow"
+          "text": "PIL / Pillow",
+          "id": "wk06_q05_b"
         },
         {
           "label": "c",
-          "text": "OpenCV"
+          "text": "OpenCV",
+          "id": "wk06_q05_c"
         },
         {
           "label": "d",
-          "text": "Matplotlib"
+          "text": "Matplotlib",
+          "id": "wk06_q05_d"
         }
       ],
       "correct_answers": [
@@ -3392,19 +3675,23 @@
       "options": [
         {
           "label": "a",
-          "text": "'SOCK_DGRAM'"
+          "text": "'SOCK_DGRAM'",
+          "id": "wk06_q06_a"
         },
         {
           "label": "b",
-          "text": "'SOCK_STREAM'"
+          "text": "'SOCK_STREAM'",
+          "id": "wk06_q06_b"
         },
         {
           "label": "c",
-          "text": "'SOCK_RAW'"
+          "text": "'SOCK_RAW'",
+          "id": "wk06_q06_c"
         },
         {
           "label": "d",
-          "text": "'SOCK_SEQPACKET'"
+          "text": "'SOCK_SEQPACKET'",
+          "id": "wk06_q06_d"
         }
       ],
       "correct_answers": [
@@ -3435,19 +3722,23 @@
       "options": [
         {
           "label": "a",
-          "text": "26"
+          "text": "26",
+          "id": "wk06_q07_a"
         },
         {
           "label": "b",
-          "text": "32"
+          "text": "32",
+          "id": "wk06_q07_b"
         },
         {
           "label": "c",
-          "text": "40"
+          "text": "40",
+          "id": "wk06_q07_c"
         },
         {
           "label": "d",
-          "text": "44"
+          "text": "44",
+          "id": "wk06_q07_d"
         }
       ],
       "correct_answers": [
@@ -3478,19 +3769,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Raspbian"
+          "text": "Raspbian",
+          "id": "wk06_q08_a"
         },
         {
           "label": "b",
-          "text": "Windows XP"
+          "text": "Windows XP",
+          "id": "wk06_q08_b"
         },
         {
           "label": "c",
-          "text": "macOS"
+          "text": "macOS",
+          "id": "wk06_q08_c"
         },
         {
           "label": "d",
-          "text": "Solaris"
+          "text": "Solaris",
+          "id": "wk06_q08_d"
         }
       ],
       "correct_answers": [
@@ -3521,19 +3816,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Printer"
+          "text": "Printer",
+          "id": "wk06_q09_a"
         },
         {
           "label": "b",
-          "text": "Smartphone"
+          "text": "Smartphone",
+          "id": "wk06_q09_b"
         },
         {
           "label": "c",
-          "text": "Wi-Fi router"
+          "text": "Wi-Fi router",
+          "id": "wk06_q09_c"
         },
         {
           "label": "d",
-          "text": "Single-board computer"
+          "text": "Single-board computer",
+          "id": "wk06_q09_d"
         }
       ],
       "correct_answers": [
@@ -3564,19 +3863,23 @@
       "options": [
         {
           "label": "a",
-          "text": "'sudo apt-get install python-rpi.gpio'"
+          "text": "'sudo apt-get install python-rpi.gpio'",
+          "id": "wk06_q10_a"
         },
         {
           "label": "b",
-          "text": "'pip install gpio'"
+          "text": "'pip install gpio'",
+          "id": "wk06_q10_b"
         },
         {
           "label": "c",
-          "text": "'sudo apt-get install led-lib'"
+          "text": "'sudo apt-get install led-lib'",
+          "id": "wk06_q10_c"
         },
         {
           "label": "d",
-          "text": "'npm install rpi-gpio'"
+          "text": "'npm install rpi-gpio'",
+          "id": "wk06_q10_d"
         }
       ],
       "correct_answers": [
@@ -3607,19 +3910,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Between the USB ports"
+          "text": "Between the USB ports",
+          "id": "wk06_q11_a"
         },
         {
           "label": "b",
-          "text": "Between the Ethernet port and the HDMI port"
+          "text": "Between the Ethernet port and the HDMI port",
+          "id": "wk06_q11_b"
         },
         {
           "label": "c",
-          "text": "Next to the power supply pin"
+          "text": "Next to the power supply pin",
+          "id": "wk06_q11_c"
         },
         {
           "label": "d",
-          "text": "On the underside of the board"
+          "text": "On the underside of the board",
+          "id": "wk06_q11_d"
         }
       ],
       "correct_answers": [
@@ -3650,19 +3957,23 @@
       "options": [
         {
           "label": "a",
-          "text": "'raspistill -o image.jpg'"
+          "text": "'raspistill -o image.jpg'",
+          "id": "wk06_q12_a"
         },
         {
           "label": "b",
-          "text": "'raspicam capture'"
+          "text": "'raspicam capture'",
+          "id": "wk06_q12_b"
         },
         {
           "label": "c",
-          "text": "'pi-camera snap'"
+          "text": "'pi-camera snap'",
+          "id": "wk06_q12_c"
         },
         {
           "label": "d",
-          "text": "'capture.py –img'"
+          "text": "'capture.py –img'",
+          "id": "wk06_q12_d"
         }
       ],
       "correct_answers": [
@@ -3693,19 +4004,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Digital Heat Transfer"
+          "text": "Digital Heat Transfer",
+          "id": "wk06_q13_a"
         },
         {
           "label": "b",
-          "text": "Digital Humidity and Temperature"
+          "text": "Digital Humidity and Temperature",
+          "id": "wk06_q13_b"
         },
         {
           "label": "c",
-          "text": "Direct Hardware Trigger"
+          "text": "Direct Hardware Trigger",
+          "id": "wk06_q13_c"
         },
         {
           "label": "d",
-          "text": "Dual Humidity Thermostat"
+          "text": "Dual Humidity Thermostat",
+          "id": "wk06_q13_d"
         }
       ],
       "correct_answers": [
@@ -3736,19 +4051,23 @@
       "options": [
         {
           "label": "a",
-          "text": "2"
+          "text": "2",
+          "id": "wk06_q14_a"
         },
         {
           "label": "b",
-          "text": "3"
+          "text": "3",
+          "id": "wk06_q14_b"
         },
         {
           "label": "c",
-          "text": "4"
+          "text": "4",
+          "id": "wk06_q14_c"
         },
         {
           "label": "d",
-          "text": "5"
+          "text": "5",
+          "id": "wk06_q14_d"
         }
       ],
       "correct_answers": [
@@ -3779,11 +4098,13 @@
       "options": [
         {
           "label": "a",
-          "text": "True"
+          "text": "True",
+          "id": "wk06_q15_a"
         },
         {
           "label": "b",
-          "text": "False"
+          "text": "False",
+          "id": "wk06_q15_b"
         }
       ],
       "correct_answers": [
@@ -3812,19 +4133,23 @@
       "options": [
         {
           "label": "a",
-          "text": "'SOCK_STREAM'"
+          "text": "'SOCK_STREAM'",
+          "id": "wk07_q01_a"
         },
         {
           "label": "b",
-          "text": "'SOCK_DGRAM'"
+          "text": "'SOCK_DGRAM'",
+          "id": "wk07_q01_b"
         },
         {
           "label": "c",
-          "text": "'SOCK_RAW'"
+          "text": "'SOCK_RAW'",
+          "id": "wk07_q01_c"
         },
         {
           "label": "d",
-          "text": "'SOCK_SEQPACKET'"
+          "text": "'SOCK_SEQPACKET'",
+          "id": "wk07_q01_d"
         }
       ],
       "correct_answers": [
@@ -3855,19 +4180,23 @@
       "options": [
         {
           "label": "a",
-          "text": "'Adafruit_DHT.read_retry()'"
+          "text": "'Adafruit_DHT.read_retry()'",
+          "id": "wk07_q02_a"
         },
         {
           "label": "b",
-          "text": "'Adafruit_DHT.get_data()'"
+          "text": "'Adafruit_DHT.get_data()'",
+          "id": "wk07_q02_b"
         },
         {
           "label": "c",
-          "text": "'Adafruit_DHT.sense()'"
+          "text": "'Adafruit_DHT.sense()'",
+          "id": "wk07_q02_c"
         },
         {
           "label": "d",
-          "text": "'Adafruit_DHT.capture()'"
+          "text": "'Adafruit_DHT.capture()'",
+          "id": "wk07_q02_d"
         }
       ],
       "correct_answers": [
@@ -3898,19 +4227,23 @@
       "options": [
         {
           "label": "a",
-          "text": "In a MySQL database"
+          "text": "In a MySQL database",
+          "id": "wk07_q03_a"
         },
         {
           "label": "b",
-          "text": "In a text file named Datalog.txt"
+          "text": "In a text file named Datalog.txt",
+          "id": "wk07_q03_b"
         },
         {
           "label": "c",
-          "text": "On a cloud dashboard"
+          "text": "On a cloud dashboard",
+          "id": "wk07_q03_c"
         },
         {
           "label": "d",
-          "text": "In an Excel spreadsheet"
+          "text": "In an Excel spreadsheet",
+          "id": "wk07_q03_d"
         }
       ],
       "correct_answers": [
@@ -3941,19 +4274,23 @@
       "options": [
         {
           "label": "a",
-          "text": "'split()'"
+          "text": "'split()'",
+          "id": "wk07_q04_a"
         },
         {
           "label": "b",
-          "text": "'divide()'"
+          "text": "'divide()'",
+          "id": "wk07_q04_b"
         },
         {
           "label": "c",
-          "text": "'partition()'"
+          "text": "'partition()'",
+          "id": "wk07_q04_c"
         },
         {
           "label": "d",
-          "text": "'separate()'"
+          "text": "'separate()'",
+          "id": "wk07_q04_d"
         }
       ],
       "correct_answers": [
@@ -3984,11 +4321,13 @@
       "options": [
         {
           "label": "a",
-          "text": "False"
+          "text": "False",
+          "id": "wk07_q05_a"
         },
         {
           "label": "b",
-          "text": "True"
+          "text": "True",
+          "id": "wk07_q05_b"
         }
       ],
       "correct_answers": [
@@ -4017,19 +4356,23 @@
       "options": [
         {
           "label": "a",
-          "text": "'ion()'"
+          "text": "'ion()'",
+          "id": "wk07_q06_a"
         },
         {
           "label": "b",
-          "text": "'grid()'"
+          "text": "'grid()'",
+          "id": "wk07_q06_b"
         },
         {
           "label": "c",
-          "text": "'subplot()'"
+          "text": "'subplot()'",
+          "id": "wk07_q06_c"
         },
         {
           "label": "d",
-          "text": "'figure()'"
+          "text": "'figure()'",
+          "id": "wk07_q06_d"
         }
       ],
       "correct_answers": [
@@ -4060,19 +4403,23 @@
       "options": [
         {
           "label": "a",
-          "text": "In a centralized controller"
+          "text": "In a centralized controller",
+          "id": "wk07_q07_a"
         },
         {
           "label": "b",
-          "text": "At the individual switches"
+          "text": "At the individual switches",
+          "id": "wk07_q07_b"
         },
         {
           "label": "c",
-          "text": "On the end-user device"
+          "text": "On the end-user device",
+          "id": "wk07_q07_c"
         },
         {
           "label": "d",
-          "text": "In the cloud"
+          "text": "In the cloud",
+          "id": "wk07_q07_d"
         }
       ],
       "correct_answers": [
@@ -4103,19 +4450,23 @@
       "options": [
         {
           "label": "a",
-          "text": "2006"
+          "text": "2006",
+          "id": "wk07_q08_a"
         },
         {
           "label": "b",
-          "text": "2008"
+          "text": "2008",
+          "id": "wk07_q08_b"
         },
         {
           "label": "c",
-          "text": "2009"
+          "text": "2009",
+          "id": "wk07_q08_c"
         },
         {
           "label": "d",
-          "text": "2011"
+          "text": "2011",
+          "id": "wk07_q08_d"
         }
       ],
       "correct_answers": [
@@ -4146,19 +4497,23 @@
       "options": [
         {
           "label": "a",
-          "text": "PACKET-IN message"
+          "text": "PACKET-IN message",
+          "id": "wk07_q09_a"
         },
         {
           "label": "b",
-          "text": "FLOW-REQUEST message"
+          "text": "FLOW-REQUEST message",
+          "id": "wk07_q09_b"
         },
         {
           "label": "c",
-          "text": "RULE-MISS alert"
+          "text": "RULE-MISS alert",
+          "id": "wk07_q09_c"
         },
         {
           "label": "d",
-          "text": "CONTROL-SYNC message"
+          "text": "CONTROL-SYNC message",
+          "id": "wk07_q09_d"
         }
       ],
       "correct_answers": [
@@ -4189,19 +4544,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Northbound API"
+          "text": "Northbound API",
+          "id": "wk07_q10_a"
         },
         {
           "label": "b",
-          "text": "Southbound API"
+          "text": "Southbound API",
+          "id": "wk07_q10_b"
         },
         {
           "label": "c",
-          "text": "East-Westbound API"
+          "text": "East-Westbound API",
+          "id": "wk07_q10_c"
         },
         {
           "label": "d",
-          "text": "North-Southbound API"
+          "text": "North-Southbound API",
+          "id": "wk07_q10_d"
         }
       ],
       "correct_answers": [
@@ -4232,19 +4591,23 @@
       "options": [
         {
           "label": "a",
-          "text": "50"
+          "text": "50",
+          "id": "wk07_q11_a"
         },
         {
           "label": "b",
-          "text": "100"
+          "text": "100",
+          "id": "wk07_q11_b"
         },
         {
           "label": "c",
-          "text": "200"
+          "text": "200",
+          "id": "wk07_q11_c"
         },
         {
           "label": "d",
-          "text": "500"
+          "text": "500",
+          "id": "wk07_q11_d"
         }
       ],
       "correct_answers": [
@@ -4275,19 +4638,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Distributed control"
+          "text": "Distributed control",
+          "id": "wk07_q12_a"
         },
         {
           "label": "b",
-          "text": "Centralized control"
+          "text": "Centralized control",
+          "id": "wk07_q12_b"
         },
         {
           "label": "c",
-          "text": "Hierarchical control"
+          "text": "Hierarchical control",
+          "id": "wk07_q12_c"
         },
         {
           "label": "d",
-          "text": "Federated control"
+          "text": "Federated control",
+          "id": "wk07_q12_d"
         }
       ],
       "correct_answers": [
@@ -4318,19 +4685,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Increased hardware cost"
+          "text": "Increased hardware cost",
+          "id": "wk07_q13_a"
         },
         {
           "label": "b",
-          "text": "Visibility of network resources"
+          "text": "Visibility of network resources",
+          "id": "wk07_q13_b"
         },
         {
           "label": "c",
-          "text": "Reduced sensor accuracy"
+          "text": "Reduced sensor accuracy",
+          "id": "wk07_q13_c"
         },
         {
           "label": "d",
-          "text": "Elimination of all controllers"
+          "text": "Elimination of all controllers",
+          "id": "wk07_q13_d"
         }
       ],
       "correct_answers": [
@@ -4361,19 +4732,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Excess bandwidth"
+          "text": "Excess bandwidth",
+          "id": "wk07_q14_a"
         },
         {
           "label": "b",
-          "text": "Limited memory for control programs"
+          "text": "Limited memory for control programs",
+          "id": "wk07_q14_b"
         },
         {
           "label": "c",
-          "text": "Too many controllers"
+          "text": "Too many controllers",
+          "id": "wk07_q14_c"
         },
         {
           "label": "d",
-          "text": "Unlimited computation power"
+          "text": "Unlimited computation power",
+          "id": "wk07_q14_d"
         }
       ],
       "correct_answers": [
@@ -4404,19 +4779,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Integrated Node Path Protocol"
+          "text": "Integrated Node Path Protocol",
+          "id": "wk07_q15_a"
         },
         {
           "label": "b",
-          "text": "Internal Node Power Processing"
+          "text": "Internal Node Power Processing",
+          "id": "wk07_q15_b"
         },
         {
           "label": "c",
-          "text": "In Network Packet Processing"
+          "text": "In Network Packet Processing",
+          "id": "wk07_q15_c"
         },
         {
           "label": "d",
-          "text": "IoT Network Priority Protocol"
+          "text": "IoT Network Priority Protocol",
+          "id": "wk07_q15_d"
         }
       ],
       "correct_answers": [
@@ -4447,19 +4826,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Too flexible hardware architecture"
+          "text": "Too flexible hardware architecture",
+          "id": "wk08_q01_a"
         },
         {
           "label": "b",
-          "text": "Excess centralized control"
+          "text": "Excess centralized control",
+          "id": "wk08_q01_b"
         },
         {
           "label": "c",
-          "text": "Very low operational cost"
+          "text": "Very low operational cost",
+          "id": "wk08_q01_c"
         },
         {
           "label": "d",
-          "text": "Difficult to scale due to static, over-provisioned networks"
+          "text": "Difficult to scale due to static, over-provisioned networks",
+          "id": "wk08_q01_d"
         }
       ],
       "correct_answers": [
@@ -4490,19 +4873,23 @@
       "options": [
         {
           "label": "a",
-          "text": "It is placed at the controller end to manage policies"
+          "text": "It is placed at the controller end to manage policies",
+          "id": "wk08_q02_a"
         },
         {
           "label": "b",
-          "text": "It replaces the OpenFlow protocol entirely"
+          "text": "It replaces the OpenFlow protocol entirely",
+          "id": "wk08_q02_b"
         },
         {
           "label": "c",
-          "text": "It is placed with the physical devices to communicate with the controller"
+          "text": "It is placed with the physical devices to communicate with the controller",
+          "id": "wk08_q02_c"
         },
         {
           "label": "d",
-          "text": "It performs billing for cloud resources"
+          "text": "It performs billing for cloud resources",
+          "id": "wk08_q02_d"
         }
       ],
       "correct_answers": [
@@ -4533,19 +4920,23 @@
       "options": [
         {
           "label": "a",
-          "text": "To place flow-rules randomly across all access points"
+          "text": "To place flow-rules randomly across all access points",
+          "id": "wk08_q03_a"
         },
         {
           "label": "b",
-          "text": "To predict users' future location and place flow-rules at APs accordingly"
+          "text": "To predict users' future location and place flow-rules at APs accordingly",
+          "id": "wk08_q03_b"
         },
         {
           "label": "c",
-          "text": "To eliminate the need for a controller"
+          "text": "To eliminate the need for a controller",
+          "id": "wk08_q03_c"
         },
         {
           "label": "d",
-          "text": "To increase the number of PACKET-IN messages"
+          "text": "To increase the number of PACKET-IN messages",
+          "id": "wk08_q03_d"
         }
       ],
       "correct_answers": [
@@ -4576,19 +4967,23 @@
       "options": [
         {
           "label": "a",
-          "text": "CloudSim"
+          "text": "CloudSim",
+          "id": "wk08_q04_a"
         },
         {
           "label": "b",
-          "text": "NS2"
+          "text": "NS2",
+          "id": "wk08_q04_b"
         },
         {
           "label": "c",
-          "text": "GreenCloud"
+          "text": "GreenCloud",
+          "id": "wk08_q04_c"
         },
         {
           "label": "d",
-          "text": "Mininet-WiFi"
+          "text": "Mininet-WiFi",
+          "id": "wk08_q04_d"
         }
       ],
       "correct_answers": [
@@ -4619,19 +5014,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Fixed, dedicated hardware resources"
+          "text": "Fixed, dedicated hardware resources",
+          "id": "wk08_q05_a"
         },
         {
           "label": "b",
-          "text": "Configurable computing resources"
+          "text": "Configurable computing resources",
+          "id": "wk08_q05_b"
         },
         {
           "label": "c",
-          "text": "Only storage resources"
+          "text": "Only storage resources",
+          "id": "wk08_q05_c"
         },
         {
           "label": "d",
-          "text": "Only networking resources"
+          "text": "Only networking resources",
+          "id": "wk08_q05_d"
         }
       ],
       "correct_answers": [
@@ -4662,19 +5061,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Rapid elasticity"
+          "text": "Rapid elasticity",
+          "id": "wk08_q06_a"
         },
         {
           "label": "b",
-          "text": "Manual resource allocation"
+          "text": "Manual resource allocation",
+          "id": "wk08_q06_b"
         },
         {
           "label": "c",
-          "text": "Single-tenant only access"
+          "text": "Single-tenant only access",
+          "id": "wk08_q06_c"
         },
         {
           "label": "d",
-          "text": "Fixed billing regardless of usage"
+          "text": "Fixed billing regardless of usage",
+          "id": "wk08_q06_d"
         }
       ],
       "correct_answers": [
@@ -4705,19 +5108,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Public cloud"
+          "text": "Public cloud",
+          "id": "wk08_q07_a"
         },
         {
           "label": "b",
-          "text": "Private cloud"
+          "text": "Private cloud",
+          "id": "wk08_q07_b"
         },
         {
           "label": "c",
-          "text": "Community cloud"
+          "text": "Community cloud",
+          "id": "wk08_q07_c"
         },
         {
           "label": "d",
-          "text": "Multi-cloud"
+          "text": "Multi-cloud",
+          "id": "wk08_q07_d"
         }
       ],
       "correct_answers": [
@@ -4748,19 +5155,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Amazon Web Services (AWS)"
+          "text": "Amazon Web Services (AWS)",
+          "id": "wk08_q08_a"
         },
         {
           "label": "b",
-          "text": "A company's internal private data center"
+          "text": "A company's internal private data center",
+          "id": "wk08_q08_b"
         },
         {
           "label": "c",
-          "text": "A single organization's dedicated server room"
+          "text": "A single organization's dedicated server room",
+          "id": "wk08_q08_c"
         },
         {
           "label": "d",
-          "text": "A community-only cloud shared by hospitals"
+          "text": "A community-only cloud shared by hospitals",
+          "id": "wk08_q08_d"
         }
       ],
       "correct_answers": [
@@ -4791,19 +5202,23 @@
       "options": [
         {
           "label": "a",
-          "text": "SaaS"
+          "text": "SaaS",
+          "id": "wk08_q09_a"
         },
         {
           "label": "b",
-          "text": "PaaS"
+          "text": "PaaS",
+          "id": "wk08_q09_b"
         },
         {
           "label": "c",
-          "text": "IaaS"
+          "text": "IaaS",
+          "id": "wk08_q09_c"
         },
         {
           "label": "d",
-          "text": "DBaaS"
+          "text": "DBaaS",
+          "id": "wk08_q09_d"
         }
       ],
       "correct_answers": [
@@ -4834,19 +5249,23 @@
       "options": [
         {
           "label": "a",
-          "text": "DNS server"
+          "text": "DNS server",
+          "id": "wk08_q10_a"
         },
         {
           "label": "b",
-          "text": "Load balancer"
+          "text": "Load balancer",
+          "id": "wk08_q10_b"
         },
         {
           "label": "c",
-          "text": "Firewall"
+          "text": "Firewall",
+          "id": "wk08_q10_c"
         },
         {
           "label": "d",
-          "text": "Hypervisor"
+          "text": "Hypervisor",
+          "id": "wk08_q10_d"
         }
       ],
       "correct_answers": [
@@ -4877,19 +5296,23 @@
       "options": [
         {
           "label": "a",
-          "text": "IaaS"
+          "text": "IaaS",
+          "id": "wk08_q11_a"
         },
         {
           "label": "b",
-          "text": "SaaS"
+          "text": "SaaS",
+          "id": "wk08_q11_b"
         },
         {
           "label": "c",
-          "text": "PaaS"
+          "text": "PaaS",
+          "id": "wk08_q11_c"
         },
         {
           "label": "d",
-          "text": "Community Cloud"
+          "text": "Community Cloud",
+          "id": "wk08_q11_d"
         }
       ],
       "correct_answers": [
@@ -4920,19 +5343,23 @@
       "options": [
         {
           "label": "a",
-          "text": "To define the physical location of the data center"
+          "text": "To define the physical location of the data center",
+          "id": "wk08_q12_a"
         },
         {
           "label": "b",
-          "text": "To define the non-functional requirements expected from the service provider"
+          "text": "To define the non-functional requirements expected from the service provider",
+          "id": "wk08_q12_b"
         },
         {
           "label": "c",
-          "text": "To specify the programming language used by the cloud provider"
+          "text": "To specify the programming language used by the cloud provider",
+          "id": "wk08_q12_c"
         },
         {
           "label": "d",
-          "text": "To list the hardware vendors used by the provider"
+          "text": "To list the hardware vendors used by the provider",
+          "id": "wk08_q12_d"
         }
       ],
       "correct_answers": [
@@ -4963,19 +5390,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Resource usage information, typically in the form of records"
+          "text": "Resource usage information, typically in the form of records",
+          "id": "wk08_q13_a"
         },
         {
           "label": "b",
-          "text": "The physical address of end-users"
+          "text": "The physical address of end-users",
+          "id": "wk08_q13_b"
         },
         {
           "label": "c",
-          "text": "The source code of hosted applications"
+          "text": "The source code of hosted applications",
+          "id": "wk08_q13_c"
         },
         {
           "label": "d",
-          "text": "The marketing budget of the provider"
+          "text": "The marketing budget of the provider",
+          "id": "wk08_q13_d"
         }
       ],
       "correct_answers": [
@@ -5006,19 +5437,23 @@
       "options": [
         {
           "label": "a",
-          "text": "To permanently replace the need for real cloud infrastructure"
+          "text": "To permanently replace the need for real cloud infrastructure",
+          "id": "wk08_q14_a"
         },
         {
           "label": "b",
-          "text": "To physically manufacture cloud hardware"
+          "text": "To physically manufacture cloud hardware",
+          "id": "wk08_q14_b"
         },
         {
           "label": "c",
-          "text": "To increase the billing cost of cloud services"
+          "text": "To increase the billing cost of cloud services",
+          "id": "wk08_q14_c"
         },
         {
           "label": "d",
-          "text": "To provide a reliable, scalable, and repeatable environment for pre-deployment performance evaluation"
+          "text": "To provide a reliable, scalable, and repeatable environment for pre-deployment performance evaluation",
+          "id": "wk08_q14_d"
         }
       ],
       "correct_answers": [
@@ -5049,19 +5484,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Stanford University, based on Python"
+          "text": "Stanford University, based on Python",
+          "id": "wk08_q15_a"
         },
         {
           "label": "b",
-          "text": "CLOUDS Lab, University of Melbourne, based on Java"
+          "text": "CLOUDS Lab, University of Melbourne, based on Java",
+          "id": "wk08_q15_b"
         },
         {
           "label": "c",
-          "text": "MIT, based on C++"
+          "text": "MIT, based on C++",
+          "id": "wk08_q15_c"
         },
         {
           "label": "d",
-          "text": "IIT Kharagpur, based on JavaScript"
+          "text": "IIT Kharagpur, based on JavaScript",
+          "id": "wk08_q15_d"
         }
       ],
       "correct_answers": [
@@ -5092,19 +5531,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Google"
+          "text": "Google",
+          "id": "wk09_q01_a"
         },
         {
           "label": "b",
-          "text": "Microsoft"
+          "text": "Microsoft",
+          "id": "wk09_q01_b"
         },
         {
           "label": "c",
-          "text": "NASA"
+          "text": "NASA",
+          "id": "wk09_q01_c"
         },
         {
           "label": "d",
-          "text": "IBM"
+          "text": "IBM",
+          "id": "wk09_q01_d"
         }
       ],
       "correct_answers": [
@@ -5135,19 +5578,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Nova"
+          "text": "Nova",
+          "id": "wk09_q02_a"
         },
         {
           "label": "b",
-          "text": "Keystone"
+          "text": "Keystone",
+          "id": "wk09_q02_b"
         },
         {
           "label": "c",
-          "text": "Horizon"
+          "text": "Horizon",
+          "id": "wk09_q02_c"
         },
         {
           "label": "d",
-          "text": "Swift"
+          "text": "Swift",
+          "id": "wk09_q02_d"
         }
       ],
       "correct_answers": [
@@ -5178,19 +5625,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Nova"
+          "text": "Nova",
+          "id": "wk09_q03_a"
         },
         {
           "label": "b",
-          "text": "Glance"
+          "text": "Glance",
+          "id": "wk09_q03_b"
         },
         {
           "label": "c",
-          "text": "Cinder"
+          "text": "Cinder",
+          "id": "wk09_q03_c"
         },
         {
           "label": "d",
-          "text": "Neutron"
+          "text": "Neutron",
+          "id": "wk09_q03_d"
         }
       ],
       "correct_answers": [
@@ -5221,19 +5672,23 @@
       "options": [
         {
           "label": "a",
-          "text": "'stack.sh' via Devstack"
+          "text": "'stack.sh' via Devstack",
+          "id": "wk09_q04_a"
         },
         {
           "label": "b",
-          "text": "'docker-compose'"
+          "text": "'docker-compose'",
+          "id": "wk09_q04_b"
         },
         {
           "label": "c",
-          "text": "'kubeadm'"
+          "text": "'kubeadm'",
+          "id": "wk09_q04_c"
         },
         {
           "label": "d",
-          "text": "'ansible-playbook'"
+          "text": "'ansible-playbook'",
+          "id": "wk09_q04_d"
         }
       ],
       "correct_answers": [
@@ -5264,19 +5719,23 @@
       "options": [
         {
           "label": "a",
-          "text": "A physical replacement for all sensor hardware"
+          "text": "A physical replacement for all sensor hardware",
+          "id": "wk09_q05_a"
         },
         {
           "label": "b",
-          "text": "Virtualization of sensor nodes, offered on a pay-per-use basis"
+          "text": "Virtualization of sensor nodes, offered on a pay-per-use basis",
+          "id": "wk09_q05_b"
         },
         {
           "label": "c",
-          "text": "A way to eliminate the need for a sink node"
+          "text": "A way to eliminate the need for a sink node",
+          "id": "wk09_q05_c"
         },
         {
           "label": "d",
-          "text": "Free unlimited sensor deployment"
+          "text": "Free unlimited sensor deployment",
+          "id": "wk09_q05_d"
         }
       ],
       "correct_answers": [
@@ -5307,19 +5766,23 @@
       "options": [
         {
           "label": "a",
-          "text": "The Sensor-Cloud Service Provider (SCSP)"
+          "text": "The Sensor-Cloud Service Provider (SCSP)",
+          "id": "wk09_q06_a"
         },
         {
           "label": "b",
-          "text": "The end-user of the sensor-cloud"
+          "text": "The end-user of the sensor-cloud",
+          "id": "wk09_q06_b"
         },
         {
           "label": "c",
-          "text": "The WSN-user"
+          "text": "The WSN-user",
+          "id": "wk09_q06_c"
         },
         {
           "label": "d",
-          "text": "A third-party auditor"
+          "text": "A third-party auditor",
+          "id": "wk09_q06_d"
         }
       ],
       "correct_answers": [
@@ -5350,19 +5813,23 @@
       "options": [
         {
           "label": "a",
-          "text": "End-user"
+          "text": "End-user",
+          "id": "wk09_q07_a"
         },
         {
           "label": "b",
-          "text": "Sensor-owner"
+          "text": "Sensor-owner",
+          "id": "wk09_q07_b"
         },
         {
           "label": "c",
-          "text": "Sensor-Cloud Service Provider (SCSP)"
+          "text": "Sensor-Cloud Service Provider (SCSP)",
+          "id": "wk09_q07_c"
         },
         {
           "label": "d",
-          "text": "WSN-user"
+          "text": "WSN-user",
+          "id": "wk09_q07_d"
         }
       ],
       "correct_answers": [
@@ -5393,19 +5860,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Unlimited scalability at zero cost"
+          "text": "Unlimited scalability at zero cost",
+          "id": "wk09_q08_a"
         },
         {
           "label": "b",
-          "text": "Difficulty adapting to a change of requirement (e.g., moving from agriculture to smart home use)"
+          "text": "Difficulty adapting to a change of requirement (e.g., moving from agriculture to smart home use)",
+          "id": "wk09_q08_b"
         },
         {
           "label": "c",
-          "text": "Excessive availability of skilled vendors"
+          "text": "Excessive availability of skilled vendors",
+          "id": "wk09_q08_c"
         },
         {
           "label": "d",
-          "text": "No need for maintenance"
+          "text": "No need for maintenance",
+          "id": "wk09_q08_d"
         }
       ],
       "correct_answers": [
@@ -5436,19 +5907,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Composition of virtual sensors spanning multiple geographic regions"
+          "text": "Composition of virtual sensors spanning multiple geographic regions",
+          "id": "wk09_q09_a"
         },
         {
           "label": "b",
-          "text": "Composition of virtual sensors using only homogeneous nodes within the same geographic region"
+          "text": "Composition of virtual sensors using only homogeneous nodes within the same geographic region",
+          "id": "wk09_q09_b"
         },
         {
           "label": "c",
-          "text": "A pricing model for sensor-cloud"
+          "text": "A pricing model for sensor-cloud",
+          "id": "wk09_q09_c"
         },
         {
           "label": "d",
-          "text": "A caching mechanism for sensor data"
+          "text": "A caching mechanism for sensor data",
+          "id": "wk09_q09_d"
         }
       ],
       "correct_answers": [
@@ -5479,19 +5954,23 @@
       "options": [
         {
           "label": "a",
-          "text": "External Cache (EC)"
+          "text": "External Cache (EC)",
+          "id": "wk09_q10_a"
         },
         {
           "label": "b",
-          "text": "Sensor Cache (SC)"
+          "text": "Sensor Cache (SC)",
+          "id": "wk09_q10_b"
         },
         {
           "label": "c",
-          "text": "Distributed Cache (DC)"
+          "text": "Distributed Cache (DC)",
+          "id": "wk09_q10_c"
         },
         {
           "label": "d",
-          "text": "Internal Cache (IC)"
+          "text": "Internal Cache (IC)",
+          "id": "wk09_q10_d"
         }
       ],
       "correct_answers": [
@@ -5522,19 +6001,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Because environmental conditions always change extremely fast"
+          "text": "Because environmental conditions always change extremely fast",
+          "id": "wk09_q11_a"
         },
         {
           "label": "b",
-          "text": "Because it removes the need for a sensor-owner"
+          "text": "Because it removes the need for a sensor-owner",
+          "id": "wk09_q11_b"
         },
         {
           "label": "c",
-          "text": "Because caching eliminates the need for virtualization"
+          "text": "Because caching eliminates the need for virtualization",
+          "id": "wk09_q11_c"
         },
         {
           "label": "d",
-          "text": "Because unnecessary sensing during slow environmental change wastes energy"
+          "text": "Because unnecessary sensing during slow environmental change wastes energy",
+          "id": "wk09_q11_d"
         }
       ],
       "correct_answers": [
@@ -5565,19 +6048,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Google"
+          "text": "Google",
+          "id": "wk09_q12_a"
         },
         {
           "label": "b",
-          "text": "Amazon"
+          "text": "Amazon",
+          "id": "wk09_q12_b"
         },
         {
           "label": "c",
-          "text": "CISCO"
+          "text": "CISCO",
+          "id": "wk09_q12_c"
         },
         {
           "label": "d",
-          "text": "IBM"
+          "text": "IBM",
+          "id": "wk09_q12_d"
         }
       ],
       "correct_answers": [
@@ -5608,19 +6095,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Excess bandwidth availability"
+          "text": "Excess bandwidth availability",
+          "id": "wk09_q13_a"
         },
         {
           "label": "b",
-          "text": "Volume, latency, and bandwidth limitations of the cloud"
+          "text": "Volume, latency, and bandwidth limitations of the cloud",
+          "id": "wk09_q13_b"
         },
         {
           "label": "c",
-          "text": "Too much local processing power at the device level"
+          "text": "Too much local processing power at the device level",
+          "id": "wk09_q13_c"
         },
         {
           "label": "d",
-          "text": "Absence of any IoT devices"
+          "text": "Absence of any IoT devices",
+          "id": "wk09_q13_d"
         }
       ],
       "correct_answers": [
@@ -5651,19 +6142,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Above the cloud layer"
+          "text": "Above the cloud layer",
+          "id": "wk09_q14_a"
         },
         {
           "label": "b",
-          "text": "Between the cloud and the IoT devices"
+          "text": "Between the cloud and the IoT devices",
+          "id": "wk09_q14_b"
         },
         {
           "label": "c",
-          "text": "Inside each IoT device only"
+          "text": "Inside each IoT device only",
+          "id": "wk09_q14_c"
         },
         {
           "label": "d",
-          "text": "There is no fixed position; it replaces the cloud entirely"
+          "text": "There is no fixed position; it replaces the cloud entirely",
+          "id": "wk09_q14_d"
         }
       ],
       "correct_answers": [
@@ -5694,19 +6189,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Storage (transient)"
+          "text": "Storage (transient)",
+          "id": "wk09_q15_a"
         },
         {
           "label": "b",
-          "text": "Computing facility for quick decisions"
+          "text": "Computing facility for quick decisions",
+          "id": "wk09_q15_b"
         },
         {
           "label": "c",
-          "text": "Network connectivity"
+          "text": "Network connectivity",
+          "id": "wk09_q15_c"
         },
         {
           "label": "d",
-          "text": "Permanent, unlimited archival storage"
+          "text": "Permanent, unlimited archival storage",
+          "id": "wk09_q15_d"
         }
       ],
       "correct_answers": [
@@ -5737,19 +6236,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Skeleton"
+          "text": "Skeleton",
+          "id": "wk10_q01_a"
         },
         {
           "label": "b",
-          "text": "Nerves"
+          "text": "Nerves",
+          "id": "wk10_q01_b"
         },
         {
           "label": "c",
-          "text": "Sensory Organs"
+          "text": "Sensory Organs",
+          "id": "wk10_q01_c"
         },
         {
           "label": "d",
-          "text": "Brain"
+          "text": "Brain",
+          "id": "wk10_q01_d"
         }
       ],
       "correct_answers": [
@@ -5780,19 +6283,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Smart Economy"
+          "text": "Smart Economy",
+          "id": "wk10_q02_a"
         },
         {
           "label": "b",
-          "text": "Smart Bandwidth"
+          "text": "Smart Bandwidth",
+          "id": "wk10_q02_b"
         },
         {
           "label": "c",
-          "text": "Smart Voltage"
+          "text": "Smart Voltage",
+          "id": "wk10_q02_c"
         },
         {
           "label": "d",
-          "text": "Smart Currency"
+          "text": "Smart Currency",
+          "id": "wk10_q02_d"
         }
       ],
       "correct_answers": [
@@ -5823,19 +6330,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Smart Homes"
+          "text": "Smart Homes",
+          "id": "wk10_q03_a"
         },
         {
           "label": "b",
-          "text": "Smart Energy"
+          "text": "Smart Energy",
+          "id": "wk10_q03_b"
         },
         {
           "label": "c",
-          "text": "Smart Health"
+          "text": "Smart Health",
+          "id": "wk10_q03_c"
         },
         {
           "label": "d",
-          "text": "Smart Parking Lots"
+          "text": "Smart Parking Lots",
+          "id": "wk10_q03_d"
         }
       ],
       "correct_answers": [
@@ -5866,19 +6377,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Reliability"
+          "text": "Reliability",
+          "id": "wk10_q04_a"
         },
         {
           "label": "b",
-          "text": "Heterogeneity"
+          "text": "Heterogeneity",
+          "id": "wk10_q04_b"
         },
         {
           "label": "c",
-          "text": "Security and Privacy"
+          "text": "Security and Privacy",
+          "id": "wk10_q04_c"
         },
         {
           "label": "d",
-          "text": "Legal and Social aspects"
+          "text": "Legal and Social aspects",
+          "id": "wk10_q04_d"
         }
       ],
       "correct_answers": [
@@ -5909,19 +6424,23 @@
       "options": [
         {
           "label": "a",
-          "text": "To delete redundant sensors from the network"
+          "text": "To delete redundant sensors from the network",
+          "id": "wk10_q05_a"
         },
         {
           "label": "b",
-          "text": "To make the large incoming data volume precise and accurate for better decision making"
+          "text": "To make the large incoming data volume precise and accurate for better decision making",
+          "id": "wk10_q05_b"
         },
         {
           "label": "c",
-          "text": "To replace the need for any sensors"
+          "text": "To replace the need for any sensors",
+          "id": "wk10_q05_c"
         },
         {
           "label": "d",
-          "text": "To increase network latency intentionally"
+          "text": "To increase network latency intentionally",
+          "id": "wk10_q05_d"
         }
       ],
       "correct_answers": [
@@ -5952,19 +6471,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Imperfection"
+          "text": "Imperfection",
+          "id": "wk10_q06_a"
         },
         {
           "label": "b",
-          "text": "Ambiguity"
+          "text": "Ambiguity",
+          "id": "wk10_q06_b"
         },
         {
           "label": "c",
-          "text": "Conflicts"
+          "text": "Conflicts",
+          "id": "wk10_q06_c"
         },
         {
           "label": "d",
-          "text": "Alignment"
+          "text": "Alignment",
+          "id": "wk10_q06_d"
         }
       ],
       "correct_answers": [
@@ -5995,19 +6518,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Decision level"
+          "text": "Decision level",
+          "id": "wk10_q07_a"
         },
         {
           "label": "b",
-          "text": "Feature level"
+          "text": "Feature level",
+          "id": "wk10_q07_b"
         },
         {
           "label": "c",
-          "text": "Pixel level"
+          "text": "Pixel level",
+          "id": "wk10_q07_c"
         },
         {
           "label": "d",
-          "text": "Signal level"
+          "text": "Signal level",
+          "id": "wk10_q07_d"
         }
       ],
       "correct_answers": [
@@ -6038,19 +6565,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Information Collection"
+          "text": "Information Collection",
+          "id": "wk10_q08_a"
         },
         {
           "label": "b",
-          "text": "Fuel Refilling"
+          "text": "Fuel Refilling",
+          "id": "wk10_q08_b"
         },
         {
           "label": "c",
-          "text": "Vehicle Manufacturing"
+          "text": "Vehicle Manufacturing",
+          "id": "wk10_q08_c"
         },
         {
           "label": "d",
-          "text": "Traffic Signal Coloring"
+          "text": "Traffic Signal Coloring",
+          "id": "wk10_q08_d"
         }
       ],
       "correct_answers": [
@@ -6081,19 +6612,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Ambient energy harvesting"
+          "text": "Ambient energy harvesting",
+          "id": "wk10_q09_a"
         },
         {
           "label": "b",
-          "text": "Passive harvesting"
+          "text": "Passive harvesting",
+          "id": "wk10_q09_b"
         },
         {
           "label": "c",
-          "text": "Grid-tied harvesting"
+          "text": "Grid-tied harvesting",
+          "id": "wk10_q09_c"
         },
         {
           "label": "d",
-          "text": "Dedicated energy harvesting"
+          "text": "Dedicated energy harvesting",
+          "id": "wk10_q09_d"
         }
       ],
       "correct_answers": [
@@ -6124,19 +6659,23 @@
       "options": [
         {
           "label": "a",
-          "text": "UPnP"
+          "text": "UPnP",
+          "id": "wk10_q10_a"
         },
         {
           "label": "b",
-          "text": "DLNA"
+          "text": "DLNA",
+          "id": "wk10_q10_b"
         },
         {
           "label": "c",
-          "text": "Zigbee"
+          "text": "Zigbee",
+          "id": "wk10_q10_c"
         },
         {
           "label": "d",
-          "text": "X-10"
+          "text": "X-10",
+          "id": "wk10_q10_d"
         }
       ],
       "correct_answers": [
@@ -6167,19 +6706,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Konnex (KNX)"
+          "text": "Konnex (KNX)",
+          "id": "wk10_q11_a"
         },
         {
           "label": "b",
-          "text": "UPnP"
+          "text": "UPnP",
+          "id": "wk10_q11_b"
         },
         {
           "label": "c",
-          "text": "LonWorks"
+          "text": "LonWorks",
+          "id": "wk10_q11_c"
         },
         {
           "label": "d",
-          "text": "X-10"
+          "text": "X-10",
+          "id": "wk10_q11_d"
         }
       ],
       "correct_answers": [
@@ -6210,19 +6753,23 @@
       "options": [
         {
           "label": "a",
-          "text": "TCP/IP was designed mainly for single-pair information exchange dependent on data location"
+          "text": "TCP/IP was designed mainly for single-pair information exchange dependent on data location",
+          "id": "wk10_q12_a"
         },
         {
           "label": "b",
-          "text": "TCP/IP cannot be used with any wireless devices"
+          "text": "TCP/IP cannot be used with any wireless devices",
+          "id": "wk10_q12_b"
         },
         {
           "label": "c",
-          "text": "TCP/IP requires no IP addresses at all"
+          "text": "TCP/IP requires no IP addresses at all",
+          "id": "wk10_q12_c"
         },
         {
           "label": "d",
-          "text": "TCP/IP works only in stationary networks with no scalability limits"
+          "text": "TCP/IP works only in stationary networks with no scalability limits",
+          "id": "wk10_q12_d"
         }
       ],
       "correct_answers": [
@@ -6253,19 +6800,23 @@
       "options": [
         {
           "label": "a",
-          "text": "2.4 GHz ISM band"
+          "text": "2.4 GHz ISM band",
+          "id": "wk10_q13_a"
         },
         {
           "label": "b",
-          "text": "75 MHz (5850–5925 MHz)"
+          "text": "75 MHz (5850–5925 MHz)",
+          "id": "wk10_q13_b"
         },
         {
           "label": "c",
-          "text": "900 MHz band"
+          "text": "900 MHz band",
+          "id": "wk10_q13_c"
         },
         {
           "label": "d",
-          "text": "60 GHz mmWave band"
+          "text": "60 GHz mmWave band",
+          "id": "wk10_q13_d"
         }
       ],
       "correct_answers": [
@@ -6296,19 +6847,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Phase-1"
+          "text": "Phase-1",
+          "id": "wk10_q14_a"
         },
         {
           "label": "b",
-          "text": "Phase-2"
+          "text": "Phase-2",
+          "id": "wk10_q14_b"
         },
         {
           "label": "c",
-          "text": "Phase-3"
+          "text": "Phase-3",
+          "id": "wk10_q14_c"
         },
         {
           "label": "d",
-          "text": "Phase-0"
+          "text": "Phase-0",
+          "id": "wk10_q14_d"
         }
       ],
       "correct_answers": [
@@ -6339,19 +6894,23 @@
       "options": [
         {
           "label": "a",
-          "text": "In-Vehicle Domain"
+          "text": "In-Vehicle Domain",
+          "id": "wk10_q15_a"
         },
         {
           "label": "b",
-          "text": "Cloud Domain"
+          "text": "Cloud Domain",
+          "id": "wk10_q15_b"
         },
         {
           "label": "c",
-          "text": "Infrastructure Domain"
+          "text": "Infrastructure Domain",
+          "id": "wk10_q15_c"
         },
         {
           "label": "d",
-          "text": "Ad-hoc Domain"
+          "text": "Ad-hoc Domain",
+          "id": "wk10_q15_d"
         }
       ],
       "correct_answers": [
@@ -6382,19 +6941,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Energy distribution is only one directional."
+          "text": "Energy distribution is only one directional.",
+          "id": "wk11_q01_a"
         },
         {
           "label": "b",
-          "text": "Monitoring and restoration are always performed manually."
+          "text": "Monitoring and restoration are always performed manually.",
+          "id": "wk11_q01_b"
         },
         {
           "label": "c",
-          "text": "It enables bidirectional flows of energy with two-way communication and control."
+          "text": "It enables bidirectional flows of energy with two-way communication and control.",
+          "id": "wk11_q01_c"
         },
         {
           "label": "d",
-          "text": "Energy generation must occur only at centralized power plants."
+          "text": "Energy generation must occur only at centralized power plants.",
+          "id": "wk11_q01_d"
         }
       ],
       "correct_answers": [
@@ -6425,19 +6988,23 @@
       "options": [
         {
           "label": "a",
-          "text": "It generates electricity from renewable energy sources."
+          "text": "It generates electricity from renewable energy sources.",
+          "id": "wk11_q02_a"
         },
         {
           "label": "b",
-          "text": "It provides the Smart Grid interface between the consumer and the energy service provider."
+          "text": "It provides the Smart Grid interface between the consumer and the energy service provider.",
+          "id": "wk11_q02_b"
         },
         {
           "label": "c",
-          "text": "It replaces the home energy management system."
+          "text": "It replaces the home energy management system.",
+          "id": "wk11_q02_c"
         },
         {
           "label": "d",
-          "text": "It operates only as a one-way energy meter without information exchange."
+          "text": "It operates only as a one-way energy meter without information exchange.",
+          "id": "wk11_q02_d"
         }
       ],
       "correct_answers": [
@@ -6468,19 +7035,23 @@
       "options": [
         {
           "label": "a",
-          "text": "During off-peak hours."
+          "text": "During off-peak hours.",
+          "id": "wk11_q03_a"
         },
         {
           "label": "b",
-          "text": "Only during on-peak hours."
+          "text": "Only during on-peak hours.",
+          "id": "wk11_q03_b"
         },
         {
           "label": "c",
-          "text": "Only when the grid has a blackout."
+          "text": "Only when the grid has a blackout.",
+          "id": "wk11_q03_c"
         },
         {
           "label": "d",
-          "text": "At a fixed time independent of the grid load."
+          "text": "At a fixed time independent of the grid load.",
+          "id": "wk11_q03_d"
         }
       ],
       "correct_answers": [
@@ -6511,19 +7082,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Reactive power and communication traffic."
+          "text": "Reactive power and communication traffic.",
+          "id": "wk11_q04_a"
         },
         {
           "label": "b",
-          "text": "Only the energy generated at centralized power plants."
+          "text": "Only the energy generated at centralized power plants.",
+          "id": "wk11_q04_b"
         },
         {
           "label": "c",
-          "text": "Only the energy stored in the consumer's battery."
+          "text": "Only the energy stored in the consumer's battery.",
+          "id": "wk11_q04_c"
         },
         {
           "label": "d",
-          "text": "Energy inflow from the grid and energy outflow from the consumer to the grid."
+          "text": "Energy inflow from the grid and energy outflow from the consumer to the grid.",
+          "id": "wk11_q04_d"
         }
       ],
       "correct_answers": [
@@ -6554,19 +7129,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Phasor Measurement Unit (PMU)."
+          "text": "Phasor Measurement Unit (PMU).",
+          "id": "wk11_q05_a"
         },
         {
           "label": "b",
-          "text": "Data Aggregator Unit (DAU)."
+          "text": "Data Aggregator Unit (DAU).",
+          "id": "wk11_q05_b"
         },
         {
           "label": "c",
-          "text": "Smart appliance controller."
+          "text": "Smart appliance controller.",
+          "id": "wk11_q05_c"
         },
         {
           "label": "d",
-          "text": "Universal Power Line Bus."
+          "text": "Universal Power Line Bus.",
+          "id": "wk11_q05_d"
         }
       ],
       "correct_answers": [
@@ -6597,19 +7176,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Preventing all use of smart meters."
+          "text": "Preventing all use of smart meters.",
+          "id": "wk11_q06_a"
         },
         {
           "label": "b",
-          "text": "Identifying the source of a power outage and supporting automatic power-flow restoration."
+          "text": "Identifying the source of a power outage and supporting automatic power-flow restoration.",
+          "id": "wk11_q06_b"
         },
         {
           "label": "c",
-          "text": "Restricting the grid to one-way communication."
+          "text": "Restricting the grid to one-way communication.",
+          "id": "wk11_q06_c"
         },
         {
           "label": "d",
-          "text": "Removing protection and control from feeder lines."
+          "text": "Removing protection and control from feeder lines.",
+          "id": "wk11_q06_d"
         }
       ],
       "correct_answers": [
@@ -6640,19 +7223,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Closely located smart meters to Data Aggregator Units (DAUs)."
+          "text": "Closely located smart meters to Data Aggregator Units (DAUs).",
+          "id": "wk11_q07_a"
         },
         {
           "label": "b",
-          "text": "Only power plants directly to home appliances."
+          "text": "Only power plants directly to home appliances.",
+          "id": "wk11_q07_b"
         },
         {
           "label": "c",
-          "text": "PMUs directly to plug-in electric vehicles."
+          "text": "PMUs directly to plug-in electric vehicles.",
+          "id": "wk11_q07_c"
         },
         {
           "label": "d",
-          "text": "Renewable generators directly to SCADA without intermediate communication."
+          "text": "Renewable generators directly to SCADA without intermediate communication.",
+          "id": "wk11_q07_d"
         }
       ],
       "correct_answers": [
@@ -6683,19 +7270,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Net metering attack."
+          "text": "Net metering attack.",
+          "id": "wk11_q08_a"
         },
         {
           "label": "b",
-          "text": "Time synchronization attack."
+          "text": "Time synchronization attack.",
+          "id": "wk11_q08_b"
         },
         {
           "label": "c",
-          "text": "Data visualization attack."
+          "text": "Data visualization attack.",
+          "id": "wk11_q08_c"
         },
         {
           "label": "d",
-          "text": "Denial of Service (DoS) attack."
+          "text": "Denial of Service (DoS) attack.",
+          "id": "wk11_q08_d"
         }
       ],
       "correct_answers": [
@@ -6726,19 +7317,23 @@
       "options": [
         {
           "label": "a",
-          "text": "An application of IoT in industries that links automation systems with enterprise, planning, and product lifecycle."
+          "text": "An application of IoT in industries that links automation systems with enterprise, planning, and product lifecycle.",
+          "id": "wk11_q09_a"
         },
         {
           "label": "b",
-          "text": "A consumer-only network for home entertainment devices."
+          "text": "A consumer-only network for home entertainment devices.",
+          "id": "wk11_q09_b"
         },
         {
           "label": "c",
-          "text": "A replacement for all industrial automation without networking."
+          "text": "A replacement for all industrial automation without networking.",
+          "id": "wk11_q09_c"
         },
         {
           "label": "d",
-          "text": "A system used only for storing data without machine communication."
+          "text": "A system used only for storing data without machine communication.",
+          "id": "wk11_q09_d"
         }
       ],
       "correct_answers": [
@@ -6769,19 +7364,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Disconnect and isolate."
+          "text": "Disconnect and isolate.",
+          "id": "wk11_q10_a"
         },
         {
           "label": "b",
-          "text": "Rip and replace."
+          "text": "Rip and replace.",
+          "id": "wk11_q10_b"
         },
         {
           "label": "c",
-          "text": "Wrap and re-use."
+          "text": "Wrap and re-use.",
+          "id": "wk11_q10_c"
         },
         {
           "label": "d",
-          "text": "Remove and discard."
+          "text": "Remove and discard.",
+          "id": "wk11_q10_d"
         }
       ],
       "correct_answers": [
@@ -6812,19 +7411,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Universal Power Line Bus."
+          "text": "Universal Power Line Bus.",
+          "id": "wk11_q11_a"
         },
         {
           "label": "b",
-          "text": "Hadoop Distributed File System (HDFS)."
+          "text": "Hadoop Distributed File System (HDFS).",
+          "id": "wk11_q11_b"
         },
         {
           "label": "c",
-          "text": "Supervisory Control and Data Acquisition (SCADA)."
+          "text": "Supervisory Control and Data Acquisition (SCADA).",
+          "id": "wk11_q11_c"
         },
         {
           "label": "d",
-          "text": "Dedicated Short-Range Communications (DSRC)."
+          "text": "Dedicated Short-Range Communications (DSRC).",
+          "id": "wk11_q11_d"
         }
       ],
       "correct_answers": [
@@ -6855,19 +7458,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Air quality, poisonous gases, and oxygen level inside mines."
+          "text": "Air quality, poisonous gases, and oxygen level inside mines.",
+          "id": "wk11_q12_a"
         },
         {
           "label": "b",
-          "text": "Only the billing amount of mine workers."
+          "text": "Only the billing amount of mine workers.",
+          "id": "wk11_q12_b"
         },
         {
           "label": "c",
-          "text": "Only the color of mining equipment."
+          "text": "Only the color of mining equipment.",
+          "id": "wk11_q12_c"
         },
         {
           "label": "d",
-          "text": "Only the internet browsing history of operators."
+          "text": "Only the internet browsing history of operators.",
+          "id": "wk11_q12_d"
         }
       ],
       "correct_answers": [
@@ -6898,19 +7505,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Value."
+          "text": "Value.",
+          "id": "wk11_q13_a"
         },
         {
           "label": "b",
-          "text": "Variability."
+          "text": "Variability.",
+          "id": "wk11_q13_b"
         },
         {
           "label": "c",
-          "text": "Veracity."
+          "text": "Veracity.",
+          "id": "wk11_q13_c"
         },
         {
           "label": "d",
-          "text": "Volume."
+          "text": "Volume.",
+          "id": "wk11_q13_d"
         }
       ],
       "correct_answers": [
@@ -6941,19 +7552,23 @@
       "options": [
         {
           "label": "a",
-          "text": "To prevent data from being collected."
+          "text": "To prevent data from being collected.",
+          "id": "wk11_q14_a"
         },
         {
           "label": "b",
-          "text": "To intentionally duplicate every data item."
+          "text": "To intentionally duplicate every data item.",
+          "id": "wk11_q14_b"
         },
         {
           "label": "c",
-          "text": "To convert all structured data into images."
+          "text": "To convert all structured data into images.",
+          "id": "wk11_q14_c"
         },
         {
           "label": "d",
-          "text": "To eliminate repeated data through detection, filtering, and compression."
+          "text": "To eliminate repeated data through detection, filtering, and compression.",
+          "id": "wk11_q14_d"
         }
       ],
       "correct_answers": [
@@ -6984,19 +7599,23 @@
       "options": [
         {
           "label": "a",
-          "text": "Datanode."
+          "text": "Datanode.",
+          "id": "wk11_q15_a"
         },
         {
           "label": "b",
-          "text": "Namenode."
+          "text": "Namenode.",
+          "id": "wk11_q15_b"
         },
         {
           "label": "c",
-          "text": "Job Tracker."
+          "text": "Job Tracker.",
+          "id": "wk11_q15_c"
         },
         {
           "label": "d",
-          "text": "YARN Resource Negotiator only."
+          "text": "YARN Resource Negotiator only.",
+          "id": "wk11_q15_d"
         }
       ],
       "correct_answers": [

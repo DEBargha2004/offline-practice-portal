@@ -1,5 +1,6 @@
 import type {
   Question,
+  QuestionOption,
   Chapter,
   QuestionBankData,
   QuestionBankMetadata,
@@ -36,7 +37,17 @@ export function initializeQuestionBank(): QuestionBankData {
   chapterQuestionsMap = new Map<number, Question[]>();
   weekQuestionsMap = new Map<number, Question[]>();
 
+  // Helper to ensure each option has an immutable, unique id
+  const normalizeQuestion = (q: Question): Question => ({
+    ...q,
+    options: (q.options || []).map((opt, idx) => ({
+      ...opt,
+      id: opt.id || `${q.id}_${opt.label || idx}`,
+    })),
+  });
+
   // Index 60 chapter questions
+  typedData.questions = (typedData.questions || []).map(normalizeQuestion);
   for (const q of typedData.questions) {
     questionMap.set(q.id, q);
 
@@ -46,6 +57,7 @@ export function initializeQuestionBank(): QuestionBankData {
   }
 
   // Index 11 week questions
+  typedWeekData.questions = (typedWeekData.questions || []).map(normalizeQuestion);
   for (const q of typedWeekData.questions) {
     questionMap.set(q.id, q);
 
@@ -119,34 +131,56 @@ export function getQuestionsByType(type: QuestionType): Question[] {
 }
 
 /**
- * Shuffles the options of a question in random positions and re-indexes
- * their labels (a, b, c, d...), updating correct_answers to match.
+ * Shuffles the options of an MCQ or MSQ question into randomized positions and re-indexes
+ * their display labels (a, b, c, d...), preserving their stable IDs and updating
+ * correct_answers to match the newly shuffled positions.
  */
 export function shuffleQuestionOptions(question: Question): Question {
+  // Do not shuffle True / False questions or questions with single/no options
   if (question.type === "True / False" || question.options.length <= 1) {
-    return { ...question };
+    return {
+      ...question,
+      options: question.options.map((opt, idx) => ({
+        id: opt.id || `${question.id}_${opt.label || idx}`,
+        label: opt.label,
+        text: opt.text,
+      })),
+    };
   }
 
-  // Identify correct answer texts from original question
-  const correctTexts = new Set(
-    question.options
-      .filter((opt) => question.correct_answers.includes(opt.label))
-      .map((opt) => opt.text),
-  );
+  // 1. Identify which options are correct in the input question
+  const correctOptionIds = new Set<string>();
+  const correctOptionTexts = new Set<string>();
 
+  question.options.forEach((opt, idx) => {
+    const optId = opt.id || `${question.id}_${opt.label || idx}`;
+    if (
+      question.correct_answers.includes(opt.label) ||
+      question.correct_answers.includes(optId) ||
+      (question.answer_text && question.answer_text.includes(opt.text))
+    ) {
+      correctOptionIds.add(optId);
+      correctOptionTexts.add(opt.text);
+    }
+  });
+
+  // 2. Fisher-Yates shuffle the options
   const shuffledOptions = shuffleArray(question.options);
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-  const newOptions = shuffledOptions.map((opt, index) => ({
-    label: alphabet[index] || opt.label,
+  // 3. Re-assign display labels 'a', 'b', 'c', 'd' based on new index positions
+  const newOptions: QuestionOption[] = shuffledOptions.map((opt, index) => ({
+    id: opt.id || `${question.id}_${opt.label || index}`,
+    label: alphabet[index] || String.fromCharCode(97 + index),
     text: opt.text,
   }));
 
+  // 4. Update correct_answers and answer_text based on where the correct options moved
   const newCorrectAnswers: string[] = [];
   const newAnswerText: string[] = [];
 
   newOptions.forEach((opt) => {
-    if (correctTexts.has(opt.text)) {
+    if (correctOptionIds.has(opt.id) || correctOptionTexts.has(opt.text)) {
       newCorrectAnswers.push(opt.label);
       newAnswerText.push(opt.text);
     }

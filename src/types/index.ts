@@ -1,4 +1,5 @@
 export interface QuestionOption {
+  id: string;
   label: string;
   text: string;
 }

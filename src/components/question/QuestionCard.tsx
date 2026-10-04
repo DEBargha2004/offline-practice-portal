@@ -185,7 +185,7 @@ export function QuestionCard({
 
             return (
               <div
-                key={option.label}
+                key={option.id || option.label}
                 onClick={() => handleOptionClick(option.label)}
                 className={cn(
                   "group relative flex items-start gap-3.5 rounded-xl border p-3.5 transition-all select-none",
