@@ -1505,7 +1505,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "Zwave operates at \\underline{\\hspace{1.5cm}} MHz in the US and \\underline{\\hspace{1.5cm}} MHz in Europe.",
+      "question": "Zwave operates at ________ MHz in the US and ________ MHz in Europe.",
       "code_snippet": null,
       "options": [
         {
@@ -1552,7 +1552,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "Dumb behavior of sensor nodes is \\underline{\\hspace{1.5cm}} in nature (as it is dependent on the effects of the environmental conditions).",
+      "question": "Dumb behavior of sensor nodes is ________ in nature (as it is dependent on the effects of the environmental conditions).",
       "code_snippet": null,
       "options": [
         {
@@ -1599,7 +1599,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "The process of identifying channels consistently affected by interference and removing them from use is known as \\underline{\\hspace{1.5cm}}.",
+      "question": "The process of identifying channels consistently affected by interference and removing them from use is known as ________.",
       "code_snippet": null,
       "options": [
         {
@@ -1763,7 +1763,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "Bluetooth is based on \\underline{\\hspace{1.5cm}}.",
+      "question": "Bluetooth is based on ________.",
       "code_snippet": null,
       "options": [
         {
@@ -1810,7 +1810,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "A \\underline{\\hspace{1.5cm}} in NFC emits a small electric current which creates a magnetic field that in turn bridges the physical space between the devices.",
+      "question": "A ________ in NFC emits a small electric current which creates a magnetic field that in turn bridges the physical space between the devices.",
       "code_snippet": null,
       "options": [
         {
@@ -1927,7 +1927,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "The process of bypassing radio dead-spots is done using a message called \\underline{\\hspace{1.5cm}} in Zwave.",
+      "question": "The process of bypassing radio dead-spots is done using a message called ________ in Zwave.",
       "code_snippet": null,
       "options": [
         {
@@ -2044,7 +2044,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "Zigbee commonly uses \\underline{\\hspace{1.5cm}} data rate.",
+      "question": "Zigbee commonly uses ________ data rate.",
       "code_snippet": null,
       "options": [
         {
@@ -2126,7 +2126,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "An ultrasonic sensor senses the \\underline{\\hspace{1.5cm}} at which the object is located.",
+      "question": "An ultrasonic sensor senses the ________ at which the object is located.",
       "code_snippet": null,
       "options": [
         {
@@ -2683,7 +2683,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "The \\underline{\\hspace{1.5cm}} provides integrated services based on device collected data-sets.",
+      "question": "The ________ provides integrated services based on device collected data-sets.",
       "code_snippet": null,
       "options": [
         {
@@ -4093,7 +4093,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "State whether the following statement is True or False.\\\\[0.3em]\n**Statement:** In the temperature-dependent auto-cooling system, the fan operates when the surrounding temperature rises above the threshold value specified in the code.",
+      "question": "State whether the following statement is True or False.\n\n**Statement:** In the temperature-dependent auto-cooling system, the fan operates when the surrounding temperature rises above the threshold value specified in the code.",
       "code_snippet": null,
       "options": [
         {

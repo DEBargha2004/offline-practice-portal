@@ -1462,22 +1462,22 @@
       "options": [
         {
           "label": "a",
-          "text": "IPv4 uses 16 bits (2^{16} addresses), whereas IPv6 uses 64 bits (2^{64} addresses)",
+          "text": "IPv4 uses 16 bits (2^16 addresses), whereas IPv6 uses 64 bits (2^64 addresses)",
           "id": "ch02_q02_a"
         },
         {
           "label": "b",
-          "text": "IPv4 uses 32 bits (2^{32} addresses), whereas IPv6 uses 128 bits (2^{128} addresses)",
+          "text": "IPv4 uses 32 bits (2^32 addresses), whereas IPv6 uses 128 bits (2^128 addresses)",
           "id": "ch02_q02_b"
         },
         {
           "label": "c",
-          "text": "IPv4 uses 64 bits (2^{64} addresses), whereas IPv6 uses 256 bits (2^{256} addresses)",
+          "text": "IPv4 uses 64 bits (2^64 addresses), whereas IPv6 uses 256 bits (2^256 addresses)",
           "id": "ch02_q02_c"
         },
         {
           "label": "d",
-          "text": "IPv4 uses 128 bits (2^{128} addresses), whereas IPv6 uses 512 bits (2^{512} addresses)",
+          "text": "IPv4 uses 128 bits (2^128 addresses), whereas IPv6 uses 512 bits (2^512 addresses)",
           "id": "ch02_q02_d"
         }
       ],
@@ -1485,7 +1485,7 @@
         "b"
       ],
       "answer_text": [
-        "IPv4 uses 32 bits (2^{32} addresses), whereas IPv6 uses 128 bits (2^{128} addresses)"
+        "IPv4 uses 32 bits (2^32 addresses), whereas IPv6 uses 128 bits (2^128 addresses)"
       ],
       "raw_stem": "How do IPv4 and IPv6 fundamentally differ in terms of address bit-length and address space size? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
@@ -1954,7 +1954,7 @@
         },
         {
           "label": "c",
-          "text": "Disabling packet routing when devices exceed speeds of 10~km/h",
+          "text": "Disabling packet routing when devices exceed speeds of 10 km/h",
           "id": "ch02_q12_c"
         },
         {
@@ -3036,7 +3036,7 @@
         },
         {
           "label": "d",
-          "text": "The sensor output oscillates continuously at 1~GHz",
+          "text": "The sensor output oscillates continuously at 1 GHz",
           "id": "ch03_q14_d"
         }
       ],
@@ -5338,7 +5338,7 @@
       "options": [
         {
           "label": "a",
-          "text": "Mutual radio frequency interference due to overlapping transmissions in shared unlicensed spectrum (such as the 2.4~GHz ISM band)",
+          "text": "Mutual radio frequency interference due to overlapping transmissions in shared unlicensed spectrum (such as the 2.4 GHz ISM band)",
           "id": "ch05_q21_a"
         },
         {
@@ -5361,7 +5361,7 @@
         "a"
       ],
       "answer_text": [
-        "Mutual radio frequency interference due to overlapping transmissions in shared unlicensed spectrum (such as the 2.4~GHz ISM band)"
+        "Mutual radio frequency interference due to overlapping transmissions in shared unlicensed spectrum (such as the 2.4 GHz ISM band)"
       ],
       "raw_stem": "In dense IoT deployments, what problem arises when multiple heterogeneous wireless technologies (e.g., Wi-Fi, Bluetooth, Zigbee) operate concurrently in close physical proximity? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
@@ -13842,17 +13842,17 @@
         },
         {
           "label": "b",
-          "text": "1/√{N}",
+          "text": "1/√N",
           "id": "ch14_q10_b"
         },
         {
           "label": "c",
-          "text": "\\log_2(N)",
+          "text": "log_2(N)",
           "id": "ch14_q10_c"
         },
         {
           "label": "d",
-          "text": "e^{-N}",
+          "text": "e^-N",
           "id": "ch14_q10_d"
         }
       ],
@@ -13860,7 +13860,7 @@
         "b"
       ],
       "answer_text": [
-        "1/√{N}"
+        "1/√N"
       ],
       "raw_stem": "In large-scale sensor network deployments, at what theoretical rate does the network throughput decrease as the number of nodes $N$ increases? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
@@ -16964,7 +16964,7 @@
         },
         {
           "label": "c",
-          "text": "√{3} × R_s",
+          "text": "√3 × R_s",
           "id": "ch17_q14_c"
         },
         {
@@ -16977,7 +16977,7 @@
         "c"
       ],
       "answer_text": [
-        "√{3} × R_s"
+        "√3 × R_s"
       ],
       "raw_stem": "In the OGDC algorithm, what is the mathematically optimal distance between adjacent active nodes with uniform sensing range $R_s$? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
@@ -22240,7 +22240,7 @@
         },
         {
           "label": "d",
-          "text": "\\texttt{\\^{}}",
+          "text": "'^'",
           "id": "ch23_q01_d"
         }
       ],
@@ -22511,17 +22511,17 @@
       "options": [
         {
           "label": "a",
-          "text": "Carriage return ('\\ r')",
+          "text": "Carriage return ('\\r')",
           "id": "ch23_q07_a"
         },
         {
           "label": "b",
-          "text": "Newline ('\\ n')",
+          "text": "Newline ('\\n')",
           "id": "ch23_q07_b"
         },
         {
           "label": "c",
-          "text": "Null character ('\\ 0')",
+          "text": "Null character ('\\0')",
           "id": "ch23_q07_c"
         },
         {
@@ -22534,7 +22534,7 @@
         "c"
       ],
       "answer_text": [
-        "Null character ('\\ 0')"
+        "Null character ('\\0')"
       ],
       "raw_stem": "By convention, what character terminates a standard C-style character array (string) in memory? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
@@ -25332,7 +25332,7 @@
       "options": [
         {
           "label": "a",
-          "text": "By using curly braces \\texttt{{}} around each block",
+          "text": "By using curly braces {} around each block",
           "id": "ch26_q05_a"
         },
         {
@@ -25569,7 +25569,7 @@
         },
         {
           "label": "c",
-          "text": "A tuple is enclosed in curly braces \\texttt{{}} and is dynamically resized upon insertion",
+          "text": "A tuple is enclosed in curly braces {} and is dynamically resized upon insertion",
           "id": "ch26_q10_c"
         },
         {
@@ -25601,7 +25601,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "Which Python data structure is an unordered collection of key-value pairs enclosed in curly braces \\texttt{{}}, allowing data retrieval using unique descriptive keys?",
+      "question": "Which Python data structure is an unordered collection of key-value pairs enclosed in curly braces {}, allowing data retrieval using unique descriptive keys?",
       "code_snippet": null,
       "options": [
         {
@@ -25747,17 +25747,17 @@
       "options": [
         {
           "label": "a",
-          "text": "It immediately terminates the loop when 's == 'i''",
+          "text": "It immediately terminates the loop when s == 'i'",
           "id": "ch26_q14_a"
         },
         {
           "label": "b",
-          "text": "It skips printing ''i'' and proceeds directly to the next iteration, printing ''s'', ''t'', ''r'', ''n'', ''g''",
+          "text": "It skips printing 'i' and proceeds directly to the next iteration, printing 's', 't', 'r', 'n', 'g'",
           "id": "ch26_q14_b"
         },
         {
           "label": "c",
-          "text": "It repeats the print statement for ''i'' infinitely",
+          "text": "It repeats the print statement for 'i' infinitely",
           "id": "ch26_q14_c"
         },
         {
@@ -25770,7 +25770,7 @@
         "b"
       ],
       "answer_text": [
-        "It skips printing ''i'' and proceeds directly to the next iteration, printing ''s'', ''t'', ''r'', ''n'', ''g''"
+        "It skips printing 'i' and proceeds directly to the next iteration, printing 's', 't', 'r', 'n', 'g'"
       ],
       "raw_stem": "Consider the following Python code snippet:\n\\begin{verbatim}\nfor s in \"string\":\n    if s == 'i':\n        continue\n    print(s)\n\\end{verbatim}\nWhat is the effect of the \\texttt{continue} statement during execution? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
@@ -26251,7 +26251,7 @@
       "type": "True / False",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "State whether the following statement is True or False: In Python, both single quotes (''...'') and double quotes ('\"...\"') can be used interchangeably to define string literals.",
+      "question": "State whether the following statement is True or False: In Python, both single quotes ('...') and double quotes (\"...\") can be used interchangeably to define string literals.",
       "code_snippet": null,
       "options": [
         {
@@ -26384,7 +26384,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "What happens when a file is opened using mode ''r'' if the specified file does not exist on disk?",
+      "question": "What happens when a file is opened using mode 'r' if the specified file does not exist on disk?",
       "code_snippet": null,
       "options": [
         {
@@ -26431,7 +26431,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "What is the behavior of the file mode ''w'' in Python?",
+      "question": "What is the behavior of the file mode 'w' in Python?",
       "code_snippet": null,
       "options": [
         {
@@ -26483,22 +26483,22 @@
       "options": [
         {
           "label": "a",
-          "text": "''r''",
+          "text": "'r'",
           "id": "ch27_q04_a"
         },
         {
           "label": "b",
-          "text": "''w''",
+          "text": "'w'",
           "id": "ch27_q04_b"
         },
         {
           "label": "c",
-          "text": "''a''",
+          "text": "'a'",
           "id": "ch27_q04_c"
         },
         {
           "label": "d",
-          "text": "''x''",
+          "text": "'x'",
           "id": "ch27_q04_d"
         }
       ],
@@ -26506,7 +26506,7 @@
         "c"
       ],
       "answer_text": [
-        "''a''"
+        "'a'"
       ],
       "raw_stem": "Which file mode should be used if a developer wants to write new sensor readings to the end of an existing file without deleting previously logged data? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
@@ -26525,7 +26525,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "What does the mode ''r+'' signify in Python file handling?",
+      "question": "What does the mode 'r+' signify in Python file handling?",
       "code_snippet": null,
       "options": [
         {
@@ -28601,7 +28601,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "In the blinking LED circuit demonstrated in the lecture, why is a 100~Ω resistor connected in series with the LED?",
+      "question": "In the blinking LED circuit demonstrated in the lecture, why is a 100 Ω resistor connected in series with the LED?",
       "code_snippet": null,
       "options": [
         {
@@ -29775,22 +29775,22 @@
       "options": [
         {
           "label": "a",
-          "text": "100~Ω",
+          "text": "100 Ω",
           "id": "ch30_q05_a"
         },
         {
           "label": "b",
-          "text": "4.7~kΩ",
+          "text": "4.7 kΩ",
           "id": "ch30_q05_b"
         },
         {
           "label": "c",
-          "text": "1~MΩ",
+          "text": "1 MΩ",
           "id": "ch30_q05_c"
         },
         {
           "label": "d",
-          "text": "10~Ω",
+          "text": "10 Ω",
           "id": "ch30_q05_d"
         }
       ],
@@ -29798,7 +29798,7 @@
         "b"
       ],
       "answer_text": [
-        "4.7~kΩ"
+        "4.7 kΩ"
       ],
       "raw_stem": "What resistor value is connected between Pin 1 (Power) and Pin 2 (Data) of the DHT sensor as a pull-up resistor? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
@@ -29931,7 +29931,7 @@
         },
         {
           "label": "d",
-          "text": "A thermal fuse that melts when temperatures exceed 20^°C",
+          "text": "A thermal fuse that melts when temperatures exceed 20°C",
           "id": "ch30_q08_d"
         }
       ],
@@ -30169,7 +30169,7 @@
         },
         {
           "label": "c",
-          "text": "Connected in parallel with the 4.7~kΩ pull-up resistor on the DHT sensor",
+          "text": "Connected in parallel with the 4.7 kΩ pull-up resistor on the DHT sensor",
           "id": "ch30_q13_c"
         },
         {
@@ -30394,22 +30394,22 @@
       "options": [
         {
           "label": "a",
-          "text": "Temperature greater than 10^°C",
+          "text": "Temperature greater than 10°C",
           "id": "ch30_q18_a"
         },
         {
           "label": "b",
-          "text": "Temperature greater than 20^°C",
+          "text": "Temperature greater than 20°C",
           "id": "ch30_q18_b"
         },
         {
           "label": "c",
-          "text": "Temperature greater than 50^°C",
+          "text": "Temperature greater than 50°C",
           "id": "ch30_q18_c"
         },
         {
           "label": "d",
-          "text": "Temperature greater than 100^°C",
+          "text": "Temperature greater than 100°C",
           "id": "ch30_q18_d"
         }
       ],
@@ -30417,7 +30417,7 @@
         "b"
       ],
       "answer_text": [
-        "Temperature greater than 20^°C"
+        "Temperature greater than 20°C"
       ],
       "raw_stem": "In the demonstrated auto-cooling decision logic, what threshold temperature triggers the activation of the cooling fan? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
@@ -30886,7 +30886,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "Why is a 4.7~kΩ pull-up resistor required between the VCC and Data pins of the DHT sensor?",
+      "question": "Why is a 4.7 kΩ pull-up resistor required between the VCC and Data pins of the DHT sensor?",
       "code_snippet": null,
       "options": [
         {
@@ -31315,7 +31315,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "When setting up the UDP server on the desktop, what does binding to IP address ''0.0.0.0'' signify?",
+      "question": "When setting up the UDP server on the desktop, what does binding to IP address '0.0.0.0' signify?",
       "code_snippet": null,
       "options": [
         {
@@ -31513,12 +31513,12 @@
         },
         {
           "label": "b",
-          "text": "It appends the timestamped entry to a text file ('data_log.txt') using file mode ''a''",
+          "text": "It appends the timestamped entry to a text file ('data_log.txt') using file mode 'a'",
           "id": "ch31_q17_b"
         },
         {
           "label": "c",
-          "text": "It overwrites the file 'data_log.txt' on every received packet using mode ''w''",
+          "text": "It overwrites the file 'data_log.txt' on every received packet using mode 'w'",
           "id": "ch31_q17_c"
         },
         {
@@ -31531,7 +31531,7 @@
         "b"
       ],
       "answer_text": [
-        "It appends the timestamped entry to a text file ('data_log.txt') using file mode ''a''"
+        "It appends the timestamped entry to a text file ('data_log.txt') using file mode 'a'"
       ],
       "raw_stem": "How does the server record incoming sensor data for permanent historical storage? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
@@ -32036,7 +32036,7 @@
         },
         {
           "label": "d",
-          "text": "\\texttt{{'123': 'abc', 'xyz': 12}}",
+          "text": "{'123': 'abc', 'xyz': 12}",
           "id": "ch32_q04_d"
         }
       ],
@@ -32063,7 +32063,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "When the string '\"12343245abc4rt\"' is split in Python using the delimiter ''4'', what causes an empty string '\"' to appear in the resulting list?",
+      "question": "When the string '\"12343245abc4rt\"' is split in Python using the delimiter '4', what causes an empty string \"\" to appear in the resulting list?",
       "code_snippet": null,
       "options": [
         {
@@ -32073,7 +32073,7 @@
         },
         {
           "label": "b",
-          "text": "The occurrence of two consecutive delimiter characters (''44'') with no characters between them",
+          "text": "The occurrence of two consecutive delimiter characters ('44') with no characters between them",
           "id": "ch32_q05_b"
         },
         {
@@ -32091,7 +32091,7 @@
         "b"
       ],
       "answer_text": [
-        "The occurrence of two consecutive delimiter characters (''44'') with no characters between them"
+        "The occurrence of two consecutive delimiter characters ('44') with no characters between them"
       ],
       "raw_stem": "When the string \\texttt{\"12343245abc4rt\"} is split in Python using the delimiter \\texttt{'4'}, what causes an empty string \\texttt{''} to appear in the resulting list? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
@@ -32538,7 +32538,7 @@
       "options": [
         {
           "label": "a",
-          "text": "Temperature is plotted with a red line (''r-'') in the first subplot, and humidity is plotted with a blue line (''b-'') in the second subplot",
+          "text": "Temperature is plotted with a red line ('r-') in the first subplot, and humidity is plotted with a blue line ('b-') in the second subplot",
           "id": "ch32_q15_a"
         },
         {
@@ -32561,7 +32561,7 @@
         "a"
       ],
       "answer_text": [
-        "Temperature is plotted with a red line (''r-'') in the first subplot, and humidity is plotted with a blue line (''b-'') in the second subplot"
+        "Temperature is plotted with a red line ('r-') in the first subplot, and humidity is plotted with a blue line ('b-') in the second subplot"
       ],
       "raw_stem": "In the server visualization script, how are the two subplots formatted to distinguish temperature and humidity streams? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
@@ -32970,7 +32970,7 @@
         },
         {
           "label": "d",
-          "text": "Switches requiring excessive computing hardware and memory (often exceeding 10~GB of RAM) to run complex local control stacks",
+          "text": "Switches requiring excessive computing hardware and memory (often exceeding 10 GB of RAM) to run complex local control stacks",
           "id": "ch33_q02_d"
         }
       ],
@@ -35611,7 +35611,7 @@
         },
         {
           "label": "b",
-          "text": "Transmitting data only when the sensed environmental reading satisfies a specific condition or exceeds a threshold (e.g., temperature > 30^°C)",
+          "text": "Transmitting data only when the sensed environmental reading satisfies a specific condition or exceeds a threshold (e.g., temperature > 30°C)",
           "id": "ch35_q09_b"
         },
         {
@@ -35629,7 +35629,7 @@
         "b"
       ],
       "answer_text": [
-        "Transmitting data only when the sensed environmental reading satisfies a specific condition or exceeds a threshold (e.g., temperature > 30^°C)"
+        "Transmitting data only when the sensed environmental reading satisfies a specific condition or exceeds a threshold (e.g., temperature > 30°C)"
       ],
       "raw_stem": "What defines ``value-centric data forwarding'' in the Sensor OpenFlow Protocol? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
@@ -45655,7 +45655,7 @@
       "type": "MCQ",
       "is_multiple_choice": false,
       "points": 1,
-      "question": "In a traditional cloud-centric IoT setup, what components constitute the total round-trip response latency (T_{total})?",
+      "question": "In a traditional cloud-centric IoT setup, what components constitute the total round-trip response latency (T_total)?",
       "code_snippet": null,
       "options": [
         {
@@ -60176,7 +60176,7 @@
         },
         {
           "label": "b",
-          "text": "As a structured grid (e.g., 6 × 5 grid of 3 × 3 m^2 plots) equipped with solar-powered nodes",
+          "text": "As a structured grid (e.g., 6 × 5 grid of 3 × 3 m² plots) equipped with solar-powered nodes",
           "id": "ch57_q07_b"
         },
         {
@@ -60194,7 +60194,7 @@
         "b"
       ],
       "answer_text": [
-        "As a structured grid (e.g., 6 × 5 grid of 3 × 3 m^2 plots) equipped with solar-powered nodes"
+        "As a structured grid (e.g., 6 × 5 grid of 3 × 3 m² plots) equipped with solar-powered nodes"
       ],
       "raw_stem": "In the physical field deployment of the Agrisens system, how is the experimental agricultural field demarcated? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
@@ -63287,22 +63287,22 @@
       "options": [
         {
           "label": "a",
-          "text": "X ≈ 0, Y ≈ 0, and Z ≈ 9.8 to 10 m/s^2 (due to earth's gravitational acceleration)",
+          "text": "X ≈ 0, Y ≈ 0, and Z ≈ 9.8 to 10 m/s² (due to earth's gravitational acceleration)",
           "id": "ch60_q04_a"
         },
         {
           "label": "b",
-          "text": "X ≈ 9.8, Y ≈ 9.8, and Z ≈ 9.8 m/s^2",
+          "text": "X ≈ 9.8, Y ≈ 9.8, and Z ≈ 9.8 m/s²",
           "id": "ch60_q04_b"
         },
         {
           "label": "c",
-          "text": "X ≈ 0, Y ≈ 0, and Z ≈ 0 m/s^2",
+          "text": "X ≈ 0, Y ≈ 0, and Z ≈ 0 m/s²",
           "id": "ch60_q04_c"
         },
         {
           "label": "d",
-          "text": "X ≈ 50, Y ≈ 50, and Z ≈ -50 m/s^2",
+          "text": "X ≈ 50, Y ≈ 50, and Z ≈ -50 m/s²",
           "id": "ch60_q04_d"
         }
       ],
@@ -63310,7 +63310,7 @@
         "a"
       ],
       "answer_text": [
-        "X ≈ 0, Y ≈ 0, and Z ≈ 9.8 to 10 m/s^2 (due to earth's gravitational acceleration)"
+        "X ≈ 0, Y ≈ 0, and Z ≈ 9.8 to 10 m/s² (due to earth's gravitational acceleration)"
       ],
       "raw_stem": "When a smartphone is placed stationary and flat on a horizontal level surface, what are the expected approximate readings along its three accelerometer axes ($X$, $Y$, $Z$)? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
