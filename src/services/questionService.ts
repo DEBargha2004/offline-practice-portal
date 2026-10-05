@@ -131,13 +131,67 @@ export function getQuestionsByType(type: QuestionType): Question[] {
 }
 
 /**
+ * Detects whether a question contains options with referential or positional phrasing
+ * (e.g. "Both (a) and (b)", "Both a and b", "All of the above", "None of these",
+ * "Neither (a) nor (b)"). Shuffling these options would invalidate their referential meaning.
+ */
+export function hasReferentialOptions(question: Question): boolean {
+  if (!question.options || question.options.length <= 1) {
+    return false;
+  }
+
+  return question.options.some((opt) => {
+    const text = opt.text.trim();
+
+    // 1. "Both X and Y" where X and Y are option labels or references
+    // e.g. "Both (a) and (b)", "Both a and b", "Both A and B", "Both (1) and (2)",
+    // "Both 1 and 2", "Both (i) and (ii)", "Both options A and B", "Both statements 1 and 2"
+    if (
+      /\bboth\s+(\([a-z0-9ivx]+\)|[a-z0-9ivx]\b|options?|statements?)\s*(and|&)/i.test(text) ||
+      /\bboth\s+\([a-z0-9ivx]+\)/i.test(text) ||
+      /\bboth\s+(of\s+)?(the\s+above|these|them)\b/i.test(text)
+    ) {
+      return true;
+    }
+
+    // 2. "All of the above", "None of the above", "All of these", "None of these", etc.
+    if (
+      /\b(all|none|neither|either)\s+(of\s+)?(the\s+above|these|them|the\s+mentioned)\b/i.test(text) ||
+      /\b(all|none)\s+(of\s+)?the\s+above\b/i.test(text)
+    ) {
+      return true;
+    }
+
+    // 3. "Neither X nor Y", "Either X or Y"
+    if (
+      /\b(neither|either)\s+(\([a-z0-9ivx]+\)|[a-z0-9ivx]\b)\s*(nor|or)/i.test(text)
+    ) {
+      return true;
+    }
+
+    // 4. Standalone references like "Only (a) and (b)"
+    if (/\bonly\s+(\([a-z0-9ivx]+\)|[a-z0-9ivx]\b)\s*(and|&)/i.test(text)) {
+      return true;
+    }
+
+    return false;
+  });
+}
+
+/**
  * Shuffles the options of an MCQ or MSQ question into randomized positions and re-indexes
  * their display labels (a, b, c, d...), preserving their stable IDs and updating
  * correct_answers to match the newly shuffled positions.
+ * Questions with referential options (e.g. "Both (a) and (b)", "None of these") are kept in original order.
  */
 export function shuffleQuestionOptions(question: Question): Question {
-  // Do not shuffle True / False questions or questions with single/no options
-  if (question.type === "True / False" || question.options.length <= 1) {
+  // Do not shuffle True / False questions, questions with single/no options,
+  // or questions that have options referencing other options (e.g., "Both (a) and (b)")
+  if (
+    question.type === "True / False" ||
+    question.options.length <= 1 ||
+    hasReferentialOptions(question)
+  ) {
     return {
       ...question,
       options: question.options.map((opt, idx) => ({
