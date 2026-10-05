@@ -294,12 +294,19 @@ export function generateCustomQuestions(options: {
 
   let pool: Question[];
 
-  if (options.chapterNumbers && options.chapterNumbers.length > 0) {
-    const chSet = new Set(options.chapterNumbers);
-    pool = cachedData!.questions.filter((q) => chSet.has(q.chapter_number));
-  } else if (options.weekNumbers && options.weekNumbers.length > 0) {
-    const wkSet = new Set(options.weekNumbers);
-    pool = cachedWeekData!.questions.filter((q) => wkSet.has(q.chapter_number));
+  const hasChapters = Boolean(options.chapterNumbers && options.chapterNumbers.length > 0);
+  const hasWeeks = Boolean(options.weekNumbers && options.weekNumbers.length > 0);
+
+  if (hasChapters || hasWeeks) {
+    pool = [];
+    if (hasChapters) {
+      const chSet = new Set(options.chapterNumbers);
+      pool.push(...cachedData!.questions.filter((q) => chSet.has(q.chapter_number)));
+    }
+    if (hasWeeks) {
+      const wkSet = new Set(options.weekNumbers);
+      pool.push(...cachedWeekData!.questions.filter((q) => wkSet.has(q.chapter_number)));
+    }
   } else {
     // When no specific chapters or weeks are requested (e.g. question type drills, mixed drills),
     // combine both chapter questions and weekly assignment questions

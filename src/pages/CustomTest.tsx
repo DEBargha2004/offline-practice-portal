@@ -7,9 +7,16 @@ import { ActiveSessionNotice } from "@/components/custom-test/ActiveSessionNotic
 export function CustomTest() {
   const {
     chapters,
+    weeks,
     filteredChapters,
+    filteredWeeks,
     selectedChapters,
-    selectedCount,
+    selectedWeeks,
+    selectedChapterCount,
+    selectedWeekCount,
+    selectedTotalCount,
+    isAllChaptersSelected,
+    isAllWeeksSelected,
     isAllSelected,
     searchQuery,
     setSearchQuery,
@@ -27,12 +34,19 @@ export function CustomTest() {
     setQuestionCountLimit,
     questionLimitPresets,
     chapterRangePresets,
+    weekRangePresets,
     totalAvailableQuestions,
     targetQuestionCount,
     toggleChapter,
+    toggleWeek,
+    selectAllChapters,
+    clearAllChapters,
+    selectAllWeeks,
+    clearAllWeeks,
     selectAll,
     clearAll,
     selectRange,
+    selectWeekRange,
     handleStartTest,
     activeSession,
     showDiscardDialog,
@@ -48,7 +62,7 @@ export function CustomTest() {
           Custom Test
         </h1>
         <p className="text-xs sm:text-sm text-muted-foreground">
-          Select chapters and set your preferred duration to practice.
+          Select chapters, weekly assignments, and set your preferred duration to practice.
         </p>
       </div>
 
@@ -77,25 +91,41 @@ export function CustomTest() {
         onQuestionLimitChange={setQuestionCountLimit}
       />
 
-      {/* Chapter Selection Checklist & Filter Controls */}
+      {/* Unified Content Selection & Filter Controls */}
       <ChapterSelectionSection
         chapters={chapters}
+        weeks={weeks}
         filteredChapters={filteredChapters}
+        filteredWeeks={filteredWeeks}
         selectedChapters={selectedChapters}
-        selectedCount={selectedCount}
+        selectedWeeks={selectedWeeks}
+        selectedChapterCount={selectedChapterCount}
+        selectedWeekCount={selectedWeekCount}
+        selectedTotalCount={selectedTotalCount}
+        isAllChaptersSelected={isAllChaptersSelected}
+        isAllWeeksSelected={isAllWeeksSelected}
         isAllSelected={isAllSelected}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         onToggleChapter={toggleChapter}
+        onToggleWeek={toggleWeek}
+        onSelectAllChapters={selectAllChapters}
+        onClearAllChapters={clearAllChapters}
+        onSelectAllWeeks={selectAllWeeks}
+        onClearAllWeeks={clearAllWeeks}
         onSelectAll={selectAll}
         onClearAll={clearAll}
         chapterRangePresets={chapterRangePresets}
+        weekRangePresets={weekRangePresets}
         onSelectRange={selectRange}
+        onSelectWeekRange={selectWeekRange}
       />
 
       {/* Docked / Sticky Bottom Launch Action Bar */}
       <CustomTestBottomBar
-        selectedCount={selectedCount}
+        selectedChapterCount={selectedChapterCount}
+        selectedWeekCount={selectedWeekCount}
+        selectedCount={selectedTotalCount}
         targetQuestionCount={targetQuestionCount}
         totalAvailableQuestions={totalAvailableQuestions}
         isTimed={isTimed}

@@ -511,17 +511,17 @@ export function Dashboard() {
                 <div className="flex size-10 items-center justify-center rounded-xl bg-teal-500/10 text-teal-600 dark:text-teal-400">
                   <SlidersHorizontal className="size-5" />
                 </div>
-                <Badge variant="outline">Multi-Chapter</Badge>
+                <Badge variant="outline">Chapters &amp; Weeks</Badge>
               </div>
               <CardTitle className="text-lg font-bold">Custom Test</CardTitle>
             </CardHeader>
             <CardContent className="flex-1 space-y-3">
               <CardDescription className="text-sm leading-relaxed">
-                Choose specific chapters, set your own exam duration, and focus
-                on weak syllabus areas.
+                Choose specific chapters and weekly assignments, set your own
+                exam duration, and focus on weak syllabus areas.
               </CardDescription>
               <p className="text-xs text-muted-foreground pt-1">
-                Multi-chapter selection &amp; custom time limits
+                Chapters, weekly assignments &amp; custom time limits
               </p>
             </CardContent>
             <CardFooter>

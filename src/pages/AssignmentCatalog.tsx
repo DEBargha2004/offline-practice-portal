@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import { useAssignmentCatalogController } from "@/controllers/useAssignmentCatalogController";
 import { AssignmentCard } from "@/components/assignment/AssignmentCard";
-import { Search, CalendarCheck, X } from "lucide-react";
+import { Search, CalendarCheck, SlidersHorizontal, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
@@ -33,8 +34,8 @@ export function AssignmentCatalog() {
           </p>
         </div>
 
-        {/* Search */}
-        <div className="flex items-center gap-2.5 w-full sm:w-auto">
+        {/* Search & Custom Test Shortcut */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full sm:w-auto">
           <div className="relative w-full sm:w-64">
             <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground pointer-events-none" />
             <Input
@@ -57,6 +58,17 @@ export function AssignmentCatalog() {
               </Button>
             )}
           </div>
+
+          <Link to="/custom-test">
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-9 gap-1.5 text-xs font-semibold w-full sm:w-auto shrink-0 shadow-2xs"
+            >
+              <SlidersHorizontal className="size-3.5" />
+              <span>Custom Test</span>
+            </Button>
+          </Link>
         </div>
       </div>
 

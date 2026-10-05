@@ -97,6 +97,7 @@ export interface TestAttemptResult {
 
 export interface CustomTestConfig {
   chapterNumbers: number[];
+  weekNumbers?: number[];
   durationMinutes: number | null;
   questionCountLimit: number | null;
 }

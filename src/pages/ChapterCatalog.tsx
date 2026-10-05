@@ -60,7 +60,7 @@ export function ChapterCatalog() {
               className="h-9 gap-1.5 text-xs font-semibold w-full sm:w-auto shrink-0 shadow-2xs"
             >
               <SlidersHorizontal className="size-3.5" />
-              <span>Multi-Chapter Test</span>
+              <span>Custom Test</span>
             </Button>
           </Link>
         </div>

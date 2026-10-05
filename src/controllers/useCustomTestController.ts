@@ -1,12 +1,13 @@
 import { useState, useMemo, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Chapter, TestSession } from "@/types";
-import { getAllChapters } from "@/services/questionService";
+import { getAllChapters, getAllWeeks } from "@/services/questionService";
 import {
   buildCustomTestSession,
   DEFAULT_DURATION_PRESETS,
   QUESTION_LIMIT_PRESETS,
   CHAPTER_RANGE_PRESETS,
+  WEEK_RANGE_PRESETS,
 } from "@/services/customTestService";
 import { getActiveSession, saveActiveSession, clearActiveSession } from "@/services/storageService";
 
@@ -14,9 +15,11 @@ export function useCustomTestController() {
   const navigate = useNavigate();
 
   const chapters: Chapter[] = useMemo(() => getAllChapters(), []);
+  const weeks: Chapter[] = useMemo(() => getAllWeeks(), []);
 
   // Selection state
   const [selectedChapters, setSelectedChapters] = useState<Set<number>>(() => new Set());
+  const [selectedWeeks, setSelectedWeeks] = useState<Set<number>>(() => new Set());
   const [searchQuery, setSearchQuery] = useState("");
 
   // Timing state
@@ -51,7 +54,19 @@ export function useCustomTestController() {
     );
   }, [chapters, searchQuery]);
 
-  // Aggregate questions in selected chapters
+  // Filtered weeks
+  const filteredWeeks = useMemo(() => {
+    if (!searchQuery.trim()) return weeks;
+    const q = searchQuery.toLowerCase().trim();
+    return weeks.filter(
+      (w) =>
+        w.chapter_title.toLowerCase().includes(q) ||
+        w.chapter_number.toString() === q ||
+        `week ${w.chapter_number}`.includes(q)
+    );
+  }, [weeks, searchQuery]);
+
+  // Aggregate questions in selected chapters & weeks
   const totalAvailableQuestions = useMemo(() => {
     let count = 0;
     for (const ch of chapters) {
@@ -59,8 +74,13 @@ export function useCustomTestController() {
         count += ch.question_count;
       }
     }
+    for (const wk of weeks) {
+      if (selectedWeeks.has(wk.chapter_number)) {
+        count += wk.question_count;
+      }
+    }
     return count;
-  }, [chapters, selectedChapters]);
+  }, [chapters, weeks, selectedChapters, selectedWeeks]);
 
   // Target questions to be delivered in the test
   const targetQuestionCount = useMemo(() => {
@@ -82,11 +102,11 @@ export function useCustomTestController() {
     });
   }, []);
 
-  const selectAll = useCallback(() => {
+  const selectAllChapters = useCallback(() => {
     setSelectedChapters(new Set(chapters.map((c) => c.chapter_number)));
   }, [chapters]);
 
-  const clearAll = useCallback(() => {
+  const clearAllChapters = useCallback(() => {
     setSelectedChapters(new Set());
   }, []);
 
@@ -101,6 +121,50 @@ export function useCustomTestController() {
       return next;
     });
   }, [chapters.length]);
+
+  // Week selection handlers
+  const toggleWeek = useCallback((weekNumber: number) => {
+    setSelectedWeeks((prev) => {
+      const next = new Set(prev);
+      if (next.has(weekNumber)) {
+        next.delete(weekNumber);
+      } else {
+        next.add(weekNumber);
+      }
+      return next;
+    });
+  }, []);
+
+  const selectAllWeeks = useCallback(() => {
+    setSelectedWeeks(new Set(weeks.map((w) => w.chapter_number)));
+  }, [weeks]);
+
+  const clearAllWeeks = useCallback(() => {
+    setSelectedWeeks(new Set());
+  }, []);
+
+  const selectWeekRange = useCallback((from: number, to: number) => {
+    setSelectedWeeks((prev) => {
+      const next = new Set(prev);
+      for (let i = from; i <= to; i++) {
+        if (i <= weeks.length) {
+          next.add(i);
+        }
+      }
+      return next;
+    });
+  }, [weeks.length]);
+
+  // Global bulk actions
+  const selectAll = useCallback(() => {
+    setSelectedChapters(new Set(chapters.map((c) => c.chapter_number)));
+    setSelectedWeeks(new Set(weeks.map((w) => w.chapter_number)));
+  }, [chapters, weeks]);
+
+  const clearAll = useCallback(() => {
+    setSelectedChapters(new Set());
+    setSelectedWeeks(new Set());
+  }, []);
 
   // Duration handlers
   const handlePresetDurationSelect = useCallback((mins: number) => {
@@ -130,20 +194,31 @@ export function useCustomTestController() {
     const session = buildCustomTestSession(
       {
         chapterNumbers: Array.from(selectedChapters),
+        weekNumbers: Array.from(selectedWeeks),
         durationMinutes: isTimed ? durationMinutes : null,
         questionCountLimit,
       },
-      chapters.length
+      chapters.length,
+      weeks.length
     );
 
     if (!session) return;
 
     saveActiveSession(session);
     navigate("/test");
-  }, [selectedChapters, isTimed, durationMinutes, questionCountLimit, chapters.length, navigate]);
+  }, [
+    selectedChapters,
+    selectedWeeks,
+    isTimed,
+    durationMinutes,
+    questionCountLimit,
+    chapters.length,
+    weeks.length,
+    navigate,
+  ]);
 
   const handleStartTest = useCallback(() => {
-    if (selectedChapters.size === 0) return;
+    if (selectedChapters.size === 0 && selectedWeeks.size === 0) return;
 
     if (activeSession && !activeSession.isCompleted) {
       setShowDiscardDialog(true);
@@ -151,7 +226,7 @@ export function useCustomTestController() {
     }
 
     executeStartTest();
-  }, [selectedChapters.size, activeSession, executeStartTest]);
+  }, [selectedChapters.size, selectedWeeks.size, activeSession, executeStartTest]);
 
   const confirmDiscardAndStart = useCallback(() => {
     clearActiveSession();
@@ -160,12 +235,27 @@ export function useCustomTestController() {
     executeStartTest();
   }, [executeStartTest]);
 
+  const selectedChapterCount = selectedChapters.size;
+  const selectedWeekCount = selectedWeeks.size;
+  const selectedTotalCount = selectedChapterCount + selectedWeekCount;
+
   return {
     chapters,
+    weeks,
     filteredChapters,
+    filteredWeeks,
     selectedChapters,
-    selectedCount: selectedChapters.size,
-    isAllSelected: selectedChapters.size === chapters.length && chapters.length > 0,
+    selectedWeeks,
+    selectedChapterCount,
+    selectedWeekCount,
+    selectedTotalCount,
+    selectedCount: selectedTotalCount,
+    isAllChaptersSelected: selectedChapterCount === chapters.length && chapters.length > 0,
+    isAllWeeksSelected: selectedWeekCount === weeks.length && weeks.length > 0,
+    isAllSelected:
+      selectedChapterCount === chapters.length &&
+      selectedWeekCount === weeks.length &&
+      chapters.length > 0,
     searchQuery,
     setSearchQuery,
 
@@ -186,6 +276,7 @@ export function useCustomTestController() {
     setQuestionCountLimit,
     questionLimitPresets: QUESTION_LIMIT_PRESETS,
     chapterRangePresets: CHAPTER_RANGE_PRESETS,
+    weekRangePresets: WEEK_RANGE_PRESETS,
 
     // Computed numbers
     totalAvailableQuestions,
@@ -193,9 +284,16 @@ export function useCustomTestController() {
 
     // Actions
     toggleChapter,
+    toggleWeek,
+    selectAllChapters,
+    clearAllChapters,
+    selectAllWeeks,
+    clearAllWeeks,
     selectAll,
     clearAll,
+    selectChapterRange: selectRange,
     selectRange,
+    selectWeekRange,
     handleStartTest,
 
     // Active session alert
