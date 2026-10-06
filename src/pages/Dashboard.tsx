@@ -299,7 +299,7 @@ export function Dashboard() {
               <span>100 Questions</span>
             </Badge>
             <Badge variant="outline" className="text-xs">
-              All 60 Chapters
+              All {metadata.total_chapters} Chapters
             </Badge>
           </div>
 
@@ -373,7 +373,7 @@ export function Dashboard() {
                   (weekMetadata?.total_questions || 0)}
               </span>
               <span className="text-xs text-muted-foreground">
-                60 Ch + 11 Weeks
+                {metadata?.total_chapters || 0} Ch + {weekMetadata?.total_chapters || 0} Weeks
               </span>
             </div>
           </CardContent>
@@ -443,7 +443,7 @@ export function Dashboard() {
                 <div className="flex size-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
                   <CalendarCheck className="size-5" />
                 </div>
-                <Badge variant="outline">11 Weeks</Badge>
+                <Badge variant="outline">{weekMetadata.total_chapters} Weeks</Badge>
               </div>
               <CardTitle className="text-lg font-bold">
                 Weekly Assignments
@@ -455,7 +455,7 @@ export function Dashboard() {
                 untimed practice or timed mode.
               </CardDescription>
               <p className="text-xs text-muted-foreground pt-1">
-                180 total questions across 12 weeks
+                {weekMetadata.total_questions} total questions across {weekMetadata.total_chapters} weeks
               </p>
             </CardContent>
             <CardFooter>
@@ -477,7 +477,7 @@ export function Dashboard() {
                 <div className="flex size-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400">
                   <BookOpen className="size-5" />
                 </div>
-                <Badge variant="outline">60 Chapters</Badge>
+                <Badge variant="outline">{metadata.total_chapters} Chapters</Badge>
               </div>
               <CardTitle className="text-lg font-bold">
                 Chapter Practice
@@ -489,7 +489,7 @@ export function Dashboard() {
                 Introduction to Advanced IoT.
               </CardDescription>
               <p className="text-xs text-muted-foreground pt-1">
-                1,375 total questions across 60 chapters
+                {metadata.total_questions.toLocaleString()} total questions across {metadata.total_chapters} chapters
               </p>
             </CardContent>
             <CardFooter>

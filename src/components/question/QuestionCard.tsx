@@ -79,9 +79,9 @@ export function QuestionCard({
         {/* Meta Bar */}
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/60 pb-3">
           <div className="flex flex-wrap items-center gap-2">
-            {questionIndex !== undefined && (
+            {(questionIndex !== undefined || question.question_number !== undefined) && (
               <span className="text-sm font-bold text-foreground">
-                Question {questionIndex + 1}
+                Question {questionIndex !== undefined ? questionIndex + 1 : question.question_number}
                 {totalQuestions ? ` of ${totalQuestions}` : ""}
               </span>
             )}

@@ -33,6 +33,7 @@ import {
   CalendarCheck,
 } from "lucide-react";
 import { getActiveSession } from "@/services/storageService";
+import { getMetadata, getWeekMetadata } from "@/services/questionService";
 import { usePwaInstall } from "@/hooks/usePwaInstall";
 import { PwaInstallInstructionDialog } from "@/components/PwaInstallInstructionDialog";
 import type { TestSession } from "@/types";
@@ -43,6 +44,8 @@ export function AppSidebar() {
   const { theme, setTheme } = useTheme();
   const { setOpenMobile } = useSidebar();
   const [activeSession, setActiveSession] = useState<TestSession | null>(null);
+  const metadata = getMetadata();
+  const weekMetadata = getWeekMetadata();
   const {
     isInstalled,
     isIOS,
@@ -62,8 +65,8 @@ export function AppSidebar() {
 
   const navItems = [
     { label: "Home", path: "/", icon: Home },
-    { label: "Assignments", path: "/assignments", icon: CalendarCheck, badge: "11" },
-    { label: "Chapters", path: "/chapters", icon: BookOpen, badge: "60" },
+    { label: "Assignments", path: "/assignments", icon: CalendarCheck, badge: String(weekMetadata.total_chapters) },
+    { label: "Chapters", path: "/chapters", icon: BookOpen, badge: String(metadata.total_chapters) },
     { label: "Custom Test", path: "/custom-test", icon: SlidersHorizontal },
     { label: "My History", path: "/history", icon: History },
     { label: "Saved Questions", path: "/saved", icon: Bookmark },

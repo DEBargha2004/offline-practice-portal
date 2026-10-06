@@ -73,27 +73,71 @@ export function initializeQuestionBank(): QuestionBankData {
 initializeQuestionBank();
 
 export function getMetadata(): QuestionBankMetadata {
-  return cachedData!.metadata;
+  if (!cachedData) initializeQuestionBank();
+  const total = cachedData?.questions?.length || 0;
+  const chaptersCount = cachedData?.chapters?.length || 0;
+  const typesCount: Record<string, number> = {};
+  for (const q of cachedData?.questions || []) {
+    typesCount[q.type] = (typesCount[q.type] || 0) + 1;
+  }
+  return {
+    ...cachedData!.metadata,
+    total_chapters: chaptersCount,
+    total_questions: total,
+    question_types: typesCount,
+  };
 }
 
 export function getWeekMetadata(): QuestionBankMetadata {
-  return cachedWeekData!.metadata;
+  if (!cachedWeekData) initializeQuestionBank();
+  const total = cachedWeekData?.questions?.length || 0;
+  const weeksCount = cachedWeekData?.chapters?.length || 0;
+  const typesCount: Record<string, number> = {};
+  for (const q of cachedWeekData?.questions || []) {
+    typesCount[q.type] = (typesCount[q.type] || 0) + 1;
+  }
+  return {
+    ...cachedWeekData!.metadata,
+    total_chapters: weeksCount,
+    total_questions: total,
+    question_types: typesCount,
+  };
 }
 
 export function getAllChapters(): Chapter[] {
-  return cachedData!.chapters;
+  if (!cachedData) initializeQuestionBank();
+  return cachedData!.chapters.map((c) => ({
+    ...c,
+    question_count: chapterQuestionsMap?.get(c.chapter_number)?.length ?? c.question_count,
+  }));
 }
 
 export function getChapter(chapterNumber: number): Chapter | undefined {
-  return cachedData!.chapters.find((c) => c.chapter_number === chapterNumber);
+  if (!cachedData) initializeQuestionBank();
+  const ch = cachedData!.chapters.find((c) => c.chapter_number === chapterNumber);
+  if (!ch) return undefined;
+  return {
+    ...ch,
+    question_count: chapterQuestionsMap?.get(ch.chapter_number)?.length ?? ch.question_count,
+  };
 }
 
 export function getAllWeeks(): Chapter[] {
-  return cachedWeekData!.chapters;
+  if (!cachedWeekData) initializeQuestionBank();
+  return cachedWeekData!.chapters.map((w) => ({
+    ...w,
+    question_count: weekQuestionsMap?.get(w.chapter_number)?.length ?? w.question_count,
+  }));
 }
 
 export function getWeek(weekNumber: number): Chapter | undefined {
-  return cachedWeekData!.chapters.find((c) => c.chapter_number === weekNumber);
+  if (!cachedWeekData) initializeQuestionBank();
+  const wk = cachedWeekData!.chapters.find((c) => c.chapter_number === weekNumber);
+  if (!wk) return undefined;
+  return {
+    ...wk,
+    question_count: weekQuestionsMap?.get(wk.chapter_number)?.length ?? wk.question_count,
+  };
 }
 
 export function getQuestionById(id: string): Question | undefined {

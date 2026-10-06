@@ -31,7 +31,7 @@ export function AssignmentCatalog() {
             Weekly Assignments
           </h1>
           <p className="text-sm text-muted-foreground mt-1">
-            Practice official NPTEL weekly assignments week by week, or use Revision mode to review answers.
+            Choose from all {totalWeeks} official NPTEL weekly assignments week by week, or use Revision mode to review answers.
           </p>
         </div>
 
