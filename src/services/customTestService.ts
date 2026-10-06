@@ -1,9 +1,18 @@
-import type { ChapterRangePreset, CustomTestConfig, TestSession } from "@/types";
+import type {
+  ChapterRangePreset,
+  CustomTestConfig,
+  TestSession,
+} from "@/types";
 import { generateCustomQuestions } from "./questionService";
 
-export const DEFAULT_DURATION_PRESETS: readonly number[] = [15, 30, 45, 60, 90, 120];
+export const DEFAULT_DURATION_PRESETS: readonly number[] = [
+  15, 30, 45, 60, 90, 120,
+];
 
-export const QUESTION_LIMIT_PRESETS: readonly { label: string; value: number | null }[] = [
+export const QUESTION_LIMIT_PRESETS: readonly {
+  label: string;
+  value: number | null;
+}[] = [
   { label: "All Questions", value: null },
   { label: "20 Qs", value: 20 },
   { label: "30 Qs", value: 30 },
@@ -20,7 +29,7 @@ export const CHAPTER_RANGE_PRESETS: readonly ChapterRangePreset[] = [
 
 export const WEEK_RANGE_PRESETS: readonly ChapterRangePreset[] = [
   { label: "Weeks 1–6", from: 1, to: 6 },
-  { label: "Weeks 7–11", from: 7, to: 11 },
+  { label: "Weeks 7–12", from: 7, to: 12 },
 ];
 
 /**
@@ -65,7 +74,9 @@ export function buildCustomTestSession(
           chapterCount === 1 ? "Chapter" : "Chapters"
         }, ${questions.length} Qs)`;
   } else if (chapterCount === 0 && weekCount > 0) {
-    const isAllWeeks = totalAvailableWeeksCount ? weekCount === totalAvailableWeeksCount : false;
+    const isAllWeeks = totalAvailableWeeksCount
+      ? weekCount === totalAvailableWeeksCount
+      : false;
     title = isAllWeeks
       ? `Custom Test: All Weeks (${questions.length} Qs)`
       : `Custom Test (${weekCount} ${
@@ -84,7 +95,9 @@ export function buildCustomTestSession(
     title,
     mode: "custom",
     startedAt: Date.now(),
-    timeLimitSeconds: config.durationMinutes ? config.durationMinutes * 60 : null,
+    timeLimitSeconds: config.durationMinutes
+      ? config.durationMinutes * 60
+      : null,
     elapsedSeconds: 0,
     isCompleted: false,
     questionIds: questions.map((q) => q.id),

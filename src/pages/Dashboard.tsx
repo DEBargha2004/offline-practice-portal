@@ -455,7 +455,7 @@ export function Dashboard() {
                 untimed practice or timed mode.
               </CardDescription>
               <p className="text-xs text-muted-foreground pt-1">
-                165 total questions across 11 weeks
+                180 total questions across 12 weeks
               </p>
             </CardContent>
             <CardFooter>
@@ -675,7 +675,8 @@ export function Dashboard() {
                 <CardContent className="space-y-2 pt-0">
                   <div className="text-xs text-muted-foreground flex items-center gap-2">
                     <span>
-                      Score: {formatScore(attempt.score)} / {formatScore(attempt.maxScore)}
+                      Score: {formatScore(attempt.score)} /{" "}
+                      {formatScore(attempt.maxScore)}
                     </span>
                     <span>&bull;</span>
                     <span>{Math.round(attempt.timeSpentSeconds / 60)} min</span>
