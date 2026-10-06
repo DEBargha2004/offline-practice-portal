@@ -1,4 +1,4 @@
-import type { TestSession, TestAttemptResult } from "@/types";
+import type { TestSession, TestAttemptResult, RevisionSession } from "@/types";
 import { rounded } from "@/lib/utils";
 
 function sanitizeAttempt(attempt: TestAttemptResult): TestAttemptResult {
@@ -17,6 +17,7 @@ const DB_NAME = "iot_test_portal_db";
 const DB_VERSION = 1;
 const STORE_ATTEMPTS = "attempts";
 const STORAGE_KEY_ACTIVE_TEST = "iot_active_test_session";
+const STORAGE_KEY_ACTIVE_REVISION = "iot_active_revision_session";
 const STORAGE_KEY_BOOKMARKS = "iot_bookmarked_questions";
 const STORAGE_KEY_SETTINGS = "iot_user_preferences";
 
@@ -72,6 +73,36 @@ export function clearActiveSession(): void {
     localStorage.removeItem(STORAGE_KEY_ACTIVE_TEST);
   } catch (err) {
     console.error("Failed to clear active session", err);
+  }
+}
+
+// ----------------------------------------------------
+// Active Revision Session
+// ----------------------------------------------------
+
+export function saveActiveRevisionSession(session: RevisionSession): void {
+  try {
+    localStorage.setItem(STORAGE_KEY_ACTIVE_REVISION, JSON.stringify(session));
+  } catch (err) {
+    console.error("Failed to save active revision session to localStorage", err);
+  }
+}
+
+export function getActiveRevisionSession(): RevisionSession | null {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_ACTIVE_REVISION);
+    return raw ? JSON.parse(raw) : null;
+  } catch (err) {
+    console.error("Failed to read active revision session from localStorage", err);
+    return null;
+  }
+}
+
+export function clearActiveRevisionSession(): void {
+  try {
+    localStorage.removeItem(STORAGE_KEY_ACTIVE_REVISION);
+  } catch (err) {
+    console.error("Failed to clear active revision session", err);
   }
 }
 

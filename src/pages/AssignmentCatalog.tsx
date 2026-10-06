@@ -14,6 +14,7 @@ export function AssignmentCatalog() {
     setSearchQuery,
     weekStats,
     handleStartWeekTest,
+    handleStartWeekRevision,
   } = useAssignmentCatalogController();
 
   // Calculate overall completed count and percentage
@@ -30,7 +31,7 @@ export function AssignmentCatalog() {
             Weekly Assignments
           </h1>
           <p className="text-sm text-muted-foreground mt-1">
-            Practice official NPTEL weekly assignments week by week.
+            Practice official NPTEL weekly assignments week by week, or use Revision mode to review answers.
           </p>
         </div>
 
@@ -104,6 +105,7 @@ export function AssignmentCatalog() {
                 bestScorePercentage={stats?.bestScore}
                 attemptsCount={stats?.attemptsCount}
                 onStartPractice={handleStartWeekTest}
+                onStartRevision={handleStartWeekRevision}
               />
             );
           })}

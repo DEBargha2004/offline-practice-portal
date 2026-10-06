@@ -2,19 +2,21 @@ import type { Chapter } from "@/types";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Award, ArrowRight, Clock } from "lucide-react";
+import { Award, ArrowRight, Clock, Eye } from "lucide-react";
 import { cn } from "cn";
 
 interface ChapterCardProps {
   chapter: Chapter;
   bestScorePercentage?: number | null;
   onStartPractice: (chapter: Chapter, timed: boolean) => void;
+  onStartRevision: (chapter: Chapter) => void;
 }
 
 export function ChapterCard({
   chapter,
   bestScorePercentage,
   onStartPractice,
+  onStartRevision,
 }: ChapterCardProps) {
   const cleanTitle = chapter.chapter_title.replace(/^Chapter\s+\d+:\s*/i, "");
   const hasAttempted = bestScorePercentage !== undefined && bestScorePercentage !== null;
@@ -71,7 +73,7 @@ export function ChapterCard({
       <CardFooter className="pt-2 gap-1.5">
         <Button
           size="sm"
-          className="flex-1 justify-between text-xs font-semibold h-8 px-3"
+          className="flex-1 text-xs font-semibold h-8 px-2.5 gap-1.5 justify-center"
           onClick={() => onStartPractice(chapter, false)}
           title="Start untimed practice"
         >
@@ -82,7 +84,18 @@ export function ChapterCard({
         <Button
           variant="outline"
           size="sm"
-          className="h-8 px-2.5 text-muted-foreground hover:text-foreground shrink-0"
+          className="h-8 px-2.5 text-xs font-medium gap-1.5 text-muted-foreground hover:text-foreground shrink-0"
+          onClick={() => onStartRevision(chapter)}
+          title="Revise chapter questions with toggleable answers"
+        >
+          <Eye className="size-3.5 text-emerald-600 dark:text-emerald-400" />
+          <span>Revise</span>
+        </Button>
+
+        <Button
+          variant="outline"
+          size="sm"
+          className="h-8 w-8 p-0 text-muted-foreground hover:text-foreground shrink-0"
           onClick={() => onStartPractice(chapter, true)}
           title="Start with 1.5 min/question timer"
         >

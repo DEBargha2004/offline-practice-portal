@@ -13,6 +13,8 @@ interface QuestionCardProps {
   isBookmarked?: boolean;
   onToggleBookmark?: () => void;
   isReviewMode?: boolean;
+  isRevisionMode?: boolean;
+  showAnswers?: boolean;
   isCorrect?: boolean;
   isSkipped?: boolean;
   isPartiallyCorrect?: boolean;
@@ -29,6 +31,8 @@ export function QuestionCard({
   isBookmarked,
   onToggleBookmark,
   isReviewMode = false,
+  isRevisionMode = false,
+  showAnswers = false,
   isCorrect,
   isSkipped,
   isPartiallyCorrect,
@@ -62,9 +66,10 @@ export function QuestionCard({
   };
 
   const typeDisplay = getTypeDisplay();
+  const shouldHighlightAnswers = isReviewMode || (isRevisionMode && showAnswers);
 
   const handleOptionClick = (optionLabel: string) => {
-    if (isReviewMode || !onSelectAnswer) return;
+    if ((isReviewMode && !isRevisionMode) || !onSelectAnswer) return;
     onSelectAnswer(optionLabel);
   };
 
@@ -166,10 +171,10 @@ export function QuestionCard({
             let optionBorderClass = "border-border hover:border-foreground/40 hover:bg-muted/30";
             let optionBadgeClass = "bg-muted text-muted-foreground";
 
-            if (isReviewMode) {
+            if (shouldHighlightAnswers) {
               if (isActualCorrect) {
                 // Correct answer is highlighted in soft green
-                optionBorderClass = "border-emerald-500 bg-emerald-500/10 text-emerald-950 dark:text-emerald-100 font-medium";
+                optionBorderClass = "border-emerald-500 bg-emerald-500/10 text-emerald-950 dark:text-emerald-100 font-medium ring-1 ring-emerald-500/20";
                 optionBadgeClass = "bg-emerald-600 text-white";
               } else if (isSelected && !isActualCorrect) {
                 // Wrong choice made by user
@@ -189,7 +194,7 @@ export function QuestionCard({
                 onClick={() => handleOptionClick(option.label)}
                 className={cn(
                   "group relative flex items-start gap-3.5 rounded-xl border p-3.5 transition-all select-none",
-                  isReviewMode ? "cursor-default" : "cursor-pointer active:scale-[0.995]",
+                  (isReviewMode && !isRevisionMode) ? "cursor-default" : "cursor-pointer active:scale-[0.995]",
                   optionBorderClass
                 )}
               >
@@ -200,9 +205,9 @@ export function QuestionCard({
                     optionBadgeClass
                   )}
                 >
-                  {isReviewMode && isActualCorrect ? (
+                  {shouldHighlightAnswers && isActualCorrect ? (
                     <Check className="size-3.5" />
-                  ) : isReviewMode && isSelected && !isActualCorrect ? (
+                  ) : shouldHighlightAnswers && isSelected && !isActualCorrect ? (
                     <X className="size-3.5" />
                   ) : (
                     option.label
@@ -213,13 +218,9 @@ export function QuestionCard({
                 <div className="flex-1 text-sm leading-snug pt-0.5">
                   <span>{option.text}</span>
 
-                  {isReviewMode && (
+                  {/* Contextual indicators in review or revision */}
+                  {shouldHighlightAnswers && isSelected && (
                     <div className="mt-1 flex items-center gap-2 text-[11px]">
-                      {isActualCorrect && (
-                        <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
-                          &bull; Correct Answer
-                        </span>
-                      )}
                       {isSelected && !isActualCorrect && (
                         <span className="text-destructive font-medium">
                           &bull; Your Selection
@@ -227,7 +228,7 @@ export function QuestionCard({
                       )}
                       {isSelected && isActualCorrect && (
                         <span className="text-emerald-600 dark:text-emerald-400 font-medium">
-                          (Your selection)
+                          &bull; Selected
                         </span>
                       )}
                     </div>
@@ -239,7 +240,7 @@ export function QuestionCard({
         </div>
 
         {/* Clear selection in interactive mode */}
-        {!isReviewMode && onClearAnswer && selectedAnswers.length > 0 && (
+        {(!isReviewMode || isRevisionMode) && onClearAnswer && selectedAnswers.length > 0 && (
           <div className="flex justify-end pt-1">
             <Button
               variant="ghost"

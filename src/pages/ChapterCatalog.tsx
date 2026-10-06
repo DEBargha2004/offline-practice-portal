@@ -13,6 +13,7 @@ export function ChapterCatalog() {
     setSearchQuery,
     chapterStats,
     handleStartChapterTest,
+    handleStartChapterRevision,
   } = useChapterCatalogController();
 
   return (
@@ -24,7 +25,7 @@ export function ChapterCatalog() {
             Chapter Catalog
           </h1>
           <p className="text-sm text-muted-foreground mt-1">
-            Choose from all {totalChapters} chapters in the IoT syllabus to practice topic by topic.
+            Choose from all {totalChapters} chapters in the IoT syllabus to practice topic by topic, or use Revision mode to view answers.
           </p>
         </div>
 
@@ -77,6 +78,7 @@ export function ChapterCatalog() {
                 chapter={chapter}
                 bestScorePercentage={stats?.bestScore}
                 onStartPractice={handleStartChapterTest}
+                onStartRevision={handleStartChapterRevision}
               />
             );
           })}

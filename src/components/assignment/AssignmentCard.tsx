@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Award, ArrowRight, Clock, CalendarCheck2 } from "lucide-react";
+import { Award, ArrowRight, Clock, CalendarCheck2, Eye } from "lucide-react";
 import { cn } from "cn";
 
 interface AssignmentCardProps {
@@ -16,6 +16,7 @@ interface AssignmentCardProps {
   bestScorePercentage?: number | null;
   attemptsCount?: number;
   onStartPractice: (week: Chapter, timed: boolean) => void;
+  onStartRevision: (week: Chapter) => void;
 }
 
 export function AssignmentCard({
@@ -23,6 +24,7 @@ export function AssignmentCard({
   bestScorePercentage,
   attemptsCount = 0,
   onStartPractice,
+  onStartRevision,
 }: AssignmentCardProps) {
   const hasAttempted =
     bestScorePercentage !== undefined && bestScorePercentage !== null;
@@ -94,7 +96,7 @@ export function AssignmentCard({
       <CardFooter className="pt-2 gap-1.5">
         <Button
           size="sm"
-          className="flex-1 justify-between text-xs font-semibold h-8 px-3"
+          className="flex-1 text-xs font-semibold h-8 px-2.5 gap-1.5 justify-center"
           onClick={() => onStartPractice(week, false)}
           title="Start untimed assignment practice"
         >
@@ -105,9 +107,20 @@ export function AssignmentCard({
         <Button
           variant="outline"
           size="sm"
-          className="h-8 px-2.5 text-muted-foreground hover:text-foreground shrink-0"
+          className="h-8 px-2.5 text-xs font-medium gap-1.5 text-muted-foreground hover:text-foreground shrink-0"
+          onClick={() => onStartRevision(week)}
+          title="Revise questions with toggleable answers"
+        >
+          <Eye className="size-3.5 text-emerald-600 dark:text-emerald-400" />
+          <span>Revise</span>
+        </Button>
+
+        <Button
+          variant="outline"
+          size="sm"
+          className="h-8 w-8 p-0 text-muted-foreground hover:text-foreground shrink-0"
           onClick={() => onStartPractice(week, true)}
-          title="Start with timed mode (22.5 min)"
+          title="Timed test mode (22.5 min)"
         >
           <Clock className="size-3.5" />
         </Button>

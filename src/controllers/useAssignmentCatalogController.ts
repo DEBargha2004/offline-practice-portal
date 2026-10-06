@@ -70,6 +70,10 @@ export function useAssignmentCatalogController() {
     navigate("/test");
   };
 
+  const handleStartWeekRevision = (week: Chapter) => {
+    navigate(`/revision?mode=week&id=${week.chapter_number}`);
+  };
+
   return {
     weeks: filteredWeeks,
     totalWeeks: weeks.length,
@@ -77,5 +81,6 @@ export function useAssignmentCatalogController() {
     setSearchQuery,
     weekStats,
     handleStartWeekTest,
+    handleStartWeekRevision,
   };
 }

@@ -63,6 +63,22 @@ export interface TestSession {
   currentQuestionIndex: number;
 }
 
+export interface RevisionSession {
+  id: string;
+  title: string;
+  mode: "chapter" | "week";
+  chapterNumber?: number;
+  weekNumber?: number;
+  startedAt: number;
+  elapsedSeconds: number;
+  questionIds: string[];
+  questions?: Question[];
+  userAnswers: Record<string, string[]>;
+  flaggedQuestionIds: string[];
+  currentQuestionIndex: number;
+  showAnswers?: boolean;
+}
+
 export interface QuestionReviewItem {
   question: Question;
   selectedAnswers: string[];

@@ -14,6 +14,7 @@ import { History } from "@/pages/History";
 import { SavedQuestions } from "@/pages/SavedQuestions";
 import { CustomTest } from "@/pages/CustomTest";
 import { AssignmentCatalog } from "@/pages/AssignmentCatalog";
+import { RevisionSession } from "@/pages/RevisionSession";
 
 export function App() {
   return (
@@ -34,6 +35,7 @@ export function App() {
                 <Route path="/custom-test" element={<CustomTest />} />
                 <Route path="/create-test" element={<CustomTest />} />
                 <Route path="/test" element={<TestSession />} />
+                <Route path="/revision" element={<RevisionSession />} />
                 <Route path="/results/:attemptId" element={<TestResults />} />
                 <Route path="/history" element={<History />} />
                 <Route path="/saved" element={<SavedQuestions />} />

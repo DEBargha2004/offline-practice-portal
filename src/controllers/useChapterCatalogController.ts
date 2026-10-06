@@ -70,6 +70,10 @@ export function useChapterCatalogController() {
     navigate("/test");
   };
 
+  const handleStartChapterRevision = (chapter: Chapter) => {
+    navigate(`/revision?mode=chapter&id=${chapter.chapter_number}`);
+  };
+
   return {
     chapters: filteredChapters,
     totalChapters: chapters.length,
@@ -77,5 +81,6 @@ export function useChapterCatalogController() {
     setSearchQuery,
     chapterStats,
     handleStartChapterTest,
+    handleStartChapterRevision,
   };
 }
