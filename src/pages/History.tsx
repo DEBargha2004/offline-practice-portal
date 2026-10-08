@@ -35,6 +35,7 @@ export function History() {
     selectedFilter,
     setSelectedFilter,
     stats,
+    basePath,
     deleteAttemptId,
     setDeleteAttemptId,
     clearAllDialogOpen,
@@ -201,7 +202,7 @@ export function History() {
                 key={attempt.id}
                 size="sm"
                 className="hover:ring-foreground/20 transition-all cursor-pointer group shadow-2xs"
-                onClick={() => navigate(`/results/${attempt.id}`)}
+                onClick={() => navigate(`${basePath}/results/${attempt.id}`)}
               >
                 <CardContent className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   {/* Left: Info */}

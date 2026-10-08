@@ -120,7 +120,7 @@ export function AssignmentCard({
           size="sm"
           className="h-8 w-8 p-0 text-muted-foreground hover:text-foreground shrink-0"
           onClick={() => onStartPractice(week, true)}
-          title="Timed test mode (22.5 min)"
+          title="Start with 1.5 min/question timer"
         >
           <Clock className="size-3.5" />
         </Button>

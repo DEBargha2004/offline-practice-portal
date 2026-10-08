@@ -1,12 +1,8 @@
 import { useState, useEffect, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import type { TestAttemptResult, TestSession } from "@/types";
-import {
-  getAttemptById,
-  saveActiveSession,
-  toggleBookmark,
-  isBookmarked,
-} from "@/services/storageService";
+import { useCurrentModule } from "@/hooks/useCurrentModule";
+import { getAttemptById } from "@/services/storageService";
 import { shuffleArray, shuffleQuestionOptions } from "@/services/questionService";
 
 export type ReviewFilterType = "all" | "incorrect" | "correct" | "skipped";
@@ -14,6 +10,13 @@ export type ReviewFilterType = "all" | "incorrect" | "correct" | "skipped";
 export function useTestResultsController() {
   const { attemptId } = useParams<{ attemptId: string }>();
   const navigate = useNavigate();
+  const {
+    basePath,
+    moduleId,
+    saveActiveSession,
+    toggleBookmark,
+    isBookmarked,
+  } = useCurrentModule();
 
   const [attempt, setAttempt] = useState<TestAttemptResult | null>(null);
   const [loading, setLoading] = useState(true);
@@ -22,7 +25,7 @@ export function useTestResultsController() {
 
   useEffect(() => {
     if (!attemptId) {
-      navigate("/");
+      navigate(basePath || "/");
       return;
     }
 
@@ -41,7 +44,7 @@ export function useTestResultsController() {
         setBookmarkedSet(set);
       }
     });
-  }, [attemptId, navigate]);
+  }, [attemptId, navigate, basePath, isBookmarked]);
 
   const handleToggleBookmark = (questionId: string) => {
     const isNow = toggleBookmark(questionId);
@@ -62,6 +65,7 @@ export function useTestResultsController() {
 
     const newSession: TestSession = {
       id: `session_retake_${Date.now()}`,
+      moduleId: attempt.moduleId || moduleId || undefined,
       title: `${attempt.title} (Retake)`,
       mode: attempt.mode,
       chapterNumber: attempt.chapterNumber,
@@ -77,7 +81,7 @@ export function useTestResultsController() {
     };
 
     saveActiveSession(newSession);
-    navigate("/test");
+    navigate(`${basePath}/test`);
   };
 
   const filteredItems = useMemo(() => {
@@ -103,6 +107,7 @@ export function useTestResultsController() {
     setFilter,
     filteredItems,
     bookmarkedSet,
+    basePath,
     handleToggleBookmark,
     handleRetakeTest,
   };

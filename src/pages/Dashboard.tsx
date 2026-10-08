@@ -11,7 +11,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Checkbox } from "@/components/ui/checkbox";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -22,19 +21,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import {
-  getMetadata,
-  getWeekMetadata,
-  generateFullMockQuestions,
-  generateCustomQuestions,
-} from "@/services/questionService";
-import {
-  getActiveSession,
-  clearActiveSession,
-  saveActiveSession,
-  getAllAttempts,
-  getBookmarks,
-} from "@/services/storageService";
+import { useCurrentModule } from "@/hooks/useCurrentModule";
 import type { TestAttemptResult, TestSession, QuestionType } from "@/types";
 import {
   BookOpen,
@@ -46,13 +33,34 @@ import {
   Bookmark,
   SlidersHorizontal,
   CalendarCheck,
+  FolderOpen,
 } from "lucide-react";
 import { cn, formatScore } from "@/lib/utils";
 
 export function Dashboard() {
   const navigate = useNavigate();
+  const {
+    basePath,
+    moduleId,
+    isCustomModule,
+    moduleRecord,
+    moduleLoading,
+    moduleError,
+    getMetadata,
+    getWeekMetadata,
+    getAllWeeks,
+    generateFullMockQuestions,
+    generateCustomQuestions,
+    getActiveSession,
+    clearActiveSession,
+    saveActiveSession,
+    getAllAttempts,
+    getBookmarks,
+  } = useCurrentModule();
+
   const metadata = getMetadata();
   const weekMetadata = getWeekMetadata();
+  const weeks = getAllWeeks();
 
   const [activeSession, setActiveSession] = useState<TestSession | null>(null);
   const [discardModalOpen, setDiscardModalOpen] = useState(false);
@@ -76,15 +84,26 @@ export function Dashboard() {
       if (attempts.length > 0) {
         const sum = attempts.reduce((acc, curr) => acc + curr.percentage, 0);
         setAverageScore(Math.round(sum / attempts.length));
+      } else {
+        setAverageScore(0);
       }
     });
-  }, []);
+  }, [getActiveSession, getBookmarks, getAllAttempts, moduleId]);
+
+  const targetMockQuestionsCount = Math.min(
+    100,
+    Math.max(1, metadata.total_questions),
+  );
 
   const handleStartFullMock = () => {
-    const questions = generateFullMockQuestions(100);
+    const questions = generateFullMockQuestions(targetMockQuestionsCount);
     const newSession: TestSession = {
       id: `session_${Date.now()}`,
-      title: "Full Syllabus Mock Exam",
+      moduleId: moduleId || undefined,
+      title:
+        isCustomModule && moduleRecord
+          ? `${moduleRecord.title} Mock Exam`
+          : "Full Syllabus Mock Exam",
       mode: "full_mock",
       startedAt: Date.now(),
       timeLimitSeconds: mockWithTimer ? mockTimerMinutes * 60 : null,
@@ -98,13 +117,16 @@ export function Dashboard() {
     };
 
     saveActiveSession(newSession);
-    navigate("/test");
+    navigate(`${basePath}/test`);
   };
 
   const handleStartCustomTypePractice = (type: QuestionType, count = 25) => {
+    const availableOfType = metadata.question_types[type] || 0;
+    const actualCount = Math.min(count, Math.max(1, availableOfType));
+
     const questions = generateCustomQuestions({
       types: [type],
-      count,
+      count: actualCount,
       randomize: true,
     });
     const label =
@@ -115,6 +137,7 @@ export function Dashboard() {
           : "True or False";
     const newSession: TestSession = {
       id: `session_${Date.now()}`,
+      moduleId: moduleId || undefined,
       title: `${label} Practice (${questions.length} Questions)`,
       mode: "custom",
       startedAt: Date.now(),
@@ -129,17 +152,19 @@ export function Dashboard() {
     };
 
     saveActiveSession(newSession);
-    navigate("/test");
+    navigate(`${basePath}/test`);
   };
 
   const handleStartMixedDrill = (count = 25) => {
+    const targetCount = Math.min(count, Math.max(1, metadata.total_questions));
     const questions = generateCustomQuestions({
       types: ["MCQ", "MSQ", "True / False"],
-      count,
+      count: targetCount,
       randomize: true,
     });
     const newSession: TestSession = {
       id: `session_${Date.now()}`,
+      moduleId: moduleId || undefined,
       title: `Mixed Practice Drill (${questions.length} Questions)`,
       mode: "custom",
       startedAt: Date.now(),
@@ -154,7 +179,7 @@ export function Dashboard() {
     };
 
     saveActiveSession(newSession);
-    navigate("/test");
+    navigate(`${basePath}/test`);
   };
 
   const handleDiscardActiveSession = () => {
@@ -166,6 +191,39 @@ export function Dashboard() {
     setActiveSession(null);
     setDiscardModalOpen(false);
   };
+
+  if (moduleLoading) {
+    return (
+      <div className="flex min-h-[60vh] items-center justify-center">
+        <div className="text-center space-y-3">
+          <div className="size-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
+          <p className="text-sm text-muted-foreground">
+            Loading custom module...
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  if (moduleError) {
+    return (
+      <div className="mx-auto max-w-xl py-16 px-4 text-center space-y-4">
+        <div className="size-12 rounded-full bg-destructive/10 text-destructive flex items-center justify-center mx-auto">
+          !
+        </div>
+        <h2 className="text-xl font-bold">Module Not Found</h2>
+        <p className="text-sm text-muted-foreground">{moduleError}</p>
+        <div className="flex items-center justify-center gap-3 pt-2">
+          <Link to="/modules">
+            <Button variant="outline">Browse Modules</Button>
+          </Link>
+          <Link to="/">
+            <Button>Main Portal</Button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-8">
@@ -209,7 +267,10 @@ export function Dashboard() {
                       Started{" "}
                       {new Date(activeSession.startedAt).toLocaleTimeString(
                         [],
-                        { hour: "2-digit", minute: "2-digit" },
+                        {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        },
                       )}
                     </span>
                   </div>
@@ -265,7 +326,7 @@ export function Dashboard() {
                 <div className="flex flex-col sm:flex-row lg:flex-col items-stretch lg:items-end justify-center gap-2.5 shrink-0 pt-3 lg:pt-0 border-t lg:border-t-0 border-border/60">
                   <Button
                     size="default"
-                    onClick={() => navigate("/test")}
+                    onClick={() => navigate(`${basePath}/test`)}
                     className="bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white font-semibold shadow-xs gap-2 px-6 h-10 w-full sm:w-auto lg:w-44 transition-all"
                   >
                     <Play className="size-4 fill-white" />
@@ -291,12 +352,21 @@ export function Dashboard() {
       <Card className="border-border/80 bg-card overflow-hidden shadow-xs">
         <div className="p-6 sm:p-7 space-y-2.5">
           <div className="flex flex-wrap items-center gap-2">
+            {isCustomModule && (
+              <Badge
+                variant="secondary"
+                className="gap-1.5 text-xs font-semibold bg-primary/10 text-primary border-primary/20"
+              >
+                <FolderOpen className="size-3" />
+                <span>Custom Module</span>
+              </Badge>
+            )}
             <Badge
               variant="secondary"
               className="gap-1.5 text-xs font-semibold"
             >
               <Sparkles className="size-3 text-amber-500" />
-              <span>100 Questions</span>
+              <span>{targetMockQuestionsCount} Questions</span>
             </Badge>
             <Badge variant="outline" className="text-xs">
               All {metadata.total_chapters} Chapters
@@ -304,47 +374,54 @@ export function Dashboard() {
           </div>
 
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
-            Full Syllabus Mock Exam
+            {isCustomModule && moduleRecord
+              ? `${moduleRecord.title} Mock Exam`
+              : "Full Syllabus Mock Exam"}
           </h1>
 
           <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl">
-            100 questions sampled proportionally across the entire syllabus with
-            randomized options and instant offline scoring.
+            {targetMockQuestionsCount} questions sampled proportionally across
+            all {metadata.total_chapters} chapters with randomized options and
+            instant offline scoring.
           </p>
         </div>
 
         {/* Unified Bottom Settings & Launch Bar */}
-        <div className="border-t border-border/60 bg-muted/20 px-6 py-3.5 sm:py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          {/* Left: Timer Mode & Segmented Duration Controls */}
-          <div className="flex flex-wrap items-center gap-3">
-            <label className="flex items-center gap-2 text-xs font-medium text-foreground cursor-pointer select-none">
-              <Checkbox
-                checked={mockWithTimer}
-                onCheckedChange={(checked) => setMockWithTimer(!!checked)}
-              />
-              <Clock className="size-3.5 text-muted-foreground" />
-              <span>{mockWithTimer ? "Timed Exam:" : "Untimed Practice"}</span>
-            </label>
-
-            {mockWithTimer && (
-              <div className="inline-flex items-center rounded-lg border border-border/80 bg-background p-0.5 shadow-2xs">
-                {[60, 90, 120, 180].map((mins) => (
-                  <button
-                    key={mins}
-                    type="button"
-                    onClick={() => setMockTimerMinutes(mins)}
-                    className={cn(
-                      "px-2.5 py-1 text-xs font-medium rounded-md transition-all select-none",
-                      mockTimerMinutes === mins
-                        ? "bg-primary text-primary-foreground font-semibold shadow-2xs"
-                        : "text-muted-foreground hover:text-foreground",
-                    )}
-                  >
-                    {mins}m
-                  </button>
-                ))}
-              </div>
-            )}
+        <div className="border-t border-border/60 bg-muted/20 px-4 sm:px-6 py-3 sm:py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+          {/* Left: Mode / Duration Segmented Selector */}
+          <div className="flex items-center gap-2">
+            <div className="inline-flex items-center rounded-lg border border-border/80 bg-background p-0.5 shadow-2xs">
+              <button
+                type="button"
+                onClick={() => setMockWithTimer(false)}
+                className={cn(
+                  "px-2.5 py-1 text-xs font-medium rounded-md transition-all select-none",
+                  !mockWithTimer
+                    ? "bg-primary text-primary-foreground font-semibold shadow-2xs"
+                    : "text-muted-foreground hover:text-foreground",
+                )}
+              >
+                Untimed
+              </button>
+              {[60, 90, 120, 180].map((mins) => (
+                <button
+                  key={mins}
+                  type="button"
+                  onClick={() => {
+                    setMockWithTimer(true);
+                    setMockTimerMinutes(mins);
+                  }}
+                  className={cn(
+                    "px-2.5 py-1 text-xs font-medium rounded-md transition-all select-none",
+                    mockWithTimer && mockTimerMinutes === mins
+                      ? "bg-primary text-primary-foreground font-semibold shadow-2xs"
+                      : "text-muted-foreground hover:text-foreground",
+                  )}
+                >
+                  {mins}m
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Right: Start Button */}
@@ -360,68 +437,63 @@ export function Dashboard() {
         </div>
       </Card>
 
-      {/* Overview Stats Bar */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <Card size="sm" className="justify-between">
-          <CardContent className="space-y-1">
-            <span className="text-xs font-medium text-muted-foreground">
-              Total Questions
+      {/* Sleek Metrics Strip */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 p-3.5 sm:p-4 rounded-xl border border-border/70 bg-card/60 shadow-2xs divide-y md:divide-y-0 md:divide-x divide-border/60">
+        <div className="px-2 sm:px-4 py-1 flex flex-col justify-center">
+          <span className="text-[11px] font-medium text-muted-foreground">
+            Total Questions
+          </span>
+          <div className="flex items-baseline gap-1.5 pt-0.5">
+            <span className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+              {(metadata?.total_questions || 0) +
+                (weekMetadata?.total_questions || 0)}
             </span>
-            <div className="flex items-baseline gap-2 pt-1">
-              <span className="text-2xl font-bold tracking-tight text-foreground">
-                {(metadata?.total_questions || 0) +
-                  (weekMetadata?.total_questions || 0)}
-              </span>
-              <span className="text-xs text-muted-foreground">
-                {metadata?.total_chapters || 0} Ch + {weekMetadata?.total_chapters || 0} Weeks
-              </span>
-            </div>
-          </CardContent>
-        </Card>
+            <span className="text-[11px] text-muted-foreground">
+              in {metadata?.total_chapters || 0} Ch
+              {weekMetadata?.total_chapters
+                ? ` + ${weekMetadata.total_chapters} Wks`
+                : ""}
+            </span>
+          </div>
+        </div>
 
-        <Card size="sm" className="justify-between">
-          <CardContent className="space-y-1">
-            <span className="text-xs font-medium text-muted-foreground">
-              Tests Taken
+        <div className="px-2 sm:px-4 py-1 flex flex-col justify-center pt-2 md:pt-1">
+          <span className="text-[11px] font-medium text-muted-foreground">
+            Tests Taken
+          </span>
+          <div className="flex items-baseline gap-1.5 pt-0.5">
+            <span className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+              {totalAttemptsCount}
             </span>
-            <div className="flex items-baseline gap-2 pt-1">
-              <span className="text-2xl font-bold tracking-tight text-foreground">
-                {totalAttemptsCount}
-              </span>
-              <span className="text-xs text-muted-foreground">
-                attempts saved
-              </span>
-            </div>
-          </CardContent>
-        </Card>
+            <span className="text-[11px] text-muted-foreground">completed</span>
+          </div>
+        </div>
 
-        <Card size="sm" className="justify-between">
-          <CardContent className="space-y-1">
-            <span className="text-xs font-medium text-muted-foreground">
-              Average Accuracy
+        <div className="px-2 sm:px-4 py-1 flex flex-col justify-center pt-2 md:pt-1">
+          <span className="text-[11px] font-medium text-muted-foreground">
+            Average Accuracy
+          </span>
+          <div className="flex items-baseline gap-1.5 pt-0.5">
+            <span className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+              {totalAttemptsCount > 0 ? `${averageScore}%` : "—"}
             </span>
-            <div className="flex items-baseline gap-2 pt-1">
-              <span className="text-2xl font-bold tracking-tight text-foreground">
-                {totalAttemptsCount > 0 ? `${averageScore}%` : "—"}
-              </span>
-              <span className="text-xs text-muted-foreground">overall</span>
-            </div>
-          </CardContent>
-        </Card>
+            <span className="text-[11px] text-muted-foreground">overall</span>
+          </div>
+        </div>
 
-        <Card size="sm" className="justify-between">
-          <CardContent className="space-y-1">
-            <span className="text-xs font-medium text-muted-foreground">
-              Saved Questions
+        <div className="px-2 sm:px-4 py-1 flex flex-col justify-center pt-2 md:pt-1">
+          <span className="text-[11px] font-medium text-muted-foreground">
+            Saved Questions
+          </span>
+          <div className="flex items-baseline gap-1.5 pt-0.5">
+            <span className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+              {bookmarkCount}
             </span>
-            <div className="flex items-baseline gap-2 pt-1">
-              <span className="text-2xl font-bold tracking-tight text-foreground">
-                {bookmarkCount}
-              </span>
-              <span className="text-xs text-muted-foreground">for review</span>
-            </div>
-          </CardContent>
-        </Card>
+            <span className="text-[11px] text-muted-foreground">
+              for review
+            </span>
+          </div>
+        </div>
       </div>
 
       {/* Practice Modes Section */}
@@ -435,68 +507,77 @@ export function Dashboard() {
           </p>
         </div>
 
+        {/* Uniform 3-Column Grid for Identical Layout Parity */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
-          {/* Weekly Assignments Card */}
-          <Card className="flex flex-col justify-between hover:ring-foreground/20 transition-all shadow-2xs group h-full">
-            <CardHeader className="space-y-3">
-              <div className="flex items-center justify-between">
-                <div className="flex size-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
-                  <CalendarCheck className="size-5" />
+          {/* Optional: Weekly Assignments Card (ONLY rendered if weeks exist) */}
+          {weeks.length > 0 && (
+            <Card className="flex flex-col justify-between hover:ring-foreground/20 transition-all shadow-2xs group h-full">
+              <CardHeader className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex size-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                    <CalendarCheck className="size-5" />
+                  </div>
+                  <Badge variant="outline">
+                    {weekMetadata.total_chapters} Weeks
+                  </Badge>
                 </div>
-                <Badge variant="outline">{weekMetadata.total_chapters} Weeks</Badge>
-              </div>
-              <CardTitle className="text-lg font-bold">
-                Weekly Assignments
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="flex-1 space-y-3">
-              <CardDescription className="text-sm leading-relaxed">
-                Practice official NPTEL assignment questions week-by-week with
-                untimed practice or timed mode.
-              </CardDescription>
-              <p className="text-xs text-muted-foreground pt-1">
-                {weekMetadata.total_questions} total questions across {weekMetadata.total_chapters} weeks
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Button
-                variant="outline"
-                className="w-full justify-between"
-                onClick={() => navigate("/assignments")}
-              >
-                <span>Browse Assignments</span>
-                <ArrowRight className="size-4" />
-              </Button>
-            </CardFooter>
-          </Card>
+                <CardTitle className="text-lg font-bold">
+                  Weekly Assignments
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1 space-y-2">
+                <CardDescription className="text-sm leading-relaxed">
+                  Study official weekly assignment questions with timed or
+                  untimed practice.
+                </CardDescription>
+                <p className="text-xs text-muted-foreground">
+                  {weekMetadata.total_questions} total questions across{" "}
+                  {weekMetadata.total_chapters} weeks
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button
+                  variant="outline"
+                  className="w-full justify-between"
+                  onClick={() => navigate(`${basePath}/assignments`)}
+                >
+                  <span>Browse Assignments</span>
+                  <ArrowRight className="size-4" />
+                </Button>
+              </CardFooter>
+            </Card>
+          )}
 
-          {/* Chapter-Wise Card */}
+          {/* 1. Chapter-Wise Practice Card */}
           <Card className="flex flex-col justify-between hover:ring-foreground/20 transition-all shadow-2xs group h-full">
             <CardHeader className="space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex size-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400">
                   <BookOpen className="size-5" />
                 </div>
-                <Badge variant="outline">{metadata.total_chapters} Chapters</Badge>
+                <Badge variant="outline">
+                  {metadata.total_chapters} Chapters
+                </Badge>
               </div>
               <CardTitle className="text-lg font-bold">
                 Chapter Practice
               </CardTitle>
             </CardHeader>
-            <CardContent className="flex-1 space-y-3">
+            <CardContent className="flex-1 space-y-2">
               <CardDescription className="text-sm leading-relaxed">
-                Select individual chapters to practice specific topics from
-                Introduction to Advanced IoT.
+                Practice specific syllabus topics chapter by chapter at your own
+                pace.
               </CardDescription>
-              <p className="text-xs text-muted-foreground pt-1">
-                {metadata.total_questions.toLocaleString()} total questions across {metadata.total_chapters} chapters
+              <p className="text-xs text-muted-foreground">
+                {metadata.total_questions.toLocaleString()} total questions
+                across {metadata.total_chapters} chapters
               </p>
             </CardContent>
             <CardFooter>
               <Button
                 variant="outline"
                 className="w-full justify-between"
-                onClick={() => navigate("/chapters")}
+                onClick={() => navigate(`${basePath}/chapters`)}
               >
                 <span>Browse All Chapters</span>
                 <ArrowRight className="size-4" />
@@ -504,31 +585,33 @@ export function Dashboard() {
             </CardFooter>
           </Card>
 
-          {/* Custom Test Builder Card */}
+          {/* 2. Custom Test Builder Card */}
           <Card className="flex flex-col justify-between hover:ring-foreground/20 transition-all shadow-2xs group h-full">
             <CardHeader className="space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex size-10 items-center justify-center rounded-xl bg-teal-500/10 text-teal-600 dark:text-teal-400">
                   <SlidersHorizontal className="size-5" />
                 </div>
-                <Badge variant="outline">Chapters &amp; Weeks</Badge>
+                <Badge variant="outline">
+                  {weeks.length > 0 ? "Chapters & Weeks" : "Custom Chapters"}
+                </Badge>
               </div>
               <CardTitle className="text-lg font-bold">Custom Test</CardTitle>
             </CardHeader>
-            <CardContent className="flex-1 space-y-3">
+            <CardContent className="flex-1 space-y-2">
               <CardDescription className="text-sm leading-relaxed">
-                Choose specific chapters and weekly assignments, set your own
-                exam duration, and focus on weak syllabus areas.
+                Build a personalized test by selecting specific chapters and
+                time limits.
               </CardDescription>
-              <p className="text-xs text-muted-foreground pt-1">
-                Chapters, weekly assignments &amp; custom time limits
+              <p className="text-xs text-muted-foreground">
+                Custom chapters &amp; custom time limits
               </p>
             </CardContent>
             <CardFooter>
               <Button
                 variant="outline"
                 className="w-full justify-between"
-                onClick={() => navigate("/custom-test")}
+                onClick={() => navigate(`${basePath}/custom-test`)}
               >
                 <span>Create Custom Test</span>
                 <ArrowRight className="size-4" />
@@ -536,7 +619,7 @@ export function Dashboard() {
             </CardFooter>
           </Card>
 
-          {/* Practice by Type Card */}
+          {/* 3. Question Type Drills Card */}
           <Card className="flex flex-col justify-between hover:ring-foreground/20 transition-all shadow-2xs group h-full">
             <CardHeader className="space-y-3">
               <div className="flex items-center justify-between">
@@ -594,7 +677,7 @@ export function Dashboard() {
             </CardFooter>
           </Card>
 
-          {/* Saved Questions Card */}
+          {/* 4. Saved Questions Card */}
           <Card className="flex flex-col justify-between hover:ring-foreground/20 transition-all shadow-2xs group h-full">
             <CardHeader className="space-y-3">
               <div className="flex items-center justify-between">
@@ -607,12 +690,11 @@ export function Dashboard() {
                 Saved Questions
               </CardTitle>
             </CardHeader>
-            <CardContent className="flex-1 space-y-3">
+            <CardContent className="flex-1 space-y-2">
               <CardDescription className="text-sm leading-relaxed">
-                Revisit questions you flagged during tests to solidify your
-                understanding and review answers.
+                Revisit and test questions you flagged during previous exams.
               </CardDescription>
-              <p className="text-xs text-muted-foreground pt-1">
+              <p className="text-xs text-muted-foreground">
                 {bookmarkCount} flagged question{bookmarkCount === 1 ? "" : "s"}{" "}
                 saved for review
               </p>
@@ -621,7 +703,7 @@ export function Dashboard() {
               <Button
                 variant="outline"
                 className="w-full justify-between"
-                onClick={() => navigate("/saved")}
+                onClick={() => navigate(`${basePath}/saved`)}
               >
                 <span>Open Saved Questions</span>
                 <ArrowRight className="size-4" />
@@ -639,7 +721,7 @@ export function Dashboard() {
               Recent Attempts
             </h2>
             <Link
-              to="/history"
+              to={`${basePath}/history`}
               className="text-sm font-medium text-primary hover:underline"
             >
               View All History &rarr;
@@ -652,7 +734,7 @@ export function Dashboard() {
                 key={attempt.id}
                 size="sm"
                 className="flex flex-col justify-between hover:ring-foreground/20 transition-all cursor-pointer group"
-                onClick={() => navigate(`/results/${attempt.id}`)}
+                onClick={() => navigate(`${basePath}/results/${attempt.id}`)}
               >
                 <CardHeader className="space-y-2 pb-2">
                   <div className="flex items-center justify-between">
@@ -717,3 +799,5 @@ export function Dashboard() {
     </div>
   );
 }
+
+export default Dashboard;

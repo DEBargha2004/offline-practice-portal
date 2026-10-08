@@ -1,18 +1,25 @@
 import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Chapter, TestSession, TestAttemptResult } from "@/types";
-import { getAllChapters, generateChapterQuestions } from "@/services/questionService";
-import { getAllAttempts, saveActiveSession } from "@/services/storageService";
+import { useCurrentModule } from "@/hooks/useCurrentModule";
 
 export function useChapterCatalogController() {
   const navigate = useNavigate();
-  const [chapters] = useState<Chapter[]>(() => getAllChapters());
+  const {
+    basePath,
+    getAllChapters,
+    generateChapterQuestions,
+    getAllAttempts,
+    saveActiveSession,
+  } = useCurrentModule();
+
+  const chapters = useMemo<Chapter[]>(() => getAllChapters(), [getAllChapters]);
   const [attempts, setAttempts] = useState<TestAttemptResult[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     getAllAttempts().then(setAttempts);
-  }, []);
+  }, [getAllAttempts]);
 
   // Compute best score percentage and attempt counts for each chapter
   const chapterStats = useMemo(() => {
@@ -67,11 +74,11 @@ export function useChapterCatalogController() {
     };
 
     saveActiveSession(session);
-    navigate("/test");
+    navigate(`${basePath}/test`);
   };
 
   const handleStartChapterRevision = (chapter: Chapter) => {
-    navigate(`/revision?mode=chapter&id=${chapter.chapter_number}`);
+    navigate(`${basePath}/revision?mode=chapter&id=${chapter.chapter_number}`);
   };
 
   return {
@@ -80,6 +87,7 @@ export function useChapterCatalogController() {
     searchQuery,
     setSearchQuery,
     chapterStats,
+    basePath,
     handleStartChapterTest,
     handleStartChapterRevision,
   };

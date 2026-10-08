@@ -2,6 +2,7 @@ import type {
   ChapterRangePreset,
   CustomTestConfig,
   TestSession,
+  Question,
 } from "@/types";
 import { generateCustomQuestions } from "./questionService";
 
@@ -33,6 +34,37 @@ export const WEEK_RANGE_PRESETS: readonly ChapterRangePreset[] = [
 ];
 
 /**
+ * Computes balanced chapter range presets based on total chapters count
+ */
+export function generateChapterRangePresets(totalChapters: number): ChapterRangePreset[] {
+  if (totalChapters <= 1) return [];
+  if (totalChapters <= 10) {
+    const half = Math.ceil(totalChapters / 2);
+    return [
+      { label: `Ch 1–${half}`, from: 1, to: half },
+      { label: `Ch ${half + 1}–${totalChapters}`, from: half + 1, to: totalChapters },
+    ];
+  }
+  if (totalChapters <= 30) {
+    const step = 10;
+    const presets: ChapterRangePreset[] = [];
+    for (let i = 1; i <= totalChapters; i += step) {
+      const end = Math.min(i + step - 1, totalChapters);
+      presets.push({ label: `Ch ${i}–${end}`, from: i, to: end });
+    }
+    return presets;
+  }
+  // Default 15-chapter chunking
+  const step = 15;
+  const presets: ChapterRangePreset[] = [];
+  for (let i = 1; i <= totalChapters; i += step) {
+    const end = Math.min(i + step - 1, totalChapters);
+    presets.push({ label: `Ch ${i}–${end}`, from: i, to: end });
+  }
+  return presets;
+}
+
+/**
  * Strips redundant prefixes like "Chapter 1: " from raw chapter titles
  */
 export function formatChapterTitle(rawTitle: string): string {
@@ -45,7 +77,14 @@ export function formatChapterTitle(rawTitle: string): string {
 export function buildCustomTestSession(
   config: CustomTestConfig,
   totalAvailableChaptersCount: number,
-  totalAvailableWeeksCount?: number,
+  totalAvailableWeeksCount = 0,
+  generateQuestionsFn: (options: {
+    chapterNumbers?: number[];
+    weekNumbers?: number[];
+    count?: number;
+    randomize?: boolean;
+  }) => Question[] = generateCustomQuestions,
+  moduleId?: string,
 ): TestSession | null {
   const chapterCount = config.chapterNumbers?.length || 0;
   const weekCount = config.weekNumbers?.length || 0;
@@ -54,7 +93,7 @@ export function buildCustomTestSession(
     return null;
   }
 
-  const questions = generateCustomQuestions({
+  const questions = generateQuestionsFn({
     chapterNumbers: config.chapterNumbers,
     weekNumbers: config.weekNumbers,
     count: config.questionCountLimit ?? undefined,
@@ -92,6 +131,7 @@ export function buildCustomTestSession(
 
   return {
     id: `session_custom_${Date.now()}`,
+    moduleId,
     title,
     mode: "custom",
     startedAt: Date.now(),

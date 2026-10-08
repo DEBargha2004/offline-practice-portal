@@ -1,17 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Question, TestSession } from "@/types";
-import { getBookmarks, toggleBookmark, saveActiveSession } from "@/services/storageService";
-import { getQuestionById, shuffleArray, shuffleQuestionOptions } from "@/services/questionService";
+import { useCurrentModule } from "@/hooks/useCurrentModule";
+import { shuffleArray, shuffleQuestionOptions } from "@/services/questionService";
 import { QuestionCard } from "@/components/question/QuestionCard";
 import { Button } from "@/components/ui/button";
 import { Bookmark, Play } from "lucide-react";
 
 export function SavedQuestions() {
   const navigate = useNavigate();
+  const {
+    basePath,
+    moduleId,
+    getBookmarks,
+    toggleBookmark,
+    getQuestionById,
+    saveActiveSession,
+  } = useCurrentModule();
+
   const [questions, setQuestions] = useState<Question[]>([]);
 
-  const loadSaved = () => {
+  const loadSaved = useCallback(() => {
     const ids = getBookmarks();
     const loaded: Question[] = [];
     for (const id of ids) {
@@ -19,11 +28,11 @@ export function SavedQuestions() {
       if (q) loaded.push(q);
     }
     setQuestions(loaded);
-  };
+  }, [getBookmarks, getQuestionById]);
 
   useEffect(() => {
     loadSaved();
-  }, []);
+  }, [loadSaved]);
 
   const handleToggle = (qId: string) => {
     toggleBookmark(qId);
@@ -37,6 +46,7 @@ export function SavedQuestions() {
 
     const newSession: TestSession = {
       id: `session_saved_${Date.now()}`,
+      moduleId: moduleId || undefined,
       title: `Saved Questions Practice (${questions.length} Qs)`,
       mode: "custom",
       startedAt: Date.now(),
@@ -51,7 +61,7 @@ export function SavedQuestions() {
     };
 
     saveActiveSession(newSession);
-    navigate("/test");
+    navigate(`${basePath}/test`);
   };
 
   return (
@@ -101,9 +111,8 @@ export function SavedQuestions() {
           <Bookmark className="size-8 text-muted-foreground mx-auto" />
           <h3 className="font-bold text-foreground">No saved questions yet</h3>
           <p className="text-sm text-muted-foreground max-w-sm mx-auto">
-            Click the bookmark icon during any test or review to save difficult questions here for revision.
+            Click the bookmark icon on any question during test or review mode to save it here for later.
           </p>
-          <Button onClick={() => navigate("/chapters")}>Browse Questions</Button>
         </div>
       )}
     </div>

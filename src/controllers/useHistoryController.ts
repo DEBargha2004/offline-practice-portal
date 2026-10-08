@@ -1,31 +1,35 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import type { TestAttemptResult, TestModeType, TestSession } from "@/types";
-import {
-  getAllAttempts,
-  deleteAttempt,
-  clearAllAttempts,
-  saveActiveSession,
-} from "@/services/storageService";
+import { useCurrentModule } from "@/hooks/useCurrentModule";
+import { deleteAttempt } from "@/services/storageService";
 import { shuffleArray, shuffleQuestionOptions } from "@/services/questionService";
 
 export function useHistoryController() {
   const navigate = useNavigate();
+  const {
+    basePath,
+    moduleId,
+    getAllAttempts,
+    clearAllAttempts,
+    saveActiveSession,
+  } = useCurrentModule();
+
   const [attempts, setAttempts] = useState<TestAttemptResult[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedFilter, setSelectedFilter] = useState<TestModeType | "all">("all");
 
-  const refreshAttempts = () => {
+  const refreshAttempts = useCallback(() => {
     setLoading(true);
     getAllAttempts().then((data) => {
       setAttempts(data);
       setLoading(false);
     });
-  };
+  }, [getAllAttempts]);
 
   useEffect(() => {
     refreshAttempts();
-  }, []);
+  }, [refreshAttempts]);
 
   const filteredAttempts = useMemo(() => {
     if (selectedFilter === "all") return attempts;
@@ -78,6 +82,7 @@ export function useHistoryController() {
 
     const newSession: TestSession = {
       id: `session_retake_${Date.now()}`,
+      moduleId: attempt.moduleId || moduleId || undefined,
       title: `${attempt.title} (Retake)`,
       mode: attempt.mode,
       chapterNumber: attempt.chapterNumber,
@@ -94,7 +99,7 @@ export function useHistoryController() {
     };
 
     saveActiveSession(newSession);
-    navigate("/test");
+    navigate(`${basePath}/test`);
   };
 
   return {
@@ -104,6 +109,7 @@ export function useHistoryController() {
     selectedFilter,
     setSelectedFilter,
     stats,
+    basePath,
     deleteAttemptId,
     setDeleteAttemptId,
     clearAllDialogOpen,

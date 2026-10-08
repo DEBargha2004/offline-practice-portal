@@ -24,6 +24,7 @@ export function TestResults() {
     setFilter,
     filteredItems,
     bookmarkedSet,
+    basePath,
     handleToggleBookmark,
     handleRetakeTest,
   } = useTestResultsController();
@@ -43,7 +44,7 @@ export function TestResults() {
         <p className="text-sm text-muted-foreground">
           This test result could not be located in your local offline storage.
         </p>
-        <Button onClick={() => navigate("/")}>Back to Dashboard</Button>
+        <Button onClick={() => navigate(basePath || "/")}>Back to Dashboard</Button>
       </div>
     );
   }
@@ -71,7 +72,7 @@ export function TestResults() {
         <Button
           variant="ghost"
           size="sm"
-          onClick={() => navigate("/")}
+          onClick={() => navigate(basePath || "/")}
           className="gap-1.5 text-muted-foreground hover:text-foreground"
         >
           <ArrowLeft className="size-4" />
@@ -90,7 +91,7 @@ export function TestResults() {
           </Button>
           <Button
             size="sm"
-            onClick={() => navigate("/chapters")}
+            onClick={() => navigate(`${basePath}/chapters`)}
             className="gap-1.5"
           >
             <BookOpen className="size-3.5" />

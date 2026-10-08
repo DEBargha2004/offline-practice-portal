@@ -1,24 +1,25 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import type { Question, RevisionSession } from "@/types";
-import {
-  getActiveRevisionSession,
-  saveActiveRevisionSession,
-  clearActiveRevisionSession,
-  toggleBookmark,
-  isBookmarked,
-} from "@/services/storageService";
-import {
-  getQuestionsForChapter,
-  getQuestionsForWeek,
-  getChapter,
-  getWeek,
-  getQuestionById,
-} from "@/services/questionService";
+import { useCurrentModule } from "@/hooks/useCurrentModule";
 
 export function useRevisionSessionController() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const {
+    basePath,
+    moduleId,
+    getActiveRevisionSession,
+    saveActiveRevisionSession,
+    clearActiveRevisionSession,
+    toggleBookmark,
+    isBookmarked,
+    getQuestionsForChapter,
+    getQuestionsForWeek,
+    getChapter,
+    getWeek,
+    getQuestionById,
+  } = useCurrentModule();
 
   const [session, setSession] = useState<RevisionSession | null>(null);
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -47,6 +48,7 @@ export function useRevisionSessionController() {
         if (weekQuestions.length > 0) {
           targetSession = {
             id: `rev_week_${paramId}`,
+            moduleId: moduleId || undefined,
             title: `${weekMeta?.chapter_title || `Week ${paramId}`} Assignment Revision`,
             mode: "week",
             weekNumber: paramId,
@@ -66,6 +68,7 @@ export function useRevisionSessionController() {
         if (chapterQuestions.length > 0) {
           targetSession = {
             id: `rev_chapter_${paramId}`,
+            moduleId: moduleId || undefined,
             title: `${chapterMeta?.chapter_title || `Chapter ${paramId}`} Revision`,
             mode: "chapter",
             chapterNumber: paramId,
@@ -102,7 +105,7 @@ export function useRevisionSessionController() {
 
     if (resolvedQuestions.length === 0) {
       clearActiveRevisionSession();
-      navigate("/assignments");
+      navigate(basePath ? `${basePath}/chapters` : "/assignments");
       return;
     }
 
@@ -274,11 +277,11 @@ export function useRevisionSessionController() {
   const handleExitRevision = useCallback(() => {
     clearActiveRevisionSession();
     if (session?.mode === "chapter") {
-      navigate("/chapters");
+      navigate(basePath ? `${basePath}/chapters` : "/chapters");
     } else {
-      navigate("/assignments");
+      navigate(basePath ? `${basePath}/chapters` : "/assignments");
     }
-  }, [session?.mode, navigate]);
+  }, [session?.mode, navigate, basePath, clearActiveRevisionSession]);
 
   // Keyboard navigation & shortcuts
   useEffect(() => {

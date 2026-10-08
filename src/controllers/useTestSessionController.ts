@@ -1,19 +1,24 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Question, TestSession } from "@/types";
-import {
-  getActiveSession,
-  saveActiveSession,
-  clearActiveSession,
-  saveAttempt,
-  toggleBookmark,
-  isBookmarked,
-} from "@/services/storageService";
-import { getQuestionById, getChapter, shuffleQuestionOptions } from "@/services/questionService";
+import { useCurrentModule } from "@/hooks/useCurrentModule";
+import { shuffleQuestionOptions } from "@/services/questionService";
 import { gradeTestSession } from "@/services/evaluationService";
 
 export function useTestSessionController() {
   const navigate = useNavigate();
+  const {
+    basePath,
+    moduleId,
+    getActiveSession,
+    saveActiveSession,
+    clearActiveSession,
+    saveAttempt,
+    toggleBookmark,
+    isBookmarked,
+    getQuestionById,
+    getChapter,
+  } = useCurrentModule();
 
   const [session, setSession] = useState<TestSession | null>(null);
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -29,7 +34,7 @@ export function useTestSessionController() {
   useEffect(() => {
     const loadedSession = getActiveSession();
     if (!loadedSession || loadedSession.isCompleted) {
-      navigate("/");
+      navigate(basePath || "/");
       return;
     }
 
@@ -103,7 +108,7 @@ export function useTestSessionController() {
 
     if (resolvedQuestions.length === 0) {
       clearActiveSession();
-      navigate("/");
+      navigate(basePath || "/");
       return;
     }
 
@@ -227,14 +232,12 @@ export function useTestSessionController() {
 
     const qId = questions[currentIndex].id;
     const currentFlagged = new Set(session.flaggedQuestionIds || []);
-    let isNowFlagged = false;
+    const isNowFlagged = !currentFlagged.has(qId);
 
-    if (currentFlagged.has(qId)) {
-      currentFlagged.delete(qId);
-      isNowFlagged = false;
-    } else {
+    if (isNowFlagged) {
       currentFlagged.add(qId);
-      isNowFlagged = true;
+    } else {
+      currentFlagged.delete(qId);
     }
 
     const updatedSession: TestSession = {
@@ -292,6 +295,9 @@ export function useTestSessionController() {
         questions,
         chInfo?.chapter_title
       );
+      if (targetSession.moduleId || moduleId) {
+        attemptResult.moduleId = targetSession.moduleId || moduleId || undefined;
+      }
 
       // Persist attempt to IndexedDB
       await saveAttempt(attemptResult);
@@ -300,9 +306,9 @@ export function useTestSessionController() {
       clearActiveSession();
 
       // Navigate to review screen
-      navigate(`/results/${attemptResult.id}`);
+      navigate(`${basePath}/results/${attemptResult.id}`);
     },
-    [questions, navigate]
+    [questions, navigate, basePath, moduleId, saveAttempt, clearActiveSession, getChapter]
   );
 
   // Keyboard navigation shortcuts

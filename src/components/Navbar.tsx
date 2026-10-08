@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "@/context/ThemeContext";
 import { useSidebar } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
+import { useCurrentModule } from "@/hooks/useCurrentModule";
 import {
   History,
   Bookmark,
@@ -13,14 +14,17 @@ import {
   Menu,
   Home,
   Flame,
+  FolderOpen,
 } from "lucide-react";
-import { getActiveSession } from "@/services/storageService";
 import { cn } from "cn";
 
 export function Navbar() {
   const location = useLocation();
   const { theme, setTheme } = useTheme();
   const { toggleSidebar } = useSidebar();
+  const { basePath, isCustomModule, moduleRecord, getActiveSession } =
+    useCurrentModule();
+
   const [hasActiveTest, setHasActiveTest] = useState(false);
   const [activeTestTitle, setActiveTestTitle] = useState("");
 
@@ -30,7 +34,7 @@ export function Navbar() {
     if (active && !active.isCompleted) {
       setActiveTestTitle(active.title);
     }
-  }, [location.pathname]);
+  }, [location.pathname, getActiveSession]);
 
   const toggleTheme = () => {
     if (theme === "light") setTheme("dark");
@@ -40,14 +44,18 @@ export function Navbar() {
 
   const isLinkActive = (path: string) => {
     if (path === "/" && location.pathname === "/") return true;
-    if (path !== "/" && location.pathname.startsWith(path)) return true;
+    if (path === basePath && location.pathname === basePath) return true;
+    if (path !== "/" && path !== basePath && location.pathname.startsWith(path))
+      return true;
     return false;
   };
 
+  const homePath = basePath || "/";
   const navItems = [
-    { label: "Home", path: "/", icon: Home },
-    { label: "My History", path: "/history", icon: History },
-    { label: "Saved", path: "/saved", icon: Bookmark },
+    { label: "Home", path: homePath, icon: Home },
+    { label: "My History", path: `${basePath}/history`, icon: History },
+    { label: "Saved", path: `${basePath}/saved`, icon: Bookmark },
+    { label: "Modules", path: "/modules", icon: FolderOpen },
   ];
 
   return (
@@ -55,7 +63,7 @@ export function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-3 sm:px-6 lg:px-8">
         {/* Left: Mobile Sidebar Trigger + Brand Logo */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Mobile Sidebar Hamburger (Triggers shadcn Sidebar) */}
+          {/* Mobile Sidebar Hamburger */}
           <Button
             variant="ghost"
             size="icon-sm"
@@ -68,24 +76,32 @@ export function Navbar() {
 
           {/* Brand Link */}
           <Link
-            to="/"
-            className="flex items-center gap-2 sm:gap-2.5 transition-opacity hover:opacity-90"
+            to={homePath}
+            className="flex items-center gap-2 sm:gap-2.5 transition-opacity hover:opacity-90 max-w-[120px] sm:max-w-xs md:max-w-sm"
           >
             <div className="flex size-8 sm:size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-xs shrink-0">
-              <Cpu className="size-4 sm:size-5" />
+              {isCustomModule ? (
+                <FolderOpen className="size-4 sm:size-5" />
+              ) : (
+                <Cpu className="size-4 sm:size-5" />
+              )}
             </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-bold tracking-tight text-foreground sm:text-lg">
-                IoT Exam Prep
+            <div className="flex flex-col min-w-0">
+              <span className="text-sm font-bold tracking-tight text-foreground sm:text-base md:text-lg truncate">
+                {isCustomModule && moduleRecord
+                  ? moduleRecord.title
+                  : "IoT Exam Prep"}
               </span>
-              <span className="text-[10px] sm:text-[11px] text-muted-foreground hidden sm:block">
-                Offline Practice Portal
+              <span className="text-[10px] sm:text-[11px] text-muted-foreground hidden sm:block truncate">
+                {isCustomModule
+                  ? "Custom Question Module"
+                  : "Offline Practice Portal"}
               </span>
             </div>
           </Link>
         </div>
 
-        {/* Desktop Navigation Links (hidden on mobile, visible md and up) */}
+        {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center gap-1.5 lg:gap-2">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -112,9 +128,9 @@ export function Navbar() {
 
         {/* Right Section: Active Test Shortcut & Theme Controls */}
         <div className="flex items-center gap-2">
-          {/* Active Test Pill - Adaptive for desktop and mobile */}
-          {hasActiveTest && location.pathname !== "/test" && (
-            <Link to="/test">
+          {/* Active Test Pill */}
+          {hasActiveTest && !location.pathname.endsWith("/test") && (
+            <Link to={`${basePath}/test`}>
               <Button
                 variant="outline"
                 size="sm"
@@ -147,3 +163,5 @@ export function Navbar() {
     </header>
   );
 }
+
+export default Navbar;

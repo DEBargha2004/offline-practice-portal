@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTestSessionController } from "@/controllers/useTestSessionController";
+import { useCurrentModule } from "@/hooks/useCurrentModule";
 import { QuestionCard } from "@/components/question/QuestionCard";
 import { QuestionPalette } from "@/components/question/QuestionPalette";
 import { TestTimer } from "@/components/test/TestTimer";
@@ -22,13 +23,17 @@ import {
   Send,
   ArrowLeft,
   LayoutGrid,
+  Maximize2,
+  Minimize2,
 } from "lucide-react";
 import { cn } from "cn";
 
 export function TestSession() {
   const navigate = useNavigate();
+  const { basePath } = useCurrentModule();
   const [exitModalOpen, setExitModalOpen] = useState(false);
   const [paletteDrawerOpen, setPaletteDrawerOpen] = useState(false);
+  const [zenMode, setZenMode] = useState(false);
 
   const {
     session,
@@ -104,12 +109,24 @@ export function TestSession() {
               elapsedSeconds={session.elapsedSeconds}
             />
 
-            {/* Mobile Palette Toggle Button */}
+            {/* Desktop Zen Mode Focus Toggle */}
+            <Button
+              variant={zenMode ? "secondary" : "ghost"}
+              size="icon-sm"
+              onClick={() => setZenMode(!zenMode)}
+              className="hidden lg:flex size-8 text-muted-foreground hover:text-foreground"
+              title={zenMode ? "Exit Focus Mode (Show Palette)" : "Focus Mode (Hide Palette)"}
+              aria-label={zenMode ? "Exit Focus Mode" : "Enter Focus Mode"}
+            >
+              {zenMode ? <Minimize2 className="size-4" /> : <Maximize2 className="size-4" />}
+            </Button>
+
+            {/* Palette Toggle Button (Mobile or when in Zen Mode) */}
             <Button
               variant="outline"
               size="sm"
               onClick={() => setPaletteDrawerOpen(true)}
-              className="lg:hidden gap-1 h-8 px-2 sm:px-2.5 text-xs"
+              className={cn("gap-1 h-8 px-2 sm:px-2.5 text-xs", !zenMode && "lg:hidden")}
               title="Open Question Palette"
             >
               <LayoutGrid className="size-3.5" />
@@ -132,10 +149,10 @@ export function TestSession() {
       </div>
 
       {/* Main Test Arena Layout */}
-      <main className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-4 sm:py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+      <main className={cn("mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6", zenMode ? "max-w-4xl" : "max-w-7xl")}>
+        <div className={cn("items-start", zenMode ? "space-y-6" : "grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8")}>
           {/* Question Viewer & Action Area */}
-          <div className="lg:col-span-8 space-y-5 sm:space-y-6 min-w-0">
+          <div className={cn("space-y-5 sm:space-y-6 min-w-0", !zenMode && "lg:col-span-8")}>
             <QuestionCard
               question={currentQuestion}
               selectedAnswers={currentAnswers}
@@ -207,17 +224,19 @@ export function TestSession() {
             </div>
           </div>
 
-          {/* Desktop Right Sidebar: Question Palette */}
-          <div className="hidden lg:block lg:col-span-4 sticky top-36">
-            <QuestionPalette
-              totalQuestions={totalQuestions}
-              currentIndex={currentIndex}
-              userAnswers={userAnswers}
-              flaggedQuestionIds={flaggedQuestionIds}
-              questionIds={questions.map((q) => q.id)}
-              onSelectQuestion={handleJumpToQuestion}
-            />
-          </div>
+          {/* Desktop Right Sidebar: Question Palette (Hidden in Zen Mode) */}
+          {!zenMode && (
+            <div className="hidden lg:block lg:col-span-4 sticky top-36">
+              <QuestionPalette
+                totalQuestions={totalQuestions}
+                currentIndex={currentIndex}
+                userAnswers={userAnswers}
+                flaggedQuestionIds={flaggedQuestionIds}
+                questionIds={questions.map((q) => q.id)}
+                onSelectQuestion={handleJumpToQuestion}
+              />
+            </div>
+          )}
         </div>
       </main>
 
@@ -272,7 +291,7 @@ export function TestSession() {
               variant="default"
               onClick={() => {
                 setExitModalOpen(false);
-                navigate("/");
+                navigate(basePath || "/");
               }}
             >
               Exit to Home

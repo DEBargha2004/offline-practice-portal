@@ -1,21 +1,31 @@
 import { useState, useMemo, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Chapter, TestSession } from "@/types";
-import { getAllChapters, getAllWeeks } from "@/services/questionService";
+import { useCurrentModule } from "@/hooks/useCurrentModule";
 import {
   buildCustomTestSession,
+  generateChapterRangePresets,
   DEFAULT_DURATION_PRESETS,
   QUESTION_LIMIT_PRESETS,
   CHAPTER_RANGE_PRESETS,
   WEEK_RANGE_PRESETS,
 } from "@/services/customTestService";
-import { getActiveSession, saveActiveSession, clearActiveSession } from "@/services/storageService";
 
 export function useCustomTestController() {
   const navigate = useNavigate();
+  const {
+    basePath,
+    moduleId,
+    getAllChapters,
+    getAllWeeks,
+    generateCustomQuestions,
+    getActiveSession,
+    saveActiveSession,
+    clearActiveSession,
+  } = useCurrentModule();
 
-  const chapters: Chapter[] = useMemo(() => getAllChapters(), []);
-  const weeks: Chapter[] = useMemo(() => getAllWeeks(), []);
+  const chapters: Chapter[] = useMemo(() => getAllChapters(), [getAllChapters]);
+  const weeks: Chapter[] = useMemo(() => getAllWeeks(), [getAllWeeks]);
 
   // Selection state
   const [selectedChapters, setSelectedChapters] = useState<Set<number>>(() => new Set());
@@ -40,7 +50,15 @@ export function useCustomTestController() {
     if (existing && !existing.isCompleted) {
       setActiveSession(existing);
     }
-  }, []);
+  }, [getActiveSession]);
+
+  // Dynamic chapter range presets based on syllabus size
+  const chapterRangePresets = useMemo(() => {
+    if (chapters.length === 60) return CHAPTER_RANGE_PRESETS;
+    return generateChapterRangePresets(chapters.length);
+  }, [chapters.length]);
+
+  const weekRangePresets = WEEK_RANGE_PRESETS;
 
   // Filtered chapters
   const filteredChapters = useMemo(() => {
@@ -199,13 +217,15 @@ export function useCustomTestController() {
         questionCountLimit,
       },
       chapters.length,
-      weeks.length
+      weeks.length,
+      generateCustomQuestions,
+      moduleId || undefined
     );
 
     if (!session) return;
 
     saveActiveSession(session);
-    navigate("/test");
+    navigate(`${basePath}/test`);
   }, [
     selectedChapters,
     selectedWeeks,
@@ -214,7 +234,11 @@ export function useCustomTestController() {
     questionCountLimit,
     chapters.length,
     weeks.length,
+    generateCustomQuestions,
+    moduleId,
+    saveActiveSession,
     navigate,
+    basePath,
   ]);
 
   const handleStartTest = useCallback(() => {
@@ -233,7 +257,7 @@ export function useCustomTestController() {
     setActiveSession(null);
     setShowDiscardDialog(false);
     executeStartTest();
-  }, [executeStartTest]);
+  }, [clearActiveSession, executeStartTest]);
 
   const selectedChapterCount = selectedChapters.size;
   const selectedWeekCount = selectedWeeks.size;
@@ -249,40 +273,30 @@ export function useCustomTestController() {
     selectedChapterCount,
     selectedWeekCount,
     selectedTotalCount,
-    selectedCount: selectedTotalCount,
-    isAllChaptersSelected: selectedChapterCount === chapters.length && chapters.length > 0,
-    isAllWeeksSelected: selectedWeekCount === weeks.length && weeks.length > 0,
+    isAllChaptersSelected: chapters.length > 0 && selectedChapterCount === chapters.length,
+    isAllWeeksSelected: weeks.length > 0 && selectedWeekCount === weeks.length,
     isAllSelected:
-      selectedChapterCount === chapters.length &&
-      selectedWeekCount === weeks.length &&
-      chapters.length > 0,
+      chapters.length + weeks.length > 0 &&
+      selectedTotalCount === chapters.length + weeks.length,
     searchQuery,
     setSearchQuery,
-
-    // Timing
     isTimed,
     setIsTimed,
     durationMinutes,
+    durationPresets: DEFAULT_DURATION_PRESETS,
     isCustomDuration,
     customDurationInput,
-    durationPresets: DEFAULT_DURATION_PRESETS,
     handlePresetDurationSelect,
     handleCustomDurationChange,
     enableCustomDuration,
     cancelCustomDuration,
-
-    // Question limits
     questionCountLimit,
     setQuestionCountLimit,
     questionLimitPresets: QUESTION_LIMIT_PRESETS,
-    chapterRangePresets: CHAPTER_RANGE_PRESETS,
-    weekRangePresets: WEEK_RANGE_PRESETS,
-
-    // Computed numbers
+    chapterRangePresets,
+    weekRangePresets,
     totalAvailableQuestions,
     targetQuestionCount,
-
-    // Actions
     toggleChapter,
     toggleWeek,
     selectAllChapters,
@@ -291,12 +305,9 @@ export function useCustomTestController() {
     clearAllWeeks,
     selectAll,
     clearAll,
-    selectChapterRange: selectRange,
     selectRange,
     selectWeekRange,
     handleStartTest,
-
-    // Active session alert
     activeSession,
     showDiscardDialog,
     setShowDiscardDialog,

@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/sidebar";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
+import { useCurrentModule } from "@/hooks/useCurrentModule";
 import {
   Cpu,
   Home,
@@ -31,9 +32,8 @@ import {
   Download,
   SlidersHorizontal,
   CalendarCheck,
+  FolderOpen,
 } from "lucide-react";
-import { getActiveSession } from "@/services/storageService";
-import { getMetadata, getWeekMetadata } from "@/services/questionService";
 import { usePwaInstall } from "@/hooks/usePwaInstall";
 import { PwaInstallInstructionDialog } from "@/components/PwaInstallInstructionDialog";
 import type { TestSession } from "@/types";
@@ -43,9 +43,19 @@ export function AppSidebar() {
   const location = useLocation();
   const { theme, setTheme } = useTheme();
   const { setOpenMobile } = useSidebar();
+  const {
+    basePath,
+    isCustomModule,
+    moduleRecord,
+    getMetadata,
+    getWeekMetadata,
+    getActiveSession,
+  } = useCurrentModule();
+
   const [activeSession, setActiveSession] = useState<TestSession | null>(null);
   const metadata = getMetadata();
   const weekMetadata = getWeekMetadata();
+
   const {
     isInstalled,
     isIOS,
@@ -61,20 +71,38 @@ export function AppSidebar() {
     } else {
       setActiveSession(null);
     }
-  }, [location.pathname]);
+  }, [location.pathname, getActiveSession]);
+
+  const homePath = basePath || "/";
 
   const navItems = [
-    { label: "Home", path: "/", icon: Home },
-    { label: "Assignments", path: "/assignments", icon: CalendarCheck, badge: String(weekMetadata.total_chapters) },
-    { label: "Chapters", path: "/chapters", icon: BookOpen, badge: String(metadata.total_chapters) },
-    { label: "Custom Test", path: "/custom-test", icon: SlidersHorizontal },
-    { label: "My History", path: "/history", icon: History },
-    { label: "Saved Questions", path: "/saved", icon: Bookmark },
+    { label: "Home", path: homePath, icon: Home },
+    ...(weekMetadata.total_chapters > 0
+      ? [
+          {
+            label: "Assignments",
+            path: `${basePath}/assignments`,
+            icon: CalendarCheck,
+            badge: String(weekMetadata.total_chapters),
+          },
+        ]
+      : []),
+    {
+      label: "Chapters",
+      path: `${basePath}/chapters`,
+      icon: BookOpen,
+      badge: String(metadata.total_chapters),
+    },
+    { label: "Custom Test", path: `${basePath}/custom-test`, icon: SlidersHorizontal },
+    { label: "My History", path: `${basePath}/history`, icon: History },
+    { label: "Saved Questions", path: `${basePath}/saved`, icon: Bookmark },
+    { label: "Module Library", path: "/modules", icon: FolderOpen },
   ];
 
   const isLinkActive = (path: string) => {
     if (path === "/" && location.pathname === "/") return true;
-    if (path !== "/" && location.pathname.startsWith(path)) return true;
+    if (path === basePath && location.pathname === basePath) return true;
+    if (path !== "/" && path !== basePath && location.pathname.startsWith(path)) return true;
     return false;
   };
 
@@ -99,19 +127,19 @@ export function AppSidebar() {
       {/* Sidebar Header: App Identity */}
       <SidebarHeader className="border-b border-sidebar-border p-4">
         <Link
-          to="/"
+          to={homePath}
           onClick={handleNavClick}
           className="flex items-center gap-3 transition-opacity hover:opacity-90"
         >
-          <div className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-xs">
-            <Cpu className="size-5" />
+          <div className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-xs shrink-0">
+            {isCustomModule ? <FolderOpen className="size-5" /> : <Cpu className="size-5" />}
           </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-bold tracking-tight text-sidebar-foreground">
-              IoT Exam Prep
+          <div className="flex flex-col min-w-0">
+            <span className="text-sm font-bold tracking-tight text-sidebar-foreground truncate">
+              {isCustomModule && moduleRecord ? moduleRecord.title : "IoT Exam Prep"}
             </span>
-            <span className="text-[11px] text-muted-foreground">
-              Offline Practice Portal
+            <span className="text-[11px] text-muted-foreground truncate">
+              {isCustomModule ? "Custom Module" : "Offline Practice Portal"}
             </span>
           </div>
         </Link>
@@ -141,7 +169,7 @@ export function AppSidebar() {
                             "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                             active
                               ? "bg-primary text-primary-foreground font-semibold shadow-xs"
-                              : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+                              : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                           )}
                         />
                       }
@@ -149,7 +177,7 @@ export function AppSidebar() {
                       <Icon
                         className={cn(
                           "size-4 shrink-0",
-                          active ? "text-primary" : "text-muted-foreground",
+                          active ? "text-primary" : "text-muted-foreground"
                         )}
                       />
                       <span className="truncate">{item.label}</span>
@@ -160,7 +188,7 @@ export function AppSidebar() {
                           "rounded-full px-2 py-0.5 text-[10px] font-semibold",
                           active
                             ? "bg-primary-foreground/20 text-primary-foreground"
-                            : "bg-muted text-muted-foreground",
+                            : "bg-muted text-muted-foreground"
                         )}
                       >
                         {item.badge}
@@ -174,7 +202,7 @@ export function AppSidebar() {
         </SidebarGroup>
 
         {/* Active Test Callout in Sidebar */}
-        {activeSession && location.pathname !== "/test" && (
+        {activeSession && !location.pathname.endsWith("/test") && (
           <SidebarGroup className="mx-1 rounded-xl border border-amber-500/30 bg-amber-500/10 p-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-1.5 text-xs font-bold text-foreground">
@@ -205,7 +233,7 @@ export function AppSidebar() {
             </div>
 
             <Link
-              to="/test"
+              to={`${basePath}/test`}
               onClick={handleNavClick}
               className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg bg-amber-600 py-2 text-xs font-semibold text-white shadow-xs hover:bg-amber-700 transition-colors"
             >
@@ -227,7 +255,7 @@ export function AppSidebar() {
                 "p-1.5 rounded-md text-xs transition-colors",
                 theme === "light"
                   ? "bg-background text-foreground shadow-2xs font-semibold"
-                  : "text-muted-foreground hover:text-foreground",
+                  : "text-muted-foreground hover:text-foreground"
               )}
               title="Light Mode"
               aria-label="Light Mode"
@@ -240,7 +268,7 @@ export function AppSidebar() {
                 "p-1.5 rounded-md text-xs transition-colors",
                 theme === "dark"
                   ? "bg-background text-foreground shadow-2xs font-semibold"
-                  : "text-muted-foreground hover:text-foreground",
+                  : "text-muted-foreground hover:text-foreground"
               )}
               title="Dark Mode"
               aria-label="Dark Mode"
@@ -253,7 +281,7 @@ export function AppSidebar() {
                 "p-1.5 rounded-md text-xs transition-colors",
                 theme === "system"
                   ? "bg-background text-foreground shadow-2xs font-semibold"
-                  : "text-muted-foreground hover:text-foreground",
+                  : "text-muted-foreground hover:text-foreground"
               )}
               title="System Theme"
               aria-label="System Theme"
@@ -263,7 +291,7 @@ export function AppSidebar() {
           </div>
         </div>
 
-        {/* Simple Install App Button */}
+        {/* Install App Button */}
         {!isInstalled && (
           <Button
             variant="outline"
@@ -285,3 +313,5 @@ export function AppSidebar() {
     </Sidebar>
   );
 }
+
+export default AppSidebar;

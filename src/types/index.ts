@@ -48,6 +48,7 @@ export type TestModeType = "full_mock" | "chapter" | "week" | "custom";
 
 export interface TestSession {
   id: string;
+  moduleId?: string;
   title: string;
   mode: TestModeType;
   chapterNumber?: number;
@@ -65,6 +66,7 @@ export interface TestSession {
 
 export interface RevisionSession {
   id: string;
+  moduleId?: string;
   title: string;
   mode: "chapter" | "week";
   chapterNumber?: number;
@@ -90,6 +92,7 @@ export interface QuestionReviewItem {
 
 export interface TestAttemptResult {
   id: string;
+  moduleId?: string;
   sessionId: string;
   title: string;
   mode: TestModeType;
@@ -122,4 +125,15 @@ export interface ChapterRangePreset {
   label: string;
   from: number;
   to: number;
+}
+
+export interface CustomModuleRecord {
+  id: string;
+  title: string;
+  description?: string;
+  createdAt: number;
+  updatedAt: number;
+  chapterCount: number;
+  questionCount: number;
+  data: QuestionBankData;
 }

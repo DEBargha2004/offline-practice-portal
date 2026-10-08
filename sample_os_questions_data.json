@@ -1,0 +1,150 @@
+{
+  "metadata": {
+    "title": "Operating Systems & Systems Programming",
+    "total_chapters": 3,
+    "total_questions": 6,
+    "question_types": {
+      "MCQ": 4,
+      "MSQ": 1,
+      "True / False": 1
+    }
+  },
+  "chapters": [
+    {
+      "chapter_number": 1,
+      "chapter_title": "Process Management & Scheduling",
+      "file": "ch1.json",
+      "question_count": 2
+    },
+    {
+      "chapter_number": 2,
+      "chapter_title": "Memory Management & Virtual Memory",
+      "file": "ch2.json",
+      "question_count": 2
+    },
+    {
+      "chapter_number": 3,
+      "chapter_title": "Storage & File Systems",
+      "file": "ch3.json",
+      "question_count": 2
+    }
+  ],
+  "questions": [
+    {
+      "id": "os_q1",
+      "chapter_number": 1,
+      "chapter_title": "Process Management & Scheduling",
+      "question_number": 1,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Which of the following scheduling algorithms is strictly non-preemptive?",
+      "code_snippet": null,
+      "options": [
+        { "id": "os_q1_a", "label": "a", "text": "First-Come, First-Served (FCFS)" },
+        { "id": "os_q1_b", "label": "b", "text": "Round Robin (RR)" },
+        { "id": "os_q1_c", "label": "c", "text": "Shortest Remaining Time First (SRTF)" },
+        { "id": "os_q1_d", "label": "d", "text": "Priority Scheduling with preemption" }
+      ],
+      "correct_answers": ["a"],
+      "answer_text": ["First-Come, First-Served (FCFS)"]
+    },
+    {
+      "id": "os_q2",
+      "chapter_number": 1,
+      "chapter_title": "Process Management & Scheduling",
+      "question_number": 2,
+      "type": "True / False",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "A context switch between threads within the same process requires invalidating the entire TLB cache.",
+      "code_snippet": null,
+      "options": [
+        { "id": "os_q2_a", "label": "a", "text": "True" },
+        { "id": "os_q2_b", "label": "b", "text": "False" }
+      ],
+      "correct_answers": ["b"],
+      "answer_text": ["False"]
+    },
+    {
+      "id": "os_q3",
+      "chapter_number": 2,
+      "chapter_title": "Memory Management & Virtual Memory",
+      "question_number": 1,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Belady's Anomaly can occur in which page replacement algorithm?",
+      "code_snippet": null,
+      "options": [
+        { "id": "os_q3_a", "label": "a", "text": "LRU (Least Recently Used)" },
+        { "id": "os_q3_b", "label": "b", "text": "Optimal Page Replacement" },
+        { "id": "os_q3_c", "label": "c", "text": "FIFO (First-In, First-Out)" },
+        { "id": "os_q3_d", "label": "d", "text": "Clock Algorithm with reference bits" }
+      ],
+      "correct_answers": ["c"],
+      "answer_text": ["FIFO (First-In, First-Out)"]
+    },
+    {
+      "id": "os_q4",
+      "chapter_number": 2,
+      "chapter_title": "Memory Management & Virtual Memory",
+      "question_number": 2,
+      "type": "MSQ",
+      "is_multiple_choice": true,
+      "points": 2,
+      "question": "Which of the following are benefits of virtual memory? (Select all that apply)",
+      "code_snippet": null,
+      "options": [
+        { "id": "os_q4_a", "label": "a", "text": "Allows logical address space to be larger than physical memory" },
+        { "id": "os_q4_b", "label": "b", "text": "Enables memory isolation and protection between processes" },
+        { "id": "os_q4_c", "label": "c", "text": "Completely eliminates memory fragmentation forever" },
+        { "id": "os_q4_d", "label": "d", "text": "Facilitates shared memory through page mapping" }
+      ],
+      "correct_answers": ["a", "b", "d"],
+      "answer_text": [
+        "Allows logical address space to be larger than physical memory",
+        "Enables memory isolation and protection between processes",
+        "Facilitates shared memory through page mapping"
+      ]
+    },
+    {
+      "id": "os_q5",
+      "chapter_number": 3,
+      "chapter_title": "Storage & File Systems",
+      "question_number": 1,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "In a UNIX inode structure, direct blocks store:",
+      "code_snippet": null,
+      "options": [
+        { "id": "os_q5_a", "label": "a", "text": "Pointers to other indirect index blocks" },
+        { "id": "os_q5_b", "label": "b", "text": "Pointers directly referencing data blocks of the file" },
+        { "id": "os_q5_c", "label": "c", "text": "File permissions and access control lists only" },
+        { "id": "os_q5_d", "label": "d", "text": "Directory tree entries exclusively" }
+      ],
+      "correct_answers": ["b"],
+      "answer_text": ["Pointers directly referencing data blocks of the file"]
+    },
+    {
+      "id": "os_q6",
+      "chapter_number": 3,
+      "chapter_title": "Storage & File Systems",
+      "question_number": 2,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Which RAID level provides striping with distributed parity across all disks?",
+      "code_snippet": null,
+      "options": [
+        { "id": "os_q6_a", "label": "a", "text": "RAID 0" },
+        { "id": "os_q6_b", "label": "b", "text": "RAID 1" },
+        { "id": "os_q6_c", "label": "c", "text": "RAID 5" },
+        { "id": "os_q6_d", "label": "d", "text": "RAID 10" }
+      ],
+      "correct_answers": ["c"],
+      "answer_text": ["RAID 5"]
+    }
+  ]
+}

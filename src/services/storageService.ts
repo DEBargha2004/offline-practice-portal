@@ -14,15 +14,29 @@ function sanitizeAttempt(attempt: TestAttemptResult): TestAttemptResult {
 }
 
 const DB_NAME = "iot_test_portal_db";
-const DB_VERSION = 1;
-const STORE_ATTEMPTS = "attempts";
+const DB_VERSION = 2;
+export const STORE_ATTEMPTS = "attempts";
+export const STORE_CUSTOM_MODULES = "custom_modules";
+
 const STORAGE_KEY_ACTIVE_TEST = "iot_active_test_session";
 const STORAGE_KEY_ACTIVE_REVISION = "iot_active_revision_session";
 const STORAGE_KEY_BOOKMARKS = "iot_bookmarked_questions";
 const STORAGE_KEY_SETTINGS = "iot_user_preferences";
 
+function getActiveTestKey(moduleId?: string): string {
+  return moduleId ? `${STORAGE_KEY_ACTIVE_TEST}_${moduleId}` : STORAGE_KEY_ACTIVE_TEST;
+}
+
+function getActiveRevisionKey(moduleId?: string): string {
+  return moduleId ? `${STORAGE_KEY_ACTIVE_REVISION}_${moduleId}` : STORAGE_KEY_ACTIVE_REVISION;
+}
+
+function getBookmarksKey(moduleId?: string): string {
+  return moduleId ? `${STORAGE_KEY_BOOKMARKS}_${moduleId}` : STORAGE_KEY_BOOKMARKS;
+}
+
 // Open or initialize IndexedDB
-function openDatabase(): Promise<IDBDatabase> {
+export function openDatabase(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
     if (typeof window === "undefined" || !window.indexedDB) {
       reject(new Error("IndexedDB is not supported in this environment"));
@@ -38,6 +52,19 @@ function openDatabase(): Promise<IDBDatabase> {
         store.createIndex("completedAt", "completedAt", { unique: false });
         store.createIndex("mode", "mode", { unique: false });
         store.createIndex("chapterNumber", "chapterNumber", { unique: false });
+        store.createIndex("moduleId", "moduleId", { unique: false });
+      } else {
+        const tx = (event.target as IDBOpenDBRequest).transaction;
+        const store = tx?.objectStore(STORE_ATTEMPTS);
+        if (store && !store.indexNames.contains("moduleId")) {
+          store.createIndex("moduleId", "moduleId", { unique: false });
+        }
+      }
+
+      if (!db.objectStoreNames.contains(STORE_CUSTOM_MODULES)) {
+        const modStore = db.createObjectStore(STORE_CUSTOM_MODULES, { keyPath: "id" });
+        modStore.createIndex("createdAt", "createdAt", { unique: false });
+        modStore.createIndex("title", "title", { unique: false });
       }
     };
 
@@ -50,17 +77,23 @@ function openDatabase(): Promise<IDBDatabase> {
 // Active In-Progress Test Session (LocalStorage for fast synchronous updates)
 // ----------------------------------------------------
 
-export function saveActiveSession(session: TestSession): void {
+export function saveActiveSession(session: TestSession, moduleId?: string): void {
   try {
-    localStorage.setItem(STORAGE_KEY_ACTIVE_TEST, JSON.stringify(session));
+    const targetModuleId = moduleId || session.moduleId;
+    if (targetModuleId && !session.moduleId) {
+      session.moduleId = targetModuleId;
+    }
+    const key = getActiveTestKey(targetModuleId);
+    localStorage.setItem(key, JSON.stringify(session));
   } catch (err) {
     console.error("Failed to save active session to localStorage", err);
   }
 }
 
-export function getActiveSession(): TestSession | null {
+export function getActiveSession(moduleId?: string): TestSession | null {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY_ACTIVE_TEST);
+    const key = getActiveTestKey(moduleId);
+    const raw = localStorage.getItem(key);
     return raw ? JSON.parse(raw) : null;
   } catch (err) {
     console.error("Failed to read active session from localStorage", err);
@@ -68,9 +101,10 @@ export function getActiveSession(): TestSession | null {
   }
 }
 
-export function clearActiveSession(): void {
+export function clearActiveSession(moduleId?: string): void {
   try {
-    localStorage.removeItem(STORAGE_KEY_ACTIVE_TEST);
+    const key = getActiveTestKey(moduleId);
+    localStorage.removeItem(key);
   } catch (err) {
     console.error("Failed to clear active session", err);
   }
@@ -80,17 +114,23 @@ export function clearActiveSession(): void {
 // Active Revision Session
 // ----------------------------------------------------
 
-export function saveActiveRevisionSession(session: RevisionSession): void {
+export function saveActiveRevisionSession(session: RevisionSession, moduleId?: string): void {
   try {
-    localStorage.setItem(STORAGE_KEY_ACTIVE_REVISION, JSON.stringify(session));
+    const targetModuleId = moduleId || session.moduleId;
+    if (targetModuleId && !session.moduleId) {
+      session.moduleId = targetModuleId;
+    }
+    const key = getActiveRevisionKey(targetModuleId);
+    localStorage.setItem(key, JSON.stringify(session));
   } catch (err) {
     console.error("Failed to save active revision session to localStorage", err);
   }
 }
 
-export function getActiveRevisionSession(): RevisionSession | null {
+export function getActiveRevisionSession(moduleId?: string): RevisionSession | null {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY_ACTIVE_REVISION);
+    const key = getActiveRevisionKey(moduleId);
+    const raw = localStorage.getItem(key);
     return raw ? JSON.parse(raw) : null;
   } catch (err) {
     console.error("Failed to read active revision session from localStorage", err);
@@ -98,9 +138,10 @@ export function getActiveRevisionSession(): RevisionSession | null {
   }
 }
 
-export function clearActiveRevisionSession(): void {
+export function clearActiveRevisionSession(moduleId?: string): void {
   try {
-    localStorage.removeItem(STORAGE_KEY_ACTIVE_REVISION);
+    const key = getActiveRevisionKey(moduleId);
+    localStorage.removeItem(key);
   } catch (err) {
     console.error("Failed to clear active revision session", err);
   }
@@ -129,7 +170,11 @@ function saveLocalStorageAttempts(attempts: TestAttemptResult[]): void {
   }
 }
 
-export async function saveAttempt(attempt: TestAttemptResult): Promise<void> {
+export async function saveAttempt(attempt: TestAttemptResult, moduleId?: string): Promise<void> {
+  const targetModuleId = moduleId || attempt.moduleId;
+  if (targetModuleId && !attempt.moduleId) {
+    attempt.moduleId = targetModuleId;
+  }
   const sanitized = sanitizeAttempt(attempt);
   try {
     const db = await openDatabase();
@@ -148,7 +193,7 @@ export async function saveAttempt(attempt: TestAttemptResult): Promise<void> {
   }
 }
 
-export async function getAllAttempts(): Promise<TestAttemptResult[]> {
+export async function getAllAttempts(moduleId?: string): Promise<TestAttemptResult[]> {
   try {
     const db = await openDatabase();
     return await new Promise<TestAttemptResult[]>((resolve, reject) => {
@@ -156,7 +201,12 @@ export async function getAllAttempts(): Promise<TestAttemptResult[]> {
       const store = tx.objectStore(STORE_ATTEMPTS);
       const req = store.getAll();
       req.onsuccess = () => {
-        const results = (req.result as TestAttemptResult[]).map(sanitizeAttempt);
+        let results = (req.result as TestAttemptResult[]).map(sanitizeAttempt);
+        if (moduleId) {
+          results = results.filter((a) => a.moduleId === moduleId);
+        } else {
+          results = results.filter((a) => !a.moduleId || a.moduleId === "iot");
+        }
         // Sort descending by completion date (most recent first)
         results.sort((a, b) => b.completedAt - a.completedAt);
         resolve(results);
@@ -165,7 +215,12 @@ export async function getAllAttempts(): Promise<TestAttemptResult[]> {
     });
   } catch (idbError) {
     console.warn("IndexedDB read failed, falling back to localStorage", idbError);
-    const list = getLocalStorageAttempts().map(sanitizeAttempt);
+    let list = getLocalStorageAttempts().map(sanitizeAttempt);
+    if (moduleId) {
+      list = list.filter((a) => a.moduleId === moduleId);
+    } else {
+      list = list.filter((a) => !a.moduleId || a.moduleId === "iot");
+    }
     list.sort((a, b) => b.completedAt - a.completedAt);
     return list;
   }
@@ -207,18 +262,40 @@ export async function deleteAttempt(id: string): Promise<void> {
   }
 }
 
-export async function clearAllAttempts(): Promise<void> {
+export async function clearAllAttempts(moduleId?: string): Promise<void> {
   try {
     const db = await openDatabase();
-    await new Promise<void>((resolve, reject) => {
+    if (!moduleId) {
+      // Clear non-module or iot attempts
       const tx = db.transaction(STORE_ATTEMPTS, "readwrite");
       const store = tx.objectStore(STORE_ATTEMPTS);
-      const req = store.clear();
-      req.onsuccess = () => resolve();
-      req.onerror = () => reject(req.error);
-    });
+      const req = store.getAll();
+      req.onsuccess = () => {
+        const all = req.result as TestAttemptResult[];
+        for (const item of all) {
+          if (!item.moduleId || item.moduleId === "iot") {
+            store.delete(item.id);
+          }
+        }
+      };
+    } else {
+      const tx = db.transaction(STORE_ATTEMPTS, "readwrite");
+      const store = tx.objectStore(STORE_ATTEMPTS);
+      const req = store.getAll();
+      req.onsuccess = () => {
+        const all = req.result as TestAttemptResult[];
+        for (const item of all) {
+          if (item.moduleId === moduleId) {
+            store.delete(item.id);
+          }
+        }
+      };
+    }
   } catch {
-    localStorage.removeItem(LOCALSTORAGE_ATTEMPTS_BACKUP_KEY);
+    const list = getLocalStorageAttempts().filter((a) =>
+      moduleId ? a.moduleId !== moduleId : a.moduleId && a.moduleId !== "iot"
+    );
+    saveLocalStorageAttempts(list);
   }
 }
 
@@ -226,18 +303,20 @@ export async function clearAllAttempts(): Promise<void> {
 // Bookmarks & Starred Questions
 // ----------------------------------------------------
 
-export function getBookmarks(): string[] {
+export function getBookmarks(moduleId?: string): string[] {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY_BOOKMARKS);
+    const key = getBookmarksKey(moduleId);
+    const raw = localStorage.getItem(key);
     return raw ? JSON.parse(raw) : [];
   } catch {
     return [];
   }
 }
 
-export function toggleBookmark(questionId: string): boolean {
+export function toggleBookmark(questionId: string, moduleId?: string): boolean {
   try {
-    const current = new Set(getBookmarks());
+    const key = getBookmarksKey(moduleId);
+    const current = new Set(getBookmarks(moduleId));
     let isNowBookmarked = false;
     if (current.has(questionId)) {
       current.delete(questionId);
@@ -246,15 +325,15 @@ export function toggleBookmark(questionId: string): boolean {
       current.add(questionId);
       isNowBookmarked = true;
     }
-    localStorage.setItem(STORAGE_KEY_BOOKMARKS, JSON.stringify(Array.from(current)));
+    localStorage.setItem(key, JSON.stringify(Array.from(current)));
     return isNowBookmarked;
   } catch {
     return false;
   }
 }
 
-export function isBookmarked(questionId: string): boolean {
-  const current = new Set(getBookmarks());
+export function isBookmarked(questionId: string, moduleId?: string): boolean {
+  const current = new Set(getBookmarks(moduleId));
   return current.has(questionId);
 }
 
