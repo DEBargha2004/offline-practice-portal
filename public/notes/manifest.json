@@ -1,0 +1,608 @@
+{
+  "chapters": [
+    {
+      "chapterNumber": 1,
+      "title": "Introduction to IoT- Part-I",
+      "fileName": "ch-1.md",
+      "wordCount": 653,
+      "readingTime": "4 min",
+      "hash": "1821cdc41a"
+    },
+    {
+      "chapterNumber": 2,
+      "title": "Introduction to IoT- Part-II",
+      "fileName": "ch-2.md",
+      "wordCount": 577,
+      "readingTime": "3 min",
+      "hash": "99ffe8cf24"
+    },
+    {
+      "chapterNumber": 3,
+      "title": "Sensing",
+      "fileName": "ch-3.md",
+      "wordCount": 610,
+      "readingTime": "3 min",
+      "hash": "d6f1114c6e"
+    },
+    {
+      "chapterNumber": 4,
+      "title": "Actuation",
+      "fileName": "ch-4.md",
+      "wordCount": 601,
+      "readingTime": "3 min",
+      "hash": "a568974559"
+    },
+    {
+      "chapterNumber": 5,
+      "title": "Basics of IoT Networking- Part- I",
+      "fileName": "ch-5.md",
+      "wordCount": 475,
+      "readingTime": "3 min",
+      "hash": "776a4d9862"
+    },
+    {
+      "chapterNumber": 6,
+      "title": "Basics of IoT Networking-Part II",
+      "fileName": "ch-6.md",
+      "wordCount": 488,
+      "readingTime": "3 min",
+      "hash": "33f7d204e8"
+    },
+    {
+      "chapterNumber": 7,
+      "title": "Basics of IoT Networking-Part- III",
+      "fileName": "ch-7.md",
+      "wordCount": 627,
+      "readingTime": "3 min",
+      "hash": "80096acc8c"
+    },
+    {
+      "chapterNumber": 8,
+      "title": "Basics of IoT Networking- Part-IV",
+      "fileName": "ch-8.md",
+      "wordCount": 531,
+      "readingTime": "3 min",
+      "hash": "cb4169e0aa"
+    },
+    {
+      "chapterNumber": 9,
+      "title": "Connectivity Technologies- Part-I",
+      "fileName": "ch-9.md",
+      "wordCount": 619,
+      "readingTime": "3 min",
+      "hash": "3677f59f10"
+    },
+    {
+      "chapterNumber": 10,
+      "title": "Connectivity Technologies- Part-II",
+      "fileName": "ch-10.md",
+      "wordCount": 603,
+      "readingTime": "3 min",
+      "hash": "7a587525b2"
+    },
+    {
+      "chapterNumber": 11,
+      "title": "Connectivity Technologies- Part-III",
+      "fileName": "ch-11.md",
+      "wordCount": 372,
+      "readingTime": "2 min",
+      "hash": "b8ab9f388c"
+    },
+    {
+      "chapterNumber": 12,
+      "title": "Connectivity Technologies- Part- IV",
+      "fileName": "ch-12.md",
+      "wordCount": 460,
+      "readingTime": "3 min",
+      "hash": "bdbfa8679f"
+    },
+    {
+      "chapterNumber": 13,
+      "title": "Connectivity Technologies- Part- V",
+      "fileName": "ch-13.md",
+      "wordCount": 461,
+      "readingTime": "3 min",
+      "hash": "25fffefc76"
+    },
+    {
+      "chapterNumber": 14,
+      "title": "Sensor Networks- Part- I",
+      "fileName": "ch-14.md",
+      "wordCount": 434,
+      "readingTime": "2 min",
+      "hash": "9b94443936"
+    },
+    {
+      "chapterNumber": 15,
+      "title": "Sensor Networks- Part- II",
+      "fileName": "ch-15.md",
+      "wordCount": 436,
+      "readingTime": "2 min",
+      "hash": "feac8b1ecb"
+    },
+    {
+      "chapterNumber": 16,
+      "title": "Sensor Networks- Part-III",
+      "fileName": "ch-16.md",
+      "wordCount": 371,
+      "readingTime": "2 min",
+      "hash": "1d4aacc167"
+    },
+    {
+      "chapterNumber": 17,
+      "title": "Sensor Networks- Part- IV",
+      "fileName": "ch-17.md",
+      "wordCount": 377,
+      "readingTime": "2 min",
+      "hash": "88c7083095"
+    },
+    {
+      "chapterNumber": 18,
+      "title": "Sensor Networks- Part- V",
+      "fileName": "ch-18.md",
+      "wordCount": 398,
+      "readingTime": "2 min",
+      "hash": "34803d3732"
+    },
+    {
+      "chapterNumber": 19,
+      "title": "UAV Networks",
+      "fileName": "ch-19.md",
+      "wordCount": 410,
+      "readingTime": "2 min",
+      "hash": "47ea6d546c"
+    },
+    {
+      "chapterNumber": 20,
+      "title": "Machine to Machine Communication",
+      "fileName": "ch-20.md",
+      "wordCount": 396,
+      "readingTime": "2 min",
+      "hash": "3216133414"
+    },
+    {
+      "chapterNumber": 21,
+      "title": "Interoperability in Internet of Things",
+      "fileName": "ch-21.md",
+      "wordCount": 389,
+      "readingTime": "2 min",
+      "hash": "b7c1c72e24"
+    },
+    {
+      "chapterNumber": 22,
+      "title": "Introduction to Arduino- I",
+      "fileName": "ch-22.md",
+      "wordCount": 471,
+      "readingTime": "3 min",
+      "hash": "97de909133"
+    },
+    {
+      "chapterNumber": 23,
+      "title": "Introduction to Arduino- II",
+      "fileName": "ch-23.md",
+      "wordCount": 432,
+      "readingTime": "2 min",
+      "hash": "e9eefd7a48"
+    },
+    {
+      "chapterNumber": 24,
+      "title": "Integration of Sensors and Actuators with Arduino- I",
+      "fileName": "ch-24.md",
+      "wordCount": 438,
+      "readingTime": "2 min",
+      "hash": "bcbaf28203"
+    },
+    {
+      "chapterNumber": 25,
+      "title": "Integration of Sensors and Actuators with Arduino- II",
+      "fileName": "ch-25.md",
+      "wordCount": 516,
+      "readingTime": "3 min",
+      "hash": "86a8ff83ab"
+    },
+    {
+      "chapterNumber": 26,
+      "title": "Introduction to Python Programming- I",
+      "fileName": "ch-26.md",
+      "wordCount": 338,
+      "readingTime": "2 min",
+      "hash": "c595eae1d4"
+    },
+    {
+      "chapterNumber": 27,
+      "title": "Introduction to Python Programming- II",
+      "fileName": "ch-27.md",
+      "wordCount": 329,
+      "readingTime": "2 min",
+      "hash": "c801ce68f0"
+    },
+    {
+      "chapterNumber": 28,
+      "title": "Introduction to Raspberry Pi- I",
+      "fileName": "ch-28.md",
+      "wordCount": 514,
+      "readingTime": "3 min",
+      "hash": "fba4a3f40e"
+    },
+    {
+      "chapterNumber": 29,
+      "title": "Introduction to Raspberry Pi- II",
+      "fileName": "ch-29.md",
+      "wordCount": 329,
+      "readingTime": "2 min",
+      "hash": "48a93ad7bb"
+    },
+    {
+      "chapterNumber": 30,
+      "title": "Implementation of IoT with Raspberry Pi- I",
+      "fileName": "ch-30.md",
+      "wordCount": 362,
+      "readingTime": "2 min",
+      "hash": "a0d1672397"
+    },
+    {
+      "chapterNumber": 31,
+      "title": "Implementation of IoT with Raspberry Pi- II",
+      "fileName": "ch-31.md",
+      "wordCount": 358,
+      "readingTime": "2 min",
+      "hash": "a76181dd8a"
+    },
+    {
+      "chapterNumber": 32,
+      "title": "Implementation of IoT with Raspberry Pi- III",
+      "fileName": "ch-32.md",
+      "wordCount": 335,
+      "readingTime": "2 min",
+      "hash": "7e1002bb3c"
+    },
+    {
+      "chapterNumber": 33,
+      "title": "Software Defined Networking- Part- I",
+      "fileName": "ch-33.md",
+      "wordCount": 407,
+      "readingTime": "2 min",
+      "hash": "03251c09e1"
+    },
+    {
+      "chapterNumber": 34,
+      "title": "Software Defined Networking- Part- II",
+      "fileName": "ch-34.md",
+      "wordCount": 363,
+      "readingTime": "2 min",
+      "hash": "27c0bd9eb6"
+    },
+    {
+      "chapterNumber": 35,
+      "title": "Software Defined IoT Networking- Part- I",
+      "fileName": "ch-35.md",
+      "wordCount": 383,
+      "readingTime": "2 min",
+      "hash": "ad806dcc39"
+    },
+    {
+      "chapterNumber": 36,
+      "title": "Software Defined IoT Networking- II",
+      "fileName": "ch-36.md",
+      "wordCount": 353,
+      "readingTime": "2 min",
+      "hash": "1b4fa7b86b"
+    },
+    {
+      "chapterNumber": 37,
+      "title": "Cloud Computing-Fundamental",
+      "fileName": "ch-37.md",
+      "wordCount": 379,
+      "readingTime": "2 min",
+      "hash": "00b6c8a82c"
+    },
+    {
+      "chapterNumber": 38,
+      "title": "Cloud Computing-Service Model",
+      "fileName": "ch-38.md",
+      "wordCount": 433,
+      "readingTime": "2 min",
+      "hash": "daac8c3f87"
+    },
+    {
+      "chapterNumber": 39,
+      "title": "Cloud Computing-Service Management and Security",
+      "fileName": "ch-39.md",
+      "wordCount": 388,
+      "readingTime": "2 min",
+      "hash": "89e43eee8f"
+    },
+    {
+      "chapterNumber": 40,
+      "title": "Cloud Computing- Case Studies",
+      "fileName": "ch-40.md",
+      "wordCount": 373,
+      "readingTime": "2 min",
+      "hash": "887e835caa"
+    },
+    {
+      "chapterNumber": 41,
+      "title": "Cloud Computing- Practical",
+      "fileName": "ch-41.md",
+      "wordCount": 395,
+      "readingTime": "2 min",
+      "hash": "6b49a00aa0"
+    },
+    {
+      "chapterNumber": 42,
+      "title": "Sensor-Cloud- I",
+      "fileName": "ch-42.md",
+      "wordCount": 307,
+      "readingTime": "2 min",
+      "hash": "c7a94fb3ea"
+    },
+    {
+      "chapterNumber": 43,
+      "title": "Sensor-Cloud- II",
+      "fileName": "ch-43.md",
+      "wordCount": 364,
+      "readingTime": "2 min",
+      "hash": "5197c71fb7"
+    },
+    {
+      "chapterNumber": 44,
+      "title": "Fog Computing- I",
+      "fileName": "ch-44.md",
+      "wordCount": 361,
+      "readingTime": "2 min",
+      "hash": "3546a8142f"
+    },
+    {
+      "chapterNumber": 45,
+      "title": "Fog Computing- II",
+      "fileName": "ch-45.md",
+      "wordCount": 383,
+      "readingTime": "2 min",
+      "hash": "ca691df878"
+    },
+    {
+      "chapterNumber": 46,
+      "title": "Smart Cities and Smart Homes- I",
+      "fileName": "ch-46.md",
+      "wordCount": 304,
+      "readingTime": "2 min",
+      "hash": "fd917d1e1e"
+    },
+    {
+      "chapterNumber": 47,
+      "title": "Smart Cities and Smart Homes- II",
+      "fileName": "ch-47.md",
+      "wordCount": 333,
+      "readingTime": "2 min",
+      "hash": "30be5eed42"
+    },
+    {
+      "chapterNumber": 48,
+      "title": "Smart Cities and Smart Homes- III",
+      "fileName": "ch-48.md",
+      "wordCount": 306,
+      "readingTime": "2 min",
+      "hash": "ab7501e813"
+    },
+    {
+      "chapterNumber": 49,
+      "title": "Connected Vehicles- I",
+      "fileName": "ch-49.md",
+      "wordCount": 393,
+      "readingTime": "2 min",
+      "hash": "76d28409ff"
+    },
+    {
+      "chapterNumber": 50,
+      "title": "Connected Vehicles- II",
+      "fileName": "ch-50.md",
+      "wordCount": 367,
+      "readingTime": "2 min",
+      "hash": "20517b2b46"
+    },
+    {
+      "chapterNumber": 51,
+      "title": "Smart Grid- I",
+      "fileName": "ch-51.md",
+      "wordCount": 378,
+      "readingTime": "2 min",
+      "hash": "6e9ba66bfc"
+    },
+    {
+      "chapterNumber": 52,
+      "title": "Smart Grid- II",
+      "fileName": "ch-52.md",
+      "wordCount": 371,
+      "readingTime": "2 min",
+      "hash": "9eae5b9c35"
+    },
+    {
+      "chapterNumber": 53,
+      "title": "Industrial Internet of Things- I",
+      "fileName": "ch-53.md",
+      "wordCount": 347,
+      "readingTime": "2 min",
+      "hash": "b7d6c32846"
+    },
+    {
+      "chapterNumber": 54,
+      "title": "Industrial Internet of Things- II",
+      "fileName": "ch-54.md",
+      "wordCount": 299,
+      "readingTime": "2 min",
+      "hash": "121c14d5c4"
+    },
+    {
+      "chapterNumber": 55,
+      "title": "Data Handling and Analytics- I",
+      "fileName": "ch-55.md",
+      "wordCount": 377,
+      "readingTime": "2 min",
+      "hash": "2a6e3e0d9a"
+    },
+    {
+      "chapterNumber": 56,
+      "title": "Data Handling and Analytics- II",
+      "fileName": "ch-56.md",
+      "wordCount": 427,
+      "readingTime": "2 min",
+      "hash": "7e39197640"
+    },
+    {
+      "chapterNumber": 57,
+      "title": "Case Study: Agriculture",
+      "fileName": "ch-57.md",
+      "wordCount": 392,
+      "readingTime": "2 min",
+      "hash": "0a04b48d6c"
+    },
+    {
+      "chapterNumber": 58,
+      "title": "Case Study: Healthcare",
+      "fileName": "ch-58.md",
+      "wordCount": 349,
+      "readingTime": "2 min",
+      "hash": "d8fff7a855"
+    },
+    {
+      "chapterNumber": 59,
+      "title": "Activity Monitoring (Case Study ) - I",
+      "fileName": "ch-59.md",
+      "wordCount": 352,
+      "readingTime": "2 min",
+      "hash": "11a3f5ce2a"
+    },
+    {
+      "chapterNumber": 60,
+      "title": "Activity Monitoring (Case Study) - II",
+      "fileName": "ch-60.md",
+      "wordCount": 385,
+      "readingTime": "2 min",
+      "hash": "364d1786bc"
+    }
+  ],
+  "version": "93a185f39acd",
+  "updatedAt": 1775849800000,
+  "weeks": [
+    {
+      "weekNumber": 1,
+      "title": "Week 1",
+      "fileName": "week-1.md",
+      "startChapter": 1,
+      "endChapter": 5,
+      "wordCount": 469,
+      "readingTime": "3 min",
+      "hash": "f1bb0c9e2c"
+    },
+    {
+      "weekNumber": 2,
+      "title": "Week 2",
+      "fileName": "week-2.md",
+      "startChapter": 6,
+      "endChapter": 10,
+      "wordCount": 476,
+      "readingTime": "3 min",
+      "hash": "2f6edc9038"
+    },
+    {
+      "weekNumber": 3,
+      "title": "Week 3",
+      "fileName": "week-3.md",
+      "startChapter": 11,
+      "endChapter": 15,
+      "wordCount": 399,
+      "readingTime": "2 min",
+      "hash": "9b8a18006f"
+    },
+    {
+      "weekNumber": 4,
+      "title": "Week 4",
+      "fileName": "week-4.md",
+      "startChapter": 16,
+      "endChapter": 20,
+      "wordCount": 364,
+      "readingTime": "2 min",
+      "hash": "810bb01257"
+    },
+    {
+      "weekNumber": 5,
+      "title": "Week 5",
+      "fileName": "week-5.md",
+      "startChapter": 21,
+      "endChapter": 25,
+      "wordCount": 386,
+      "readingTime": "2 min",
+      "hash": "ae6c7b9ad0"
+    },
+    {
+      "weekNumber": 6,
+      "title": "Week 6",
+      "fileName": "week-6.md",
+      "startChapter": 26,
+      "endChapter": 30,
+      "wordCount": 349,
+      "readingTime": "2 min",
+      "hash": "b46917cd22"
+    },
+    {
+      "weekNumber": 7,
+      "title": "Week 7",
+      "fileName": "week-7.md",
+      "startChapter": 31,
+      "endChapter": 35,
+      "wordCount": 366,
+      "readingTime": "2 min",
+      "hash": "287dcb5299"
+    },
+    {
+      "weekNumber": 8,
+      "title": "Week 8",
+      "fileName": "week-8.md",
+      "startChapter": 36,
+      "endChapter": 40,
+      "wordCount": 400,
+      "readingTime": "2 min",
+      "hash": "5664168a57"
+    },
+    {
+      "weekNumber": 9,
+      "title": "Week 9",
+      "fileName": "week-9.md",
+      "startChapter": 41,
+      "endChapter": 45,
+      "wordCount": 388,
+      "readingTime": "2 min",
+      "hash": "27fd489cc3"
+    },
+    {
+      "weekNumber": 10,
+      "title": "Week 10",
+      "fileName": "week-10.md",
+      "startChapter": 46,
+      "endChapter": 50,
+      "wordCount": 360,
+      "readingTime": "2 min",
+      "hash": "ed6dabebec"
+    },
+    {
+      "weekNumber": 11,
+      "title": "Week 11",
+      "fileName": "week-11.md",
+      "startChapter": 51,
+      "endChapter": 55,
+      "wordCount": 399,
+      "readingTime": "2 min",
+      "hash": "09e34f1b52"
+    },
+    {
+      "weekNumber": 12,
+      "title": "Week 12",
+      "fileName": "week-12.md",
+      "startChapter": 56,
+      "endChapter": 60,
+      "wordCount": 363,
+      "readingTime": "2 min",
+      "hash": "2425a68630"
+    }
+  ]
+}

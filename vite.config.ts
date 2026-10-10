@@ -53,6 +53,24 @@ export default defineConfig({
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,svg,woff2}"],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+        runtimeCaching: [
+          {
+            urlPattern: /\/notes\/manifest\.json$/,
+            handler: "NetworkFirst",
+            options: {
+              cacheName: "notes-manifest-cache",
+              networkTimeoutSeconds: 3,
+            },
+          },
+          {
+            urlPattern: /\/notes\/.*\.md$/,
+            handler: "NetworkFirst",
+            options: {
+              cacheName: "notes-markdown-cache",
+              networkTimeoutSeconds: 3,
+            },
+          },
+        ],
       },
     }),
   ],

@@ -7,6 +7,7 @@ export function useChapterCatalogController() {
   const navigate = useNavigate();
   const {
     basePath,
+    isCustomModule,
     getAllChapters,
     generateChapterQuestions,
     getAllAttempts,
@@ -88,6 +89,7 @@ export function useChapterCatalogController() {
     setSearchQuery,
     chapterStats,
     basePath,
+    isCustomModule,
     handleStartChapterTest,
     handleStartChapterRevision,
   };

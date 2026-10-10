@@ -18,6 +18,8 @@ import { AssignmentCatalog } from "@/pages/AssignmentCatalog";
 import { RevisionSession } from "@/pages/RevisionSession";
 import { ModuleCatalog } from "@/pages/ModuleCatalog";
 
+import { ChapterNotes } from "@/pages/ChapterNotes";
+
 export function App() {
   return (
     <ThemeProvider>
@@ -36,6 +38,9 @@ export function App() {
                   <Route path="/assignments" element={<AssignmentCatalog />} />
                   <Route path="/weeks" element={<Navigate to="/assignments" replace />} />
                   <Route path="/chapters" element={<ChapterCatalog />} />
+                  <Route path="/notes" element={<ChapterNotes />} />
+                  <Route path="/notes/:chapterNumber" element={<ChapterNotes />} />
+                  <Route path="/notes/week/:weekNumber" element={<ChapterNotes isWeekMode />} />
                   <Route path="/custom-test" element={<CustomTest />} />
                   <Route path="/create-test" element={<CustomTest />} />
                   <Route path="/test" element={<TestSession />} />

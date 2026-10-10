@@ -1,4 +1,5 @@
 import type { Chapter } from "@/types";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardHeader,
@@ -8,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Award, ArrowRight, Clock, CalendarCheck2, Eye } from "lucide-react";
+import { Award, ArrowRight, Clock, CalendarCheck2, Eye, BookOpen } from "lucide-react";
 import { cn } from "cn";
 
 interface AssignmentCardProps {
@@ -114,6 +115,17 @@ export function AssignmentCard({
           <Eye className="size-3.5 text-emerald-600 dark:text-emerald-400" />
           <span>Revise</span>
         </Button>
+
+        <Link to={`/notes/week/${week.chapter_number}`}>
+          <Button
+            variant="outline"
+            size="sm"
+            className="h-8 px-2.5 text-xs font-medium gap-1.5 text-primary hover:text-primary/90 shrink-0"
+            title="Read weekly summary notes"
+          >
+            <BookOpen className="size-3.5 text-primary" />
+          </Button>
+        </Link>
 
         <Button
           variant="outline"

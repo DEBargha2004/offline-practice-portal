@@ -1,13 +1,21 @@
 import type { Chapter } from "@/types";
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
+import { Link } from "react-router-dom";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Award, ArrowRight, Clock, Eye } from "lucide-react";
+import { Award, ArrowRight, Clock, Eye, BookOpen } from "lucide-react";
 import { cn } from "cn";
 
 interface ChapterCardProps {
   chapter: Chapter;
   bestScorePercentage?: number | null;
+  isCustomModule?: boolean;
   onStartPractice: (chapter: Chapter, timed: boolean) => void;
   onStartRevision: (chapter: Chapter) => void;
 }
@@ -15,11 +23,13 @@ interface ChapterCardProps {
 export function ChapterCard({
   chapter,
   bestScorePercentage,
+  isCustomModule = false,
   onStartPractice,
   onStartRevision,
 }: ChapterCardProps) {
   const cleanTitle = chapter.chapter_title.replace(/^Chapter\s+\d+:\s*/i, "");
-  const hasAttempted = bestScorePercentage !== undefined && bestScorePercentage !== null;
+  const hasAttempted =
+    bestScorePercentage !== undefined && bestScorePercentage !== null;
 
   return (
     <Card className="flex flex-col justify-between hover:ring-foreground/20 transition-all shadow-xs group h-full">
@@ -52,7 +62,7 @@ export function ChapterCard({
                   "font-bold",
                   bestScorePercentage >= 70
                     ? "text-emerald-600 dark:text-emerald-400"
-                    : "text-foreground"
+                    : "text-foreground",
                 )}
               >
                 {bestScorePercentage}%
@@ -91,6 +101,18 @@ export function ChapterCard({
           <Eye className="size-3.5 text-emerald-600 dark:text-emerald-400" />
           <span>Revise</span>
         </Button>
+        {!isCustomModule && (
+          <Link to={`/notes/${chapter.chapter_number}`}>
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-8 px-2.5 text-xs font-medium gap-1.5 text-primary hover:text-primary/90 shrink-0"
+              title="Read compact summary notes"
+            >
+              <BookOpen className="size-3.5 text-primary" />
+            </Button>
+          </Link>
+        )}
 
         <Button
           variant="outline"

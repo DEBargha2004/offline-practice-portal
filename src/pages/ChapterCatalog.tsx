@@ -13,6 +13,7 @@ export function ChapterCatalog() {
     setSearchQuery,
     chapterStats,
     basePath,
+    isCustomModule,
     handleStartChapterTest,
     handleStartChapterRevision,
   } = useChapterCatalogController();
@@ -78,6 +79,7 @@ export function ChapterCatalog() {
                 key={chapter.chapter_number}
                 chapter={chapter}
                 bestScorePercentage={stats?.bestScore}
+                isCustomModule={isCustomModule}
                 onStartPractice={handleStartChapterTest}
                 onStartRevision={handleStartChapterRevision}
               />
