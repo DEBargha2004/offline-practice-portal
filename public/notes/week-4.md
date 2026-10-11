@@ -10,11 +10,11 @@ Week 4 covers advanced WSN deployment models, coverage and connectivity formulat
 
 ### 1. Coverage & Connectivity in Sensor Networks
 * **Coverage:** How thoroughly the sensor field is monitored by active nodes.
-  * **Area Coverage:** Every point in the target region is covered by at least one sensor (1-coverage) or $ sensors (hBccoverage for redundancy).
+  * **Area Coverage:** Every point in the target region is covered by at least one sensor (1-coverage) or *k* sensors (*k*-coverage for redundancy).
   * **Point/Target Coverage:** Monitoring specific discrete targets.
   * **Barrier Coverage:** Detecting intruders crossing a boundary.
 * **Connectivity:** Existence of active multi-hop communication paths between any sensor and the sink.
-* **Fundamental Rule:** If transmission radius  \ge 2 	imes R_s$ (sensing radius), complete coverage guarantees complete network connectivity in convex regions.
+* **Fundamental Rule:** If transmission radius Rc >= 2 * Rs (sensing radius), complete coverage guarantees complete network connectivity in convex regions.
 
 ### 2. Unmanned Aerial Vehicle (UAV) Networks / FANETs
 * **Flying Ad-Hoc Networks (FANET):** High mobility, dynamic 3D topology, line-of-sight propagation, and short link lifetime.
@@ -35,6 +35,6 @@ Week 4 covers advanced WSN deployment models, coverage and connectivity formulat
 
 | Principle | Formula / Property | Core Fact |
 | :--- | :--- | :--- |
-| **Coverage vs Connectivity** |  \ge 2 R_s$ | Coverage implies connectivity if transmission radius is double sensing radius |
+| **Coverage vs Connectivity** | Rc >= 2 * Rs | Coverage implies connectivity if transmission radius is double sensing radius |
 | **FANET Topology** | 3-Dimensional & highly dynamic | Nodes move rapidly; requires predictive routing |
 | **M2M vs IoT** | Point-to-point vs Internet-scale | M2M connects specific machines; IoT integrates open web architectures |

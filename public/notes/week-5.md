@@ -27,9 +27,9 @@ Week 5 focuses on interoperability architectures in heterogeneous IoT systems, a
 
 ### 3. Analog & Digital Signal Interfacing
 * **Analog-to-Digital Conversion (ADC):**
-  * 10-bit resolution yields values from bash$ to 023$ (^{10} = 1024$ quantization levels).
-  * Default reference voltage: 5V (	ext{V} / 1024 pprox 4.88	ext{ mV}$ per step).
-* **Pulse Width Modulation (PWM):** Simulates variable analog voltage output by adjusting duty cycle (bash-255$ via ).
+  * 10-bit resolution yields values from 0 to 1023 (2^10 = 1024 quantization levels).
+  * Default reference voltage: 5V (5V / 1024 approx 4.88 mV per step).
+* **Pulse Width Modulation (PWM):** Simulates variable analog voltage output by adjusting duty cycle (0-255 via `analogWrite()`).
 * **Pull-up / Pull-down Resistors:** Prevent floating input pin states when interfacing tactile switches.
 
 ---
@@ -38,7 +38,7 @@ Week 5 focuses on interoperability architectures in heterogeneous IoT systems, a
 
 | Parameter | Arduino Uno Specification | Common Exam Pitfall |
 | :--- | :--- | :--- |
-| **ADC Resolution** | 10-bit (bash-1023$) | Confusing 10-bit input with 8-bit PWM (bash-255$) output |
+| **ADC Resolution** | 10-bit (0-1023) | Confusing 10-bit input with 8-bit PWM (0-255) output |
 | **Operating Voltage** | 5V (ATmega328P) | Applying 5V to 3.3V sensors without level shifting |
 | **Flash vs SRAM** | 32 KB Flash vs 2 KB SRAM | Flash stores sketch; SRAM stores running variables |
 | **PWM Frequency** | ~490 Hz (pins 5 & 6 ~980 Hz) | PWM is not true variable DC voltage, but rapid square wave |
