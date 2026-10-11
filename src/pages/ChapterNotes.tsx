@@ -168,7 +168,7 @@ export function ChapterNotes({ isWeekMode = false }: ChapterNotesProps) {
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8 space-y-6">
       {/* Standard Platform Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-border/60 pb-6">
-        <div>
+        <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 mb-2">
             <Link to={isWeekMode ? "/assignments" : "/chapters"}>
               <Button
@@ -182,26 +182,33 @@ export function ChapterNotes({ isWeekMode = false }: ChapterNotesProps) {
             </Link>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-foreground break-words leading-tight">
             {pageTitle}
           </h1>
-          <p className="text-sm text-muted-foreground mt-1">
-            {isWeekMode && currentWeekMeta
-              ? `Lectures ${currentWeekMeta.startChapter}–${currentWeekMeta.endChapter}`
-              : "Summary notes"}
-            {readingTime ? ` · ${readingTime} read` : ""}
+          <p className="text-xs sm:text-sm text-muted-foreground mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
+            <span>
+              {isWeekMode && currentWeekMeta
+                ? `Lectures ${currentWeekMeta.startChapter}–${currentWeekMeta.endChapter}`
+                : "Summary notes"}
+            </span>
+            {readingTime && (
+              <>
+                <span className="text-muted-foreground/50 hidden xs:inline">·</span>
+                <span>{readingTime} read</span>
+              </>
+            )}
           </p>
         </div>
 
         {/* Action Controls & Responsive Chapter/Week Navigation Trigger */}
-        <div className="flex items-center gap-2 self-start sm:self-auto flex-wrap">
+        <div className="flex items-center gap-2 self-stretch sm:self-auto justify-end sm:justify-start shrink-0">
           {/* Small screens: Drawer Trigger */}
-          <div className="block sm:hidden">
+          <div className="block sm:hidden flex-1 xs:flex-none">
             <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
               <DrawerTrigger
                 render={
-                  <Button variant="outline" size="sm" className="h-9 gap-1.5 text-xs font-medium">
-                    <List className="size-3.5 text-muted-foreground" />
+                  <Button variant="outline" size="sm" className="h-9 w-full xs:w-auto gap-1.5 text-xs font-medium px-2.5">
+                    <List className="size-3.5 text-muted-foreground shrink-0" />
                     <span>{isWeekMode ? "Weeks" : "Chapters"}</span>
                   </Button>
                 }
@@ -232,7 +239,7 @@ export function ChapterNotes({ isWeekMode = false }: ChapterNotesProps) {
               <SheetTrigger
                 render={
                   <Button variant="outline" size="sm" className="h-9 gap-1.5 text-xs font-medium">
-                    <BookOpen className="size-3.5 text-muted-foreground" />
+                    <BookOpen className="size-3.5 text-muted-foreground shrink-0" />
                     <span>{isWeekMode ? "Weeks List" : "Chapters List"}</span>
                   </Button>
                 }
@@ -261,20 +268,20 @@ export function ChapterNotes({ isWeekMode = false }: ChapterNotesProps) {
             variant="outline"
             size="sm"
             onClick={handleStartRevision}
-            className="h-9 px-2.5 text-xs font-medium gap-1.5 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700"
+            className="h-9 px-2.5 text-xs font-medium gap-1.5 flex-1 xs:flex-none text-emerald-600 dark:text-emerald-400 hover:text-emerald-700"
             title="Revise questions with answers"
           >
-            <Eye className="size-3.5" />
+            <Eye className="size-3.5 shrink-0" />
             <span>Revise</span>
           </Button>
 
           <Button
             size="sm"
             onClick={handleStartPractice}
-            className="h-9 px-2.5 text-xs font-semibold gap-1.5"
+            className="h-9 px-2.5 text-xs font-semibold gap-1.5 flex-1 xs:flex-none"
             title={isWeekMode ? "Practice week questions" : "Practice chapter questions"}
           >
-            <Sparkles className="size-3.5" />
+            <Sparkles className="size-3.5 shrink-0" />
             <span>Practice</span>
           </Button>
         </div>
