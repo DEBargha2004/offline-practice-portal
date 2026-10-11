@@ -2,11 +2,11 @@
   "metadata": {
     "title": "Introduction to Internet of Things - Question Bank",
     "total_chapters": 11,
-    "total_questions": 165,
+    "total_questions": 225,
     "question_types": {
-      "MCQ": 152,
-      "MSQ": 10,
-      "True / False": 18
+      "MCQ": 186,
+      "MSQ": 17,
+      "True / False": 22
     }
   },
   "chapters": [
@@ -26,19 +26,19 @@
       "chapter_number": 3,
       "chapter_title": "Week 3",
       "file": "sections/week3.tex",
-      "question_count": 15
+      "question_count": 30
     },
     {
       "chapter_number": 4,
       "chapter_title": "Week 4",
       "file": "sections/week4.tex",
-      "question_count": 15
+      "question_count": 30
     },
     {
       "chapter_number": 5,
       "chapter_title": "Week 5",
       "file": "sections/week5.tex",
-      "question_count": 15
+      "question_count": 30
     },
     {
       "chapter_number": 6,
@@ -116,7 +116,9 @@
           "id": "wk01_q01_d"
         }
       ],
-      "correct_answers": ["b"],
+      "correct_answers": [
+        "b"
+      ],
       "answer_text": [
         "Most Internet traffic may flow between devices and different kinds of things"
       ],
@@ -161,7 +163,11 @@
           "id": "wk01_q02_d"
         }
       ],
-      "correct_answers": ["a", "b", "c"],
+      "correct_answers": [
+        "a",
+        "b",
+        "c"
+      ],
       "answer_text": [
         "Efficient and scalable architecture",
         "Unambiguous naming and addressing",
@@ -208,7 +214,9 @@
           "id": "wk01_q03_d"
         }
       ],
-      "correct_answers": ["c"],
+      "correct_answers": [
+        "c"
+      ],
       "answer_text": [
         "Very tiny computing devices that can be sprayed or injected for sensing purposes"
       ],
@@ -253,7 +261,9 @@
           "id": "wk01_q04_d"
         }
       ],
-      "correct_answers": ["c"],
+      "correct_answers": [
+        "c"
+      ],
       "answer_text": [
         "M2M is a part of IoT, while IoT has a broader scope of interactions"
       ],
@@ -288,8 +298,12 @@
           "id": "wk01_q05_b"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["False"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "False"
+      ],
       "raw_stem": "State whether the following statement is True or False: In the Web of Things, IoT sensors are replaced completely by cloud databases. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "True",
@@ -329,8 +343,12 @@
           "id": "wk01_q06_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["It helps conserve address space"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "It helps conserve address space"
+      ],
       "raw_stem": "In an IoT network configuration, local addresses may be valid only within a gateway's domain. The same local address may even appear under another gateway. The main advantage of this strategy is: \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "It increases unnecessary address consumption",
@@ -372,7 +390,12 @@
           "id": "wk01_q07_d"
         }
       ],
-      "correct_answers": ["a", "b", "c", "d"],
+      "correct_answers": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
       "answer_text": [
         "Providing Internet connectivity",
         "Supporting IoT LAN intra-connectivity",
@@ -420,7 +443,9 @@
           "id": "wk01_q08_d"
         }
       ],
-      "correct_answers": ["c"],
+      "correct_answers": [
+        "c"
+      ],
       "answer_text": [
         "IPv6 uses hexadecimal notation and supports a much larger address space"
       ],
@@ -465,7 +490,9 @@
           "id": "wk01_q09_d"
         }
       ],
-      "correct_answers": ["c"],
+      "correct_answers": [
+        "c"
+      ],
       "answer_text": [
         "It should be sensitive to the measured property and should not disturb it"
       ],
@@ -510,7 +537,11 @@
           "id": "wk01_q10_d"
         }
       ],
-      "correct_answers": ["a", "b", "d"],
+      "correct_answers": [
+        "a",
+        "b",
+        "d"
+      ],
       "answer_text": [
         "Sensor resolution is the smallest change that the sensor can detect",
         "For a digital sensor, resolution is related to the smallest digital output change it can process",
@@ -547,8 +578,12 @@
           "id": "wk01_q11_b"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["True"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "True"
+      ],
       "raw_stem": "State True or False: An accelerometer that measures acceleration along the $x$, $y$, and $z$ coordinate axes is classified as a vector sensor. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "True",
@@ -588,8 +623,12 @@
           "id": "wk01_q12_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Hysteresis error"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Hysteresis error"
+      ],
       "raw_stem": "A sensor gives different output for the same input value depending on whether that input was reached by increasing or decreasing the measured quantity. This error is called: \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Quantization error",
@@ -621,8 +660,12 @@
           "id": "wk01_q13_b"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["True"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "True"
+      ],
       "raw_stem": "State True or False: A hydraulic actuator can produce considerable force because liquids are nearly incompressible. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "False",
@@ -662,7 +705,11 @@
           "id": "wk01_q14_d"
         }
       ],
-      "correct_answers": ["a", "b", "c"],
+      "correct_answers": [
+        "a",
+        "b",
+        "c"
+      ],
       "answer_text": [
         "They may respond to stimuli such as light, heat, electrical, magnetic, pH, or moisture changes",
         "They can show high strain recovery",
@@ -699,8 +746,12 @@
           "id": "wk01_q15_b"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["True"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "True"
+      ],
       "raw_stem": "State whether the following statement is True or False: According to the IoT implementation example discussed in the lecture, data gathered by a sensor travels through a gateway and a proxy server before arriving at the cloud server. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "True",
@@ -740,8 +791,12 @@
           "id": "wk02_q01_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["Topic"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Topic"
+      ],
       "raw_stem": "In MQTT, which field of a published message is used by the broker as routing information? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Topic",
@@ -783,7 +838,11 @@
           "id": "wk02_q02_d"
         }
       ],
-      "correct_answers": ["a", "b", "d"],
+      "correct_answers": [
+        "a",
+        "b",
+        "d"
+      ],
       "answer_text": [
         "The plus sign (+) matches an arbitrary value at exactly one hierarchy level.",
         "The hash sign (#) can be used to subscribe to all underlying hierarchy levels.",
@@ -830,8 +889,16 @@
           "id": "wk02_q03_d"
         }
       ],
-      "correct_answers": ["a", "b", "c"],
-      "answer_text": ["Setup", "Publish", "Decryption"],
+      "correct_answers": [
+        "a",
+        "b",
+        "c"
+      ],
+      "answer_text": [
+        "Setup",
+        "Publish",
+        "Decryption"
+      ],
       "raw_stem": "Which of the following are main stages of Secure MQTT (SMQTT)? \\hfill \\mbox{\\textit{[MSQ, 1 Point]}}",
       "raw_options": {
         "a": "Setup",
@@ -873,8 +940,12 @@
           "id": "wk02_q04_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["UDP"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "UDP"
+      ],
       "raw_stem": "At the transport layer, CoAP (Constrained Application Protocol) operates over which protocol? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "TCP",
@@ -906,8 +977,12 @@
           "id": "wk02_q05_b"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["True"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "True"
+      ],
       "raw_stem": "State True or False: In CoAP, a piggyback response is carried with the acknowledgment, whereas in the separate mode, the server response is sent in a message separate from the acknowledgment. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "True",
@@ -947,7 +1022,12 @@
           "id": "wk02_q06_d"
         }
       ],
-      "correct_answers": ["a", "b", "c", "d"],
+      "correct_answers": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
       "answer_text": [
         "GET – retrieve data",
         "PUT – create data",
@@ -995,8 +1075,12 @@
           "id": "wk02_q07_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["Flow"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Flow"
+      ],
       "raw_stem": "Which AMQP frame type is used to control the message-flow rate? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Transfer",
@@ -1038,7 +1122,11 @@
           "id": "wk02_q08_d"
         }
       ],
-      "correct_answers": ["a", "b", "c"],
+      "correct_answers": [
+        "a",
+        "b",
+        "c"
+      ],
       "answer_text": [
         "An exchange receives messages and routes them to queues.",
         "A queue stores messages for business processes or consumers.",
@@ -1085,7 +1173,12 @@
           "id": "wk02_q09_d"
         }
       ],
-      "correct_answers": ["a", "b", "c", "d"],
+      "correct_answers": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
       "answer_text": [
         "IEEE 802.15.4c – China",
         "IEEE 802.15.4e – Industrial applications",
@@ -1133,8 +1226,12 @@
           "id": "wk02_q10_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Unslotted CSMA/CA"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Unslotted CSMA/CA"
+      ],
       "raw_stem": "In a non-beacon-enabled IEEE 802.15.4 network, data frames are transmitted using: \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Slotted CSMA/CA",
@@ -1176,7 +1273,9 @@
           "id": "wk02_q11_d"
         }
       ],
-      "correct_answers": ["a"],
+      "correct_answers": [
+        "a"
+      ],
       "answer_text": [
         "IEEE 802.15.4 provides layers 1 and 2, while ZigBee extends the functionality to layer 3 and above."
       ],
@@ -1221,7 +1320,11 @@
           "id": "wk02_q12_d"
         }
       ],
-      "correct_answers": ["a", "b", "c"],
+      "correct_answers": [
+        "a",
+        "b",
+        "c"
+      ],
       "answer_text": [
         "It communicates with its parent node.",
         "It cannot relay data for other devices.",
@@ -1268,7 +1371,9 @@
           "id": "wk02_q13_d"
         }
       ],
-      "correct_answers": ["b"],
+      "correct_answers": [
+        "b"
+      ],
       "answer_text": [
         "A 16-bit short address is PAN-specific and assigned by the PAN coordinator, while a 64-bit extended address is globally unique."
       ],
@@ -1303,8 +1408,12 @@
           "id": "wk02_q14_b"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["False"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "False"
+      ],
       "raw_stem": "State True or False: In LOADng routing, an intermediate router may respond to a Route Request (RREQ) whenever it already has an active route to the requested destination. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "True",
@@ -1344,8 +1453,12 @@
           "id": "wk02_q15_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["It is powered inductively by an RFID reader."],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "It is powered inductively by an RFID reader."
+      ],
       "raw_stem": "How does a passive RFID tag obtain the power required to transmit information? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "It uses its own internal battery.",
@@ -1377,8 +1490,12 @@
           "id": "wk03_q01_b"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["True"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "True"
+      ],
       "raw_stem": "State whether the following statement is true or false: There is no network layer in Wired HART. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "True",
@@ -1418,8 +1535,12 @@
           "id": "wk03_q02_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["908.42, 868.42"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "908.42, 868.42"
+      ],
       "raw_stem": "Zwave operates at \\underline{\\hspace{1.5cm}} MHz in the US and \\underline{\\hspace{1.5cm}} MHz in Europe. \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "1008, 989",
@@ -1461,8 +1582,12 @@
           "id": "wk03_q03_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["Temporal"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Temporal"
+      ],
       "raw_stem": "Dumb behavior of sensor nodes is \\underline{\\hspace{1.5cm}} in nature (as it is dependent on the effects of the environmental conditions). \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Temporal",
@@ -1504,8 +1629,12 @@
           "id": "wk03_q04_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["None of these"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "None of these"
+      ],
       "raw_stem": "The process of identifying channels consistently affected by interference and removing them from use is known as \\underline{\\hspace{1.5cm}}. \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Channel Trimming",
@@ -1547,8 +1676,12 @@
           "id": "wk03_q05_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Near Field Communication"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Near Field Communication"
+      ],
       "raw_stem": "The full form of NFC is: \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Near Field Contact",
@@ -1580,8 +1713,12 @@
           "id": "wk03_q06_b"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["True"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "True"
+      ],
       "raw_stem": "State true or false: NFC works on the principle of magnetic induction. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "True",
@@ -1611,8 +1748,12 @@
           "id": "wk03_q07_b"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["False"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "False"
+      ],
       "raw_stem": "State whether the following statement is true or false: NFC tags found in supermarket products are examples of active NFC. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "True",
@@ -1652,8 +1793,12 @@
           "id": "wk03_q08_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["None of these"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "None of these"
+      ],
       "raw_stem": "Bluetooth is based on \\underline{\\hspace{1.5cm}}. \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Nanonets",
@@ -1695,8 +1840,12 @@
           "id": "wk03_q09_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["reader"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "reader"
+      ],
       "raw_stem": "A \\underline{\\hspace{1.5cm}} in NFC emits a small electric current which creates a magnetic field that in turn bridges the physical space between the devices. \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "reader",
@@ -1728,8 +1877,12 @@
           "id": "wk03_q10_b"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["True"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "True"
+      ],
       "raw_stem": "State true or false: Bluetooth technology is based on Ad-hoc network technology. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "False",
@@ -1759,8 +1912,12 @@
           "id": "wk03_q11_b"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["False"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "False"
+      ],
       "raw_stem": "State true or false: Zwave utilizes GFSK modulation and Hongkong channel encoding. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "True",
@@ -1800,8 +1957,12 @@
           "id": "wk03_q12_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Healing"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Healing"
+      ],
       "raw_stem": "The process of bypassing radio dead-spots is done using a message called \\underline{\\hspace{1.5cm}} in Zwave. \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Ping",
@@ -1833,8 +1994,12 @@
           "id": "wk03_q13_b"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["False"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "False"
+      ],
       "raw_stem": "State whether the following statement is true or false: Sensor nodes have unlimited battery life. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "True",
@@ -1864,8 +2029,12 @@
           "id": "wk03_q14_b"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["True"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "True"
+      ],
       "raw_stem": "State whether the following statement is true or false: The Link Manager Protocol in Bluetooth manages the establishment, authentication, link configuration. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "True",
@@ -1905,8 +2074,12 @@
           "id": "wk03_q15_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["250 kbps"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "250 kbps"
+      ],
       "raw_stem": "Zigbee commonly uses \\underline{\\hspace{1.5cm}} data rate. \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "250 kbps",
@@ -1938,8 +2111,12 @@
           "id": "wk04_q01_b"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["True"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "True"
+      ],
       "raw_stem": "State whether the following statement is true or false: Instead of a PIR sensor, a camera can also be used in the agricultural field to detect intruders. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "True",
@@ -1979,8 +2156,12 @@
           "id": "wk04_q02_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["distance"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "distance"
+      ],
       "raw_stem": "An ultrasonic sensor senses the \\underline{\\hspace{1.5cm}} at which the object is located. \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "distance",
@@ -2022,8 +2203,12 @@
           "id": "wk04_q03_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["All of these"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "All of these"
+      ],
       "raw_stem": "WMSNs can be used for: \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Security surveillance",
@@ -2055,8 +2240,12 @@
           "id": "wk04_q04_b"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["True"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "True"
+      ],
       "raw_stem": "State whether the following statement is true or false: Objective of coverage in WSN is to use minimum number of sensors and maximize network lifetime. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "True",
@@ -2096,8 +2285,12 @@
           "id": "wk04_q05_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["None of these"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "None of these"
+      ],
       "raw_stem": "What is the full form of AUV in the context of mobile wireless sensor networks? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Aerial and Underwater Vehicle",
@@ -2129,8 +2322,12 @@
           "id": "wk04_q06_b"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["True"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "True"
+      ],
       "raw_stem": "State whether the following statement is true or false: In the localized coverage algorithm, special types of distributed algorithms are used where only one subset of nodes participates in sensing, communication, and computation. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "True",
@@ -2170,8 +2367,12 @@
           "id": "wk04_q07_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["Both (a) and (b)"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "Both (a) and (b)"
+      ],
       "raw_stem": "Which of the following is/are advantage/advantages of Stationary Wireless Sensor Networks? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Easy deployment",
@@ -2203,8 +2404,12 @@
           "id": "wk04_q08_b"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["True"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "True"
+      ],
       "raw_stem": "State true or false: In Human-centric Sensing, human beings can act as Sensor Operators. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "True",
@@ -2244,8 +2449,12 @@
           "id": "wk04_q09_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["None of these"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "None of these"
+      ],
       "raw_stem": "Which of the following is not a property of MANET---infrastructure-less network of mobile devices connected wirelessly? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Self-CHOP",
@@ -2277,8 +2486,12 @@
           "id": "wk04_q10_b"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["True"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "True"
+      ],
       "raw_stem": "State whether the following statement is true or false: UAV networks provide a solution for deployments where there is a need for frequent change configurations. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
       "raw_options": {
         "a": "False",
@@ -2318,8 +2531,12 @@
           "id": "wk04_q11_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["None of these"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "None of these"
+      ],
       "raw_stem": "Which of the following is NOT a feature of mesh topology in UAV system? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Flexible",
@@ -2361,8 +2578,12 @@
           "id": "wk04_q12_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["None of these"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "None of these"
+      ],
       "raw_stem": "Which of the following is not a property of a FANET? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Inter-plane communication",
@@ -2399,8 +2620,12 @@
           "id": "wk04_q13_c"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["False"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "False"
+      ],
       "raw_stem": "State true or false: M2M networks are characterized by a few number of sensor nodes deployed over a large area. \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "False",
@@ -2441,8 +2666,12 @@
           "id": "wk04_q14_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["None of these"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "None of these"
+      ],
       "raw_stem": "What is the full form of M2SP in the context of Machine-to-Machine Communication? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "M2M Stateless Platform",
@@ -2484,8 +2713,12 @@
           "id": "wk04_q15_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["M2M Application Platform"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "M2M Application Platform"
+      ],
       "raw_stem": "The \\underline{\\hspace{1.5cm}} provides integrated services based on device collected data-sets. \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "M2M Application Platform",
@@ -2527,7 +2760,9 @@
           "id": "wk05_q01_d"
         }
       ],
-      "correct_answers": ["b"],
+      "correct_answers": [
+        "b"
+      ],
       "answer_text": [
         "The ability of different systems/products to work together without restrictions"
       ],
@@ -2572,8 +2807,12 @@
           "id": "wk05_q02_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["The context of A"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "The context of A"
+      ],
       "raw_stem": "In the collaborative concept (Cosine) theory for interoperability, an object is defined as a quadruple $(A, B, C, D)$. What does `$C$' represent? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "The natural language used",
@@ -2615,7 +2854,9 @@
           "id": "wk05_q03_d"
         }
       ],
-      "correct_answers": ["b"],
+      "correct_answers": [
+        "b"
+      ],
       "answer_text": [
         "Devices using different message formats and data structures"
       ],
@@ -2660,8 +2901,12 @@
           "id": "wk05_q04_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["It is low resource-consuming and cheap"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "It is low resource-consuming and cheap"
+      ],
       "raw_stem": "Which of the following is a primary reason for the popularity of Arduino in IoT implementations? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "It is highly expensive and exclusive",
@@ -2703,8 +2948,12 @@
           "id": "wk05_q05_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["16 MHz"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "16 MHz"
+      ],
       "raw_stem": "What is the clock speed of the Arduino Uno board? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "8 MHz",
@@ -2746,8 +2995,12 @@
           "id": "wk05_q06_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["'loop()'"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "'loop()'"
+      ],
       "raw_stem": "Which function is used to iteratively loop over instances in an Arduino sketch? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "\\texttt{setup()}",
@@ -2789,8 +3042,12 @@
           "id": "wk05_q07_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["0"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "0"
+      ],
       "raw_stem": "In Arduino, what is the default starting index for an array? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "1",
@@ -2832,8 +3089,12 @@
           "id": "wk05_q08_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Introduces a delay of 5 seconds"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Introduces a delay of 5 seconds"
+      ],
       "raw_stem": "What does the \\texttt{delay(5000)} command do in a traffic signal simulation? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Resets the Arduino board",
@@ -2875,8 +3136,12 @@
           "id": "wk05_q09_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["'math.h'"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "'math.h'"
+      ],
       "raw_stem": "Which header file must be called to use mathematical functions like \\texttt{sin()} or \\texttt{cos()}? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "\\texttt{arduino.h}",
@@ -2918,8 +3183,12 @@
           "id": "wk05_q10_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["Humidity and Temperature"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "Humidity and Temperature"
+      ],
       "raw_stem": "The DHT22 sensor is used for measuring which physical quantities? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Pressure and Altitude",
@@ -2961,8 +3230,12 @@
           "id": "wk05_q11_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["3.3V to 5V"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "3.3V to 5V"
+      ],
       "raw_stem": "What is the recommended voltage range for the VCC pin of a DHT sensor to avoid damage? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "1V to 2V",
@@ -3004,8 +3277,12 @@
           "id": "wk05_q12_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Signal/data pin"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Signal/data pin"
+      ],
       "raw_stem": "When integrating a typical digital temperature and humidity sensor (like the DHT series) with an Arduino board, which Arduino pin connection is used to receive the sensor's data? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Ground (GND)",
@@ -3047,8 +3324,12 @@
           "id": "wk05_q13_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Converts energy or signals into motion"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Converts energy or signals into motion"
+      ],
       "raw_stem": "Which of the following describes the primary function of an actuator? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Converts motion to energy",
@@ -3090,8 +3371,12 @@
           "id": "wk05_q14_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["'servo.attach()'"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "'servo.attach()'"
+      ],
       "raw_stem": "When using the Servo library in Arduino, which function is used to specify the pin where the servo is connected? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "\\texttt{servo.connect()}",
@@ -3133,8 +3418,12 @@
           "id": "wk05_q15_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["'servo.write(angle)'"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "'servo.write(angle)'"
+      ],
       "raw_stem": "In the context of the Arduino Servo library, which of the following is the correct function to command the servo motor to rotate to a specific angle? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "\\texttt{servo.move(angle)}",
@@ -3176,8 +3465,12 @@
           "id": "wk06_q01_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["Numbers, Strings, List, Tuple, Dictionary"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Numbers, Strings, List, Tuple, Dictionary"
+      ],
       "raw_stem": "What are the five basic data types available in Python, as introduced in the lecture? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Numbers, Strings, List, Tuple, Dictionary",
@@ -3219,8 +3512,12 @@
           "id": "wk06_q02_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["'def'"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "'def'"
+      ],
       "raw_stem": "Which keyword is used to define a function in Python? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "\\texttt{func}",
@@ -3262,8 +3559,12 @@
           "id": "wk06_q03_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["'except'"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "'except'"
+      ],
       "raw_stem": "In Python's exception handling, which keyword is used to handle an exception raised inside the \\texttt{try} block? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "\\texttt{catch}",
@@ -3305,8 +3606,12 @@
           "id": "wk06_q04_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["'a' (append mode)"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "'a' (append mode)"
+      ],
       "raw_stem": "Which mode of Python's \\texttt{open()} function is used to add data to the end of an existing file without erasing its existing content? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "\\texttt{r} (read mode)",
@@ -3348,8 +3653,12 @@
           "id": "wk06_q05_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["PIL / Pillow"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "PIL / Pillow"
+      ],
       "raw_stem": "Which Python library, installable via \\texttt{pip}, is used for image read/write operations as covered in the lecture? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "NumPy",
@@ -3391,8 +3700,12 @@
           "id": "wk06_q06_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["'SOCK_STREAM'"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "'SOCK_STREAM'"
+      ],
       "raw_stem": "Which \\texttt{socket\\_type} value is used while creating a TCP/IP socket in Python's \\texttt{socket} module? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "\\texttt{SOCK\\_DGRAM}",
@@ -3434,8 +3747,12 @@
           "id": "wk06_q07_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["40"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "40"
+      ],
       "raw_stem": "How many GPIO pins does the Raspberry Pi 3 Model B have, as shown in the specifications table? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "26",
@@ -3477,8 +3794,12 @@
           "id": "wk06_q08_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["Raspbian"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Raspbian"
+      ],
       "raw_stem": "Which of the following is an officially supported operating system for Raspberry Pi mentioned in the lecture? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Raspbian",
@@ -3520,8 +3841,12 @@
           "id": "wk06_q09_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["Single-board computer"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Single-board computer"
+      ],
       "raw_stem": "Raspberry Pi is best described as a: \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Printer",
@@ -3563,8 +3888,12 @@
           "id": "wk06_q10_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["'sudo apt-get install python-rpi.gpio'"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "'sudo apt-get install python-rpi.gpio'"
+      ],
       "raw_stem": "Which command is used to install the GPIO library on Raspberry Pi before programming the blinking LED example? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "\\texttt{sudo apt-get install python-rpi.gpio}",
@@ -3606,8 +3935,12 @@
           "id": "wk06_q11_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Between the Ethernet port and the HDMI port"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Between the Ethernet port and the HDMI port"
+      ],
       "raw_stem": "Where is the CSI camera connector slot located on the Raspberry Pi board? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Between the USB ports",
@@ -3649,8 +3982,12 @@
           "id": "wk06_q12_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["'raspistill -o image.jpg'"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "'raspistill -o image.jpg'"
+      ],
       "raw_stem": "Which terminal command captures a still image using the Raspberry Pi camera? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "\\texttt{raspistill -o image.jpg}",
@@ -3692,8 +4029,12 @@
           "id": "wk06_q13_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Digital Humidity and Temperature"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Digital Humidity and Temperature"
+      ],
       "raw_stem": "What does DHT stand for in the DHT sensor used with Raspberry Pi in the auto-cooling system? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Digital Heat Transfer",
@@ -3735,8 +4076,12 @@
           "id": "wk06_q14_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["3"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "3"
+      ],
       "raw_stem": "How many output terminals does the relay used in the temperature-dependent auto-cooling system have, as shown in the lecture? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "2",
@@ -3768,8 +4113,12 @@
           "id": "wk06_q15_b"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["True"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "True"
+      ],
       "raw_stem": "State whether the following statement is True or False.\\\\[0.3em]\n\\textbf{Statement:} In the temperature-dependent auto-cooling system, the fan operates when the surrounding temperature rises above the threshold value specified in the code. \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "True",
@@ -3809,8 +4158,12 @@
           "id": "wk07_q01_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["'SOCK_DGRAM'"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "'SOCK_DGRAM'"
+      ],
       "raw_stem": "In the remote data logging system, which socket type is used to send sensor data from the client to the server? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "\\texttt{SOCK\\_STREAM}",
@@ -3852,8 +4205,12 @@
           "id": "wk07_q02_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["'Adafruit_DHT.read_retry()'"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "'Adafruit_DHT.read_retry()'"
+      ],
       "raw_stem": "Which Adafruit function is used in the client code to read humidity and temperature values from the DHT sensor? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "\\texttt{Adafruit\\_DHT.read\\_retry()}",
@@ -3895,8 +4252,12 @@
           "id": "wk07_q03_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["In a text file named Datalog.txt"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "In a text file named Datalog.txt"
+      ],
       "raw_stem": "Where does the server in the remote data logging example save the data received from the client as mentioned in the lecture? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "In a MySQL database",
@@ -3938,8 +4299,12 @@
           "id": "wk07_q04_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["'split()'"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "'split()'"
+      ],
       "raw_stem": "Which Python string function is used to split the comma-separated sensor data into separate values on the server? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "\\texttt{split()}",
@@ -3971,8 +4336,12 @@
           "id": "wk07_q05_b"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["True"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "True"
+      ],
       "raw_stem": "State whether the following statement is True or False.\n\n\\noindent\\textbf{Statement:} Matplotlib Python library is used to plot the temperature and humidity data received at the server in the lecture. \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "False",
@@ -4012,8 +4381,12 @@
           "id": "wk07_q06_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["'ion()'"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "'ion()'"
+      ],
       "raw_stem": "Which matplotlib function turns on interactive mode so that the plot updates in real time as new data arrives? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "\\texttt{ion()}",
@@ -4055,8 +4428,12 @@
           "id": "wk07_q07_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["At the individual switches"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "At the individual switches"
+      ],
       "raw_stem": "In a traditional (non-SDN) network, where does the routing protocol logic (e.g., OSPF) mainly execute? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "In a centralized controller",
@@ -4098,8 +4475,12 @@
           "id": "wk07_q08_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["2008"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "2008"
+      ],
       "raw_stem": "In which year was the OpenFlow project --- from which the idea of software-defined networking originated --- presented at ACM SIGCOMM? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "2006",
@@ -4141,8 +4522,12 @@
           "id": "wk07_q09_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["PACKET-IN message"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "PACKET-IN message"
+      ],
       "raw_stem": "What message does a switch send to the SDN controller when it receives a packet for which no matching flow-rule exists? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "PACKET-IN message",
@@ -4184,8 +4569,12 @@
           "id": "wk07_q10_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Southbound API"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Southbound API"
+      ],
       "raw_stem": "Which SDN API is used for communication between the control layer and the infrastructure layer? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Northbound API",
@@ -4227,8 +4616,12 @@
           "id": "wk07_q11_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["200"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "200"
+      ],
       "raw_stem": "According to the lecture, approximately how many requests per second can a typical SDN controller handle through a single thread? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "50",
@@ -4270,8 +4663,12 @@
           "id": "wk07_q12_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Centralized control"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Centralized control"
+      ],
       "raw_stem": "Which control mechanism is described where the entire network's control decisions are taken by a single controller? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Distributed control",
@@ -4313,8 +4710,12 @@
           "id": "wk07_q13_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Visibility of network resources"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Visibility of network resources"
+      ],
       "raw_stem": "Which of the following is listed as a benefit of integrating SDN with IoT? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Increased hardware cost",
@@ -4356,8 +4757,12 @@
           "id": "wk07_q14_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Limited memory for control programs"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Limited memory for control programs"
+      ],
       "raw_stem": "According to the lecture, what is a key resource-constraint challenge in wireless sensor networks that motivates software-defined WSN? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Excess bandwidth",
@@ -4399,8 +4804,12 @@
           "id": "wk07_q15_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["In Network Packet Processing"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "In Network Packet Processing"
+      ],
       "raw_stem": "In the SDN-WISE protocol stack for sensor nodes, what does ``INPP'' stand for? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Integrated Node Path Protocol",
@@ -4442,7 +4851,9 @@
           "id": "wk08_q01_d"
         }
       ],
-      "correct_answers": ["d"],
+      "correct_answers": [
+        "d"
+      ],
       "answer_text": [
         "Difficult to scale due to static, over-provisioned networks"
       ],
@@ -4487,7 +4898,9 @@
           "id": "wk08_q02_d"
         }
       ],
-      "correct_answers": ["c"],
+      "correct_answers": [
+        "c"
+      ],
       "answer_text": [
         "It is placed with the physical devices to communicate with the controller"
       ],
@@ -4532,7 +4945,9 @@
           "id": "wk08_q03_d"
         }
       ],
-      "correct_answers": ["b"],
+      "correct_answers": [
+        "b"
+      ],
       "answer_text": [
         "To predict users' future location and place flow-rules at APs accordingly"
       ],
@@ -4577,8 +4992,12 @@
           "id": "wk08_q04_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["Mininet-WiFi"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Mininet-WiFi"
+      ],
       "raw_stem": "Which simulation tool is mentioned in the lecture for experimenting with wireless software-defined networks, supporting both wired and wireless (IEEE 802.11) protocols? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "CloudSim",
@@ -4620,8 +5039,12 @@
           "id": "wk08_q05_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Configurable computing resources"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Configurable computing resources"
+      ],
       "raw_stem": "According to the NIST definition quoted in the lecture, cloud computing enables on-demand network access to a shared pool of what? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Fixed, dedicated hardware resources",
@@ -4663,8 +5086,12 @@
           "id": "wk08_q06_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["Rapid elasticity"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Rapid elasticity"
+      ],
       "raw_stem": "Which of the following is one of the essential characteristics of cloud computing as defined by NIST? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Rapid elasticity",
@@ -4706,8 +5133,12 @@
           "id": "wk08_q07_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Private cloud"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Private cloud"
+      ],
       "raw_stem": "Which cloud deployment model is set up for the exclusive use of a single organization, typically managed on-premises or by a third party off-premises? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Public cloud",
@@ -4749,8 +5180,12 @@
           "id": "wk08_q08_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["Amazon Web Services (AWS)"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Amazon Web Services (AWS)"
+      ],
       "raw_stem": "Which of the following is given as an example of a public cloud provider in the lecture? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Amazon Web Services (AWS)",
@@ -4792,8 +5227,12 @@
           "id": "wk08_q09_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["IaaS"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "IaaS"
+      ],
       "raw_stem": "Which cloud service model provides on-demand delivery of computing infrastructure such as servers, storage, network, and operating system? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "SaaS",
@@ -4835,8 +5274,12 @@
           "id": "wk08_q10_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["Hypervisor"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Hypervisor"
+      ],
       "raw_stem": "In the IaaS working methodology, which component allows multiple virtual machines to share the same physical hardware? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "DNS server",
@@ -4878,8 +5321,12 @@
           "id": "wk08_q11_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["PaaS"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "PaaS"
+      ],
       "raw_stem": "Which cloud service model is described as 'application middleware offered as a service to developers', removing the need to manage underlying hardware and operating systems? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "IaaS",
@@ -4921,7 +5368,9 @@
           "id": "wk08_q12_d"
         }
       ],
-      "correct_answers": ["b"],
+      "correct_answers": [
+        "b"
+      ],
       "answer_text": [
         "To define the non-functional requirements expected from the service provider"
       ],
@@ -4966,7 +5415,9 @@
           "id": "wk08_q13_d"
         }
       ],
-      "correct_answers": ["a"],
+      "correct_answers": [
+        "a"
+      ],
       "answer_text": [
         "Resource usage information, typically in the form of records"
       ],
@@ -5011,7 +5462,9 @@
           "id": "wk08_q14_d"
         }
       ],
-      "correct_answers": ["d"],
+      "correct_answers": [
+        "d"
+      ],
       "answer_text": [
         "To provide a reliable, scalable, and repeatable environment for pre-deployment performance evaluation"
       ],
@@ -5056,8 +5509,12 @@
           "id": "wk08_q15_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["CLOUDS Lab, University of Melbourne, based on Java"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "CLOUDS Lab, University of Melbourne, based on Java"
+      ],
       "raw_stem": "CloudSim, a widely used cloud simulation framework, was developed at which institution and is based on which programming language? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Stanford University, based on Python",
@@ -5099,8 +5556,12 @@
           "id": "wk09_q01_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["NASA"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "NASA"
+      ],
       "raw_stem": "OpenStack was launched in 2010 as a joint project between Rackspace Hosting and which other organization? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Google",
@@ -5142,8 +5603,12 @@
           "id": "wk09_q02_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["Horizon"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "Horizon"
+      ],
       "raw_stem": "Which OpenStack component provides the dashboard (GUI) that gives an overview of the other components? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Nova",
@@ -5185,8 +5650,12 @@
           "id": "wk09_q03_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["Nova"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Nova"
+      ],
       "raw_stem": "Which OpenStack component is the compute service where instances are launched? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Nova",
@@ -5228,8 +5697,12 @@
           "id": "wk09_q04_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["'stack.sh' via Devstack"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "'stack.sh' via Devstack"
+      ],
       "raw_stem": "Which script/tool is used in the lecture to install OpenStack, requiring the \\texttt{local.conf} file to be configured with passwords and host IP before running? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "\\texttt{stack.sh} via Devstack",
@@ -5271,7 +5744,9 @@
           "id": "wk09_q05_d"
         }
       ],
-      "correct_answers": ["b"],
+      "correct_answers": [
+        "b"
+      ],
       "answer_text": [
         "Virtualization of sensor nodes, offered on a pay-per-use basis"
       ],
@@ -5316,8 +5791,12 @@
           "id": "wk09_q06_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["The WSN-user"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "The WSN-user"
+      ],
       "raw_stem": "In a traditional Wireless Sensor Network (WSN), who is typically responsible for redeployment of the sensor nodes? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "The Sensor-Cloud Service Provider (SCSP)",
@@ -5359,8 +5838,12 @@
           "id": "wk09_q07_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Sensor-owner"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Sensor-owner"
+      ],
       "raw_stem": "In the sensor-cloud model, which actor purchases physical sensor devices and lends them to the sensor-cloud, playing a role from a business perspective? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "End-user",
@@ -5402,7 +5885,9 @@
           "id": "wk09_q08_d"
         }
       ],
-      "correct_answers": ["b"],
+      "correct_answers": [
+        "b"
+      ],
       "answer_text": [
         "Difficulty adapting to a change of requirement (e.g., moving from agriculture to smart home use)"
       ],
@@ -5447,7 +5932,9 @@
           "id": "wk09_q09_d"
         }
       ],
-      "correct_answers": ["b"],
+      "correct_answers": [
+        "b"
+      ],
       "answer_text": [
         "Composition of virtual sensors using only homogeneous nodes within the same geographic region"
       ],
@@ -5492,8 +5979,12 @@
           "id": "wk09_q10_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["Internal Cache (IC)"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Internal Cache (IC)"
+      ],
       "raw_stem": "In the sensor-cloud caching mechanism, which cache handles requests directly from the end-user and decides whether to serve data directly or re-cache from another source? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "External Cache (EC)",
@@ -5535,7 +6026,9 @@
           "id": "wk09_q11_d"
         }
       ],
-      "correct_answers": ["d"],
+      "correct_answers": [
+        "d"
+      ],
       "answer_text": [
         "Because unnecessary sensing during slow environmental change wastes energy"
       ],
@@ -5580,8 +6073,12 @@
           "id": "wk09_q12_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["CISCO"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "CISCO"
+      ],
       "raw_stem": "Which company is credited with coining the term 'fog computing'? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Google",
@@ -5623,7 +6120,9 @@
           "id": "wk09_q13_d"
         }
       ],
-      "correct_answers": ["b"],
+      "correct_answers": [
+        "b"
+      ],
       "answer_text": [
         "Volume, latency, and bandwidth limitations of the cloud"
       ],
@@ -5668,8 +6167,12 @@
           "id": "wk09_q14_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Between the cloud and the IoT devices"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Between the cloud and the IoT devices"
+      ],
       "raw_stem": "Where is the fog layer positioned in the fog computing architecture? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Above the cloud layer",
@@ -5711,8 +6214,12 @@
           "id": "wk09_q15_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["Permanent, unlimited archival storage"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Permanent, unlimited archival storage"
+      ],
       "raw_stem": "Which of the following is NOT listed as a required characteristic of a fog node? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Storage (transient)",
@@ -5754,8 +6261,12 @@
           "id": "wk10_q01_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["Sensory Organs"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "Sensory Organs"
+      ],
       "raw_stem": "In the analogy comparing humans to smart cities presented in the lecture, what do 'Sensors and Tags' correspond to? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Skeleton",
@@ -5797,8 +6308,12 @@
           "id": "wk10_q02_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["Smart Economy"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Smart Economy"
+      ],
       "raw_stem": "Which of the following is listed as one of the six 'Application Focus Areas' of a smart city? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Smart Economy",
@@ -5840,8 +6355,12 @@
           "id": "wk10_q03_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["Smart Parking Lots"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Smart Parking Lots"
+      ],
       "raw_stem": "Under 'Current Focus Areas' of smart cities, which application area specifically deals with the auto routing of vehicles to empty slots and detecting vacant slots? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Smart Homes",
@@ -5883,8 +6402,12 @@
           "id": "wk10_q04_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["Security and Privacy"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "Security and Privacy"
+      ],
       "raw_stem": "Which IoT challenge in smart cities relates to the risk of data leakage arising from multiple tenants sharing the same infrastructure? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Reliability",
@@ -5926,7 +6449,9 @@
           "id": "wk10_q05_d"
         }
       ],
-      "correct_answers": ["b"],
+      "correct_answers": [
+        "b"
+      ],
       "answer_text": [
         "To make the large incoming data volume precise and accurate for better decision making"
       ],
@@ -5971,8 +6496,12 @@
           "id": "wk10_q06_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["Conflicts"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "Conflicts"
+      ],
       "raw_stem": "Which data fusion challenge refers to the situation where the same type of sensor reports different data for the same location? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Imperfection",
@@ -6014,8 +6543,12 @@
           "id": "wk10_q07_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["Signal level"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Signal level"
+      ],
       "raw_stem": "In the stages of data fusion, at which level does the fusion of information happen at the sensor node or within the local network itself? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Decision level",
@@ -6057,8 +6590,12 @@
           "id": "wk10_q08_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["Information Collection"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Information Collection"
+      ],
       "raw_stem": "Which of the following is listed as one of the three functional layers of a smart parking system? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Information Collection",
@@ -6100,8 +6637,12 @@
           "id": "wk10_q09_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["Dedicated energy harvesting"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Dedicated energy harvesting"
+      ],
       "raw_stem": "In the classification of energy harvesting solutions for smart cities, which type involves energy sources intentionally deployed near IoT devices? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Ambient energy harvesting",
@@ -6143,8 +6684,12 @@
           "id": "wk10_q10_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["Zigbee"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "Zigbee"
+      ],
       "raw_stem": "Which Home Area Network (HAN) standard is defined by IEEE 802.15.4 at the physical and MAC layers, and aims at low-cost, low-energy devices? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "UPnP",
@@ -6186,8 +6731,12 @@
           "id": "wk10_q11_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["X-10"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "X-10"
+      ],
       "raw_stem": "Which HAN standard enables remote control of compliant devices over existing power lines and electrical wiring in a house, and is mainly used for lighting and appliance control? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Konnex (KNX)",
@@ -6229,7 +6778,9 @@
           "id": "wk10_q12_d"
         }
       ],
-      "correct_answers": ["a"],
+      "correct_answers": [
+        "a"
+      ],
       "answer_text": [
         "TCP/IP was designed mainly for single-pair information exchange dependent on data location"
       ],
@@ -6274,8 +6825,12 @@
           "id": "wk10_q13_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["75 MHz (5850–5925 MHz)"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "75 MHz (5850–5925 MHz)"
+      ],
       "raw_stem": "Which frequency spectrum did the US Department of Transport and FCC allocate for Intelligent Connected Vehicles (ICVs)? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "2.4 GHz ISM band",
@@ -6317,8 +6872,12 @@
           "id": "wk10_q14_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Phase-2"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Phase-2"
+      ],
       "raw_stem": "In the phases of ICV development described in the lecture, which phase is based on 4G LTE or DSRC and focuses on intelligent transportation services? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Phase-1",
@@ -6360,8 +6919,12 @@
           "id": "wk10_q15_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["Ad-hoc Domain"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Ad-hoc Domain"
+      ],
       "raw_stem": "In the VANET domain classification, which domain consists of vehicles (mobile) and Road-Side Units (RSUs, static), communicating via V2V or V2I using the DSRC stack? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "In-Vehicle Domain",
@@ -6403,7 +6966,9 @@
           "id": "wk11_q01_d"
         }
       ],
-      "correct_answers": ["c"],
+      "correct_answers": [
+        "c"
+      ],
       "answer_text": [
         "It enables bidirectional flows of energy with two-way communication and control."
       ],
@@ -6448,7 +7013,9 @@
           "id": "wk11_q02_d"
         }
       ],
-      "correct_answers": ["b"],
+      "correct_answers": [
+        "b"
+      ],
       "answer_text": [
         "It provides the Smart Grid interface between the consumer and the energy service provider."
       ],
@@ -6493,8 +7060,12 @@
           "id": "wk11_q03_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["During off-peak hours."],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "During off-peak hours."
+      ],
       "raw_stem": "Under Time-of-Use pricing, when are consumers encouraged to operate smart appliances to reduce their energy cost? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "During off-peak hours.",
@@ -6536,7 +7107,9 @@
           "id": "wk11_q04_d"
         }
       ],
-      "correct_answers": ["d"],
+      "correct_answers": [
+        "d"
+      ],
       "answer_text": [
         "Energy inflow from the grid and energy outflow from the consumer to the grid."
       ],
@@ -6581,8 +7154,12 @@
           "id": "wk11_q05_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["Phasor Measurement Unit (PMU)."],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Phasor Measurement Unit (PMU)."
+      ],
       "raw_stem": "Which device is used in a smart grid operation center to sample voltage and current for monitoring the transmission system? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Phasor Measurement Unit (PMU).",
@@ -6624,7 +7201,9 @@
           "id": "wk11_q06_d"
         }
       ],
-      "correct_answers": ["b"],
+      "correct_answers": [
+        "b"
+      ],
       "answer_text": [
         "Identifying the source of a power outage and supporting automatic power-flow restoration."
       ],
@@ -6669,7 +7248,9 @@
           "id": "wk11_q07_d"
         }
       ],
-      "correct_answers": ["a"],
+      "correct_answers": [
+        "a"
+      ],
       "answer_text": [
         "Closely located smart meters to Data Aggregator Units (DAUs)."
       ],
@@ -6714,8 +7295,12 @@
           "id": "wk11_q08_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["Denial of Service (DoS) attack."],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Denial of Service (DoS) attack."
+      ],
       "raw_stem": "Which type of attack compromises the availability of smart grid components or information by making them inaccessible when needed? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Net metering attack.",
@@ -6757,7 +7342,9 @@
           "id": "wk11_q09_d"
         }
       ],
-      "correct_answers": ["a"],
+      "correct_answers": [
+        "a"
+      ],
       "answer_text": [
         "An application of IoT in industries that links automation systems with enterprise, planning, and product lifecycle."
       ],
@@ -6802,8 +7389,12 @@
           "id": "wk11_q10_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["Wrap and re-use."],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "Wrap and re-use."
+      ],
       "raw_stem": "Which approach does the lecture associate with IIoT for adapting existing industrial systems? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Disconnect and isolate.",
@@ -6845,8 +7436,12 @@
           "id": "wk11_q11_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["Dedicated Short-Range Communications (DSRC)."],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Dedicated Short-Range Communications (DSRC)."
+      ],
       "raw_stem": "According to the lecture, which technology is identified as the key enabling technology for vehicle-to-vehicle and vehicle-to-road communications in Intelligent Transportation Systems? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Universal Power Line Bus.",
@@ -6888,7 +7483,9 @@
           "id": "wk11_q12_d"
         }
       ],
-      "correct_answers": ["a"],
+      "correct_answers": [
+        "a"
+      ],
       "answer_text": [
         "Air quality, poisonous gases, and oxygen level inside mines."
       ],
@@ -6933,8 +7530,12 @@
           "id": "wk11_q13_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["Veracity."],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "Veracity."
+      ],
       "raw_stem": "Which Big Data characteristic refers to biases, noise, and abnormality in data? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Value.",
@@ -6976,7 +7577,9 @@
           "id": "wk11_q14_d"
         }
       ],
-      "correct_answers": ["d"],
+      "correct_answers": [
+        "d"
+      ],
       "answer_text": [
         "To eliminate repeated data through detection, filtering, and compression."
       ],
@@ -7021,8 +7624,12 @@
           "id": "wk11_q15_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["Datanode."],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Datanode."
+      ],
       "raw_stem": "In Hadoop Distributed File System (HDFS), which node stores the actual data blocks? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Datanode.",
@@ -7064,8 +7671,12 @@
           "id": "wk12_q01_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["Qualitative analysis"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Qualitative analysis"
+      ],
       "raw_stem": "Which type of data analysis is used for data that is categorical in nature? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Qualitative analysis",
@@ -7107,7 +7718,9 @@
           "id": "wk12_q02_d"
         }
       ],
-      "correct_answers": ["a"],
+      "correct_answers": [
+        "a"
+      ],
       "answer_text": [
         "When the number of variables equals the number of equations"
       ],
@@ -7152,8 +7765,12 @@
           "id": "wk12_q03_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["More than two populations or samples"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "More than two populations or samples"
+      ],
       "raw_stem": "Analysis of Variance (ANOVA) is best applied when which of the following are to be compared? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Only a single observation",
@@ -7195,8 +7812,12 @@
           "id": "wk12_q04_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["The strength of association between two variables"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "The strength of association between two variables"
+      ],
       "raw_stem": "What does Pearson's correlation coefficient (r) measure? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "The number of equations in a statistical model",
@@ -7238,8 +7859,12 @@
           "id": "wk12_q05_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["Achieving more crop yield with less water"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Achieving more crop yield with less water"
+      ],
       "raw_stem": "What is a primary objective of the AgriSens smart water management system? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Restricting irrigation control to manual operation only",
@@ -7281,7 +7906,9 @@
           "id": "wk12_q06_d"
         }
       ],
-      "correct_answers": ["b"],
+      "correct_answers": [
+        "b"
+      ],
       "answer_text": [
         "Sensing and actuating layer; processing, storage and service layer; application layer"
       ],
@@ -7326,8 +7953,12 @@
           "id": "wk12_q07_d"
         }
       ],
-      "correct_answers": ["b"],
-      "answer_text": ["Power management unit"],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Power management unit"
+      ],
       "raw_stem": "Which component is included in the integrated design of an AgriSens sensor node? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Meter data management system for smart grids",
@@ -7369,7 +8000,9 @@
           "id": "wk12_q08_d"
         }
       ],
-      "correct_answers": ["c"],
+      "correct_answers": [
+        "c"
+      ],
       "answer_text": [
         "It sends field information to the farmer's mobile phone using SMS and executes farmer queries and control messages"
       ],
@@ -7414,8 +8047,12 @@
           "id": "wk12_q09_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["Aggregated layer"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Aggregated layer"
+      ],
       "raw_stem": "In the IoT healthcare architecture discussed in the lecture, which layer contains smartphones and tablets used as data aggregators? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Physical power layer",
@@ -7457,8 +8094,12 @@
           "id": "wk12_q10_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["Fall detection for senior citizens"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Fall detection for senior citizens"
+      ],
       "raw_stem": "Which of the following is an example of preventive care enabled by IoT healthcare? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Fall detection for senior citizens",
@@ -7500,7 +8141,9 @@
           "id": "wk12_q11_d"
         }
       ],
-      "correct_answers": ["c"],
+      "correct_answers": [
+        "c"
+      ],
       "answer_text": [
         "It enables daily observation of human behavior and repetitive activity patterns"
       ],
@@ -7545,8 +8188,12 @@
           "id": "wk12_q12_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["Sensor data, images, and videos"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Sensor data, images, and videos"
+      ],
       "raw_stem": "Which type of data can be analyzed using the deep-learning-based approach described in the lecture? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Sensor data, images, and videos",
@@ -7588,8 +8235,12 @@
           "id": "wk12_q13_d"
         }
       ],
-      "correct_answers": ["d"],
-      "answer_text": ["In-place approach"],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "In-place approach"
+      ],
       "raw_stem": "Processing activity-monitoring sensor data directly on the device is referred to as which approach? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Data-aggregator selection approach",
@@ -7631,8 +8282,12 @@
           "id": "wk12_q14_d"
         }
       ],
-      "correct_answers": ["c"],
-      "answer_text": ["A smartphone, a network, and a remote server"],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "A smartphone, a network, and a remote server"
+      ],
       "raw_stem": "What are the three basic elements used in the smartphone-based activity-monitoring demonstration? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "A soil-moisture sensor, a pump, and a paddy field",
@@ -7674,8 +8329,12 @@
           "id": "wk12_q15_d"
         }
       ],
-      "correct_answers": ["a"],
-      "answer_text": ["Accelerometer values"],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Accelerometer values"
+      ],
       "raw_stem": "Which sensor values are specifically logged in the activity-monitoring demonstration described in the lecture? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
       "raw_options": {
         "a": "Accelerometer values",
@@ -7684,6 +8343,2097 @@
         "d": "Water-level values"
       },
       "raw_answer": "(a)"
+    },
+    {
+      "id": "wk03_new_q01",
+      "chapter_number": 3,
+      "chapter_title": "Week 3 (New)",
+      "question_number": 1,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Which WirelessHART data-link mechanism provides reliable, collision-free, and deterministic communication?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Superframes divided into 10-millisecond TDMA time slots",
+          "id": "wk03_new_q01_a"
+        },
+        {
+          "label": "b",
+          "text": "Pure ALOHA without time-slot allocation",
+          "id": "wk03_new_q01_b"
+        },
+        {
+          "label": "c",
+          "text": "CSMA/CD over a wired Ethernet bus",
+          "id": "wk03_new_q01_c"
+        },
+        {
+          "label": "d",
+          "text": "Token-ring circulation among field devices",
+          "id": "wk03_new_q01_d"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Superframes divided into 10-millisecond TDMA time slots"
+      ],
+      "raw_stem": "Which WirelessHART data-link mechanism provides reliable, collision-free, and deterministic communication? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Superframes divided into 10-millisecond TDMA time slots",
+        "b": "Pure ALOHA without time-slot allocation",
+        "c": "CSMA/CD over a wired Ethernet bus",
+        "d": "Token-ring circulation among field devices"
+      },
+      "raw_answer": "(a)"
+    },
+    {
+      "id": "wk03_new_q02",
+      "chapter_number": 3,
+      "chapter_title": "Week 3 (New)",
+      "question_number": 2,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "In WirelessHART, which entity supervises network nodes and guides them regarding when and where packets should be transmitted?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Network manager",
+          "id": "wk03_new_q02_a"
+        },
+        {
+          "label": "b",
+          "text": "NFC reader",
+          "id": "wk03_new_q02_b"
+        },
+        {
+          "label": "c",
+          "text": "Z-Wave end device",
+          "id": "wk03_new_q02_c"
+        },
+        {
+          "label": "d",
+          "text": "Bluetooth inquiry agent",
+          "id": "wk03_new_q02_d"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Network manager"
+      ],
+      "raw_stem": "In WirelessHART, which entity supervises network nodes and guides them regarding when and where packets should be transmitted? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Network manager",
+        "b": "NFC reader",
+        "c": "Z-Wave end device",
+        "d": "Bluetooth inquiry agent"
+      },
+      "raw_answer": "(a)"
+    },
+    {
+      "id": "wk03_new_q03",
+      "chapter_number": 3,
+      "chapter_title": "Week 3 (New)",
+      "question_number": 3,
+      "type": "MSQ",
+      "is_multiple_choice": true,
+      "points": 1,
+      "question": "Which of the following are operating modes of NFC?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Peer-to-peer mode",
+          "id": "wk03_new_q03_a"
+        },
+        {
+          "label": "b",
+          "text": "Read/write mode",
+          "id": "wk03_new_q03_b"
+        },
+        {
+          "label": "c",
+          "text": "Card-emulation mode",
+          "id": "wk03_new_q03_c"
+        },
+        {
+          "label": "d",
+          "text": "Frequency-hopping mode",
+          "id": "wk03_new_q03_d"
+        }
+      ],
+      "correct_answers": [
+        "a",
+        "b",
+        "c"
+      ],
+      "answer_text": [
+        "Peer-to-peer mode",
+        "Read/write mode",
+        "Card-emulation mode"
+      ],
+      "raw_stem": "Which of the following are operating modes of NFC? \\hfill \\mbox{\\textit{[MSQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Peer-to-peer mode",
+        "b": "Read/write mode",
+        "c": "Card-emulation mode",
+        "d": "Frequency-hopping mode"
+      },
+      "raw_answer": "(a), (b), (c)"
+    },
+    {
+      "id": "wk03_new_q04",
+      "chapter_number": 3,
+      "chapter_title": "Week 3 (New)",
+      "question_number": 4,
+      "type": "MSQ",
+      "is_multiple_choice": true,
+      "points": 1,
+      "question": "Which of the following are phases of Bluetooth connection establishment?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Inquiry or discovery phase",
+          "id": "wk03_new_q04_a"
+        },
+        {
+          "label": "b",
+          "text": "Paging phase",
+          "id": "wk03_new_q04_b"
+        },
+        {
+          "label": "c",
+          "text": "Connection phase",
+          "id": "wk03_new_q04_c"
+        },
+        {
+          "label": "d",
+          "text": "Channel-blacklisting phase",
+          "id": "wk03_new_q04_d"
+        }
+      ],
+      "correct_answers": [
+        "a",
+        "b",
+        "c"
+      ],
+      "answer_text": [
+        "Inquiry or discovery phase",
+        "Paging phase",
+        "Connection phase"
+      ],
+      "raw_stem": "Which of the following are phases of Bluetooth connection establishment? \\hfill \\mbox{\\textit{[MSQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Inquiry or discovery phase",
+        "b": "Paging phase",
+        "c": "Connection phase",
+        "d": "Channel-blacklisting phase"
+      },
+      "raw_answer": "(a), (b), (c)"
+    },
+    {
+      "id": "wk03_new_q05",
+      "chapter_number": 3,
+      "chapter_title": "Week 3 (New)",
+      "question_number": 5,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "In which Bluetooth operating mode does a slave remain inactive until the master instructs it to wake up?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Active mode",
+          "id": "wk03_new_q05_a"
+        },
+        {
+          "label": "b",
+          "text": "Sniff mode",
+          "id": "wk03_new_q05_b"
+        },
+        {
+          "label": "c",
+          "text": "Hold mode",
+          "id": "wk03_new_q05_c"
+        },
+        {
+          "label": "d",
+          "text": "Park mode",
+          "id": "wk03_new_q05_d"
+        }
+      ],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Park mode"
+      ],
+      "raw_stem": "In which Bluetooth operating mode does a slave remain inactive until the master instructs it to wake up? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Active mode",
+        "b": "Sniff mode",
+        "c": "Hold mode",
+        "d": "Park mode"
+      },
+      "raw_answer": "(d)"
+    },
+    {
+      "id": "wk03_new_q06",
+      "chapter_number": 3,
+      "chapter_title": "Week 3 (New)",
+      "question_number": 6,
+      "type": "MSQ",
+      "is_multiple_choice": true,
+      "points": 1,
+      "question": "Which of the following functions are provided by the Bluetooth L2CAP layer?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Connection-oriented and connectionless data services",
+          "id": "wk03_new_q06_a"
+        },
+        {
+          "label": "b",
+          "text": "Protocol multiplexing",
+          "id": "wk03_new_q06_b"
+        },
+        {
+          "label": "c",
+          "text": "Segmentation and reassembly",
+          "id": "wk03_new_q06_c"
+        },
+        {
+          "label": "d",
+          "text": "Generation of the magnetic field used by NFC tags",
+          "id": "wk03_new_q06_d"
+        }
+      ],
+      "correct_answers": [
+        "a",
+        "b",
+        "c"
+      ],
+      "answer_text": [
+        "Connection-oriented and connectionless data services",
+        "Protocol multiplexing",
+        "Segmentation and reassembly"
+      ],
+      "raw_stem": "Which of the following functions are provided by the Bluetooth L2CAP layer? \\hfill \\mbox{\\textit{[MSQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Connection-oriented and connectionless data services",
+        "b": "Protocol multiplexing",
+        "c": "Segmentation and reassembly",
+        "d": "Generation of the magnetic field used by NFC tags"
+      },
+      "raw_answer": "(a), (b), (c)"
+    },
+    {
+      "id": "wk03_new_q07",
+      "chapter_number": 3,
+      "chapter_title": "Week 3 (New)",
+      "question_number": 7,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "A single Z-Wave network can contain up to approximately how many nodes?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "32",
+          "id": "wk03_new_q07_a"
+        },
+        {
+          "label": "b",
+          "text": "64",
+          "id": "wk03_new_q07_b"
+        },
+        {
+          "label": "c",
+          "text": "128",
+          "id": "wk03_new_q07_c"
+        },
+        {
+          "label": "d",
+          "text": "232",
+          "id": "wk03_new_q07_d"
+        }
+      ],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "232"
+      ],
+      "raw_stem": "A single Z-Wave network can contain up to approximately how many nodes? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "32",
+        "b": "64",
+        "c": "128",
+        "d": "232"
+      },
+      "raw_answer": "(d)"
+    },
+    {
+      "id": "wk03_new_q08",
+      "chapter_number": 3,
+      "chapter_title": "Week 3 (New)",
+      "question_number": 8,
+      "type": "MSQ",
+      "is_multiple_choice": true,
+      "points": 1,
+      "question": "Which of the following statements about Z-Wave addressing are correct?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Each logical Z-Wave network has one Home ID.",
+          "id": "wk03_new_q08_a"
+        },
+        {
+          "label": "b",
+          "text": "A Z-Wave Node ID has a length of one byte.",
+          "id": "wk03_new_q08_b"
+        },
+        {
+          "label": "c",
+          "text": "A Z-Wave Home ID has a length of four bytes.",
+          "id": "wk03_new_q08_c"
+        },
+        {
+          "label": "d",
+          "text": "Nodes having different Home IDs can communicate directly with one another.",
+          "id": "wk03_new_q08_d"
+        }
+      ],
+      "correct_answers": [
+        "a",
+        "b",
+        "c"
+      ],
+      "answer_text": [
+        "Each logical Z-Wave network has one Home ID.",
+        "A Z-Wave Node ID has a length of one byte.",
+        "A Z-Wave Home ID has a length of four bytes."
+      ],
+      "raw_stem": "Which of the following statements about Z-Wave addressing are correct? \\hfill \\mbox{\\textit{[MSQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Each logical Z-Wave network has one Home ID.",
+        "b": "A Z-Wave Node ID has a length of one byte.",
+        "c": "A Z-Wave Home ID has a length of four bytes.",
+        "d": "Nodes having different Home IDs can communicate directly with one another."
+      },
+      "raw_answer": "(a), (b), (c)"
+    },
+    {
+      "id": "wk03_new_q09",
+      "chapter_number": 3,
+      "chapter_title": "Week 3 (New)",
+      "question_number": 9,
+      "type": "MSQ",
+      "is_multiple_choice": true,
+      "points": 1,
+      "question": "Which of the following statements about ISA100.11a are correct?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Its network and transport layers are based on TCP, UDP, or IPv6.",
+          "id": "wk03_new_q09_a"
+        },
+        {
+          "label": "b",
+          "text": "Its data-link layer supports mesh networking with frequency hopping.",
+          "id": "wk03_new_q09_b"
+        },
+        {
+          "label": "c",
+          "text": "Its radio is based on IEEE 802.15.4.",
+          "id": "wk03_new_q09_c"
+        },
+        {
+          "label": "d",
+          "text": "It supports only a ring topology.",
+          "id": "wk03_new_q09_d"
+        }
+      ],
+      "correct_answers": [
+        "a",
+        "b",
+        "c"
+      ],
+      "answer_text": [
+        "Its network and transport layers are based on TCP, UDP, or IPv6.",
+        "Its data-link layer supports mesh networking with frequency hopping.",
+        "Its radio is based on IEEE 802.15.4."
+      ],
+      "raw_stem": "Which of the following statements about ISA100.11a are correct? \\hfill \\mbox{\\textit{[MSQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Its network and transport layers are based on TCP, UDP, or IPv6.",
+        "b": "Its data-link layer supports mesh networking with frequency hopping.",
+        "c": "Its radio is based on IEEE 802.15.4.",
+        "d": "It supports only a ring topology."
+      },
+      "raw_answer": "(a), (b), (c)"
+    },
+    {
+      "id": "wk03_new_q10",
+      "chapter_number": 3,
+      "chapter_title": "Week 3 (New)",
+      "question_number": 10,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Why is multi-hop communication commonly used in a wireless sensor network?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Sensor nodes have short transmission ranges, so intermediate nodes relay data toward the sink.",
+          "id": "wk03_new_q10_a"
+        },
+        {
+          "label": "b",
+          "text": "Every sensor node must communicate directly with the Internet.",
+          "id": "wk03_new_q10_b"
+        },
+        {
+          "label": "c",
+          "text": "Multi-hop communication eliminates the need for a sink node.",
+          "id": "wk03_new_q10_c"
+        },
+        {
+          "label": "d",
+          "text": "Only mobile sensor nodes are permitted to transmit data.",
+          "id": "wk03_new_q10_d"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Sensor nodes have short transmission ranges, so intermediate nodes relay data toward the sink."
+      ],
+      "raw_stem": "Why is multi-hop communication commonly used in a wireless sensor network? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Sensor nodes have short transmission ranges, so intermediate nodes relay data toward the sink.",
+        "b": "Every sensor node must communicate directly with the Internet.",
+        "c": "Multi-hop communication eliminates the need for a sink node.",
+        "d": "Only mobile sensor nodes are permitted to transmit data."
+      },
+      "raw_answer": "(a)"
+    },
+    {
+      "id": "wk03_new_q11",
+      "chapter_number": 3,
+      "chapter_title": "Week 3 (New)",
+      "question_number": 11,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Which of the following is described as an optional unit of a sensor node?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Sensing unit",
+          "id": "wk03_new_q11_a"
+        },
+        {
+          "label": "b",
+          "text": "Processing unit",
+          "id": "wk03_new_q11_b"
+        },
+        {
+          "label": "c",
+          "text": "Power unit",
+          "id": "wk03_new_q11_c"
+        },
+        {
+          "label": "d",
+          "text": "Location-finding system such as GPS",
+          "id": "wk03_new_q11_d"
+        }
+      ],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Location-finding system such as GPS"
+      ],
+      "raw_stem": "Which of the following is described as an optional unit of a sensor node? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Sensing unit",
+        "b": "Processing unit",
+        "c": "Power unit",
+        "d": "Location-finding system such as GPS"
+      },
+      "raw_answer": "(d)"
+    },
+    {
+      "id": "wk03_new_q12",
+      "chapter_number": 3,
+      "chapter_title": "Week 3 (New)",
+      "question_number": 12,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "If n denotes the number of nodes in a sensor network, the lecture states that the throughput decreases approximately at what rate as the network scales?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "1/n",
+          "id": "wk03_new_q12_a"
+        },
+        {
+          "label": "b",
+          "text": "n",
+          "id": "wk03_new_q12_b"
+        },
+        {
+          "label": "c",
+          "text": "√n",
+          "id": "wk03_new_q12_c"
+        },
+        {
+          "label": "d",
+          "text": "1/√n",
+          "id": "wk03_new_q12_d"
+        }
+      ],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "1/√n"
+      ],
+      "raw_stem": "If $n$ denotes the number of nodes in a sensor network, the lecture states that the throughput decreases approximately at what rate as the network scales? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "$1/n$",
+        "b": "$n$",
+        "c": "$\\sqrt{n}$",
+        "d": "$1/\\sqrt{n}$"
+      },
+      "raw_answer": "(d)"
+    },
+    {
+      "id": "wk03_new_q13",
+      "chapter_number": 3,
+      "chapter_title": "Week 3 (New)",
+      "question_number": 13,
+      "type": "MSQ",
+      "is_multiple_choice": true,
+      "points": 1,
+      "question": "Which types of sensor-node misbehavior are classified as intentional?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Malicious behavior",
+          "id": "wk03_new_q13_a"
+        },
+        {
+          "label": "b",
+          "text": "Selfish behavior",
+          "id": "wk03_new_q13_b"
+        },
+        {
+          "label": "c",
+          "text": "Failed-node behavior",
+          "id": "wk03_new_q13_c"
+        },
+        {
+          "label": "d",
+          "text": "Badly failed-node behavior",
+          "id": "wk03_new_q13_d"
+        }
+      ],
+      "correct_answers": [
+        "a",
+        "b"
+      ],
+      "answer_text": [
+        "Malicious behavior",
+        "Selfish behavior"
+      ],
+      "raw_stem": "Which types of sensor-node misbehavior are classified as intentional? \\hfill \\mbox{\\textit{[MSQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Malicious behavior",
+        "b": "Selfish behavior",
+        "c": "Failed-node behavior",
+        "d": "Badly failed-node behavior"
+      },
+      "raw_answer": "(a), (b)"
+    },
+    {
+      "id": "wk03_new_q14",
+      "chapter_number": 3,
+      "chapter_title": "Week 3 (New)",
+      "question_number": 14,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "What distinguishes a badly failed sensor node from an ordinarily failed sensor node?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "It additionally sends false routing messages.",
+          "id": "wk03_new_q14_a"
+        },
+        {
+          "label": "b",
+          "text": "It always increases the network throughput.",
+          "id": "wk03_new_q14_b"
+        },
+        {
+          "label": "c",
+          "text": "It changes from a mobile node into a stationary node.",
+          "id": "wk03_new_q14_c"
+        },
+        {
+          "label": "d",
+          "text": "It communicates normally but consumes no power.",
+          "id": "wk03_new_q14_d"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "It additionally sends false routing messages."
+      ],
+      "raw_stem": "What distinguishes a badly failed sensor node from an ordinarily failed sensor node? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "It additionally sends false routing messages.",
+        "b": "It always increases the network throughput.",
+        "c": "It changes from a mobile node into a stationary node.",
+        "d": "It communicates normally but consumes no power."
+      },
+      "raw_answer": "(a)"
+    },
+    {
+      "id": "wk03_new_q15",
+      "chapter_number": 3,
+      "chapter_title": "Week 3 (New)",
+      "question_number": 15,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Which consequence may arise when a selfish sensor node refuses to cooperate because forwarding involves a personal cost?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "It forwards every received packet twice.",
+          "id": "wk03_new_q15_a"
+        },
+        {
+          "label": "b",
+          "text": "It drops a received packet instead of forwarding it.",
+          "id": "wk03_new_q15_b"
+        },
+        {
+          "label": "c",
+          "text": "It automatically becomes the sink node.",
+          "id": "wk03_new_q15_c"
+        },
+        {
+          "label": "d",
+          "text": "It increases the communication range of neighboring nodes.",
+          "id": "wk03_new_q15_d"
+        }
+      ],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "It drops a received packet instead of forwarding it."
+      ],
+      "raw_stem": "Which consequence may arise when a selfish sensor node refuses to cooperate because forwarding involves a personal cost? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "It forwards every received packet twice.",
+        "b": "It drops a received packet instead of forwarding it.",
+        "c": "It automatically becomes the sink node.",
+        "d": "It increases the communication range of neighboring nodes."
+      },
+      "raw_answer": "(b)"
+    },
+    {
+      "id": "wk04_new_q01",
+      "chapter_number": 4,
+      "chapter_title": "Week 4 (New)",
+      "question_number": 1,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "What does the ultrasonic sensor measure generally in the AID system?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Humidity",
+          "id": "wk04_new_q01_a"
+        },
+        {
+          "label": "b",
+          "text": "Distance of the object",
+          "id": "wk04_new_q01_b"
+        },
+        {
+          "label": "c",
+          "text": "Soil pH",
+          "id": "wk04_new_q01_c"
+        },
+        {
+          "label": "d",
+          "text": "Light intensity",
+          "id": "wk04_new_q01_d"
+        }
+      ],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Distance of the object"
+      ],
+      "raw_stem": "What does the ultrasonic sensor measure generally in the AID system? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Humidity",
+        "b": "Distance of the object",
+        "c": "Soil pH",
+        "d": "Light intensity"
+      },
+      "raw_answer": "(b)"
+    },
+    {
+      "id": "wk04_new_q02",
+      "chapter_number": 4,
+      "chapter_title": "Week 4 (New)",
+      "question_number": 2,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Which component processes the data received from the sensors in the AID system?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Camera",
+          "id": "wk04_new_q02_a"
+        },
+        {
+          "label": "b",
+          "text": "NFC tag",
+          "id": "wk04_new_q02_b"
+        },
+        {
+          "label": "c",
+          "text": "Microcontroller",
+          "id": "wk04_new_q02_c"
+        },
+        {
+          "label": "d",
+          "text": "Ultrasonic sensor",
+          "id": "wk04_new_q02_d"
+        }
+      ],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "Microcontroller"
+      ],
+      "raw_stem": "Which component processes the data received from the sensors in the AID system? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Camera",
+        "b": "NFC tag",
+        "c": "Microcontroller",
+        "d": "Ultrasonic sensor"
+      },
+      "raw_answer": "(c)"
+    },
+    {
+      "id": "wk04_new_q03",
+      "chapter_number": 4,
+      "chapter_title": "Week 4 (New)",
+      "question_number": 3,
+      "type": "MSQ",
+      "is_multiple_choice": true,
+      "points": 1,
+      "question": "How can standard nanodevices communicate?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Electromagnetic communication",
+          "id": "wk04_new_q03_a"
+        },
+        {
+          "label": "b",
+          "text": "Molecular communication",
+          "id": "wk04_new_q03_b"
+        },
+        {
+          "label": "c",
+          "text": "Wired Ethernet",
+          "id": "wk04_new_q03_c"
+        },
+        {
+          "label": "d",
+          "text": "ZigBee communication",
+          "id": "wk04_new_q03_d"
+        }
+      ],
+      "correct_answers": [
+        "a",
+        "b"
+      ],
+      "answer_text": [
+        "Electromagnetic communication",
+        "Molecular communication"
+      ],
+      "raw_stem": "How can standard nanodevices communicate? \\hfill \\mbox{\\textit{[MSQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Electromagnetic communication",
+        "b": "Molecular communication",
+        "c": "Wired Ethernet",
+        "d": "ZigBee communication"
+      },
+      "raw_answer": "(a), (b)"
+    },
+    {
+      "id": "wk04_new_q04",
+      "chapter_number": 4,
+      "chapter_title": "Week 4 (New)",
+      "question_number": 4,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "When does sensing coverage guarantee network connectivity?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "When the transmission range is at least twice the sensing range",
+          "id": "wk04_new_q04_a"
+        },
+        {
+          "label": "b",
+          "text": "When the sensing range is at least twice the transmission range",
+          "id": "wk04_new_q04_b"
+        },
+        {
+          "label": "c",
+          "text": "When the transmission and sensing ranges are equal",
+          "id": "wk04_new_q04_c"
+        },
+        {
+          "label": "d",
+          "text": "When the transmission range is smaller than the sensing range",
+          "id": "wk04_new_q04_d"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "When the transmission range is at least twice the sensing range"
+      ],
+      "raw_stem": "When does sensing coverage guarantee network connectivity? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "When the transmission range is at least twice the sensing range",
+        "b": "When the sensing range is at least twice the transmission range",
+        "c": "When the transmission and sensing ranges are equal",
+        "d": "When the transmission range is smaller than the sensing range"
+      },
+      "raw_answer": "(a)"
+    },
+    {
+      "id": "wk04_new_q05",
+      "chapter_number": 4,
+      "chapter_title": "Week 4 (New)",
+      "question_number": 5,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Which of the following is a coverage problem in a static WSN?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Area coverage",
+          "id": "wk04_new_q05_a"
+        },
+        {
+          "label": "b",
+          "text": "Data compression",
+          "id": "wk04_new_q05_b"
+        },
+        {
+          "label": "c",
+          "text": "Route encryption",
+          "id": "wk04_new_q05_c"
+        },
+        {
+          "label": "d",
+          "text": "Clock synchronization",
+          "id": "wk04_new_q05_d"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Area coverage"
+      ],
+      "raw_stem": "Which of the following is a coverage problem in a static WSN? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Area coverage",
+        "b": "Data compression",
+        "c": "Route encryption",
+        "d": "Clock synchronization"
+      },
+      "raw_answer": "(a)"
+    },
+    {
+      "id": "wk04_new_q06",
+      "chapter_number": 4,
+      "chapter_title": "Week 4 (New)",
+      "question_number": 6,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Which reporting method is used for forest-fire monitoring in a WSN?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Event-driven reporting",
+          "id": "wk04_new_q06_a"
+        },
+        {
+          "label": "b",
+          "text": "On-demand reporting",
+          "id": "wk04_new_q06_b"
+        },
+        {
+          "label": "c",
+          "text": "Manual reporting",
+          "id": "wk04_new_q06_c"
+        },
+        {
+          "label": "d",
+          "text": "Location-based reporting",
+          "id": "wk04_new_q06_d"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Event-driven reporting"
+      ],
+      "raw_stem": "Which reporting method is used for forest-fire monitoring in a WSN? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Event-driven reporting",
+        "b": "On-demand reporting",
+        "c": "Manual reporting",
+        "d": "Location-based reporting"
+      },
+      "raw_answer": "(a)"
+    },
+    {
+      "id": "wk04_new_q07",
+      "chapter_number": 4,
+      "chapter_title": "Week 4 (New)",
+      "question_number": 7,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "What does a data mule do?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Replaces all sensor nodes",
+          "id": "wk04_new_q07_a"
+        },
+        {
+          "label": "b",
+          "text": "Measures only temperature",
+          "id": "wk04_new_q07_b"
+        },
+        {
+          "label": "c",
+          "text": "Collects data and carries it to the sink",
+          "id": "wk04_new_q07_c"
+        },
+        {
+          "label": "d",
+          "text": "Repairs damaged hardware",
+          "id": "wk04_new_q07_d"
+        }
+      ],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "Collects data and carries it to the sink"
+      ],
+      "raw_stem": "What does a data mule do? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Replaces all sensor nodes",
+        "b": "Measures only temperature",
+        "c": "Collects data and carries it to the sink",
+        "d": "Repairs damaged hardware"
+      },
+      "raw_answer": "(c)"
+    },
+    {
+      "id": "wk04_new_q08",
+      "chapter_number": 4,
+      "chapter_title": "Week 4 (New)",
+      "question_number": 8,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "What may happen if a critical stationary sensor node fails?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "The network may be partitioned",
+          "id": "wk04_new_q08_a"
+        },
+        {
+          "label": "b",
+          "text": "All nodes become mobile",
+          "id": "wk04_new_q08_b"
+        },
+        {
+          "label": "c",
+          "text": "The sensing range doubles",
+          "id": "wk04_new_q08_c"
+        },
+        {
+          "label": "d",
+          "text": "The network repairs itself by movement",
+          "id": "wk04_new_q08_d"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "The network may be partitioned"
+      ],
+      "raw_stem": "What may happen if a critical stationary sensor node fails? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "The network may be partitioned",
+        "b": "All nodes become mobile",
+        "c": "The sensing range doubles",
+        "d": "The network repairs itself by movement"
+      },
+      "raw_answer": "(a)"
+    },
+    {
+      "id": "wk04_new_q09",
+      "chapter_number": 4,
+      "chapter_title": "Week 4 (New)",
+      "question_number": 9,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "A person who provides sensing information acts as a:",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Router",
+          "id": "wk04_new_q09_a"
+        },
+        {
+          "label": "b",
+          "text": "Radio channel",
+          "id": "wk04_new_q09_b"
+        },
+        {
+          "label": "c",
+          "text": "Actuator",
+          "id": "wk04_new_q09_c"
+        },
+        {
+          "label": "d",
+          "text": "Data source",
+          "id": "wk04_new_q09_d"
+        }
+      ],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Data source"
+      ],
+      "raw_stem": "A person who provides sensing information acts as a: \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Router",
+        "b": "Radio channel",
+        "c": "Actuator",
+        "d": "Data source"
+      },
+      "raw_answer": "(d)"
+    },
+    {
+      "id": "wk04_new_q10",
+      "chapter_number": 4,
+      "chapter_title": "Week 4 (New)",
+      "question_number": 10,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Which is an advantage of a stationary wireless sensor network?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Easy topology maintenance",
+          "id": "wk04_new_q10_a"
+        },
+        {
+          "label": "b",
+          "text": "Automatic movement after node failure",
+          "id": "wk04_new_q10_b"
+        },
+        {
+          "label": "c",
+          "text": "Continuously changing topology",
+          "id": "wk04_new_q10_c"
+        },
+        {
+          "label": "d",
+          "text": "Unpredictable sensor locations",
+          "id": "wk04_new_q10_d"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Easy topology maintenance"
+      ],
+      "raw_stem": "Which is an advantage of a stationary wireless sensor network? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Easy topology maintenance",
+        "b": "Automatic movement after node failure",
+        "c": "Continuously changing topology",
+        "d": "Unpredictable sensor locations"
+      },
+      "raw_answer": "(a)"
+    },
+    {
+      "id": "wk04_new_q11",
+      "chapter_number": 4,
+      "chapter_title": "Week 4 (New)",
+      "question_number": 11,
+      "type": "True / False",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "State whether the following statement is True or False. **Statement:** In a UAV network, the network topology may change frequently because the UAVs are mobile.",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "True",
+          "id": "wk04_new_q11_a"
+        },
+        {
+          "label": "b",
+          "text": "False",
+          "id": "wk04_new_q11_b"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "True"
+      ],
+      "raw_stem": "State whether the following statement is True or False.\n\n\\noindent\\textbf{Statement:} In a UAV network, the network topology may change frequently because the UAVs are mobile. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
+      "raw_options": {
+        "a": "True",
+        "b": "False"
+      },
+      "raw_answer": "(a) True"
+    },
+    {
+      "id": "wk04_new_q12",
+      "chapter_number": 4,
+      "chapter_title": "Week 4 (New)",
+      "question_number": 12,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Which is a common issue in UAV networks?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Frequent topology changes",
+          "id": "wk04_new_q12_a"
+        },
+        {
+          "label": "b",
+          "text": "Fixed relative positions",
+          "id": "wk04_new_q12_b"
+        },
+        {
+          "label": "c",
+          "text": "Permanent communication links",
+          "id": "wk04_new_q12_c"
+        },
+        {
+          "label": "d",
+          "text": "No possibility of UAV failure",
+          "id": "wk04_new_q12_d"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Frequent topology changes"
+      ],
+      "raw_stem": "Which is a common issue in UAV networks? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Frequent topology changes",
+        "b": "Fixed relative positions",
+        "c": "Permanent communication links",
+        "d": "No possibility of UAV failure"
+      },
+      "raw_answer": "(a)"
+    },
+    {
+      "id": "wk04_new_q13",
+      "chapter_number": 4,
+      "chapter_title": "Week 4 (New)",
+      "question_number": 13,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Compared with traditional SCADA, M2M supports:",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Only isolated systems",
+          "id": "wk04_new_q13_a"
+        },
+        {
+          "label": "b",
+          "text": "No device communication",
+          "id": "wk04_new_q13_b"
+        },
+        {
+          "label": "c",
+          "text": "Continuous human control",
+          "id": "wk04_new_q13_c"
+        },
+        {
+          "label": "d",
+          "text": "Cross-platform integration",
+          "id": "wk04_new_q13_d"
+        }
+      ],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Cross-platform integration"
+      ],
+      "raw_stem": "Compared with traditional SCADA, M2M supports: \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Only isolated systems",
+        "b": "No device communication",
+        "c": "Continuous human control",
+        "d": "Cross-platform integration"
+      },
+      "raw_answer": "(d)"
+    },
+    {
+      "id": "wk04_new_q14",
+      "chapter_number": 4,
+      "chapter_title": "Week 4 (New)",
+      "question_number": 14,
+      "type": "True / False",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "State whether the following statement is True or False. **Statement:** In a stationary wireless sensor network, sensor nodes can automatically move to restore connectivity after a node failure.",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "True",
+          "id": "wk04_new_q14_a"
+        },
+        {
+          "label": "b",
+          "text": "False",
+          "id": "wk04_new_q14_b"
+        }
+      ],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "False"
+      ],
+      "raw_stem": "State whether the following statement is True or False.\n\n\\noindent\\textbf{Statement:} In a stationary wireless sensor network, sensor nodes can automatically move to restore connectivity after a node failure. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
+      "raw_options": {
+        "a": "True",
+        "b": "False"
+      },
+      "raw_answer": "(b) False"
+    },
+    {
+      "id": "wk04_new_q15",
+      "chapter_number": 4,
+      "chapter_title": "Week 4 (New)",
+      "question_number": 15,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Which statement best describes M2M communication?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Devices can exchange data without direct human control",
+          "id": "wk04_new_q15_a"
+        },
+        {
+          "label": "b",
+          "text": "Every data exchange must be performed manually",
+          "id": "wk04_new_q15_b"
+        },
+        {
+          "label": "c",
+          "text": "Only one device can communicate at a time",
+          "id": "wk04_new_q15_c"
+        },
+        {
+          "label": "d",
+          "text": "Devices cannot communicate through a network",
+          "id": "wk04_new_q15_d"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Devices can exchange data without direct human control"
+      ],
+      "raw_stem": "Which statement best describes M2M communication? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Devices can exchange data without direct human control",
+        "b": "Every data exchange must be performed manually",
+        "c": "Only one device can communicate at a time",
+        "d": "Devices cannot communicate through a network"
+      },
+      "raw_answer": "(a)"
+    },
+    {
+      "id": "wk05_new_q01",
+      "chapter_number": 5,
+      "chapter_title": "Week 5 (New)",
+      "question_number": 1,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "What does interoperability allow IoT devices to do?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Communicate and exchange data",
+          "id": "wk05_new_q01_a"
+        },
+        {
+          "label": "b",
+          "text": "Work only offline",
+          "id": "wk05_new_q01_b"
+        },
+        {
+          "label": "c",
+          "text": "Use only one protocol",
+          "id": "wk05_new_q01_c"
+        },
+        {
+          "label": "d",
+          "text": "Disable other devices",
+          "id": "wk05_new_q01_d"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Communicate and exchange data"
+      ],
+      "raw_stem": "What does interoperability allow IoT devices to do? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Communicate and exchange data",
+        "b": "Work only offline",
+        "c": "Use only one protocol",
+        "d": "Disable other devices"
+      },
+      "raw_answer": "(a)"
+    },
+    {
+      "id": "wk05_new_q02",
+      "chapter_number": 5,
+      "chapter_title": "Week 5 (New)",
+      "question_number": 2,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Syntactic interoperability deals with:",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Message format",
+          "id": "wk05_new_q02_a"
+        },
+        {
+          "label": "b",
+          "text": "Battery size",
+          "id": "wk05_new_q02_b"
+        },
+        {
+          "label": "c",
+          "text": "Device colour",
+          "id": "wk05_new_q02_c"
+        },
+        {
+          "label": "d",
+          "text": "Sensor weight",
+          "id": "wk05_new_q02_d"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Message format"
+      ],
+      "raw_stem": "Syntactic interoperability deals with: \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Message format",
+        "b": "Battery size",
+        "c": "Device colour",
+        "d": "Sensor weight"
+      },
+      "raw_answer": "(a)"
+    },
+    {
+      "id": "wk05_new_q03",
+      "chapter_number": 5,
+      "chapter_title": "Week 5 (New)",
+      "question_number": 3,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "What does UMB stand for?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Universal Middleware Bridge",
+          "id": "wk05_new_q03_a"
+        },
+        {
+          "label": "b",
+          "text": "Unified Mobile Board",
+          "id": "wk05_new_q03_b"
+        },
+        {
+          "label": "c",
+          "text": "Universal Memory Block",
+          "id": "wk05_new_q03_c"
+        },
+        {
+          "label": "d",
+          "text": "User Management Bridge",
+          "id": "wk05_new_q03_d"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Universal Middleware Bridge"
+      ],
+      "raw_stem": "What does UMB stand for? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Universal Middleware Bridge",
+        "b": "Unified Mobile Board",
+        "c": "Universal Memory Block",
+        "d": "User Management Bridge"
+      },
+      "raw_answer": "(a)"
+    },
+    {
+      "id": "wk05_new_q04",
+      "chapter_number": 5,
+      "chapter_title": "Week 5 (New)",
+      "question_number": 4,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "What is the operating voltage of the Arduino UNO?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "3.3 V",
+          "id": "wk05_new_q04_a"
+        },
+        {
+          "label": "b",
+          "text": "5 V",
+          "id": "wk05_new_q04_b"
+        },
+        {
+          "label": "c",
+          "text": "9 V",
+          "id": "wk05_new_q04_c"
+        },
+        {
+          "label": "d",
+          "text": "12 V",
+          "id": "wk05_new_q04_d"
+        }
+      ],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "5 V"
+      ],
+      "raw_stem": "What is the operating voltage of the Arduino UNO? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "3.3 V",
+        "b": "5 V",
+        "c": "9 V",
+        "d": "12 V"
+      },
+      "raw_answer": "(b)"
+    },
+    {
+      "id": "wk05_new_q05",
+      "chapter_number": 5,
+      "chapter_title": "Week 5 (New)",
+      "question_number": 5,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "What is a program written in the Arduino IDE called?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Packet",
+          "id": "wk05_new_q05_a"
+        },
+        {
+          "label": "b",
+          "text": "Sketch",
+          "id": "wk05_new_q05_b"
+        },
+        {
+          "label": "c",
+          "text": "Frame",
+          "id": "wk05_new_q05_c"
+        },
+        {
+          "label": "d",
+          "text": "Query",
+          "id": "wk05_new_q05_d"
+        }
+      ],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "Sketch"
+      ],
+      "raw_stem": "What is a program written in the Arduino IDE called? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Packet",
+        "b": "Sketch",
+        "c": "Frame",
+        "d": "Query"
+      },
+      "raw_answer": "(b)"
+    },
+    {
+      "id": "wk05_new_q06",
+      "chapter_number": 5,
+      "chapter_title": "Week 5 (New)",
+      "question_number": 6,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Which interface is mainly used to connect an Arduino UNO to a computer?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "HDMI",
+          "id": "wk05_new_q06_a"
+        },
+        {
+          "label": "b",
+          "text": "USB",
+          "id": "wk05_new_q06_b"
+        },
+        {
+          "label": "c",
+          "text": "VGA",
+          "id": "wk05_new_q06_c"
+        },
+        {
+          "label": "d",
+          "text": "Ethernet",
+          "id": "wk05_new_q06_d"
+        }
+      ],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "USB"
+      ],
+      "raw_stem": "Which interface is mainly used to connect an Arduino UNO to a computer? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "HDMI",
+        "b": "USB",
+        "c": "VGA",
+        "d": "Ethernet"
+      },
+      "raw_answer": "(b)"
+    },
+    {
+      "id": "wk05_new_q07",
+      "chapter_number": 5,
+      "chapter_title": "Week 5 (New)",
+      "question_number": 7,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "What is the conventional starting index of an array in Arduino programming?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "-1",
+          "id": "wk05_new_q07_a"
+        },
+        {
+          "label": "b",
+          "text": "0",
+          "id": "wk05_new_q07_b"
+        },
+        {
+          "label": "c",
+          "text": "1",
+          "id": "wk05_new_q07_c"
+        },
+        {
+          "label": "d",
+          "text": "2",
+          "id": "wk05_new_q07_d"
+        }
+      ],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "0"
+      ],
+      "raw_stem": "What is the conventional starting index of an array in Arduino programming? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "-1",
+        "b": "0",
+        "c": "1",
+        "d": "2"
+      },
+      "raw_answer": "(b)"
+    },
+    {
+      "id": "wk05_new_q08",
+      "chapter_number": 5,
+      "chapter_title": "Week 5 (New)",
+      "question_number": 8,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Which Arduino function is used to generate a pseudo-random number within a specified range?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "'random()'",
+          "id": "wk05_new_q08_a"
+        },
+        {
+          "label": "b",
+          "text": "'pinMode()'",
+          "id": "wk05_new_q08_b"
+        },
+        {
+          "label": "c",
+          "text": "'digitalWrite()'",
+          "id": "wk05_new_q08_c"
+        },
+        {
+          "label": "d",
+          "text": "'attachInterrupt()'",
+          "id": "wk05_new_q08_d"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "'random()'"
+      ],
+      "raw_stem": "Which Arduino function is used to generate a pseudo-random number within a specified range? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "\\texttt{random()}",
+        "b": "\\texttt{pinMode()}",
+        "c": "\\texttt{digitalWrite()}",
+        "d": "\\texttt{attachInterrupt()}"
+      },
+      "raw_answer": "(a)"
+    },
+    {
+      "id": "wk05_new_q09",
+      "chapter_number": 5,
+      "chapter_title": "Week 5 (New)",
+      "question_number": 9,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "In the traffic-control example, which LED is switched ON first to represent the GO signal?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Red LED",
+          "id": "wk05_new_q09_a"
+        },
+        {
+          "label": "b",
+          "text": "Yellow LED",
+          "id": "wk05_new_q09_b"
+        },
+        {
+          "label": "c",
+          "text": "Green LED",
+          "id": "wk05_new_q09_c"
+        },
+        {
+          "label": "d",
+          "text": "All three LEDs simultaneously",
+          "id": "wk05_new_q09_d"
+        }
+      ],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "Green LED"
+      ],
+      "raw_stem": "In the traffic-control example, which LED is switched ON first to represent the GO signal? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Red LED",
+        "b": "Yellow LED",
+        "c": "Green LED",
+        "d": "All three LEDs simultaneously"
+      },
+      "raw_answer": "(c)"
+    },
+    {
+      "id": "wk05_new_q10",
+      "chapter_number": 5,
+      "chapter_title": "Week 5 (New)",
+      "question_number": 10,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Which quantities are measured by a DHT sensor?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Temperature and humidity",
+          "id": "wk05_new_q10_a"
+        },
+        {
+          "label": "b",
+          "text": "Distance and speed",
+          "id": "wk05_new_q10_b"
+        },
+        {
+          "label": "c",
+          "text": "Light and sound",
+          "id": "wk05_new_q10_c"
+        },
+        {
+          "label": "d",
+          "text": "Pressure and altitude",
+          "id": "wk05_new_q10_d"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "Temperature and humidity"
+      ],
+      "raw_stem": "Which quantities are measured by a DHT sensor? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Temperature and humidity",
+        "b": "Distance and speed",
+        "c": "Light and sound",
+        "d": "Pressure and altitude"
+      },
+      "raw_answer": "(a)"
+    },
+    {
+      "id": "wk05_new_q11",
+      "chapter_number": 5,
+      "chapter_title": "Week 5 (New)",
+      "question_number": 11,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "What does a sensor convert a physical quantity into?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "A software program",
+          "id": "wk05_new_q11_a"
+        },
+        {
+          "label": "b",
+          "text": "Mechanical motion",
+          "id": "wk05_new_q11_b"
+        },
+        {
+          "label": "c",
+          "text": "A network address",
+          "id": "wk05_new_q11_c"
+        },
+        {
+          "label": "d",
+          "text": "An electrical signal",
+          "id": "wk05_new_q11_d"
+        }
+      ],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "An electrical signal"
+      ],
+      "raw_stem": "What does a sensor convert a physical quantity into? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "A software program",
+        "b": "Mechanical motion",
+        "c": "A network address",
+        "d": "An electrical signal"
+      },
+      "raw_answer": "(d)"
+    },
+    {
+      "id": "wk05_new_q12",
+      "chapter_number": 5,
+      "chapter_title": "Week 5 (New)",
+      "question_number": 12,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "In the DHT sensor sketch, 'delay(2000)' causes successive readings to be printed after approximately how much time?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "0.2 seconds",
+          "id": "wk05_new_q12_a"
+        },
+        {
+          "label": "b",
+          "text": "1 second",
+          "id": "wk05_new_q12_b"
+        },
+        {
+          "label": "c",
+          "text": "2 seconds",
+          "id": "wk05_new_q12_c"
+        },
+        {
+          "label": "d",
+          "text": "20 seconds",
+          "id": "wk05_new_q12_d"
+        }
+      ],
+      "correct_answers": [
+        "c"
+      ],
+      "answer_text": [
+        "2 seconds"
+      ],
+      "raw_stem": "In the DHT sensor sketch, \\texttt{delay(2000)} causes successive readings to be printed after approximately how much time? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "0.2 seconds",
+        "b": "1 second",
+        "c": "2 seconds",
+        "d": "20 seconds"
+      },
+      "raw_answer": "(c)"
+    },
+    {
+      "id": "wk05_new_q13",
+      "chapter_number": 5,
+      "chapter_title": "Week 5 (New)",
+      "question_number": 13,
+      "type": "True / False",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "State whether the following statement is True or False. **Statement:** A servo motor is a low-precision motor used only for linear motion.",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "True",
+          "id": "wk05_new_q13_a"
+        },
+        {
+          "label": "b",
+          "text": "False",
+          "id": "wk05_new_q13_b"
+        }
+      ],
+      "correct_answers": [
+        "b"
+      ],
+      "answer_text": [
+        "False"
+      ],
+      "raw_stem": "State whether the following statement is True or False.\n\n\\noindent\\textbf{Statement:} A servo motor is a low-precision motor used only for linear motion. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
+      "raw_options": {
+        "a": "True",
+        "b": "False"
+      },
+      "raw_answer": "(b) False"
+    },
+    {
+      "id": "wk05_new_q14",
+      "chapter_number": 5,
+      "chapter_title": "Week 5 (New)",
+      "question_number": 14,
+      "type": "MCQ",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "Which device provides controlled rotary motion?",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "Ultrasonic sensor",
+          "id": "wk05_new_q14_a"
+        },
+        {
+          "label": "b",
+          "text": "DHT sensor",
+          "id": "wk05_new_q14_b"
+        },
+        {
+          "label": "c",
+          "text": "PIR sensor",
+          "id": "wk05_new_q14_c"
+        },
+        {
+          "label": "d",
+          "text": "Servo motor",
+          "id": "wk05_new_q14_d"
+        }
+      ],
+      "correct_answers": [
+        "d"
+      ],
+      "answer_text": [
+        "Servo motor"
+      ],
+      "raw_stem": "Which device provides controlled rotary motion? \\hfill \\mbox{\\textit{[MCQ, 1 Point]}}",
+      "raw_options": {
+        "a": "Ultrasonic sensor",
+        "b": "DHT sensor",
+        "c": "PIR sensor",
+        "d": "Servo motor"
+      },
+      "raw_answer": "(d)"
+    },
+    {
+      "id": "wk05_new_q15",
+      "chapter_number": 5,
+      "chapter_title": "Week 5 (New)",
+      "question_number": 15,
+      "type": "True / False",
+      "is_multiple_choice": false,
+      "points": 1,
+      "question": "State whether the following statement is True or False. **Statement:** A stepper motor is a type of actuator.",
+      "code_snippet": null,
+      "options": [
+        {
+          "label": "a",
+          "text": "True",
+          "id": "wk05_new_q15_a"
+        },
+        {
+          "label": "b",
+          "text": "False",
+          "id": "wk05_new_q15_b"
+        }
+      ],
+      "correct_answers": [
+        "a"
+      ],
+      "answer_text": [
+        "True"
+      ],
+      "raw_stem": "State whether the following statement is True or False.\n\n\\noindent\\textbf{Statement:} A stepper motor is a type of actuator. \\hfill \\mbox{\\textit{[True / False, 1 Point]}}",
+      "raw_options": {
+        "a": "True",
+        "b": "False"
+      },
+      "raw_answer": "(a) True"
     }
   ]
 }
