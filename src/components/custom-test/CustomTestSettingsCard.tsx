@@ -1,7 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Clock, X } from "lucide-react";
+import { Clock, HelpCircle, X } from "lucide-react";
+import type { QuestionType } from "@/types";
 
 interface CustomTestSettingsCardProps {
   isTimed: boolean;
@@ -17,6 +18,9 @@ interface CustomTestSettingsCardProps {
   questionCountLimit: number | null;
   questionLimitPresets: readonly { label: string; value: number | null }[];
   onQuestionLimitChange: (limit: number | null) => void;
+  questionTypeFilter: QuestionType | "ALL";
+  questionTypePresets: readonly { label: string; value: QuestionType | "ALL" }[];
+  onQuestionTypeChange: (type: QuestionType | "ALL") => void;
 }
 
 export function CustomTestSettingsCard({
@@ -33,6 +37,9 @@ export function CustomTestSettingsCard({
   questionCountLimit,
   questionLimitPresets,
   onQuestionLimitChange,
+  questionTypeFilter,
+  questionTypePresets,
+  onQuestionTypeChange,
 }: CustomTestSettingsCardProps) {
   return (
     <Card className="border-border/70 bg-card shadow-2xs overflow-hidden">
@@ -118,7 +125,35 @@ export function CustomTestSettingsCard({
           </div>
         </div>
 
-        {/* Row 2: Compact Question Limit Filter */}
+        {/* Row 2: Question Type Filter */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-border/50 text-xs">
+          <div className="flex items-center gap-1.5 text-muted-foreground font-medium text-xs">
+            <HelpCircle className="size-3.5 text-muted-foreground/80" />
+            <span>Question Type:</span>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-1">
+            {questionTypePresets.map((preset) => {
+              const isSelected = questionTypeFilter === preset.value;
+              return (
+                <Button
+                  key={preset.value}
+                  type="button"
+                  variant={isSelected ? "secondary" : "ghost"}
+                  size="xs"
+                  onClick={() => onQuestionTypeChange(preset.value)}
+                  className={`text-[11px] font-medium transition-colors ${
+                    isSelected ? "font-semibold shadow-2xs" : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {preset.label}
+                </Button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Row 3: Compact Question Limit Filter */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-border/50 text-xs">
           <span className="text-muted-foreground font-medium text-xs">
             Question Count:

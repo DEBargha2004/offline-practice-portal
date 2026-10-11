@@ -1,12 +1,13 @@
 import { useState, useMemo, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import type { Chapter, TestSession } from "@/types";
+import type { Chapter, TestSession, QuestionType } from "@/types";
 import { useCurrentModule } from "@/hooks/useCurrentModule";
 import {
   buildCustomTestSession,
   generateChapterRangePresets,
   DEFAULT_DURATION_PRESETS,
   QUESTION_LIMIT_PRESETS,
+  QUESTION_TYPE_PRESETS,
   CHAPTER_RANGE_PRESETS,
   WEEK_RANGE_PRESETS,
 } from "@/services/customTestService";
@@ -18,6 +19,7 @@ export function useCustomTestController() {
     moduleId,
     getAllChapters,
     getAllWeeks,
+    getAllQuestionsCombined,
     generateCustomQuestions,
     getActiveSession,
     saveActiveSession,
@@ -26,6 +28,7 @@ export function useCustomTestController() {
 
   const chapters: Chapter[] = useMemo(() => getAllChapters(), [getAllChapters]);
   const weeks: Chapter[] = useMemo(() => getAllWeeks(), [getAllWeeks]);
+  const allQuestions = useMemo(() => getAllQuestionsCombined(), [getAllQuestionsCombined]);
 
   // Selection state
   const [selectedChapters, setSelectedChapters] = useState<Set<number>>(() => new Set());
@@ -40,6 +43,9 @@ export function useCustomTestController() {
 
   // Question limit state
   const [questionCountLimit, setQuestionCountLimit] = useState<number | null>(null);
+
+  // Question type filter state ("ALL" | QuestionType)
+  const [questionTypeFilter, setQuestionTypeFilter] = useState<QuestionType | "ALL">("ALL");
 
   // Active session detection & dialog
   const [activeSession, setActiveSession] = useState<TestSession | null>(null);
@@ -84,21 +90,22 @@ export function useCustomTestController() {
     );
   }, [weeks, searchQuery]);
 
-  // Aggregate questions in selected chapters & weeks
+  // Aggregate questions in selected chapters & weeks (respecting questionTypeFilter if set)
   const totalAvailableQuestions = useMemo(() => {
-    let count = 0;
-    for (const ch of chapters) {
-      if (selectedChapters.has(ch.chapter_number)) {
-        count += ch.question_count;
-      }
+    if (selectedChapters.size === 0 && selectedWeeks.size === 0) return 0;
+
+    let matchingQuestions = allQuestions.filter((q) => {
+      const matchChapter = selectedChapters.has(q.chapter_number) && !q.id.startsWith("week_");
+      const matchWeek = selectedWeeks.has(q.chapter_number) && q.id.startsWith("week_");
+      return matchChapter || matchWeek;
+    });
+
+    if (questionTypeFilter !== "ALL") {
+      matchingQuestions = matchingQuestions.filter((q) => q.type === questionTypeFilter);
     }
-    for (const wk of weeks) {
-      if (selectedWeeks.has(wk.chapter_number)) {
-        count += wk.question_count;
-      }
-    }
-    return count;
-  }, [chapters, weeks, selectedChapters, selectedWeeks]);
+
+    return matchingQuestions.length;
+  }, [allQuestions, selectedChapters, selectedWeeks, questionTypeFilter]);
 
   // Target questions to be delivered in the test
   const targetQuestionCount = useMemo(() => {
@@ -215,6 +222,7 @@ export function useCustomTestController() {
         weekNumbers: Array.from(selectedWeeks),
         durationMinutes: isTimed ? durationMinutes : null,
         questionCountLimit,
+        types: questionTypeFilter === "ALL" ? undefined : [questionTypeFilter],
       },
       chapters.length,
       weeks.length,
@@ -232,6 +240,7 @@ export function useCustomTestController() {
     isTimed,
     durationMinutes,
     questionCountLimit,
+    questionTypeFilter,
     chapters.length,
     weeks.length,
     generateCustomQuestions,
@@ -293,6 +302,9 @@ export function useCustomTestController() {
     questionCountLimit,
     setQuestionCountLimit,
     questionLimitPresets: QUESTION_LIMIT_PRESETS,
+    questionTypeFilter,
+    setQuestionTypeFilter,
+    questionTypePresets: QUESTION_TYPE_PRESETS,
     chapterRangePresets,
     weekRangePresets,
     totalAvailableQuestions,

@@ -119,6 +119,7 @@ export interface CustomTestConfig {
   weekNumbers?: number[];
   durationMinutes: number | null;
   questionCountLimit: number | null;
+  types?: QuestionType[];
 }
 
 export interface ChapterRangePreset {

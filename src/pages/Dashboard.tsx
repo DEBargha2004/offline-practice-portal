@@ -438,7 +438,7 @@ export function Dashboard() {
       </Card>
 
       {/* Sleek Metrics Strip */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 p-3.5 sm:p-4 rounded-xl border border-border/70 bg-card/60 shadow-2xs divide-y md:divide-y-0 md:divide-x divide-border/60">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 p-3.5 sm:p-4 rounded-xl border border-border/70 bg-card/60 shadow-2xs md:divide-x divide-border/60">
         <div className="px-2 sm:px-4 py-1 flex flex-col justify-center">
           <span className="text-[11px] font-medium text-muted-foreground">
             Total Questions

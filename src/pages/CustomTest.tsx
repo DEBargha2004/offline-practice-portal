@@ -33,6 +33,9 @@ export function CustomTest() {
     questionCountLimit,
     setQuestionCountLimit,
     questionLimitPresets,
+    questionTypeFilter,
+    setQuestionTypeFilter,
+    questionTypePresets,
     chapterRangePresets,
     weekRangePresets,
     totalAvailableQuestions,
@@ -89,6 +92,9 @@ export function CustomTest() {
         questionCountLimit={questionCountLimit}
         questionLimitPresets={questionLimitPresets}
         onQuestionLimitChange={setQuestionCountLimit}
+        questionTypeFilter={questionTypeFilter}
+        questionTypePresets={questionTypePresets}
+        onQuestionTypeChange={setQuestionTypeFilter}
       />
 
       {/* Unified Content Selection & Filter Controls */}

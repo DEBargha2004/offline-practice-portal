@@ -3,6 +3,7 @@ import type {
   CustomTestConfig,
   TestSession,
   Question,
+  QuestionType,
 } from "@/types";
 import { generateCustomQuestions } from "./questionService";
 
@@ -19,6 +20,16 @@ export const QUESTION_LIMIT_PRESETS: readonly {
   { label: "30 Qs", value: 30 },
   { label: "50 Qs", value: 50 },
   { label: "100 Qs", value: 100 },
+];
+
+export const QUESTION_TYPE_PRESETS: readonly {
+  label: string;
+  value: QuestionType | "ALL";
+}[] = [
+  { label: "All Types", value: "ALL" },
+  { label: "MCQ", value: "MCQ" },
+  { label: "MSQ", value: "MSQ" },
+  { label: "True / False", value: "True / False" },
 ];
 
 export const CHAPTER_RANGE_PRESETS: readonly ChapterRangePreset[] = [
@@ -79,6 +90,7 @@ export function buildCustomTestSession(
   totalAvailableChaptersCount: number,
   totalAvailableWeeksCount = 0,
   generateQuestionsFn: (options: {
+    types?: QuestionType[];
     chapterNumbers?: number[];
     weekNumbers?: number[];
     count?: number;
@@ -94,6 +106,7 @@ export function buildCustomTestSession(
   }
 
   const questions = generateQuestionsFn({
+    types: config.types,
     chapterNumbers: config.chapterNumbers,
     weekNumbers: config.weekNumbers,
     count: config.questionCountLimit ?? undefined,
