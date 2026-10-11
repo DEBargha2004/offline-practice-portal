@@ -6,6 +6,7 @@ import { QuestionCard } from "@/components/question/QuestionCard";
 import { QuestionPalette } from "@/components/question/QuestionPalette";
 import { TestTimer } from "@/components/test/TestTimer";
 import { TestSubmissionDialog } from "@/components/test/TestSubmissionDialog";
+import { QuestionHintDrawer } from "@/components/test/QuestionHintDrawer";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import {
@@ -25,6 +26,7 @@ import {
   LayoutGrid,
   Maximize2,
   Minimize2,
+  Lightbulb,
 } from "lucide-react";
 import { cn } from "cn";
 
@@ -33,6 +35,7 @@ export function TestSession() {
   const { basePath } = useCurrentModule();
   const [exitModalOpen, setExitModalOpen] = useState(false);
   const [paletteDrawerOpen, setPaletteDrawerOpen] = useState(false);
+  const [hintDrawerOpen, setHintDrawerOpen] = useState(false);
   const [zenMode, setZenMode] = useState(false);
 
   const {
@@ -191,6 +194,17 @@ export function TestSession() {
                   <span className="hidden sm:inline">{bookmarkedState ? "Flagged" : "Flag for Review"}</span>
                   <span className="sm:hidden">{bookmarkedState ? "Flagged" : "Flag"}</span>
                 </Button>
+
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setHintDrawerOpen(true)}
+                  className="gap-1 sm:gap-1.5 text-xs h-8 sm:h-9 px-2 sm:px-3 text-amber-600 dark:text-amber-400 hover:text-amber-700 hover:bg-amber-500/10 border-amber-500/30"
+                  title="View notes and hints for this topic"
+                >
+                  <Lightbulb className="size-3.5 fill-amber-500/20" />
+                  <span>Hint</span>
+                </Button>
               </div>
 
               <div className="flex items-center gap-1.5 sm:gap-2">
@@ -263,6 +277,16 @@ export function TestSession() {
           />
         </DialogContent>
       </Dialog>
+
+      {/* Notes & Hint Drawer / Sheet */}
+      <QuestionHintDrawer
+        open={hintDrawerOpen}
+        onOpenChange={setHintDrawerOpen}
+        chapterNumber={currentQuestion.chapter_number || session.chapterNumber}
+        chapterTitle={currentQuestion.chapter_title}
+        weekNumber={session.weekNumber}
+        mode={session.mode}
+      />
 
       {/* Submission Confirmation Modal */}
       <TestSubmissionDialog

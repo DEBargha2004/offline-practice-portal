@@ -10,6 +10,7 @@ import {
 } from "@/services/chapterNotesService";
 import { MarkdownViewer } from "@/components/notes/MarkdownViewer";
 import { ChapterListNav } from "@/components/notes/ChapterListNav";
+import { useCurrentModule } from "@/hooks/useCurrentModule";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -138,19 +139,66 @@ export function ChapterNotes({ isWeekMode = false }: ChapterNotesProps) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const {
+    basePath,
+    getChapter,
+    getWeek,
+    generateChapterQuestions,
+    generateWeekQuestions,
+    saveActiveSession,
+  } = useCurrentModule();
+
   const handleStartPractice = () => {
     if (isWeekMode) {
-      navigate(`/test?mode=week&id=${activeNumber}&count=0&timed=false`);
+      const questions = generateWeekQuestions(activeNumber, true);
+      if (questions.length === 0) return;
+      const weekMeta = getWeek(activeNumber);
+      const session = {
+        id: `session_week_${activeNumber}_${Date.now()}`,
+        title: `${weekMeta?.chapter_title || `Week ${activeNumber}`} Assignment`,
+        mode: "week" as const,
+        weekNumber: activeNumber,
+        startedAt: Date.now(),
+        timeLimitSeconds: null,
+        elapsedSeconds: 0,
+        isCompleted: false,
+        questionIds: questions.map((q) => q.id),
+        questions: questions,
+        userAnswers: {},
+        flaggedQuestionIds: [],
+        currentQuestionIndex: 0,
+      };
+      saveActiveSession(session);
+      navigate(`${basePath}/test`);
     } else {
-      navigate(`/test?mode=chapter&id=${activeNumber}&count=0&timed=false`);
+      const questions = generateChapterQuestions(activeNumber, true);
+      if (questions.length === 0) return;
+      const chapterMeta = getChapter(activeNumber);
+      const session = {
+        id: `session_ch_${activeNumber}_${Date.now()}`,
+        title: chapterMeta?.chapter_title || `Chapter ${activeNumber}`,
+        mode: "chapter" as const,
+        chapterNumber: activeNumber,
+        startedAt: Date.now(),
+        timeLimitSeconds: null,
+        elapsedSeconds: 0,
+        isCompleted: false,
+        questionIds: questions.map((q) => q.id),
+        questions: questions,
+        userAnswers: {},
+        flaggedQuestionIds: [],
+        currentQuestionIndex: 0,
+      };
+      saveActiveSession(session);
+      navigate(`${basePath}/test`);
     }
   };
 
   const handleStartRevision = () => {
     if (isWeekMode) {
-      navigate(`/revision?mode=week&id=${activeNumber}`);
+      navigate(`${basePath}/revision?mode=week&id=${activeNumber}`);
     } else {
-      navigate(`/revision?mode=chapter&id=${activeNumber}`);
+      navigate(`${basePath}/revision?mode=chapter&id=${activeNumber}`);
     }
   };
 
