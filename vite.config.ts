@@ -52,7 +52,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,svg,woff2}"],
-        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
         runtimeCaching: [
           {
             urlPattern: /\/notes\/manifest\.json$/,
@@ -88,6 +88,9 @@ export default defineConfig({
             id.includes("week_wise_questions_data.json")
           ) {
             return "question-bank";
+          }
+          if (id.includes("mermaid")) {
+            return "mermaid";
           }
           if (id.includes("node_modules")) {
             return "vendor";

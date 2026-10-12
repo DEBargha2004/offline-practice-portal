@@ -1,10 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import {
   fetchChapterNoteContent,
   fetchWeekNoteContent,
   getChapterNotesManifest,
   type ChapterNotesManifest,
 } from "@/services/chapterNotesService";
+import {
+  chunkMarkdownNotes,
+  findRelevantHintSections,
+  type MatchedHint,
+} from "@/services/hintService";
 import { MarkdownViewer } from "@/components/notes/MarkdownViewer";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
@@ -22,12 +27,22 @@ import {
   DrawerTitle,
   DrawerDescription,
 } from "@/components/ui/drawer";
-import { Lightbulb, RotateCcw, BookOpen, Layers } from "lucide-react";
+import {
+  Lightbulb,
+  RotateCcw,
+  BookOpen,
+  Layers,
+  Sparkles,
+  ChevronDown,
+  ChevronUp,
+} from "lucide-react";
 import { cn } from "cn";
+import type { Question } from "@/types";
 
 interface QuestionHintDrawerProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  question?: Question;
   chapterNumber?: number;
   chapterTitle?: string;
   weekNumber?: number;
@@ -37,6 +52,7 @@ interface QuestionHintDrawerProps {
 export function QuestionHintDrawer({
   open,
   onOpenChange,
+  question,
   chapterNumber,
   chapterTitle,
   weekNumber: directWeekNumber,
@@ -45,33 +61,33 @@ export function QuestionHintDrawer({
   const isMobile = useIsMobile();
   const [manifest, setManifest] = useState<ChapterNotesManifest | null>(null);
 
-  // Compute resolved chapter and week numbers
-  // If in week mode and weekNumber isn't direct, or vice versa
+  // Derive target chapter and week numbers
+  const effectiveChapterNumber =
+    question?.chapter_number || chapterNumber;
   const resolvedChapterNumber =
-    chapterNumber && chapterNumber > 0 ? chapterNumber : undefined;
+    effectiveChapterNumber && effectiveChapterNumber > 0
+      ? effectiveChapterNumber
+      : undefined;
 
-  // Calculate week number if not directly provided (chapters 1..60, 5 per week)
   const computedWeekNumber =
     directWeekNumber && directWeekNumber > 0
       ? directWeekNumber
-      : mode === "week" && chapterNumber
-        ? chapterNumber
+      : mode === "week" && effectiveChapterNumber
+        ? effectiveChapterNumber
         : resolvedChapterNumber
           ? Math.ceil(resolvedChapterNumber / 5)
           : undefined;
 
-  const hasBoth = Boolean(resolvedChapterNumber && computedWeekNumber);
-  const [activeTab, setActiveTab] = useState<"chapter" | "week">("chapter");
+  const [activeTab, setActiveTab] = useState<"smart" | "chapter" | "week">("smart");
+  const [showFullNotes, setShowFullNotes] = useState(false);
 
   useEffect(() => {
-    if (mode === "week" && computedWeekNumber) {
-      setActiveTab("week");
-    } else {
-      setActiveTab("chapter");
+    if (open) {
+      setActiveTab("smart");
+      setShowFullNotes(false);
     }
-  }, [mode, resolvedChapterNumber, computedWeekNumber]);
+  }, [open, question?.id]);
 
-  // Load manifest once
   useEffect(() => {
     getChapterNotesManifest()
       .then(setManifest)
@@ -85,13 +101,6 @@ export function QuestionHintDrawer({
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const activeTargetType =
-    !resolvedChapterNumber && computedWeekNumber
-      ? "week"
-      : !computedWeekNumber && resolvedChapterNumber
-        ? "chapter"
-        : activeTab;
-
   useEffect(() => {
     if (!open) return;
 
@@ -101,25 +110,31 @@ export function QuestionHintDrawer({
 
     const loadContent = async () => {
       try {
-        if (activeTargetType === "week" && computedWeekNumber) {
-          const text = await fetchWeekNoteContent(
-            computedWeekNumber,
-            manifest || undefined,
+        const promises: Promise<unknown>[] = [];
+
+        if (resolvedChapterNumber) {
+          promises.push(
+            fetchChapterNoteContent(
+              resolvedChapterNumber,
+              manifest || undefined,
+            ).then((text) => {
+              if (isMounted) setChapterContent(text);
+            })
           );
-          if (isMounted) setWeekContent(text);
-        } else if (resolvedChapterNumber) {
-          const text = await fetchChapterNoteContent(
-            resolvedChapterNumber,
-            manifest || undefined,
-          );
-          if (isMounted) setChapterContent(text);
-        } else if (computedWeekNumber) {
-          const text = await fetchWeekNoteContent(
-            computedWeekNumber,
-            manifest || undefined,
-          );
-          if (isMounted) setWeekContent(text);
         }
+
+        if (computedWeekNumber) {
+          promises.push(
+            fetchWeekNoteContent(
+              computedWeekNumber,
+              manifest || undefined,
+            ).then((text) => {
+              if (isMounted) setWeekContent(text);
+            })
+          );
+        }
+
+        await Promise.all(promises);
       } catch (err) {
         if (isMounted) {
           setError(
@@ -140,11 +155,30 @@ export function QuestionHintDrawer({
     };
   }, [
     open,
-    activeTargetType,
     resolvedChapterNumber,
     computedWeekNumber,
     manifest,
   ]);
+
+  // Extract top matching sections
+  const matchedHints: MatchedHint[] = useMemo(() => {
+    if (!question) return [];
+
+    const allChunks = [];
+    if (chapterContent && resolvedChapterNumber) {
+      allChunks.push(
+        ...chunkMarkdownNotes(chapterContent, "chapter", resolvedChapterNumber)
+      );
+    }
+    if (weekContent && computedWeekNumber) {
+      allChunks.push(
+        ...chunkMarkdownNotes(weekContent, "week", computedWeekNumber)
+      );
+    }
+
+    if (!allChunks.length) return [];
+    return findRelevantHintSections(question, allChunks, 2);
+  }, [question, chapterContent, weekContent, resolvedChapterNumber, computedWeekNumber]);
 
   const currentChapterMeta = manifest?.chapters.find(
     (c) => c.chapterNumber === resolvedChapterNumber,
@@ -154,31 +188,165 @@ export function QuestionHintDrawer({
   );
 
   const displayTitle =
-    activeTargetType === "week"
+    activeTab === "week"
       ? `Week ${computedWeekNumber} Summary Notes`
-      : currentChapterMeta?.title ||
-        chapterTitle ||
-        `Chapter ${resolvedChapterNumber || ""}`;
+      : activeTab === "chapter"
+        ? currentChapterMeta?.title || chapterTitle || `Chapter ${resolvedChapterNumber || ""}`
+        : "Concept Hint";
 
   const subtitle =
-    activeTargetType === "week"
+    activeTab === "week"
       ? currentWeekMeta
-        ? `Lectures ${currentWeekMeta.startChapter}–${currentWeekMeta.endChapter} · ${currentWeekMeta.readingTime} read`
-        : `Assignment & Weekly Revision Notes`
-      : `Chapter ${resolvedChapterNumber} · ${currentChapterMeta?.readingTime || "3 min"} read`;
+        ? `Lectures ${currentWeekMeta.startChapter}–${currentWeekMeta.endChapter}`
+        : `Weekly Notes`
+      : activeTab === "chapter"
+        ? `Chapter ${resolvedChapterNumber}`
+        : `Targeted reference for this question`;
 
-  const activeContent =
-    activeTargetType === "week" ? weekContent : chapterContent;
+  const renderSmartHints = () => {
+    if (loading) {
+      return (
+        <div className="rounded-xl border border-border/70 bg-card p-12 text-center space-y-3 my-4">
+          <div className="size-6 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
+          <p className="text-xs text-muted-foreground">Finding relevant notes...</p>
+        </div>
+      );
+    }
+
+    if (error) {
+      return (
+        <div className="rounded-xl border border-dashed border-border p-6 text-center space-y-2.5 my-4">
+          <p className="text-xs text-muted-foreground">{error}</p>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              setLoading(true);
+              setError(null);
+            }}
+            className="gap-1.5 h-8 text-xs"
+          >
+            <RotateCcw className="size-3.5" />
+            <span>Retry</span>
+          </Button>
+        </div>
+      );
+    }
+
+    if (!matchedHints.length) {
+      return (
+        <div className="space-y-4">
+          <div className="rounded-xl border border-border/70 bg-card/60 p-5 text-center text-xs text-muted-foreground">
+            No specific excerpt pinpointed. Browse the full chapter note below.
+          </div>
+          {chapterContent && (
+            <div className="rounded-xl border border-border/60 bg-card/60 p-4 sm:p-5 shadow-2xs">
+              <MarkdownViewer content={chapterContent} />
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    const primaryHint = matchedHints[0];
+    const secondaryHint = matchedHints[1];
+
+    return (
+      <div className="space-y-3.5">
+        {/* Primary Concept Spotlight */}
+        <div className="rounded-xl border border-amber-500/25 bg-amber-500/5 dark:bg-amber-500/10 p-4 sm:p-5 space-y-3">
+          <div className="flex items-center justify-between gap-2 border-b border-amber-500/15 pb-2">
+            <span className="text-xs font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-300 flex items-center gap-1.5">
+              <Sparkles className="size-3.5" />
+              Focus Concept
+            </span>
+            {primaryHint.parentHeading && (
+              <span className="text-[11px] text-muted-foreground">
+                {primaryHint.parentHeading}
+              </span>
+            )}
+          </div>
+
+          <h4 className="text-sm font-bold text-foreground">
+            {primaryHint.sectionTitle}
+          </h4>
+
+          <div className="text-xs sm:text-sm text-foreground/90 bg-background/85 rounded-lg p-3.5 border border-border/50 leading-relaxed shadow-2xs">
+            <MarkdownViewer content={primaryHint.excerpt} />
+          </div>
+        </div>
+
+        {/* Secondary section if directly relevant */}
+        {secondaryHint && (
+          <div className="rounded-xl border border-border/60 bg-card p-3.5 space-y-2">
+            <div className="flex items-center justify-between text-xs font-semibold text-foreground">
+              <span>{secondaryHint.sectionTitle}</span>
+              <span className="text-[10px] text-muted-foreground uppercase">
+                {secondaryHint.sourceType} {secondaryHint.sourceNumber}
+              </span>
+            </div>
+            <div className="text-xs text-muted-foreground leading-relaxed">
+              <MarkdownViewer content={secondaryHint.excerpt} />
+            </div>
+          </div>
+        )}
+
+        {/* Expandable full lecture note */}
+        {chapterContent && (
+          <div className="pt-2 border-t border-border/50">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setShowFullNotes(!showFullNotes)}
+              className="w-full justify-between text-xs text-muted-foreground hover:text-foreground h-8 px-2"
+            >
+              <span>
+                {showFullNotes
+                  ? "Hide Full Chapter Notes"
+                  : `Expand Full Chapter ${resolvedChapterNumber || ""} Notes`}
+              </span>
+              {showFullNotes ? (
+                <ChevronUp className="size-3.5" />
+              ) : (
+                <ChevronDown className="size-3.5" />
+              )}
+            </Button>
+
+            {showFullNotes && (
+              <div className="mt-2.5 rounded-xl border border-border/60 bg-card/60 p-4 sm:p-5 shadow-2xs">
+                <MarkdownViewer content={chapterContent} />
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   const notesBody = (
-    <div className="flex-1 overflow-y-auto px-1 sm:px-2 py-3 space-y-4">
-      {hasBoth && (
-        <div className="flex items-center gap-1.5 p-1 bg-muted/60 rounded-lg w-fit border border-border/60">
+    <div className="flex-1 overflow-y-auto px-1 sm:px-2 py-2.5 space-y-3.5">
+      {/* Clean segmented tabs */}
+      <div className="flex items-center gap-1 p-1 bg-muted/60 rounded-lg w-fit border border-border/60">
+        <button
+          type="button"
+          onClick={() => setActiveTab("smart")}
+          className={cn(
+            "flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs transition-all",
+            activeTab === "smart"
+              ? "bg-background text-foreground shadow-xs font-semibold"
+              : "text-muted-foreground hover:text-foreground",
+          )}
+        >
+          <Sparkles className="size-3.5 text-amber-500" />
+          <span>Relevant Clue</span>
+        </button>
+
+        {resolvedChapterNumber && (
           <button
             type="button"
             onClick={() => setActiveTab("chapter")}
             className={cn(
-              "flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all",
+              "flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs transition-all",
               activeTab === "chapter"
                 ? "bg-background text-foreground shadow-xs font-semibold"
                 : "text-muted-foreground hover:text-foreground",
@@ -187,11 +355,14 @@ export function QuestionHintDrawer({
             <BookOpen className="size-3.5" />
             <span>Chapter {resolvedChapterNumber}</span>
           </button>
+        )}
+
+        {computedWeekNumber && (
           <button
             type="button"
             onClick={() => setActiveTab("week")}
             className={cn(
-              "flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all",
+              "flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs transition-all",
               activeTab === "week"
                 ? "bg-background text-foreground shadow-xs font-semibold"
                 : "text-muted-foreground hover:text-foreground",
@@ -200,63 +371,53 @@ export function QuestionHintDrawer({
             <Layers className="size-3.5" />
             <span>Week {computedWeekNumber}</span>
           </button>
-        </div>
-      )}
+        )}
+      </div>
 
-      {loading ? (
-        <div className="rounded-xl border border-border/70 bg-card p-12 text-center space-y-3 my-4">
-          <div className="size-6 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
-          <p className="text-xs text-muted-foreground">
-            Loading summary notes...
-          </p>
-        </div>
-      ) : error ? (
-        <div className="rounded-xl border border-dashed border-border p-8 text-center space-y-3 my-4">
-          <p className="text-sm text-muted-foreground">{error}</p>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => {
-              setLoading(true);
-              setError(null);
-              if (activeTargetType === "week" && computedWeekNumber) {
-                fetchWeekNoteContent(computedWeekNumber)
-                  .then(setWeekContent)
-                  .catch((e) => setError(e.message))
-                  .finally(() => setLoading(false));
-              } else if (resolvedChapterNumber) {
-                fetchChapterNoteContent(resolvedChapterNumber)
-                  .then(setChapterContent)
-                  .catch((e) => setError(e.message))
-                  .finally(() => setLoading(false));
-              }
-            }}
-            className="gap-1.5"
-          >
-            <RotateCcw className="size-3.5" />
-            <span>Retry</span>
-          </Button>
-        </div>
-      ) : activeContent ? (
-        <div className="rounded-xl border border-border/60 bg-card/60 p-4 sm:p-6 shadow-2xs">
-          <MarkdownViewer content={activeContent} />
-        </div>
-      ) : (
-        <div className="p-8 text-center text-sm text-muted-foreground">
-          No notes available for this topic.
-        </div>
-      )}
+      {activeTab === "smart" ? (
+        renderSmartHints()
+      ) : activeTab === "chapter" ? (
+        loading ? (
+          <div className="rounded-xl border border-border/70 bg-card p-12 text-center space-y-3 my-4">
+            <div className="size-6 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
+            <p className="text-xs text-muted-foreground">Loading chapter notes...</p>
+          </div>
+        ) : chapterContent ? (
+          <div className="rounded-xl border border-border/60 bg-card/60 p-4 sm:p-5 shadow-2xs">
+            <MarkdownViewer content={chapterContent} />
+          </div>
+        ) : (
+          <div className="p-8 text-center text-xs text-muted-foreground">
+            No notes available for this chapter.
+          </div>
+        )
+      ) : activeTab === "week" ? (
+        loading ? (
+          <div className="rounded-xl border border-border/70 bg-card p-12 text-center space-y-3 my-4">
+            <div className="size-6 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
+            <p className="text-xs text-muted-foreground">Loading week notes...</p>
+          </div>
+        ) : weekContent ? (
+          <div className="rounded-xl border border-border/60 bg-card/60 p-4 sm:p-5 shadow-2xs">
+            <MarkdownViewer content={weekContent} />
+          </div>
+        ) : (
+          <div className="p-8 text-center text-xs text-muted-foreground">
+            No notes available for this week.
+          </div>
+        )
+      ) : null}
     </div>
   );
 
   if (isMobile) {
     return (
       <Drawer open={open} onOpenChange={onOpenChange}>
-        <DrawerContent className="h-[88vh] flex flex-col p-4">
-          <DrawerHeader className="text-left px-1 pb-3 border-b border-border/60">
+        <DrawerContent className="h-[85vh] flex flex-col p-4">
+          <DrawerHeader className="text-left px-1 pb-2.5 border-b border-border/60">
             <div className="flex items-center gap-1.5 text-amber-500 font-medium text-xs">
               <Lightbulb className="size-3.5 shrink-0 fill-amber-500/20 text-amber-500" />
-              <span>Reference Notes</span>
+              <span>Hint</span>
             </div>
             <DrawerTitle className="text-base font-bold truncate mt-0.5">
               {displayTitle}
@@ -275,12 +436,12 @@ export function QuestionHintDrawer({
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent
         side="right"
-        className="w-full sm:min-w-2xl md:min-w-3xl lg:min-w-4xl flex flex-col p-6 gap-3"
+        className="w-full sm:min-w-xl md:min-w-2xl lg:min-w-3xl flex flex-col p-5 gap-2.5"
       >
-        <SheetHeader className="px-0 pb-3 border-b border-border/60 text-left">
+        <SheetHeader className="px-0 pb-2.5 border-b border-border/60 text-left">
           <div className="flex items-center gap-1.5 text-amber-500 font-medium text-xs">
             <Lightbulb className="size-3.5 shrink-0 fill-amber-500/20 text-amber-500" />
-            <span>Reference Notes</span>
+            <span>Hint</span>
           </div>
           <SheetTitle className="text-lg font-bold break-words leading-tight mt-0.5">
             {displayTitle}

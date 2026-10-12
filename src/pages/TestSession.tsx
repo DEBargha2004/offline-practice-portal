@@ -282,6 +282,7 @@ export function TestSession() {
       <QuestionHintDrawer
         open={hintDrawerOpen}
         onOpenChange={setHintDrawerOpen}
+        question={currentQuestion}
         chapterNumber={currentQuestion.chapter_number || session.chapterNumber}
         chapterTitle={currentQuestion.chapter_title}
         weekNumber={session.weekNumber}

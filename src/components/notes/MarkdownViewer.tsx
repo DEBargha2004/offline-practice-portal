@@ -8,8 +8,11 @@ import {
   Layers,
   ArrowRight,
   BookmarkCheck,
+  Code2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ModernDiagramViewer } from "./ModernDiagramViewer";
+import { MermaidViewer } from "./MermaidViewer";
 
 interface MarkdownViewerProps {
   content: string;
@@ -196,9 +199,16 @@ export function MarkdownViewer({ content, className }: MarkdownViewerProps) {
               />
             ),
 
+            // Pre blocks
+            pre: ({ children }) => {
+              return <div className="not-prose">{children}</div>;
+            },
+
             // Inline and block code
             code: ({ children, className }) => {
               const isInline = !className;
+              const rawString = String(children).replace(/\n$/, "");
+
               if (isInline) {
                 return (
                   <code className="rounded-md bg-muted px-1.5 py-0.5 font-mono text-[12px] text-foreground font-medium border border-border/40">
@@ -206,11 +216,32 @@ export function MarkdownViewer({ content, className }: MarkdownViewerProps) {
                   </code>
                 );
               }
+
+              const languageMatch = /language-(\w+)/.exec(className || "");
+              const lang = languageMatch ? languageMatch[1] : "";
+
+              // Special syntax: ```diagram or ```mermaid
+              if (lang === "mermaid") {
+                return <MermaidViewer code={rawString} />;
+              }
+              if (lang === "diagram") {
+                return <ModernDiagramViewer code={rawString} />;
+              }
+
+              // Regular code block (Python, C, shell, etc.)
               return (
-                <div className="my-4 rounded-xl border border-border/70 bg-muted/40 p-4 font-mono text-xs overflow-x-auto shadow-2xs">
-                  <code className="block text-foreground/90 whitespace-pre">
-                    {children}
-                  </code>
+                <div className="my-4 rounded-xl border border-border/70 bg-muted/40 shadow-2xs overflow-hidden not-prose">
+                  <div className="flex items-center justify-between px-3.5 py-1.5 bg-muted/60 border-b border-border/50 text-[11px] text-muted-foreground">
+                    <span className="flex items-center gap-1.5 font-mono">
+                      <Code2 className="size-3" />
+                      {lang || "code"}
+                    </span>
+                  </div>
+                  <div className="p-4 overflow-x-auto font-mono text-xs">
+                    <pre className="m-0 text-foreground/90 whitespace-pre">
+                      {children}
+                    </pre>
+                  </div>
                 </div>
               );
             },
