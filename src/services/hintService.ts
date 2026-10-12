@@ -240,6 +240,28 @@ export function findRelevantHintSections(
 }
 
 /**
+ * Calculates total match relevance score aggregated per chapter
+ */
+export function calculateChapterMatchScores(
+  question: Question,
+  chunks: NoteSectionChunk[]
+): Record<number, number> {
+  const chapterChunks = chunks.filter((c) => c.sourceType === "chapter");
+  if (!chapterChunks.length) return {};
+
+  const hints = findRelevantHintSections(question, chapterChunks, 20);
+  const scores: Record<number, number> = {};
+
+  for (const h of hints) {
+    if (h.sourceType === "chapter") {
+      scores[h.sourceNumber] = (scores[h.sourceNumber] || 0) + h.relevanceScore;
+    }
+  }
+
+  return scores;
+}
+
+/**
  * Extracts 2-4 key lines/bullets from a section that have the highest concentration of matched query terms
  */
 function extractBestSnippet(content: string, matchedTerms: string[]): string {

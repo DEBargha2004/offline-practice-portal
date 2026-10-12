@@ -50,18 +50,30 @@ mermaid.initialize({
   },
 });
 
+// Cache rendered SVGs to prevent infinite loops, DOM churning, or flickering
+const RENDERED_SVG_CACHE = new Map<string, string>();
+let renderCounter = 0;
+
 export function MermaidViewer({ code, className }: MermaidViewerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [svgContent, setSvgContent] = useState<string>("");
+  const trimmedCode = code.trim();
+  const [svgContent, setSvgContent] = useState<string>(() => RENDERED_SVG_CACHE.get(trimmedCode) || "");
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    // If already cached, don't re-render
+    if (RENDERED_SVG_CACHE.has(trimmedCode)) {
+      setSvgContent(RENDERED_SVG_CACHE.get(trimmedCode)!);
+      return;
+    }
+
     let isMounted = true;
-    const id = `mermaid-${Math.random().toString(36).substring(2, 9)}`;
+    const id = `mermaid-diag-${++renderCounter}`;
 
     mermaid
-      .render(id, code.trim())
+      .render(id, trimmedCode)
       .then(({ svg }) => {
+        RENDERED_SVG_CACHE.set(trimmedCode, svg);
         if (isMounted) {
           setSvgContent(svg);
           setError(null);
@@ -72,12 +84,19 @@ export function MermaidViewer({ code, className }: MermaidViewerProps) {
           console.error("Mermaid render error:", err);
           setError("Failed to render diagram.");
         }
+      })
+      .finally(() => {
+        // Remove temporary container injected into document.body by mermaid if left over
+        const tempElement = document.getElementById(id);
+        if (tempElement && tempElement.parentNode) {
+          tempElement.parentNode.removeChild(tempElement);
+        }
       });
 
     return () => {
       isMounted = false;
     };
-  }, [code]);
+  }, [trimmedCode]);
 
   if (error) {
     return (

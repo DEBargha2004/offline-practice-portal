@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRevisionSessionController } from "@/controllers/useRevisionSessionController";
+import { useCurrentModule } from "@/hooks/useCurrentModule";
 import { QuestionCard } from "@/components/question/QuestionCard";
 import { QuestionPalette } from "@/components/question/QuestionPalette";
 import { TestTimer } from "@/components/test/TestTimer";
 import { RevisionEyeButton } from "@/components/revision/RevisionEyeButton";
+import { QuestionHintDrawer } from "@/components/test/QuestionHintDrawer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
@@ -23,10 +25,14 @@ import {
   LayoutGrid,
   CheckCircle,
   Eye,
+  Lightbulb,
 } from "lucide-react";
 import { cn } from "cn";
 
 export function RevisionSession() {
+  const { isCustomModule } = useCurrentModule();
+  const [hintDrawerOpen, setHintDrawerOpen] = useState(false);
+
   const {
     session,
     questions,
@@ -190,6 +196,19 @@ export function RevisionSession() {
                   </span>
                   <span className="sm:hidden">{bookmarkedState ? "Saved" : "Save"}</span>
                 </Button>
+
+                {!isCustomModule && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setHintDrawerOpen(true)}
+                    className="gap-1 sm:gap-1.5 text-xs h-8 sm:h-9 px-2 sm:px-3 text-amber-600 dark:text-amber-400 hover:text-amber-700 hover:bg-amber-500/10 border-amber-500/30"
+                    title="View notes and hints for this topic"
+                  >
+                    <Lightbulb className="size-3.5 fill-amber-500/20" />
+                    <span>Hint</span>
+                  </Button>
+                )}
               </div>
 
               <div className="flex items-center gap-1.5 sm:gap-2">
@@ -287,6 +306,19 @@ export function RevisionSession() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      {/* Notes & Hint Drawer / Sheet */}
+      {!isCustomModule && (
+        <QuestionHintDrawer
+          open={hintDrawerOpen}
+          onOpenChange={setHintDrawerOpen}
+          question={currentQuestion}
+          chapterNumber={currentQuestion.chapter_number || session.chapterNumber}
+          chapterTitle={currentQuestion.chapter_title}
+          weekNumber={session.weekNumber}
+          mode={session.mode}
+        />
+      )}
 
       {/* Fixed Transparent Circular Button with Eye Icon */}
       <RevisionEyeButton
