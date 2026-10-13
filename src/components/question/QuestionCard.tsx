@@ -22,6 +22,33 @@ interface QuestionCardProps {
   questionIndex?: number;
   totalQuestions?: number;
 }
+interface QuestionContentSegments {
+  leadingText: string;
+  code: string | null;
+  trailingText: string;
+}
+
+const CODE_BLOCK_REGEX = /```(?:[a-zA-Z0-9_-]+)?\r?\n([\s\S]*?)```/;
+
+function parseQuestionContent(
+  rawQuestion: string,
+  rawSnippet?: string | null
+): QuestionContentSegments {
+  const match = rawQuestion.match(CODE_BLOCK_REGEX);
+  let leadingText = rawQuestion;
+  let code = rawSnippet?.trim() || null;
+  let trailingText = "";
+
+  if (match && typeof match.index === "number") {
+    leadingText = rawQuestion.slice(0, match.index).trim();
+    if (!code) {
+      code = match[1].trim();
+    }
+    trailingText = rawQuestion.slice(match.index + match[0].length).trim();
+  }
+
+  return { leadingText, code, trailingText };
+}
 
 export function QuestionCard({
   question,
@@ -65,6 +92,7 @@ export function QuestionCard({
     }
   };
 
+  const contentSegments = parseQuestionContent(question.question, question.code_snippet);
   const typeDisplay = getTypeDisplay();
   const shouldHighlightAnswers = isReviewMode || (isRevisionMode && showAnswers);
 
@@ -144,21 +172,30 @@ export function QuestionCard({
           </div>
         </div>
 
-        {/* Question Text */}
-        <CardTitle className="text-base sm:text-lg font-medium leading-relaxed text-foreground">
-          {question.question}
-        </CardTitle>
+        {/* Question Content (Text + Code Snippet in natural order) */}
+        <div className="space-y-3">
+          {contentSegments.leadingText && (
+            <CardTitle className="text-base sm:text-lg font-medium leading-relaxed text-foreground">
+              {contentSegments.leadingText}
+            </CardTitle>
+          )}
 
-        {/* Code Snippet if present */}
-        {question.code_snippet && (
-          <div className="rounded-xl border border-border bg-muted/60 p-4 font-mono text-xs sm:text-sm text-foreground overflow-x-auto">
-            <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground mb-2">
-              <Code2 className="size-3.5" />
-              <span>Code Snippet</span>
+          {contentSegments.code && (
+            <div className="rounded-xl border border-border/80 bg-muted/60 p-4 font-mono text-xs sm:text-sm text-foreground overflow-x-auto shadow-2xs">
+              <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground mb-2 select-none">
+                <Code2 className="size-3.5" />
+                <span>Code Snippet</span>
+              </div>
+              <pre className="whitespace-pre">{contentSegments.code}</pre>
             </div>
-            <pre className="whitespace-pre">{question.code_snippet}</pre>
-          </div>
-        )}
+          )}
+
+          {contentSegments.trailingText && (
+            <p className="text-base sm:text-lg font-medium leading-relaxed text-foreground">
+              {contentSegments.trailingText}
+            </p>
+          )}
+        </div>
       </CardHeader>
 
       <CardContent className="space-y-3 pt-2">
