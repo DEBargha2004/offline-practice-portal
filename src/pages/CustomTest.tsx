@@ -55,6 +55,7 @@ export function CustomTest() {
     showDiscardDialog,
     setShowDiscardDialog,
     confirmDiscardAndStart,
+    discardActiveSession,
   } = useCustomTestController();
 
   return (
@@ -75,6 +76,7 @@ export function CustomTest() {
         showDiscardDialog={showDiscardDialog}
         onOpenDiscardDialogChange={setShowDiscardDialog}
         onConfirmDiscard={confirmDiscardAndStart}
+        onDiscardSession={discardActiveSession}
       />
 
       {/* Timing and Question Limit Configuration */}

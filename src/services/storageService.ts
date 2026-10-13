@@ -77,6 +77,16 @@ export function openDatabase(): Promise<IDBDatabase> {
 // Active In-Progress Test Session (LocalStorage for fast synchronous updates)
 // ----------------------------------------------------
 
+export const ACTIVE_SESSION_CHANGE_EVENT = "iot_active_session_change";
+
+function notifyActiveSessionChange(moduleId?: string) {
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(
+      new CustomEvent(ACTIVE_SESSION_CHANGE_EVENT, { detail: { moduleId } })
+    );
+  }
+}
+
 export function saveActiveSession(session: TestSession, moduleId?: string): void {
   try {
     const targetModuleId = moduleId || session.moduleId;
@@ -85,6 +95,7 @@ export function saveActiveSession(session: TestSession, moduleId?: string): void
     }
     const key = getActiveTestKey(targetModuleId);
     localStorage.setItem(key, JSON.stringify(session));
+    notifyActiveSessionChange(targetModuleId);
   } catch (err) {
     console.error("Failed to save active session to localStorage", err);
   }
@@ -105,6 +116,7 @@ export function clearActiveSession(moduleId?: string): void {
   try {
     const key = getActiveTestKey(moduleId);
     localStorage.removeItem(key);
+    notifyActiveSessionChange(moduleId);
   } catch (err) {
     console.error("Failed to clear active session", err);
   }

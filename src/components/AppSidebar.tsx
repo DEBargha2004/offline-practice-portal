@@ -37,6 +37,7 @@ import {
 import { usePwaInstall } from "@/hooks/usePwaInstall";
 import { PwaInstallInstructionDialog } from "@/components/PwaInstallInstructionDialog";
 import type { TestSession } from "@/types";
+import { ACTIVE_SESSION_CHANGE_EVENT } from "@/services/storageService";
 import { cn } from "cn";
 
 export function AppSidebar() {
@@ -65,12 +66,20 @@ export function AppSidebar() {
   } = usePwaInstall();
 
   useEffect(() => {
-    const session = getActiveSession();
-    if (session && !session.isCompleted) {
-      setActiveSession(session);
-    } else {
-      setActiveSession(null);
-    }
+    const updateSession = () => {
+      const session = getActiveSession();
+      if (session && !session.isCompleted) {
+        setActiveSession(session);
+      } else {
+        setActiveSession(null);
+      }
+    };
+
+    updateSession();
+    window.addEventListener(ACTIVE_SESSION_CHANGE_EVENT, updateSession);
+    return () => {
+      window.removeEventListener(ACTIVE_SESSION_CHANGE_EVENT, updateSession);
+    };
   }, [location.pathname, getActiveSession]);
 
   const homePath = basePath || "/";

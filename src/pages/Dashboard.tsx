@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { useCurrentModule } from "@/hooks/useCurrentModule";
 import type { TestAttemptResult, TestSession, QuestionType } from "@/types";
+import { ACTIVE_SESSION_CHANGE_EVENT } from "@/services/storageService";
 import {
   BookOpen,
   Clock,
@@ -74,7 +75,11 @@ export function Dashboard() {
   const [mockTimerMinutes, setMockTimerMinutes] = useState(120);
 
   useEffect(() => {
-    setActiveSession(getActiveSession());
+    const syncActiveSession = () => {
+      setActiveSession(getActiveSession());
+    };
+
+    syncActiveSession();
     setBookmarkCount(getBookmarks().length);
 
     getAllAttempts().then((attempts) => {
@@ -88,6 +93,11 @@ export function Dashboard() {
         setAverageScore(0);
       }
     });
+
+    window.addEventListener(ACTIVE_SESSION_CHANGE_EVENT, syncActiveSession);
+    return () => {
+      window.removeEventListener(ACTIVE_SESSION_CHANGE_EVENT, syncActiveSession);
+    };
   }, [getActiveSession, getBookmarks, getAllAttempts, moduleId]);
 
   const targetMockQuestionsCount = Math.min(

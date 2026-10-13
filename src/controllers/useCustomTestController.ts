@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import type { Chapter, TestSession, QuestionType } from "@/types";
+import type { Chapter, TestSession, QuestionType, Question } from "@/types";
 import { useCurrentModule } from "@/hooks/useCurrentModule";
 import {
   buildCustomTestSession,
@@ -11,6 +11,7 @@ import {
   CHAPTER_RANGE_PRESETS,
   WEEK_RANGE_PRESETS,
 } from "@/services/customTestService";
+import { ACTIVE_SESSION_CHANGE_EVENT } from "@/services/storageService";
 
 export function useCustomTestController() {
   const navigate = useNavigate();
@@ -19,7 +20,8 @@ export function useCustomTestController() {
     moduleId,
     getAllChapters,
     getAllWeeks,
-    getAllQuestionsCombined,
+    getAllQuestions,
+    getAllWeekQuestions,
     generateCustomQuestions,
     getActiveSession,
     saveActiveSession,
@@ -28,7 +30,8 @@ export function useCustomTestController() {
 
   const chapters: Chapter[] = useMemo(() => getAllChapters(), [getAllChapters]);
   const weeks: Chapter[] = useMemo(() => getAllWeeks(), [getAllWeeks]);
-  const allQuestions = useMemo(() => getAllQuestionsCombined(), [getAllQuestionsCombined]);
+  const chapterQuestions = useMemo(() => getAllQuestions(), [getAllQuestions]);
+  const weekQuestions = useMemo(() => getAllWeekQuestions(), [getAllWeekQuestions]);
 
   // Selection state
   const [selectedChapters, setSelectedChapters] = useState<Set<number>>(() => new Set());
@@ -52,10 +55,20 @@ export function useCustomTestController() {
   const [showDiscardDialog, setShowDiscardDialog] = useState(false);
 
   useEffect(() => {
-    const existing = getActiveSession();
-    if (existing && !existing.isCompleted) {
-      setActiveSession(existing);
-    }
+    const updateActiveSession = () => {
+      const existing = getActiveSession();
+      if (existing && !existing.isCompleted) {
+        setActiveSession(existing);
+      } else {
+        setActiveSession(null);
+      }
+    };
+
+    updateActiveSession();
+    window.addEventListener(ACTIVE_SESSION_CHANGE_EVENT, updateActiveSession);
+    return () => {
+      window.removeEventListener(ACTIVE_SESSION_CHANGE_EVENT, updateActiveSession);
+    };
   }, [getActiveSession]);
 
   // Dynamic chapter range presets based on syllabus size
@@ -94,18 +107,26 @@ export function useCustomTestController() {
   const totalAvailableQuestions = useMemo(() => {
     if (selectedChapters.size === 0 && selectedWeeks.size === 0) return 0;
 
-    let matchingQuestions = allQuestions.filter((q) => {
-      const matchChapter = selectedChapters.has(q.chapter_number) && !q.id.startsWith("week_");
-      const matchWeek = selectedWeeks.has(q.chapter_number) && q.id.startsWith("week_");
-      return matchChapter || matchWeek;
-    });
+    let matchingQuestions: Question[] = [];
+
+    if (selectedChapters.size > 0) {
+      matchingQuestions.push(
+        ...chapterQuestions.filter((q) => selectedChapters.has(q.chapter_number))
+      );
+    }
+
+    if (selectedWeeks.size > 0) {
+      matchingQuestions.push(
+        ...weekQuestions.filter((q) => selectedWeeks.has(q.chapter_number))
+      );
+    }
 
     if (questionTypeFilter !== "ALL") {
       matchingQuestions = matchingQuestions.filter((q) => q.type === questionTypeFilter);
     }
 
     return matchingQuestions.length;
-  }, [allQuestions, selectedChapters, selectedWeeks, questionTypeFilter]);
+  }, [chapterQuestions, weekQuestions, selectedChapters, selectedWeeks, questionTypeFilter]);
 
   // Target questions to be delivered in the test
   const targetQuestionCount = useMemo(() => {
@@ -268,6 +289,11 @@ export function useCustomTestController() {
     executeStartTest();
   }, [clearActiveSession, executeStartTest]);
 
+  const discardActiveSession = useCallback(() => {
+    clearActiveSession();
+    setActiveSession(null);
+  }, [clearActiveSession]);
+
   const selectedChapterCount = selectedChapters.size;
   const selectedWeekCount = selectedWeeks.size;
   const selectedTotalCount = selectedChapterCount + selectedWeekCount;
@@ -324,5 +350,6 @@ export function useCustomTestController() {
     showDiscardDialog,
     setShowDiscardDialog,
     confirmDiscardAndStart,
+    discardActiveSession,
   };
 }

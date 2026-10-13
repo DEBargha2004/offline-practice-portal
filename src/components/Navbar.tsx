@@ -4,6 +4,7 @@ import { useTheme } from "@/context/ThemeContext";
 import { useSidebar } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { useCurrentModule } from "@/hooks/useCurrentModule";
+import { ACTIVE_SESSION_CHANGE_EVENT } from "@/services/storageService";
 import {
   History,
   Bookmark,
@@ -29,11 +30,21 @@ export function Navbar() {
   const [activeTestTitle, setActiveTestTitle] = useState("");
 
   useEffect(() => {
-    const active = getActiveSession();
-    setHasActiveTest(!!active && !active.isCompleted);
-    if (active && !active.isCompleted) {
-      setActiveTestTitle(active.title);
-    }
+    const updateActiveTest = () => {
+      const active = getActiveSession();
+      setHasActiveTest(!!active && !active.isCompleted);
+      if (active && !active.isCompleted) {
+        setActiveTestTitle(active.title);
+      } else {
+        setActiveTestTitle("");
+      }
+    };
+
+    updateActiveTest();
+    window.addEventListener(ACTIVE_SESSION_CHANGE_EVENT, updateActiveTest);
+    return () => {
+      window.removeEventListener(ACTIVE_SESSION_CHANGE_EVENT, updateActiveTest);
+    };
   }, [location.pathname, getActiveSession]);
 
   const toggleTheme = () => {
